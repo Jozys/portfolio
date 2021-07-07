@@ -1,4 +1,5 @@
 import { makeStyles, Typography } from "@material-ui/core";
+import Typing from "react-typing-animation";
 import React from "react";
 
 const useStyles = makeStyles(() => ({
@@ -15,8 +16,7 @@ export default function Me(props: MeProps): JSX.Element {
   return (
     <div>
       <Typography className={styles.text}>
-        {" "}
-        Here you will find something about me{" "}
+        Here you will find something about me
       </Typography>
     </div>
   );
