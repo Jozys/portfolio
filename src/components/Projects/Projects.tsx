@@ -10,6 +10,7 @@ import React from "react";
 import Typing from "react-typing-animation";
 import TECKboardApp from "../../assets/teckboard_app.png";
 import DevLights from "../../assets/devlights.png";
+import { HashLink as Link } from 'react-router-hash-link';
 //@ts-ignore
 import PDF from "../../assets/facharbeit.pdf";
 
@@ -18,11 +19,11 @@ const useStyles = makeStyles(() => ({
     fontSize: "8vh",
     fontWeight: "bold",
     alignSelf: "flex-start",
+    textAlign: "center"
   },
   title: {
     textAlign: "center",
     alignSelf: "center",
-    color: "#fff",
     textDecorationLine: "none",
   },
   image: {
@@ -34,13 +35,12 @@ const useStyles = makeStyles(() => ({
   },
   info_text: {
     fontSize: "2.5vh",
-    color: "#fff",
     textAlign: "center",
     width: window.innerWidth * 0.3,
     overflowWrap: "break-word",
   },
   button: {
-    alignSelf: "center",
+    alignSelf: "flex-start",
     alignItems: "center",
   },
   item: {
@@ -49,7 +49,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export interface ProjectsProps {}
+export interface ProjectsProps { }
 export default function Projects(props: ProjectsProps): JSX.Element {
   const styles = useStyles();
   return (
@@ -67,10 +67,11 @@ export default function Projects(props: ProjectsProps): JSX.Element {
               className={styles.title}
               href={"#teckboard"}
             >
-              <h3 about="TECKboard" className={styles.title}>
+              <h3 id="teckboard" about="TECKboard" className={styles.title}>
                 TECKboards
               </h3>
             </a>
+
             <Typography className={styles.info_text}>
               TECKboard is a realtime information system that two friends of
               mine, Timo Peters and Yannick Hahn, developed. I spend really much

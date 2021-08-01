@@ -1,4 +1,4 @@
-import { makeStyles, Typography } from "@material-ui/core";
+import { makeStyles, Theme, Typography } from "@material-ui/core";
 import React from "react";
 import { BrowserRouter, Switch, Route, Link, Redirect } from "react-router-dom";
 import Home from "../Home";
@@ -10,17 +10,34 @@ import {
 } from "@material-ui/icons/";
 import Projects from "../Projects";
 import Me from "../Me";
+import { contrastBlack } from "../../utils/textContrast";
+import ThemeSwitcher from "../ThemeSwitcher";
 
-const useStyles = makeStyles(() => ({
-  navBar: {
+const useStyles = makeStyles((theme: Theme) => ({
+  navBarContainer: {
     display: "flex",
     flex: 1,
+    alignSelf: "center",
+    alignItems: "space-between"
+  },
+  navBar: {
+    alignContent: "space-between",
+    display: "flex",
+    flex: 6,
     flexDirection: "row",
     alignSelf: "center",
     justifyContent: "space-between",
   },
+  themeSwitcher: {
+    display: "flex",
+    flex: 1,
+    flexDirection: "row",
+    alignSelf: "center",
+    justifyContent: "center",
+
+  },
   icon: {
-    color: "#fff",
+    color: contrastBlack(theme.palette.primary.main) ? "#000" : "#fff",
   },
   warning: {
     display: "flex",
@@ -37,13 +54,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export interface RouterProps {}
+export interface RouterProps { }
 export default function Router(props: RouterProps): JSX.Element {
   const styles = useStyles();
   return (
-    <BrowserRouter>
-      <nav>
-        <ul>
+    <BrowserRouter >
+      <nav className={styles.navBarContainer}>
+        <ul className={styles.navBar}>
           <div className={styles.navBar}>
             <Link to="/home">
               <HomeOutlined fontSize="large" className={styles.icon} />
@@ -56,6 +73,9 @@ export default function Router(props: RouterProps): JSX.Element {
             </Link>
           </div>
         </ul>
+        <div className={styles.themeSwitcher}>
+          <ThemeSwitcher />
+        </div>
       </nav>
       <Switch>
         <Redirect exact from="/" to="/home" />

@@ -10,23 +10,27 @@ import React from "react";
 import Typing from "react-typing-animation";
 import Image from "../../assets/image.png";
 import Image2 from "../../assets/image2.jpg";
+import { HashLink as Link } from "react-router-hash-link";
+import { contrastBlack } from "../../utils/textContrast";
 
 const useStyles = makeStyles((theme: Theme) => ({
   text: {
     fontSize: "8vh",
     fontWeight: "bold",
-    alignSelf: "flex-start",
+    textAlign: "center",
+    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   info_text: {
     fontSize: "2.5vh",
-    color: "#fff",
     textAlign: "center",
     width: window.innerWidth * 0.3,
     overflowWrap: "break-word",
+    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   title: {
     textAlign: "center",
     alignSelf: "center",
+    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   image: {
     transform: "scale(0.95) rotate(-0.025turn) translate(-10%, -10%)",
@@ -50,6 +54,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 export interface HomeProps {}
 export default function Home(props: HomeProps): JSX.Element {
   const styles = useStyles();
+
   return (
     <div>
       <Typing>
@@ -114,9 +119,9 @@ export default function Home(props: HomeProps): JSX.Element {
                 TECKdigital
               </a>
               . At TECKdigital I worked on the{" "}
-              <a href="/projects#teckboard" className={styles.projectLink}>
+              <Link to="/projects#teckboard" className={styles.projectLink}>
                 TECKboard
-              </a>
+              </Link>
               . By working there I got more knowledge about working in a team
               and informatic in general.
             </Typography>

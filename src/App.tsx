@@ -1,15 +1,24 @@
+import { makeStyles, Theme } from "@material-ui/core";
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Router from "./components/Router";
+import { default as myTheme } from "./components/theme";
+import ThemeProvider from "./components/ThemeProvider";
 
 function App() {
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
+    <>
+
+      <ThemeProvider>
+
         <Router />
-      </header>
-    </div>
+      </ThemeProvider>
+
+    </>
   );
 }
 
