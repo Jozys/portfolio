@@ -1182,6 +1182,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/bungee@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/bungee/-/bungee-4.5.0.tgz#47d47f15d51a58dce241d4f2164c437d0356b029"
+  integrity sha512-oZdWbSwf27emHixo+dn5aaNz51r3ZZb++7KXWDUOrATGxt/P1gt7CsFEr94TSCDkYohaGEYfhClOdf9vD52AFg==
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -9452,6 +9457,11 @@ react-is@^17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
+
+react-parallax-tilt@^1.5.57:
+  version "1.5.57"
+  resolved "https://registry.yarnpkg.com/react-parallax-tilt/-/react-parallax-tilt-1.5.57.tgz#575cc26b8237b65874d7d69edb145f40a56e76b3"
+  integrity sha512-Ziz2rbDnJKRyVBZApl9LdQ/Tv7bB6O1ZbvYdR0wbdtQPYcK/7uKfFC4VfUNFZJJs2MFk/XLmolvaMPnyM5KpVA==
 
 react-refresh@^0.8.3:
   version "0.8.3"

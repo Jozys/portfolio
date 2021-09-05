@@ -1,4 +1,4 @@
-import { Button, makeStyles, Typography } from "@material-ui/core";
+import { Button, makeStyles, Theme, Typography } from "@material-ui/core";
 import {
   Timeline,
   TimelineContent,
@@ -10,34 +10,48 @@ import React from "react";
 import Typing from "react-typing-animation";
 import TECKboardApp from "../../assets/teckboard_app.png";
 import DevLights from "../../assets/devlights.png";
-import { HashLink as Link } from 'react-router-hash-link';
+import { HashLink as Link } from "react-router-hash-link";
+import Tilt from "react-parallax-tilt";
 //@ts-ignore
 import PDF from "../../assets/facharbeit.pdf";
+import { contrastBlack } from "../../utils/textContrast";
 
-const useStyles = makeStyles(() => ({
-  text: {
+const useStyles = makeStyles((theme: Theme) => ({
+  header: {
     fontSize: "8vh",
-    fontWeight: "bold",
-    alignSelf: "flex-start",
-    textAlign: "center"
+    fontFamily: "bungee",
+    textAlign: "center",
+    filter: `drop-shadow(5px 5px 0px ${theme.palette.secondary.main})`,
+    "&:hover": {
+      filter: `drop-shadow(5px 5px 0px ${theme.palette.primary.main})`,
+    },
+    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   title: {
     textAlign: "center",
     alignSelf: "center",
+    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
     textDecorationLine: "none",
   },
   image: {
     borderRadius: 15,
-    transform: "rotate(0.025turn) translate(-100%, 10%)",
   },
-  image_left: {
-    transform: "rotate(-0.025turn) translate(100%, 10%)",
+  tilt: {
+    width: "auto",
+    height: "auto",
+    transform: "rotate(0.025turn) translate(0%, 10%)",
+  },
+  tiltLeft: {
+    width: "auto",
+    height: "auto",
+    transform: "rotate(-0.025turn) translate(20%, 10%)",
   },
   info_text: {
     fontSize: "2.5vh",
     textAlign: "center",
     width: window.innerWidth * 0.3,
     overflowWrap: "break-word",
+    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   button: {
     alignSelf: "flex-start",
@@ -49,15 +63,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export interface ProjectsProps { }
+export interface ProjectsProps {}
 export default function Projects(props: ProjectsProps): JSX.Element {
   const styles = useStyles();
   return (
     <div>
       <Typing>
-        <Typography className={styles.text}>
-          The projects I developed!
-        </Typography>
+        <Typography className={styles.header}> I developed... </Typography>
       </Typing>
       <Timeline align="alternate">
         <TimelineItem key="teckboard">
@@ -67,9 +79,9 @@ export default function Projects(props: ProjectsProps): JSX.Element {
               className={styles.title}
               href={"#teckboard"}
             >
-              <h3 id="teckboard" about="TECKboard" className={styles.title}>
-                TECKboards
-              </h3>
+              <h1 id="teckboard" about="TECKboard" className={styles.title}>
+                ...TECKboards
+              </h1>
             </a>
 
             <Typography className={styles.info_text}>
@@ -92,18 +104,22 @@ export default function Projects(props: ProjectsProps): JSX.Element {
           </TimelineOppositeContent>
           <TimelineSeparator></TimelineSeparator>
           <TimelineContent>
-            <img
-              height="65%"
-              width="auto"
-              className={styles.image}
-              src={TECKboardApp}
-              alt="TECKboard App"
-            ></img>
+            <div className={styles.tilt}>
+              <Tilt className={styles.tilt} tiltReverse>
+                <img
+                  height="25%"
+                  width="25%"
+                  className={styles.image}
+                  src={TECKboardApp}
+                  alt="TECKboard App"
+                ></img>
+              </Tilt>
+            </div>
           </TimelineContent>
         </TimelineItem>
         <TimelineItem>
           <TimelineContent className={styles.item}>
-            <h3 className={styles.title}> DevLights </h3>
+            <h1 className={styles.title}> ...DevLights </h1>
             <Typography className={styles.info_text}>
               DevLights are the smart home LED Stripes for Developers. Together
               with two friends of mine, Jaan Springer and Timo Peters, we
@@ -122,13 +138,16 @@ export default function Projects(props: ProjectsProps): JSX.Element {
           </TimelineContent>
           <TimelineSeparator />
           <TimelineOppositeContent>
-            <img
-              height="65%"
-              width="auto"
-              className={styles.image_left}
-              alt="DevLights App"
-              src={DevLights}
-            />
+            <div className={styles.tiltLeft}>
+              <Tilt className={styles.tiltLeft}>
+                <img
+                  height="25%"
+                  width="25%"
+                  alt="DevLights App"
+                  src={DevLights}
+                />
+              </Tilt>
+            </div>
           </TimelineOppositeContent>
         </TimelineItem>
       </Timeline>

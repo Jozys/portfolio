@@ -12,12 +12,31 @@ import Image from "../../assets/image.png";
 import Image2 from "../../assets/image2.jpg";
 import { HashLink as Link } from "react-router-hash-link";
 import { contrastBlack } from "../../utils/textContrast";
+import Me from "../../assets/me.jpg";
+import Tilt from "react-parallax-tilt";
+import Header from "../Header";
 
 const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  },
+  header: {
+    flex: 10,
+  },
+  div: {
+    flex: 3,
+  },
+  item: {
+    margin: theme.spacing(8),
+    flex: 2,
+  },
   text: {
     fontSize: "8vh",
-    fontWeight: "bold",
+    fontFamily: "bungee",
     textAlign: "center",
+    filter: `drop-shadow(5px 5px 0px ${theme.palette.secondary.main})`,
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   info_text: {
@@ -27,13 +46,25 @@ const useStyles = makeStyles((theme: Theme) => ({
     overflowWrap: "break-word",
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
+  tilt: {
+    marginTop: "5vh",
+    width: "auto",
+    height: "auto",
+    transform: "rotate(0.025turn) translate(0%, 10%)",
+  },
+  tiltLeft: {
+    width: "auto",
+    height: "auto",
+    transform: "rotate(-0.025turn) translate(20%, 10%)",
+  },
   title: {
+    fontFamily: "bungee",
     textAlign: "center",
     alignSelf: "center",
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   image: {
-    transform: "scale(0.95) rotate(-0.025turn) translate(-10%, -10%)",
+    transform: "scale(0.95) rotate(0.015turn) translate(-20%, -10%)",
     borderRadius: 10,
   },
   image_left: {
@@ -56,17 +87,14 @@ export default function Home(props: HomeProps): JSX.Element {
   const styles = useStyles();
 
   return (
-    <div>
-      <Typing>
-        <Typography className={styles.text}>
-          Hello! My name is Joshua Slaar!
-        </Typography>
-      </Typing>
-
-      <Timeline align="alternate">
-        <TimelineItem>
+    <div className={styles.root}>
+      <div className={styles.header}>
+        <Header />
+      </div>
+      <Timeline align="alternate" className={styles.div}>
+        <TimelineItem className={styles.item}>
           <TimelineOppositeContent>
-            <h3 className={styles.title}> Who am I?</h3>
+            <h1 className={styles.title}> Who am I?</h1>
             <Typography className={styles.info_text}>
               I am a 17 year old student, who likes doing sport, developing, and
               reading books. I also love exploring the surroundings of my
@@ -75,18 +103,20 @@ export default function Home(props: HomeProps): JSX.Element {
           </TimelineOppositeContent>
           <TimelineSeparator></TimelineSeparator>
           <TimelineContent>
-            <img
-              src={Image}
-              height="466vh"
-              width="746vw"
-              alt="Img not found"
-              className={styles.image}
-            ></img>
+            <Tilt className={styles.tilt} tiltReverse>
+              <img
+                src={Me}
+                height="65%"
+                width="65%"
+                alt="Thats me!"
+                className={styles.image}
+              ></img>
+            </Tilt>
           </TimelineContent>
         </TimelineItem>
-        <TimelineItem>
+        <TimelineItem className={styles.item}>
           <TimelineContent>
-            <h3 className={styles.title}> My life </h3>
+            <h1 className={styles.title}> My life </h1>
             <Typography className={styles.info_text}>
               I love going outside and talking walks with my dog Simba through
               the forest in my hometown Brochterbeck. Also I cycle much with my
@@ -99,18 +129,20 @@ export default function Home(props: HomeProps): JSX.Element {
           <TimelineSeparator></TimelineSeparator>
 
           <TimelineOppositeContent>
-            <img
-              height="466vh"
-              width="746vw"
-              className={styles.image_left}
-              alt="Img not found"
-              src={Image2}
-            ></img>
+            <Tilt className={styles.tiltLeft}>
+              <img
+                height="60%"
+                width="60%"
+                className={styles.image_left}
+                alt="Img not found"
+                src={Image2}
+              ></img>
+            </Tilt>
           </TimelineOppositeContent>
         </TimelineItem>
-        <TimelineItem key="teckdigital">
+        <TimelineItem key="teckdigital" className={styles.item}>
           <TimelineOppositeContent>
-            <h3 className={styles.title}> TECKdigital </h3>
+            <h1 className={styles.title}>TECKdigital </h1>
             <Typography className={styles.info_text}>
               {" "}
               Since December 2019 I am a member of the at the begin of 2019
@@ -129,8 +161,8 @@ export default function Home(props: HomeProps): JSX.Element {
           <TimelineSeparator></TimelineSeparator>
           <TimelineContent>
             <img
-              height="466vh"
-              width="746vw"
+              height="50%"
+              width="50%"
               className={styles.image_right}
               alt="Img not found"
               src="https://asc-images.imgix.net/2021/5/7/172b0bbf-eb3e-4ce3-818e-c25fadd3c4d3.jpeg?w=2048&auto=format"
