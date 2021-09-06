@@ -10,11 +10,11 @@ import React from "react";
 import Typing from "react-typing-animation";
 import TECKboardApp from "../../assets/teckboard_app.png";
 import DevLights from "../../assets/devlights.png";
-import { HashLink as Link } from "react-router-hash-link";
 import Tilt from "react-parallax-tilt";
 //@ts-ignore
 import PDF from "../../assets/facharbeit.pdf";
 import { contrastBlack } from "../../utils/textContrast";
+import Skills from "../Skills";
 
 const useStyles = makeStyles((theme: Theme) => ({
   header: {
@@ -37,12 +37,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: 15,
   },
   tilt: {
-    width: "auto",
+    width: "75%",
     height: "auto",
     transform: "rotate(0.025turn) translate(0%, 10%)",
   },
   tiltLeft: {
-    width: "auto",
+    width: "75%",
     height: "auto",
     transform: "rotate(-0.025turn) translate(20%, 10%)",
   },
@@ -54,10 +54,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   button: {
-    alignSelf: "flex-start",
+    marginTop: theme.spacing(2),
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
     alignItems: "center",
   },
   item: {
+    display: "flex",
+    flexDirection: "column",
     alignContent: "center",
     alignItems: "center",
   },
@@ -80,7 +85,7 @@ export default function Projects(props: ProjectsProps): JSX.Element {
               href={"#teckboard"}
             >
               <h1 id="teckboard" about="TECKboard" className={styles.title}>
-                ...TECKboards
+                ... TECKboards
               </h1>
             </a>
 
@@ -93,11 +98,11 @@ export default function Projects(props: ProjectsProps): JSX.Element {
               two developers of this system.
               <br />
               <a
+                rel="noreferrer"
                 href="https://teckboard.de"
                 target="_blank"
                 className={styles.info_text}
               >
-                {" "}
                 Learn more
               </a>
             </Typography>
@@ -107,8 +112,8 @@ export default function Projects(props: ProjectsProps): JSX.Element {
             <div className={styles.tilt}>
               <Tilt className={styles.tilt} tiltReverse>
                 <img
-                  height="25%"
-                  width="25%"
+                  height="50%"
+                  width="50%"
                   className={styles.image}
                   src={TECKboardApp}
                   alt="TECKboard App"
@@ -119,7 +124,7 @@ export default function Projects(props: ProjectsProps): JSX.Element {
         </TimelineItem>
         <TimelineItem>
           <TimelineContent className={styles.item}>
-            <h1 className={styles.title}> ...DevLights </h1>
+            <h1 className={styles.title}> ... DevLights </h1>
             <Typography className={styles.info_text}>
               DevLights are the smart home LED Stripes for Developers. Together
               with two friends of mine, Jaan Springer and Timo Peters, we
@@ -127,6 +132,7 @@ export default function Projects(props: ProjectsProps): JSX.Element {
               Graf-Adolf-Gymnasium. From begin we learned new programming
               languages like C++ and worked at Hard and Software.
             </Typography>
+
             <Button
               variant="contained"
               color="secondary"
@@ -141,8 +147,8 @@ export default function Projects(props: ProjectsProps): JSX.Element {
             <div className={styles.tiltLeft}>
               <Tilt className={styles.tiltLeft}>
                 <img
-                  height="25%"
-                  width="25%"
+                  height="50%"
+                  width="50%"
                   alt="DevLights App"
                   src={DevLights}
                 />
@@ -151,6 +157,7 @@ export default function Projects(props: ProjectsProps): JSX.Element {
           </TimelineOppositeContent>
         </TimelineItem>
       </Timeline>
+      <Skills />
     </div>
   );
 }

@@ -7,13 +7,11 @@ import {
   TimelineSeparator,
 } from "@material-ui/lab";
 import React from "react";
-import Typing from "react-typing-animation";
-import Image from "../../assets/image.png";
-import Image2 from "../../assets/image2.jpg";
-import { HashLink as Link } from "react-router-hash-link";
-import { contrastBlack } from "../../utils/textContrast";
-import Me from "../../assets/me.jpg";
 import Tilt from "react-parallax-tilt";
+import { HashLink as Link } from "react-router-hash-link";
+import Image2 from "../../assets/image2.jpg";
+import Me from "../../assets/me.jpg";
+import { contrastBlack } from "../../utils/textContrast";
 import Header from "../Header";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -26,6 +24,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     flex: 10,
   },
   div: {
+    flex: 3,
+  },
+  skill: {
     flex: 3,
   },
   item: {
@@ -91,6 +92,7 @@ export default function Home(props: HomeProps): JSX.Element {
       <div className={styles.header}>
         <Header />
       </div>
+
       <Timeline align="alternate" className={styles.div}>
         <TimelineItem className={styles.item}>
           <TimelineOppositeContent>
@@ -160,13 +162,15 @@ export default function Home(props: HomeProps): JSX.Element {
           </TimelineOppositeContent>
           <TimelineSeparator></TimelineSeparator>
           <TimelineContent>
-            <img
-              height="50%"
-              width="50%"
-              className={styles.image_right}
-              alt="Img not found"
-              src="https://asc-images.imgix.net/2021/5/7/172b0bbf-eb3e-4ce3-818e-c25fadd3c4d3.jpeg?w=2048&auto=format"
-            ></img>
+            <Tilt className={styles.tilt} tiltReverse>
+              <img
+                height="75%"
+                width="75%"
+                className={styles.image_right}
+                alt="Img not found"
+                src="https://asc-images.imgix.net/2021/5/7/172b0bbf-eb3e-4ce3-818e-c25fadd3c4d3.jpeg?w=2048&auto=format"
+              ></img>
+            </Tilt>
           </TimelineContent>
         </TimelineItem>
       </Timeline>

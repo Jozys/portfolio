@@ -1,5 +1,4 @@
 import { makeStyles, Typography } from "@material-ui/core";
-import Typing from "react-typing-animation";
 import React from "react";
 
 const useStyles = makeStyles(() => ({
