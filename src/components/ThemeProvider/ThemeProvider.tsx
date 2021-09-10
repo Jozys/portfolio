@@ -18,12 +18,21 @@ export default function ThemeProvider(props: ThemeProviderProps) {
   const { children } = props;
   //@ts-ignore
   console.log(localStorage.getItem("isDark"));
+
+  const getUserDefaultTheme = (): boolean => {
+    console.log(
+      "dark? :" + window.matchMedia("(prefers-color-scheme: dark)").matches
+    );
+
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  };
+
   const [isDark, setIsDark] = React.useState<boolean>(
     localStorage.getItem("isDark")
       ? localStorage.getItem("isDark") === "true"
         ? true
         : false
-      : true
+      : getUserDefaultTheme()
   );
   const [theme, setTheme] = React.useState<Theme>(myTheme(isDark));
 

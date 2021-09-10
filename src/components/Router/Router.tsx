@@ -12,13 +12,14 @@ import Projects from "../Projects";
 import Me from "../Me";
 import { contrastBlack } from "../../utils/textContrast";
 import ThemeSwitcher from "../ThemeSwitcher";
+import Footer from "../Footer";
 
 const useStyles = makeStyles((theme: Theme) => ({
   navBarContainer: {
     display: "flex",
     flex: 1,
     alignSelf: "center",
-    alignItems: "space-between"
+    alignItems: "space-between",
   },
   navBar: {
     alignContent: "space-between",
@@ -34,7 +35,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: "row",
     alignSelf: "center",
     justifyContent: "center",
-
   },
   icon: {
     color: contrastBlack(theme.palette.primary.main) ? "#000" : "#fff",
@@ -50,15 +50,16 @@ const useStyles = makeStyles((theme: Theme) => ({
   text: {
     marginLeft: 10,
     fontSize: 25,
+    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
     fontWeight: "bold",
   },
 }));
 
-export interface RouterProps { }
+export interface RouterProps {}
 export default function Router(props: RouterProps): JSX.Element {
   const styles = useStyles();
   return (
-    <BrowserRouter >
+    <BrowserRouter>
       <nav className={styles.navBarContainer}>
         <ul className={styles.navBar}>
           <div className={styles.navBar}>
@@ -97,6 +98,7 @@ export default function Router(props: RouterProps): JSX.Element {
           </div>
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

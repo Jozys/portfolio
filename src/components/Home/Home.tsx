@@ -136,7 +136,7 @@ export default function Home(props: HomeProps): JSX.Element {
                 height="60%"
                 width="60%"
                 className={styles.image_left}
-                alt="Img not found"
+                alt="forest"
                 src={Image2}
               ></img>
             </Tilt>
@@ -167,7 +167,7 @@ export default function Home(props: HomeProps): JSX.Element {
                 height="75%"
                 width="75%"
                 className={styles.image_right}
-                alt="Img not found"
+                alt="TECKdigital"
                 src="https://asc-images.imgix.net/2021/5/7/172b0bbf-eb3e-4ce3-818e-c25fadd3c4d3.jpeg?w=2048&auto=format"
               ></img>
             </Tilt>

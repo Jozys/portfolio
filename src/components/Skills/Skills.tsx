@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   iconContainer: {
     height: 100,
-    width: "50%",
+    width: "60%",
     display: "flex",
     alignSelf: "center",
     justifyContent: "space-around",
