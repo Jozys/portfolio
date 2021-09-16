@@ -13,6 +13,7 @@ import Me from "../Me";
 import { contrastBlack } from "../../utils/textContrast";
 import ThemeSwitcher from "../ThemeSwitcher";
 import Footer from "../Footer";
+import ProjectRouter from "./ProjectRouter";
 
 const useStyles = makeStyles((theme: Theme) => ({
   navBarContainer: {
@@ -66,7 +67,7 @@ export default function Router(props: RouterProps): JSX.Element {
             <Link to="/home">
               <HomeOutlined fontSize="large" className={styles.icon} />
             </Link>
-            <Link to="/projects">
+            <Link to="/projects/home">
               <CodeOutlined fontSize="large" className={styles.icon} />
             </Link>
             <Link to="/me">
@@ -83,8 +84,8 @@ export default function Router(props: RouterProps): JSX.Element {
         <Route exact path="/home">
           <Home />
         </Route>
-        <Route path="/projects">
-          <Projects />
+        <Route path="/projects/">
+          <ProjectRouter />
         </Route>
         <Route path="/me">
           <Me />

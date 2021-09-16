@@ -1,5 +1,6 @@
 import { createMuiTheme, createTheme } from "@material-ui/core";
 import "@fontsource/bungee";
+import "@fontsource/open-sans";
 
 const defaultTheme = (dark: boolean) =>
   createMuiTheme({ palette: { type: dark ? "dark" : "light" } });

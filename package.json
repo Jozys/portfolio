@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@fontsource/bungee": "^4.5.0",
+    "@fontsource/open-sans": "^4.5.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
@@ -21,6 +22,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-parallax-tilt": "^1.5.57",
+    "react-rnd": "^10.3.5",
     "react-router-dom": "^5.2.0",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "4.0.3",

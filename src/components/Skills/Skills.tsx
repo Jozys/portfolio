@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: theme.spacing(6),
   },
   iconContainer: {
     height: 100,
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 export interface SkillsProps {}
-export default function Skills(props: SkillsProps) {
+export default function Skills(props: SkillsProps): JSX.Element {
   const styles = useStyles();
   return (
     <div className={styles.root}>

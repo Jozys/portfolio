@@ -99,8 +99,8 @@ export default function Projects(props: ProjectsProps): JSX.Element {
               <br />
               <a
                 rel="noreferrer"
-                href="https://teckboard.de"
-                target="_blank"
+                href="/projects/teckboard"
+                target="_self"
                 className={styles.info_text}
               >
                 Learn more
