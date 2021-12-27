@@ -59,7 +59,9 @@ export default function Content(props: ContentProps) {
           >
             <div className={styles.textHeader} />
             <div className={styles.textBody}>
-              <Typography className={styles.text}>{value}</Typography>
+              <Typography contentEditable className={styles.text}>
+                {value}
+              </Typography>
             </div>
           </div>
         </div>

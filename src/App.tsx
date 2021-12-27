@@ -5,11 +5,11 @@ import ThemeProvider from "./components/ThemeProvider";
 
 function App() {
   return (
-    <>
+    <div style={{ height: "100%", width: "100%" }}>
       <ThemeProvider>
         <Router />
       </ThemeProvider>
-    </>
+    </div>
   );
 }
 

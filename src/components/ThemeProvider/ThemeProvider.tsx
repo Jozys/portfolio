@@ -16,14 +16,7 @@ export const ThemeSwitchContext = React.createContext<{
 
 export default function ThemeProvider(props: ThemeProviderProps) {
   const { children } = props;
-  //@ts-ignore
-  console.log(localStorage.getItem("isDark"));
-
   const getUserDefaultTheme = (): boolean => {
-    console.log(
-      "dark? :" + window.matchMedia("(prefers-color-scheme: dark)").matches
-    );
-
     return window.matchMedia("(prefers-color-scheme: dark)").matches;
   };
 
@@ -42,7 +35,6 @@ export default function ThemeProvider(props: ThemeProviderProps) {
 
   const toggleTheme = () => {
     localStorage.setItem("isDark", JSON.stringify(!isDark));
-    console.log(!isDark);
 
     const newTheme = myTheme(!isDark);
     setTheme(newTheme);

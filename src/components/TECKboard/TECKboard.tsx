@@ -2,10 +2,13 @@ import { makeStyles, Theme, Typography } from "@material-ui/core";
 import React from "react";
 import Typing from "react-typing-animation";
 import { contrastBlack } from "../../utils/textContrast";
+import Tilt from "react-parallax-tilt";
 import TECKLogo from "../../assets/Logo_TB.svg";
 import TECKIcon from "../../assets/Rounded_Logo.svg";
 import Content from "../Content";
 import Image2 from "../../assets/image2.jpg";
+import OldBoard from "../../assets/firstTECKboard.png";
+import NewBoard from "../../assets/newBoard.png";
 
 const useStyles = makeStyles((theme: Theme) => ({
   header: {
@@ -23,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: "column",
 
     padding: theme.spacing(8),
-    height: "800px",
+    height: "135vh",
   },
   teckboardHeader: {
     flex: 1,
@@ -63,6 +66,24 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: "2.5vh",
     textAlign: "center",
   },
+  imagesContainer: {
+    width: window.innerWidth,
+    display: "flex",
+    flex: 1,
+    alignSelf: "center",
+    alignItems: "center",
+    alignContent: "center",
+    marginBottom: theme.spacing(4),
+  },
+  singleImage: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
+  },
+  subTitle: {
+    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
+  },
 }));
 
 export interface TECKboardProps {}
@@ -97,7 +118,7 @@ export default function TECKboard(props: TECKboardProps) {
         <div className={styles.teckboard}>
           <Content
             value={
-              "TECKboard is a realtime information system. Place and Size of contents are free choice, you can drag and drop them on the position you want. "
+              "TECKboard is a real time digital information system. It gives the ability to create individual boards for specific groups, so that everyone just gets the information they need and are allowed to see. In the background there is a secure user and invite system for convenient user management"
             }
             height={250}
             width={400}
@@ -112,7 +133,7 @@ export default function TECKboard(props: TECKboardProps) {
             value={Image2}
             parent={styles.teckboard}
             lockAspectRatio
-            height={"358"}
+            height={200}
             width={"auto"}
             bounds="parent"
             x={1000}
@@ -127,8 +148,42 @@ export default function TECKboard(props: TECKboardProps) {
             The first idea for the TECKboards came from the student council of
             my school, the Graf-Adolf-Gymnasium, to replace the old analog
             information system of our school. The first version of the
-            TECKboards was created
+            TECKboards was created in 2019. In the last two years the system has
+            been developed further and further. A mobile application, which I
+            developed,
           </Typography>
+
+          <Typography>At the end</Typography>
+        </div>
+        <div className={styles.imagesContainer}>
+          <div className={styles.singleImage}>
+            <Tilt>
+              <img
+                style={{ borderRadius: 12 }}
+                src={OldBoard}
+                height="auto"
+                width="70%"
+                alt="The first version of TECKboards"
+              ></img>
+            </Tilt>
+            <Typography className={styles.subTitle}>
+              The first version of the TECKboard
+            </Typography>
+          </div>
+          <div className={styles.singleImage}>
+            <Tilt tiltReverse>
+              <img
+                style={{ borderRadius: 12 }}
+                src={NewBoard}
+                height="auto"
+                width="70%"
+                alt="The second version of TECKboards"
+              ></img>
+            </Tilt>
+            <Typography className={styles.subTitle}>
+              The second version of the TECKboard
+            </Typography>
+          </div>
         </div>
       </div>
     </div>

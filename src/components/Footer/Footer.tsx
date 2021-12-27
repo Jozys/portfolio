@@ -9,6 +9,8 @@ import TECKboard from "../../assets/Logo_TB.svg";
 import DevLights from "../../assets/devlights.svg";
 import Schulapp from "../../assets/schulapp.png";
 import { contrastBlack } from "../../utils/textContrast";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 const useStyles = makeStyles((theme: Theme) => ({
   background: {
@@ -21,7 +23,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
   },
   container: {
-    flex: 4,
+    flex: 6,
+    alignContent: "space-around",
     alignItems: "center",
     height: "100%",
     display: "flex",
@@ -34,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flex: 1,
     textAlign: "end",
-    fontSize: 25,
+    fontSize: "3vh",
     color: "#fff",
     fontWeight: "bold",
   },
@@ -42,11 +45,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flexDirection: "column",
     flex: 1,
+    alignItems: "center",
     justifyContent: "center",
   },
   middle: {
     display: "flex",
-    alignContent: "center",
+    alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "column",
     flex: 1,
@@ -77,29 +81,20 @@ export default function Footer(props: FooterProps) {
     <div className={styles.background}>
       <div className={styles.container}>
         <div className={styles.left}>
-          <img
-            height="30%"
-            width="20%"
-            className={styles.image}
-            alt="test"
-            src="https://dev.teckboard.de/storage/f605f813-171b-47b3-985a-8b3377e33fd8.gif"
-          ></img>
-        </div>
-        <div className={styles.middle}>
           <Typography className={styles.text}>Contact</Typography>
           <Button
             onClick={() => window.open("https://github.com/Jozys", "_blank")}
             className={styles.button}
             startIcon={<GitHubIcon />}
           >
-            GitHub
+            Jozys
           </Button>
           <Button
             onClick={() => window.open("https://twitter.com/Jozys04", "_blank")}
             className={styles.button}
             startIcon={<TwitterIcon />}
           >
-            Twitter
+            Jozys04
           </Button>
           <Button
             onClick={() =>
@@ -108,7 +103,7 @@ export default function Footer(props: FooterProps) {
             className={styles.button}
             startIcon={<RedditIcon />}
           >
-            Reddit
+            Jozys04
           </Button>
           <Button
             onClick={() => window.open("mailto:slaar@teckdigital.de", "_blank")}
@@ -117,6 +112,18 @@ export default function Footer(props: FooterProps) {
           >
             Mail
           </Button>
+          <Button
+            onClick={() => window.open("https://discord.com/app")}
+            className={styles.button}
+            startIcon={<FontAwesomeIcon icon={faDiscord} />}
+          >
+            Jozys#0704
+          </Button>
+        </div>
+        <div className={styles.middle}>
+          <Typography className={styles.text}> Other people </Typography>
+          <Button>Timo Peters</Button>
+          <Button>Yannik Hahn</Button>
         </div>
         <div className={styles.left}>
           <Typography className={styles.text}> Project Links </Typography>

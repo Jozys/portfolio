@@ -63,21 +63,14 @@ export default function Router(props: RouterProps): JSX.Element {
     <BrowserRouter>
       <nav className={styles.navBarContainer}>
         <ul className={styles.navBar}>
-          <div className={styles.navBar}>
-            <Link to="/home">
-              <HomeOutlined fontSize="large" className={styles.icon} />
-            </Link>
-            <Link to="/projects/home">
-              <CodeOutlined fontSize="large" className={styles.icon} />
-            </Link>
-            <Link to="/me">
-              <FaceOutlined fontSize="large" className={styles.icon} />
-            </Link>
-          </div>
-        </ul>
-        <div className={styles.themeSwitcher}>
+          <Link to="/home">
+            <HomeOutlined fontSize="large" className={styles.icon} />
+          </Link>
+          <Link to="/projects/home">
+            <CodeOutlined fontSize="large" className={styles.icon} />
+          </Link>
           <ThemeSwitcher />
-        </div>
+        </ul>
       </nav>
       <Switch>
         <Redirect exact from="/" to="/home" />
@@ -86,9 +79,6 @@ export default function Router(props: RouterProps): JSX.Element {
         </Route>
         <Route path="/projects/">
           <ProjectRouter />
-        </Route>
-        <Route path="/me">
-          <Me />
         </Route>
         <Route>
           <div className={styles.warning}>

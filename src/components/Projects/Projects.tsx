@@ -124,7 +124,15 @@ export default function Projects(props: ProjectsProps): JSX.Element {
         </TimelineItem>
         <TimelineItem>
           <TimelineContent className={styles.item}>
-            <h1 className={styles.title}> ... DevLights </h1>
+            <a
+              id="user-content-devlights"
+              className={styles.title}
+              href={"#devlights"}
+            >
+              <h1 id="devlights" about="DevLights" className={styles.title}>
+                ... DevLights
+              </h1>
+            </a>
             <Typography className={styles.info_text}>
               DevLights are the smart home LED Stripes for Developers. Together
               with two friends of mine, Jaan Springer and Timo Peters, we
