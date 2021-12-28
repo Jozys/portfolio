@@ -33,7 +33,6 @@ export default function Header(props: HeaderProps) {
         </Typography>
       </Typing>
       <h1 className={styles.title}>
-        {" "}
         Student - Developer - 17 years old - Germany
       </h1>
     </div>

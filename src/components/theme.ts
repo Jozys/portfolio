@@ -1,5 +1,6 @@
 import { createTheme } from "@material-ui/core";
 import "@fontsource/bungee";
+import "@fontsource/titillium-web";
 import "@fontsource/open-sans";
 
 const theme = (dark: boolean) => {
@@ -21,6 +22,14 @@ const theme = (dark: boolean) => {
       },
 
       type: dark ? "dark" : "light",
+    },
+    typography: {
+      fontFamily: ["Titillium Web", "Bungee", "Open Sans"].join(","),
+      allVariants: {
+        fontFamily: "Titillium Web",
+        fontWeight: "normal",
+        color: dark ? "#fff" : "#000",
+      },
     },
   });
 };

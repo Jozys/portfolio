@@ -5,6 +5,7 @@ import { contrastBlack } from "../../utils/textContrast";
 import Tilt from "react-parallax-tilt";
 import TECKLogo from "../../assets/Logo_TB.svg";
 import TECKIcon from "../../assets/Rounded_Logo.svg";
+import App from "../../assets/teckboard_app.png";
 import Content from "../Content";
 import Image2 from "../../assets/image2.jpg";
 import OldBoard from "../../assets/firstTECKboard.png";
@@ -22,11 +23,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   teckboard_container: {
+    height: "60vh",
     display: "flex",
     flexDirection: "column",
-
     padding: theme.spacing(8),
-    height: "135vh",
   },
   teckboardHeader: {
     flex: 1,
@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   teckboardTitle: {
     textAlign: "center",
-    fontFamily: "Open Sans",
     fontSize: 24,
     color: "#fff",
     flex: 1,
@@ -54,8 +53,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     flex: 1,
   },
   textContainer: {
-    width: "50%",
+    display: "flex",
+    flexDirection: "column",
+
+    alignContent: "center",
+  },
+  textInnerContainer: {
     alignSelf: "center",
+    flex: 1,
+    width: "50%",
   },
   title: {
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
@@ -70,18 +76,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: window.innerWidth,
     display: "flex",
     flex: 1,
-    alignSelf: "center",
+    justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
-    marginBottom: theme.spacing(4),
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
   },
   singleImage: {
-    alignItems: "center",
     display: "flex",
     flexDirection: "column",
     flex: 1,
+    justifyContent: "center",
   },
   subTitle: {
+    textAlign: "center",
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
 }));
@@ -141,7 +149,9 @@ export default function TECKboard(props: TECKboardProps) {
             type="image"
           />
         </div>
-        <div className={styles.textContainer}>
+      </div>
+      <div className={styles.textContainer}>
+        <div className={styles.textInnerContainer}>
           <h1 className={styles.title}> How TECKboards have been developed </h1>
 
           <Typography className={styles.text}>
@@ -149,41 +159,93 @@ export default function TECKboard(props: TECKboardProps) {
             my school, the Graf-Adolf-Gymnasium, to replace the old analog
             information system of our school. The first version of the
             TECKboards was created in 2019. In the last two years the system has
-            been developed further and further. A mobile application, which I
-            developed,
+            been developed further and further. At the end of 2019 I started
+            developing a mobile application for our system. The mobile
+            application was released in 2021 and can be downloaded in the known
+            app stores of apple and google.
           </Typography>
-
-          <Typography>At the end</Typography>
         </div>
-        <div className={styles.imagesContainer}>
-          <div className={styles.singleImage}>
-            <Tilt>
-              <img
-                style={{ borderRadius: 12 }}
-                src={OldBoard}
-                height="auto"
-                width="70%"
-                alt="The first version of TECKboards"
-              ></img>
-            </Tilt>
-            <Typography className={styles.subTitle}>
-              The first version of the TECKboard
-            </Typography>
-          </div>
-          <div className={styles.singleImage}>
-            <Tilt tiltReverse>
-              <img
-                style={{ borderRadius: 12 }}
-                src={NewBoard}
-                height="auto"
-                width="70%"
-                alt="The second version of TECKboards"
-              ></img>
-            </Tilt>
-            <Typography className={styles.subTitle}>
-              The second version of the TECKboard
-            </Typography>
-          </div>
+      </div>
+      <div className={styles.imagesContainer}>
+        <div className={styles.singleImage}>
+          <Tilt style={{ display: "flex", justifyContent: "center" }}>
+            <img
+              draggable={false}
+              style={{ borderRadius: 12, alignSelf: "center" }}
+              src={OldBoard}
+              height="auto"
+              width="70%"
+              alt="The first version of TECKboards"
+            ></img>
+          </Tilt>
+          <Typography className={styles.subTitle}>
+            The first version of the TECKboard, which was created in 2019
+          </Typography>
+        </div>
+        <div className={styles.singleImage}>
+          <Tilt
+            style={{ display: "flex", justifyContent: "center" }}
+            tiltReverse
+          >
+            <img
+              draggable={false}
+              style={{ borderRadius: 12, alignSelf: "center" }}
+              src={NewBoard}
+              height="auto"
+              width="70%"
+              alt="The second version of TECKboards"
+            ></img>
+          </Tilt>
+          <Typography className={styles.subTitle}>
+            The second version of the TECKboard, which was created in 2020, and
+            is now used in our school
+          </Typography>
+        </div>
+      </div>
+      <div className={styles.textContainer}>
+        <div className={styles.textInnerContainer}>
+          <Typography className={styles.text}>
+            The mobile application evolved from the first version developed for
+            Android only to the released version in the known app stores for
+            google and apple. The mobile application is currently used by the
+            students of the school and the teachers of the school.
+          </Typography>
+        </div>
+      </div>
+
+      <div className={styles.imagesContainer}>
+        <div className={styles.singleImage}>
+          <Tilt style={{ display: "flex", justifyContent: "center" }}>
+            <img
+              draggable={false}
+              style={{ borderRadius: 12, alignSelf: "center" }}
+              src={App}
+              height="auto"
+              width="25%"
+              alt="The first version of TECKboards mobile application"
+            ></img>
+          </Tilt>
+          <Typography className={styles.subTitle}>
+            The first version of the TECKboard mobile application
+          </Typography>
+        </div>
+        <div className={styles.singleImage}>
+          <Tilt
+            style={{ display: "flex", justifyContent: "center" }}
+            tiltReverse
+          >
+            <img
+              draggable={false}
+              style={{ borderRadius: 12, alignSelf: "center" }}
+              src={App}
+              height="auto"
+              width="25%"
+              alt="The released version of TECKboards mobile application"
+            ></img>
+          </Tilt>
+          <Typography className={styles.subTitle}>
+            The current version of the mobile application (v.1.1.8)
+          </Typography>
         </div>
       </div>
     </div>

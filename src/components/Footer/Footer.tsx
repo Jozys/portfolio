@@ -1,23 +1,25 @@
-import { Button, Theme, Typography, useTheme } from "@material-ui/core";
+import { faDiscord } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button, Theme, Typography } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import MailIcon from "@material-ui/icons/Mail";
-import RedditIcon from "@material-ui/icons/Reddit";
+import InstagramIcon from "@material-ui/icons/Instagram";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import { makeStyles } from "@material-ui/styles";
 import React from "react";
-import TECKboard from "../../assets/Logo_TB.svg";
 import DevLights from "../../assets/devlights.svg";
+import TECKboard from "../../assets/Logo_TB.svg";
 import Schulapp from "../../assets/schulapp.png";
-import { contrastBlack } from "../../utils/textContrast";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord } from "@fortawesome/free-brands-svg-icons";
+import Timo from "../../assets/timo.svg";
+import H4hn from "../../assets/h4hn.svg";
+import TECKdigital from "../../assets/teckdigital.svg";
 
 const useStyles = makeStyles((theme: Theme) => ({
   background: {
     backgroundColor: theme.palette.secondary.main,
-    height: 400,
+    height: 500,
     clipPath:
-      "polygon(50% 0%, 83% 12%, 100% 43%, 100% 100%, 68% 100%, 29% 100%, 0 100%, 0% 43%, 17% 12%);",
+      "polygon(50% 0%, 83% 12%, 100% 43%, 100% 100%, 68% 100%, 29% 100%, 0 100%, 0% 3%, 18% 12%);",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -37,16 +39,17 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flex: 1,
     textAlign: "end",
-    fontSize: "3vh",
+    fontSize: "4vh",
     color: "#fff",
     fontWeight: "bold",
   },
   left: {
+    margin: theme.spacing(2),
     display: "flex",
     flexDirection: "column",
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-end",
   },
   middle: {
     display: "flex",
@@ -56,7 +59,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     flex: 1,
   },
   button: {
-    flex: 1,
+    height: "5vh",
+    fontSize: "1.75vh",
     width: "25%",
     color: "#fff",
   },
@@ -76,54 +80,86 @@ const useStyles = makeStyles((theme: Theme) => ({
 export interface FooterProps {}
 export default function Footer(props: FooterProps) {
   const styles = useStyles();
-  const theme = useTheme();
   return (
     <div className={styles.background}>
       <div className={styles.container}>
         <div className={styles.left}>
           <Typography className={styles.text}>Contact</Typography>
           <Button
+            size="large"
             onClick={() => window.open("https://github.com/Jozys", "_blank")}
             className={styles.button}
-            startIcon={<GitHubIcon />}
+            startIcon={<GitHubIcon fontSize="inherit" />}
           >
             Jozys
           </Button>
           <Button
             onClick={() => window.open("https://twitter.com/Jozys04", "_blank")}
             className={styles.button}
-            startIcon={<TwitterIcon />}
+            startIcon={<TwitterIcon fontSize="inherit" />}
           >
             Jozys04
           </Button>
           <Button
+            size="large"
             onClick={() =>
-              window.open("https://reddit.com/u/Jozys04", "_blank")
+              window.open("https://www.instagram.com/jozys_04/", "_blank")
             }
             className={styles.button}
-            startIcon={<RedditIcon />}
+            startIcon={<InstagramIcon fontSize="inherit" />}
           >
             Jozys04
           </Button>
           <Button
+            size="large"
             onClick={() => window.open("mailto:slaar@teckdigital.de", "_blank")}
             className={styles.button}
-            startIcon={<MailIcon />}
+            startIcon={<MailIcon fontSize="inherit" />}
           >
             Mail
           </Button>
           <Button
             onClick={() => window.open("https://discord.com/app")}
             className={styles.button}
-            startIcon={<FontAwesomeIcon icon={faDiscord} />}
+            startIcon={<FontAwesomeIcon icon={faDiscord} fontSize="inherit" />}
           >
             Jozys#0704
           </Button>
         </div>
         <div className={styles.middle}>
-          <Typography className={styles.text}> Other people </Typography>
-          <Button>Timo Peters</Button>
-          <Button>Yannik Hahn</Button>
+          <Typography className={styles.text}> Others </Typography>
+          <Button
+            style={{ color: "#fff", fontSize: "1.75h" }}
+            startIcon={
+              <img alt="Timo_Logo" height={40} width={40} src={Timo} />
+            }
+            onClick={() => window.open("https://tpausl.netlify.app")}
+          >
+            Timo
+          </Button>
+          <Button
+            style={{ color: "#fff", fontSize: "1.75h" }}
+            startIcon={
+              <img alt="H4hn_Logo" height={40} width={40} src={H4hn} />
+            }
+            onClick={() => window.open("https://h4hn.de")}
+          >
+            Yannik
+          </Button>
+          <Button
+            style={{ color: "#fff", fontSize: "1.75h" }}
+            startIcon={
+              <img
+                alt="TECKdigital_Logo"
+                height={40}
+                width={40}
+                src={TECKdigital}
+              />
+            }
+            onClick={() => window.open("http://teckdigital.de/")}
+          >
+            TECKdigital
+          </Button>
         </div>
         <div className={styles.left}>
           <Typography className={styles.text}> Project Links </Typography>

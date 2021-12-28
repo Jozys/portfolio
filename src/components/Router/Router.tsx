@@ -52,7 +52,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginLeft: 10,
     fontSize: 25,
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
-    fontWeight: "bold",
   },
 }));
 
