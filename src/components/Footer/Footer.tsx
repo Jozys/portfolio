@@ -80,6 +80,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 export interface FooterProps {}
 export default function Footer(props: FooterProps) {
   const styles = useStyles();
+
   return (
     <div className={styles.background}>
       <div className={styles.container}>
@@ -195,7 +196,7 @@ export default function Footer(props: FooterProps) {
           </Button>
           <Button
             className={styles.button}
-            onClick={() => window.open("/projects/schulapp", "_self")}
+            onClick={() => window.open("/project/schulapp", "_self")}
             startIcon={
               <img alt="Schulapp Logo" height={30} width={30} src={Schulapp} />
             }

@@ -1,19 +1,13 @@
 import { makeStyles, Theme, Typography } from "@material-ui/core";
+import { CodeOutlined, HomeOutlined, Warning } from "@material-ui/icons/";
 import React from "react";
-import { BrowserRouter, Switch, Route, Link, Redirect } from "react-router-dom";
-import Home from "../Home";
-import {
-  HomeOutlined,
-  FaceOutlined,
-  CodeOutlined,
-  Warning,
-} from "@material-ui/icons/";
-import Projects from "../Projects";
-import Me from "../Me";
+import { BrowserRouter, Link, Redirect, Route, Switch } from "react-router-dom";
 import { contrastBlack } from "../../utils/textContrast";
-import ThemeSwitcher from "../ThemeSwitcher";
 import Footer from "../Footer";
-import ProjectRouter from "./ProjectRouter";
+import Home from "../Home";
+import Projects from "../Projects";
+import TECKboard from "../TECKboard";
+import ThemeSwitcher from "../ThemeSwitcher";
 
 const useStyles = makeStyles((theme: Theme) => ({
   navBarContainer: {
@@ -58,6 +52,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 export interface RouterProps {}
 export default function Router(props: RouterProps): JSX.Element {
   const styles = useStyles();
+
   return (
     <BrowserRouter>
       <nav className={styles.navBarContainer}>
@@ -65,20 +60,29 @@ export default function Router(props: RouterProps): JSX.Element {
           <Link to="/home">
             <HomeOutlined fontSize="large" className={styles.icon} />
           </Link>
-          <Link to="/projects/home">
+          <Link to="/projects">
             <CodeOutlined fontSize="large" className={styles.icon} />
           </Link>
           <ThemeSwitcher />
         </ul>
       </nav>
+
       <Switch>
         <Redirect exact from="/" to="/home" />
-        <Route exact path="/home">
+        <Route path="/home">
           <Home />
         </Route>
-        <Route path="/projects/">
-          <ProjectRouter />
+        <Redirect exact from="/projects" to="/projects/home" />
+        <Route path="/projects/home">
+          <Projects />
         </Route>
+        <Route exact path="/project/teckboard">
+          <TECKboard />
+        </Route>
+        <Route exact path="/project/devlights">
+          <p> Not implemented yet</p>
+        </Route>
+
         <Route>
           <div className={styles.warning}>
             <Warning fontSize="large" className={styles.warningIcon} />
