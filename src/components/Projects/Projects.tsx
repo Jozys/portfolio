@@ -138,7 +138,15 @@ export default function Projects(props: ProjectsProps): JSX.Element {
               with two friends of mine, Jaan Springer and Timo Peters, we
               developed these lights during our project course informatic at
               Graf-Adolf-Gymnasium. From begin we learned new programming
-              languages like C++ and worked at Hard and Software.
+              languages like C++ and worked at Hard and Software.{" "}
+              <a
+                rel="noreferrer"
+                href="/project/devlights"
+                target="_self"
+                className={styles.info_text}
+              >
+                Learn more
+              </a>
             </Typography>
 
             <Button

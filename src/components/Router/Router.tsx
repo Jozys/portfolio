@@ -3,6 +3,7 @@ import { CodeOutlined, HomeOutlined, Warning } from "@material-ui/icons/";
 import React from "react";
 import { BrowserRouter, Link, Redirect, Route, Switch } from "react-router-dom";
 import { contrastBlack } from "../../utils/textContrast";
+import DevLights from "../DevLights";
 import Footer from "../Footer";
 import Home from "../Home";
 import Projects from "../Projects";
@@ -80,7 +81,7 @@ export default function Router(props: RouterProps): JSX.Element {
           <TECKboard />
         </Route>
         <Route exact path="/project/devlights">
-          <p> Not implemented yet</p>
+          <DevLights />
         </Route>
 
         <Route>
