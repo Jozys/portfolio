@@ -7,12 +7,10 @@ import {
   TimelineSeparator,
 } from "@material-ui/lab";
 import React from "react";
-import Typing from "react-typing-animation";
-import TECKboardApp from "../../assets/teckboard_app.png";
-import DevLights from "../../assets/devlights.png";
 import Tilt from "react-parallax-tilt";
-//@ts-ignore
-import PDF from "../../assets/facharbeit.pdf";
+import Typing from "react-typing-animation";
+import DevLights from "../../assets/devlights.png";
+import TECKboardApp from "../../assets/teckboard_app.png";
 import { contrastBlack } from "../../utils/textContrast";
 import Skills from "../Skills";
 
@@ -153,7 +151,7 @@ export default function Projects(props: ProjectsProps): JSX.Element {
               variant="contained"
               color="secondary"
               className={styles.button}
-              onClick={() => window.open(PDF, "_blank")}
+              onClick={() => window.open("/devlights.pdf", "_blank")}
             >
               READ DOCUMENTATION
             </Button>

@@ -43,8 +43,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export interface SkillsProps {}
-export default function Skills(props: SkillsProps): JSX.Element {
+export default function Skills(): JSX.Element {
   const styles = useStyles();
   return (
     <div className={styles.root}>

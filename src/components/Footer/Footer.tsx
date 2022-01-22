@@ -207,7 +207,7 @@ export default function Footer(props: FooterProps) {
       </div>
       <div className={styles.copyrightContainer}>
         <Typography className={styles.copyrightText}>
-          © Copyright 2021 Joshua Slaar
+          © Copyright {new Date().getFullYear()} Joshua Slaar
         </Typography>
       </div>
     </div>

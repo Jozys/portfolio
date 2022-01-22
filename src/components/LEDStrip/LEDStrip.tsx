@@ -38,8 +38,9 @@ export default function LEDStrip(props: LEDStripProps) {
   const [message, setMessage] = React.useState<string>("");
   const inputRef = React.useRef<HTMLInputElement>();
   const calculateLength = (): number => {
-    return Math.round((window.innerWidth * 0.9) / 20);
+    return Math.round((window.innerWidth * 0.75) / 20);
   };
+  let newcolor;
   const [length, setLength] = React.useState<number>(calculateLength());
 
   const handleResize = (e: UIEvent) => {
@@ -93,6 +94,10 @@ export default function LEDStrip(props: LEDStripProps) {
     setMessage("");
   };
 
+  React.useEffect(() => {
+    console.log(document?.activeElement ?? "NULL");
+  }, [document.activeElement]);
+
   return (
     <div className={styles.root}>
       <div className={styles.stripContainer}>{renderItems()}</div>
@@ -100,6 +105,7 @@ export default function LEDStrip(props: LEDStripProps) {
         <FormControl>
           <InputLabel>Type color here</InputLabel>
           <Input
+            key={"color_input"}
             inputRef={inputRef}
             defaultValue={color}
             endAdornment={
