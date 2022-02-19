@@ -1,16 +1,9 @@
-import { makeStyles, Theme, Typography } from "@material-ui/core";
-import {
-  Timeline,
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-  TimelineItem,
-  TimelineOppositeContent,
-  TimelineSeparator,
-} from "@material-ui/lab";
+import { Button, makeStyles, Theme, Typography } from "@material-ui/core";
+import GitHubIcon from "@material-ui/icons/GitHub";
 import React from "react";
 import Typing from "react-typing-animation";
 import { contrastBlack } from "../../utils/textContrast";
+import DevLightsTimeline from "../DevLightsTimeline";
 import LEDStrip from "../LEDStrip";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -36,17 +29,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   text: {
     textAlign: "center",
   },
-  timelineContent: {
-    width: "50%",
-  },
-  timelineText: {
-    lineBreak: "auto",
-  },
-  timeline: {
-    display: "flex",
-    alignContent: "center",
-    width: "70%",
-  },
 }));
 
 export default function DevLights() {
@@ -61,57 +43,20 @@ export default function DevLights() {
       </div>
       <Typography className={styles.text}>
         DevLights are the smart home LED Stripes for Developers.
+        <br />
+        <br />
+        The project is open source. It can be viewed on GitHub.
       </Typography>
-
-      <Timeline className={styles.timeline} align="alternate">
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent className={styles.timelineContent}>
-            <Typography className={styles.timelineText}>
-              In the year 2020 two friends of mine and me together decided to
-              take a part of a project class that was offered by our school.
-              After some ideas, brainstorming and discarding ideas which
-              wouldn't fit the requirements, we decided to build a project that
-              would be able to control LED stripes.
-            </Typography>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <Typography className={styles.timelineText}>
-              In the first weeks we decided which hardware and software we would
-              use at developing our project. We decided to use a BTF Lightning
-              LED strip together with a ESP8266 Wifi Module as the hardware. For
-              the server, which is running in the middle of hardware and user
-              (software) connection, we decided to use a Raspberry Pi as
-              hardware.
-            </Typography>
-          </TimelineContent>
-        </TimelineItem>
-        <TimelineItem>
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-          <TimelineContent>
-            <Typography className={styles.timelineText}>
-              After deciding which hardware and software we would use the
-              developing started. We started developing with the led strip and
-              the server. The hardware was at first very difficult to built
-              because the most of use had a very good knowledge in working with
-              the two components used here and the electricity we needed to get
-              the LED strip working.
-            </Typography>
-          </TimelineContent>
-        </TimelineItem>
-      </Timeline>
+      <Button
+        size="large"
+        onClick={() =>
+          window.open("https://github.com/ProjektDevLights", "_blank")
+        }
+        startIcon={<GitHubIcon fontSize="inherit" />}
+      >
+        Projekt DevLights
+      </Button>
+      <DevLightsTimeline />
     </div>
   );
 }

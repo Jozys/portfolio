@@ -147,7 +147,7 @@ export default function Home(props: HomeProps): JSX.Element {
             <h1 className={styles.title}>TECKdigital </h1>
             <Typography className={styles.info_text}>
               Since December 2019 I am a member of the at the begin of 2019
-              founded student company
+              founded student company{" "}
               <a href="http://teckdigital.de" className={styles.info_text}>
                 TECKdigital
               </a>
