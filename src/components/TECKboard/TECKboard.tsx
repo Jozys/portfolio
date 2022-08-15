@@ -162,7 +162,7 @@ export default function TECKboard(props: TECKboardProps) {
             been developed further and further. At the end of 2019 I started
             developing a mobile application for our system. The mobile
             application was released in 2021 and can be downloaded in the known
-            app stores of apple and google.
+            app stores of Apple and Google.
           </Typography>
         </div>
       </div>
@@ -206,9 +206,10 @@ export default function TECKboard(props: TECKboardProps) {
         <div className={styles.textInnerContainer}>
           <Typography className={styles.text}>
             The mobile application evolved from the first version developed for
-            Android only to the released version in the known app stores for
-            google and apple. The mobile application is currently used by the
-            students of the school and the teachers of the school.
+            Android only in 2019 to the released version in the known app stores
+            for Google and Apple in 2021. The mobile application is currently
+            used by the students and the teachers of our school, the
+            Graf-Adolf-Gymnasium in Tecklenburg, North-Rhine-Westphalia.
           </Typography>
         </div>
       </div>

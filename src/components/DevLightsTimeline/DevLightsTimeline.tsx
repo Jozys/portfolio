@@ -50,7 +50,10 @@ export default function DevLightsTimeline(props: DevLightsTimelineProps) {
               take a part of a project class that was offered by our school.
               After some ideas, brainstorming and discarding ideas which
               wouldn't fit the requirements, we decided to build a project that
-              would be able to control LED stripes.
+              would be able to control LED stripes. The only requirements given
+              by our school was that the project needed to include
+              microcontrollers, so it cannot just be a simple website for
+              example.
             </Typography>
           </TimelineContent>
         </TimelineItem>
@@ -79,10 +82,11 @@ export default function DevLightsTimeline(props: DevLightsTimelineProps) {
             <Typography className={styles.timelineText}>
               After deciding which hardware and software we would use the
               developing started. We started developing with the led strip and
-              the server. The hardware was at first very difficult to built
-              because the most of use had a very good knowledge in working with
-              the two components used here and the electricity we needed to get
-              the LED strip working.
+              the server. Developing a working prototype of the ESP and the led
+              stripe was a little difficult because they needed different
+              voltages to function normally. But during the development we came
+              up with solutions to get a working prototype. This prototype
+              developed later to a self-designed circuit board.
             </Typography>
           </TimelineContent>
         </TimelineItem>

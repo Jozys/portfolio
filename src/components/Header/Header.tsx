@@ -2,6 +2,7 @@ import { makeStyles, Theme, Typography } from "@material-ui/core";
 import React from "react";
 import Typing from "react-typing-animation";
 import { contrastBlack } from "../../utils/textContrast";
+import { getAge } from "../../utils/utils";
 
 export interface HeaderProps {}
 
@@ -25,6 +26,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function Header(props: HeaderProps) {
   const styles = useStyles();
+
   return (
     <div>
       <Typing>
@@ -33,7 +35,7 @@ export default function Header(props: HeaderProps) {
         </Typography>
       </Typing>
       <h1 className={styles.title}>
-        Student - Developer - 17 years old - Germany
+        Student - Developer - {getAge()} years old - Germany
       </h1>
     </div>
   );

@@ -12,6 +12,7 @@ import { HashLink as Link } from "react-router-hash-link";
 import Image2 from "../../assets/image2.jpg";
 import Me from "../../assets/me.jpg";
 import { contrastBlack } from "../../utils/textContrast";
+import { getAge } from "../../utils/utils";
 import Header from "../Header";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -98,9 +99,9 @@ export default function Home(props: HomeProps): JSX.Element {
           <TimelineOppositeContent>
             <h1 className={styles.title}> Who am I?</h1>
             <Typography className={styles.info_text}>
-              I am a 17 year old student, who likes doing sport, developing, and
-              reading books. I also love exploring the surroundings of my
-              hometown in Northrhine-Westphalia in Germany.
+              I am a {getAge()} year old student, who likes doing sport,
+              developing, and reading books. Currently I am study informatics in
+              Karlsruhe and work at SAP in Walldorf, Baden-Württemberg Germany.
             </Typography>
           </TimelineOppositeContent>
           <TimelineSeparator></TimelineSeparator>
@@ -120,12 +121,10 @@ export default function Home(props: HomeProps): JSX.Element {
           <TimelineContent>
             <h1 className={styles.title}> My life </h1>
             <Typography className={styles.info_text}>
-              I love going outside and talking walks with my dog Simba through
-              the forest in my hometown Brochterbeck. Also I cycle much with my
-              bike through the countryside. Meeting friends and spending time
-              with them is another thing i like doing in my freetime. In
-              addition to that I am also member of the youth fire brigade in
-              Tecklenburg.
+              I love going outside and taking walks at my hometown Brochterbeck
+              in North-Rhine-Westphalia. Also I cycle much with my bike through
+              the countryside.Its also very important to me to meet friends and
+              spending time with them reguarly.
             </Typography>
           </TimelineContent>
           <TimelineSeparator></TimelineSeparator>

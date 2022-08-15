@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: "center",
   },
   text: {
+    fontSize: "2em",
     textAlign: "center",
   },
 }));
@@ -52,9 +53,9 @@ export default function DevLights() {
         onClick={() =>
           window.open("https://github.com/ProjektDevLights", "_blank")
         }
-        startIcon={<GitHubIcon fontSize="inherit" />}
+        endIcon={<GitHubIcon fontSize="inherit" />}
       >
-        Projekt DevLights
+        Visit Project Devlights on GitHub
       </Button>
       <DevLightsTimeline />
     </div>
