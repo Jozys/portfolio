@@ -39,12 +39,13 @@ export default function DevLights() {
       <Typing>
         <Typography className={styles.header}> DevLights </Typography>
       </Typing>
+      <Typography className={styles.text}>
+        The smart home LED stripes for developers
+      </Typography>
       <div className={styles.strip}>
         <LEDStrip />
       </div>
       <Typography className={styles.text}>
-        DevLights are the smart home LED Stripes for Developers.
-        <br />
         <br />
         The project is open source. It can be viewed on GitHub.
       </Typography>

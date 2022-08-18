@@ -163,7 +163,7 @@ export default function Footer(props: FooterProps) {
           </Button>
         </div>
         <div className={styles.left}>
-          <Typography className={styles.text}> Project Links </Typography>
+          <Typography className={styles.text}> Projects </Typography>
           <Button
             className={styles.button}
             onClick={() => window.open("https://teckboard.de", "_blank")}

@@ -27,6 +27,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: 150,
     alignItems: "center",
   },
+  button: {
+    display: "flex",
+    alignItems: "center",
+  },
 }));
 
 export interface LEDStripProps {}
@@ -49,7 +53,6 @@ export default function LEDStrip(props: LEDStripProps) {
 
   const start = () => {
     let id = setInterval(function () {
-      console.log("interval");
       setColor(tinycolor.random().toHexString());
     }, 5000);
     setIntervalId(id);
@@ -75,8 +78,11 @@ export default function LEDStrip(props: LEDStripProps) {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "Enter") {
       if (tinycolor(inputRef.current?.value).isValid()) {
+        console.log(intervalId);
+
         clearInterval(intervalId as NodeJS.Timeout);
         setIntervalId(undefined);
+        console.log("change");
         setColor(inputRef.current?.value ?? "#00ff6a");
       } else {
         if (inputRef.current) {
@@ -94,10 +100,6 @@ export default function LEDStrip(props: LEDStripProps) {
     setMessage("");
   };
 
-  React.useEffect(() => {
-    console.log(document?.activeElement ?? "NULL");
-  }, [document.activeElement]);
-
   return (
     <div className={styles.root}>
       <div className={styles.stripContainer}>{renderItems()}</div>
@@ -107,6 +109,11 @@ export default function LEDStrip(props: LEDStripProps) {
           <Input
             key={"color_input"}
             inputRef={inputRef}
+            value={
+              document.activeElement == inputRef.current && intervalId
+                ? null
+                : color
+            }
             defaultValue={color}
             endAdornment={
               <Circle
@@ -125,7 +132,9 @@ export default function LEDStrip(props: LEDStripProps) {
           </FormHelperText>
         </FormControl>
         {!intervalId ? (
-          <Button onClick={() => start()}>Restart Random Color</Button>
+          <Button className={styles.button} onClick={() => start()}>
+            Restart Random Color
+          </Button>
         ) : null}
       </div>
       <Snackbar

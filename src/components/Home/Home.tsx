@@ -100,7 +100,7 @@ export default function Home(props: HomeProps): JSX.Element {
             <h1 className={styles.title}> Who am I?</h1>
             <Typography className={styles.info_text}>
               I am a {getAge()} year old student, who likes doing sport,
-              developing, and reading books. Currently I am study informatics in
+              developing, and reading books. Currently I study informatics in
               Karlsruhe and work at SAP in Walldorf, Baden-Württemberg Germany.
             </Typography>
           </TimelineOppositeContent>

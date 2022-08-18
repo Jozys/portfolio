@@ -21,8 +21,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderBottomRightRadius: theme.shape.borderRadius,
   },
   text: {
+    border: "none",
     margin: theme.spacing(1),
     fontFamily: "Open Sans",
+    zIndex: 10,
   },
 }));
 
@@ -59,7 +61,11 @@ export default function Content(props: ContentProps) {
           >
             <div className={styles.textHeader} />
             <div className={styles.textBody}>
-              <Typography contentEditable className={styles.text}>
+              <Typography
+                draggable={false}
+                contentEditable
+                className={styles.text}
+              >
                 {value}
               </Typography>
             </div>
