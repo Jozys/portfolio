@@ -66,15 +66,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   image: {
-    transform: "scale(0.95) rotate(0.015turn) translate(-20%, -10%)",
     borderRadius: 10,
   },
   image_left: {
-    transform: "scale(0.95) rotate(-0.025turn)",
     borderRadius: 10,
   },
   image_right: {
-    transform: "rotate(0.025turn) translate(-10%, -10%)",
     borderRadius: 10,
   },
   projectLink: {

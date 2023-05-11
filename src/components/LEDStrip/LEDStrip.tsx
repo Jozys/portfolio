@@ -42,9 +42,8 @@ export default function LEDStrip(props: LEDStripProps) {
   const [message, setMessage] = React.useState<string>("");
   const inputRef = React.useRef<HTMLInputElement>();
   const calculateLength = (): number => {
-    return Math.round((window.innerWidth * 0.75) / 20);
+    return Math.round((window.innerWidth * 0.5) / 20);
   };
-  let newcolor;
   const [length, setLength] = React.useState<number>(calculateLength());
 
   const handleResize = (e: UIEvent) => {

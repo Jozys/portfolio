@@ -1,18 +1,16 @@
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Theme, Typography } from "@material-ui/core";
+import { LinkedIn } from "@material-ui/icons";
 import GitHubIcon from "@material-ui/icons/GitHub";
-import MailIcon from "@material-ui/icons/Mail";
 import InstagramIcon from "@material-ui/icons/Instagram";
-import TwitterIcon from "@material-ui/icons/Twitter";
+import MailIcon from "@material-ui/icons/Mail";
 import { makeStyles } from "@material-ui/styles";
-import React from "react";
-import DevLights from "../../assets/devlights.svg";
 import TECKboard from "../../assets/Logo_TB.svg";
-import Schulapp from "../../assets/schulapp.png";
-import Timo from "../../assets/timo.svg";
+import DevLights from "../../assets/devlights.svg";
 import H4hn from "../../assets/h4hn.svg";
 import TECKdigital from "../../assets/teckdigital.svg";
+import Timo from "../../assets/timo_logo.svg";
 
 const useStyles = makeStyles((theme: Theme) => ({
   background: {
@@ -95,11 +93,16 @@ export default function Footer(props: FooterProps) {
             Jozys
           </Button>
           <Button
-            onClick={() => window.open("https://twitter.com/Jozys04", "_blank")}
+            onClick={() =>
+              window.open(
+                "https://www.linkedin.com/in/joshua-slaar-00346424b/",
+                "_blank"
+              )
+            }
             className={styles.button}
-            startIcon={<TwitterIcon fontSize="inherit" />}
+            startIcon={<LinkedIn fontSize="inherit" />}
           >
-            Jozys04
+            Joshua Slaar
           </Button>
           <Button
             size="large"
@@ -113,7 +116,7 @@ export default function Footer(props: FooterProps) {
           </Button>
           <Button
             size="large"
-            onClick={() => window.open("mailto:slaar@teckdigital.de", "_blank")}
+            onClick={() => window.open("mailto:joshua@slaar.de", "_blank")}
             className={styles.button}
             startIcon={<MailIcon fontSize="inherit" />}
           >
@@ -134,7 +137,7 @@ export default function Footer(props: FooterProps) {
             startIcon={
               <img alt="Timo_Logo" height={40} width={40} src={Timo} />
             }
-            onClick={() => window.open("https://tpausl.netlify.app")}
+            onClick={() => window.open("https://tipela.de")}
           >
             Timo
           </Button>
@@ -193,15 +196,6 @@ export default function Footer(props: FooterProps) {
             }
           >
             DevLights
-          </Button>
-          <Button
-            className={styles.button}
-            onClick={() => window.open("/project/schulapp", "_self")}
-            startIcon={
-              <img alt="Schulapp Logo" height={30} width={30} src={Schulapp} />
-            }
-          >
-            SchulApp
           </Button>
         </div>
       </div>

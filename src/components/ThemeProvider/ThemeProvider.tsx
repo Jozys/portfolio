@@ -29,9 +29,13 @@ export default function ThemeProvider(props: ThemeProviderProps) {
   );
   const [theme, setTheme] = React.useState<Theme>(myTheme(isDark));
 
-  React.useEffect(() => {
-    document.body.style.backgroundColor = theme.palette.background.default;
-  }, [theme.palette.background.default]);
+  React.useEffect(
+    () => {
+      //@ts-ignore
+      document.body.style.background = theme.gradients.background.default;
+    }, //@ts-ignore
+    [theme.gradients.background.default]
+  );
 
   const toggleTheme = () => {
     localStorage.setItem("isDark", JSON.stringify(!isDark));
