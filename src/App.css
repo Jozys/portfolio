@@ -4,6 +4,7 @@
 
 body {
   background: white;
+  font-size: 1.0em;
 }
 
 .App-logo {
@@ -22,7 +23,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(1.2em + 2vmin);
 }
 
 .App-link {

@@ -7,16 +7,13 @@ import DevLightsTimeline from "../DevLightsTimeline";
 import LEDStrip from "../LEDStrip";
 import DevLight from "../../assets/devlight.jpg";
 import Tilt from "react-parallax-tilt";
+import DevLightsImageCarousel from "../DevLightsImageCarousel/DevLightsImageCarousel";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-  },
-  headerContainer: {
-    display: "flex",
-    width: "100%",
   },
   header: {
     fontSize: "8vh",
@@ -28,8 +25,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
+  introText: {
+    width: "75%",
+    display: "flex",
+    flex: 7,
+  },
   devlightContainer: {
-    flex: 2,
+    flex: 8,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -37,15 +39,16 @@ const useStyles = makeStyles((theme: Theme) => ({
   devlight: {
     width: "50%",
   },
-  headerRight: {
+  carousel: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "flex-start",
-    flex: 6,
+    marginTop: theme.spacing(4),
+    flex: 1,
   },
   image: {
     borderRadius: 12,
     alignSelf: "center",
+    zIndex: -1,
   },
   strip: {
     display: "flex",
@@ -61,19 +64,8 @@ export default function DevLights() {
   const styles = useStyles();
   return (
     <div className={styles.container}>
-      <div className={styles.headerContainer}>
-        <div className={styles.devlightContainer}>
-          <Tilt className={styles.devlight}>
-            <img
-              alt="Logo of DevLights"
-              className={styles.image}
-              src={DevLight}
-              width={"auto"}
-              height="auto"
-            ></img>
-          </Tilt>
-        </div>
-        <div className={styles.headerRight}>
+      <div className={styles.devlightContainer}>
+        <div>
           <Typing>
             <Typography className={styles.header}> DevLights </Typography>
           </Typing>
@@ -84,14 +76,26 @@ export default function DevLights() {
           <div className={styles.strip}>
             <LEDStrip />
           </div>
-        </div>
+      
+        </div>  
+      </div>
+      <div className={styles.carousel}>
+        <DevLightsImageCarousel />
+      </div> 
+      <div className={styles.introText}>
+        <Typography className={styles.text}>
+          DevLights are self-programmed smart home led stripes using the WS2812B chip for controlling the stripes. <br/>
+          There is a backend server developed with NestJS and MongoDB, a smartphone and desktop application for the management.
+        </Typography>
       </div>
 
-      <Typography className={styles.text}>
+      
+
+      {/* <Typography className={styles.text}>
         <br />
         The project is open source. It can be viewed on GitHub.
-      </Typography>
-      <Button
+      </Typography> */}
+      {/* <Button
         size="large"
         onClick={() =>
           window.open("https://github.com/ProjektDevLights", "_blank")
@@ -99,14 +103,18 @@ export default function DevLights() {
         endIcon={<GitHubIcon fontSize="inherit" />}
       >
         Visit Project Devlights on GitHub
-      </Button>
+      </Button> */}
 
+    
       <DevLightsTimeline />
+      
 
-      <Typography>
+      {/* <Typography >
         All in all developing this project over a year in school was a quite
-        good expercience
-      </Typography>
+        good expercience.
+        <br />
+        The project is still on GitHub and theoretically everyone can use this system at theirs home
+      </Typography> */}
     </div>
   );
 }

@@ -10,7 +10,6 @@ import {
 import React from "react";
 import Circle from "../Circle";
 import tinycolor from "tinycolor2";
-import { Alert } from "@material-ui/lab";
 import Snackbar from "../Snackbar";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -23,9 +22,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   stripContainer: {
     display: "flex",
-    width: "90%",
-    height: 150,
+    width: "100%",
+    height: 75,
     alignItems: "center",
+    justifyContent: "center",
   },
   button: {
     display: "flex",
@@ -77,11 +77,8 @@ export default function LEDStrip(props: LEDStripProps) {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "Enter") {
       if (tinycolor(inputRef.current?.value).isValid()) {
-        console.log(intervalId);
-
         clearInterval(intervalId as NodeJS.Timeout);
         setIntervalId(undefined);
-        console.log("change");
         setColor(inputRef.current?.value ?? "#00ff6a");
       } else {
         if (inputRef.current) {

@@ -7,7 +7,7 @@ import TECKLogo from "../../assets/Logo_TB.svg";
 import TECKIcon from "../../assets/Rounded_Logo.svg";
 import App from "../../assets/teckboard_app.png";
 import Content from "../Content";
-import Image2 from "../../assets/image2.jpg";
+import TECKdigital from "../../assets/teckdigital.webp";
 import OldBoard from "../../assets/firstTECKboard.png";
 import NewBoard from "../../assets/newBoard.png";
 
@@ -138,7 +138,7 @@ export default function TECKboard(props: TECKboardProps) {
             defaultPosition={{ x: 100, y: 100 }}
           />
           <Content
-            value={Image2}
+            value={TECKdigital}
             parent={styles.teckboard}
             lockAspectRatio
             height={200}
@@ -247,6 +247,15 @@ export default function TECKboard(props: TECKboardProps) {
           <Typography className={styles.subTitle}>
             The current version of the mobile application (v.1.1.8)
           </Typography>
+        </div>
+        
+      </div>
+      <div className={styles.textContainer}>
+        <div className={styles.textInnerContainer}>
+            <Typography className={styles.text}>
+              The App was first developed with Android studio in Java. In March 2020 we decided to develope directly for Android and iOS.
+              For this we choose <a href="https://reactnative.dev">React Native</a>, a multiplatform app developement framework.
+            </Typography>
         </div>
       </div>
     </div>

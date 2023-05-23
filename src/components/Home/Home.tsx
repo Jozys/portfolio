@@ -6,11 +6,11 @@ import {
   TimelineOppositeContent,
   TimelineSeparator,
 } from "@material-ui/lab";
-import React from "react";
 import Tilt from "react-parallax-tilt";
 import { HashLink as Link } from "react-router-hash-link";
-import Image2 from "../../assets/image2.jpg";
+import Brochterbeck from "../../assets/brochterbeck.jpg";
 import Me from "../../assets/me.jpg";
+import TECKdigital from "../../assets/teckdigital.webp";
 import { contrastBlack } from "../../utils/textContrast";
 import { getAge } from "../../utils/utils";
 import Header from "../Header";
@@ -35,21 +35,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     flex: 2,
   },
   text: {
-    fontSize: "8vh",
+    fontSize: "1em",
     fontFamily: "bungee",
     textAlign: "center",
     filter: `drop-shadow(5px 5px 0px ${theme.palette.secondary.main})`,
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   info_text: {
-    fontSize: "2.5vh",
+    fontSize: "1em",
     textAlign: "center",
     width: window.innerWidth * 0.3,
     overflowWrap: "break-word",
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   tilt: {
-    marginTop: "5vh",
     width: "auto",
     height: "auto",
     transform: "rotate(0.025turn) translate(0%, 10%)",
@@ -81,7 +80,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export interface HomeProps {}
+export interface HomeProps { }
 export default function Home(props: HomeProps): JSX.Element {
   const styles = useStyles();
 
@@ -105,6 +104,7 @@ export default function Home(props: HomeProps): JSX.Element {
           <TimelineContent>
             <Tilt className={styles.tilt} tiltReverse>
               <img
+                 draggable={false}
                 src={Me}
                 height="65%"
                 width="65%"
@@ -127,13 +127,14 @@ export default function Home(props: HomeProps): JSX.Element {
           <TimelineSeparator></TimelineSeparator>
 
           <TimelineOppositeContent>
-            <Tilt className={styles.tiltLeft}>
+            <Tilt tiltReverse className={styles.tiltLeft}>
               <img
+                draggable={false}
                 height="60%"
                 width="60%"
                 className={styles.image_left}
                 alt="forest"
-                src={Image2}
+                src={Brochterbeck}
               ></img>
             </Tilt>
           </TimelineOppositeContent>
@@ -142,12 +143,12 @@ export default function Home(props: HomeProps): JSX.Element {
           <TimelineOppositeContent>
             <h1 className={styles.title}>TECKdigital </h1>
             <Typography className={styles.info_text}>
-              Since December 2019 I am a member of the at the begin of 2019
-              founded student company{" "}
+              Since December 2019 I am a member of student company{" "}
               <a href="http://teckdigital.de" className={styles.info_text}>
                 TECKdigital
               </a>
-              . At TECKdigital I worked on the{" "}
+              This company was founed in the beginning of 2019 and I joined them in the end of that year.
+              At TECKdigital I worked on the{" "}
               <Link to="/projects#teckboard" className={styles.projectLink}>
                 TECKboard
               </Link>
@@ -159,11 +160,12 @@ export default function Home(props: HomeProps): JSX.Element {
           <TimelineContent>
             <Tilt className={styles.tilt} tiltReverse>
               <img
+                draggable={false}
                 height="75%"
                 width="75%"
                 className={styles.image_right}
                 alt="TECKdigital"
-                src="https://asc-images.imgix.net/2021/5/7/172b0bbf-eb3e-4ce3-818e-c25fadd3c4d3.jpeg?w=2048&auto=format"
+                src={TECKdigital}
               ></img>
             </Tilt>
           </TimelineContent>

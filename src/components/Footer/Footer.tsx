@@ -15,7 +15,7 @@ import Timo from "../../assets/timo_logo.svg";
 const useStyles = makeStyles((theme: Theme) => ({
   background: {
     backgroundColor: theme.palette.secondary.main,
-    height: 500,
+    height: "20%",
     clipPath:
       "polygon(50% 0%, 83% 12%, 100% 43%, 100% 100%, 68% 100%, 29% 100%, 0 100%, 0% 3%, 18% 12%);",
     display: "flex",
@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   button: {
     height: "5vh",
-    fontSize: "1.75vh",
+    fontSize: "1.65vh",
     width: "25%",
     color: "#fff",
   },

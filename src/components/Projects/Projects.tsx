@@ -16,7 +16,7 @@ import Skills from "../Skills";
 
 const useStyles = makeStyles((theme: Theme) => ({
   header: {
-    fontSize: "8vh",
+    fontSize: "6vh",
     fontFamily: "bungee",
     textAlign: "center",
     filter: `drop-shadow(5px 5px 0px ${theme.palette.secondary.main})`,
@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   title: {
+    fontSize: "4vh",
     textAlign: "center",
     alignSelf: "center",
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
@@ -33,22 +34,30 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   image: {
     borderRadius: 15,
+    overflow: "hidden"
+  },
+  teckboard: {
+    display: "flex",
+  },
+  tb_info: {
+    flex: 1,
   },
   tilt: {
-    width: "75%",
+    width: "50%",
     height: "auto",
     transform: "rotate(0.025turn) translate(0%, 10%)",
   },
   tiltLeft: {
-    width: "75%",
+    width: "50%",
     height: "auto",
     transform: "rotate(-0.025turn) translate(20%, 10%)",
   },
   info_text: {
-    fontSize: "2.5vh",
+    fontSize: "2.0vh",
     textAlign: "center",
     width: window.innerWidth * 0.3,
-    overflowWrap: "break-word",
+    overflowWrap: "normal",
+    textOverflow: "",
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   button: {
@@ -75,8 +84,8 @@ export default function Projects(props: ProjectsProps): JSX.Element {
         <Typography className={styles.header}> I developed... </Typography>
       </Typing>
       <Timeline align="alternate">
-        <TimelineItem key="teckboard">
-          <TimelineOppositeContent>
+        <TimelineItem key="teckboard" className={styles.teckboard}>
+          <TimelineOppositeContent className={styles.tb_info}>
             <a
               id="user-content-teckboard"
               className={styles.title}
@@ -94,7 +103,7 @@ export default function Projects(props: ProjectsProps): JSX.Element {
               information system. By using the principe learning by doing, I
               learned much about planing, developing and communicating with the
               two developers of this system.
-              <br />
+              {" "}
               <a
                 rel="noreferrer"
                 href="/project/teckboard"
@@ -106,18 +115,19 @@ export default function Projects(props: ProjectsProps): JSX.Element {
             </Typography>
           </TimelineOppositeContent>
           <TimelineSeparator></TimelineSeparator>
-          <TimelineContent>
-            <div className={styles.tilt}>
-              <Tilt className={styles.tilt} tiltReverse>
-                <img
-                  height="50%"
-                  width="50%"
-                  className={styles.image}
-                  src={TECKboardApp}
-                  alt="TECKboard App"
-                ></img>
-              </Tilt>
-            </div>
+          <TimelineContent className={styles.tb_info}>
+
+            <div className={styles.tilt} >
+              <Tilt tiltReverse>
+                  <img
+                    height="50%"
+                    width="50%"
+                    className={styles.image}
+                    src={TECKboardApp}
+                    alt="TECKboard App"
+                  ></img>
+                </Tilt>
+              </div>
           </TimelineContent>
         </TimelineItem>
         <TimelineItem>
@@ -159,7 +169,7 @@ export default function Projects(props: ProjectsProps): JSX.Element {
           <TimelineSeparator />
           <TimelineOppositeContent>
             <div className={styles.tiltLeft}>
-              <Tilt className={styles.tiltLeft}>
+              <Tilt tiltReverse>
                 <img
                   height="50%"
                   width="50%"
