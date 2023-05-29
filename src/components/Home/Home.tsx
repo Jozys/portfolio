@@ -11,6 +11,7 @@ import { HashLink as Link } from "react-router-hash-link";
 import Brochterbeck from "../../assets/brochterbeck.jpg";
 import Me from "../../assets/me.jpg";
 import TECKdigital from "../../assets/teckdigital.webp";
+import DHBW from "../../assets/DHBW_Logo.svg";
 import { contrastBlack } from "../../utils/textContrast";
 import { getAge } from "../../utils/utils";
 import Header from "../Header";
@@ -104,7 +105,7 @@ export default function Home(props: HomeProps): JSX.Element {
           <TimelineContent>
             <Tilt className={styles.tilt} tiltReverse>
               <img
-                 draggable={false}
+                draggable={false}
                 src={Me}
                 height="65%"
                 width="65%"
@@ -169,6 +170,30 @@ export default function Home(props: HomeProps): JSX.Element {
               ></img>
             </Tilt>
           </TimelineContent>
+        </TimelineItem>
+        <TimelineItem className={styles.item}>
+          <TimelineContent>
+            <h1 className={styles.title}> Student@DHBW </h1>
+            <Typography className={styles.info_text}>
+              Since September 2022 I am a Vocational Training Student of Applied Computer Science at SAP in Walldorf.
+              Therefore I work there at SAP and study at the Baden-Wuerttemberg Cooperative State University Karlsruhe (DHBW Karlsruhe).
+
+            </Typography>
+          </TimelineContent>
+          <TimelineSeparator></TimelineSeparator>
+
+          <TimelineOppositeContent>
+            <Tilt tiltReverse className={styles.tiltLeft}>
+              <img
+                draggable={false}
+                height="60%"
+                width="60%"
+                className={styles.image_left}
+                alt="dhbw logo"
+              // src={DHBW}
+              ></img>
+            </Tilt>
+          </TimelineOppositeContent>
         </TimelineItem>
       </Timeline>
     </div>

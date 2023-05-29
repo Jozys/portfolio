@@ -6,7 +6,6 @@ import {
   TimelineOppositeContent,
   TimelineSeparator,
 } from "@material-ui/lab";
-import React from "react";
 import Tilt from "react-parallax-tilt";
 import Typing from "react-typing-animation";
 import DevLights from "../../assets/devlights.png";
@@ -75,7 +74,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export interface ProjectsProps {}
+export interface ProjectsProps { }
 export default function Projects(props: ProjectsProps): JSX.Element {
   const styles = useStyles();
   return (
@@ -119,15 +118,15 @@ export default function Projects(props: ProjectsProps): JSX.Element {
 
             <div className={styles.tilt} >
               <Tilt tiltReverse>
-                  <img
-                    height="50%"
-                    width="50%"
-                    className={styles.image}
-                    src={TECKboardApp}
-                    alt="TECKboard App"
-                  ></img>
-                </Tilt>
-              </div>
+                <img
+                  height="50%"
+                  width="50%"
+                  className={styles.image}
+                  src={TECKboardApp}
+                  alt="TECKboard App"
+                ></img>
+              </Tilt>
+            </div>
           </TimelineContent>
         </TimelineItem>
         <TimelineItem>

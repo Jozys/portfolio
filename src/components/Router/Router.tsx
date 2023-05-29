@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export interface RouterProps {}
+export interface RouterProps { }
 export default function Router(props: RouterProps): JSX.Element {
   const styles = useStyles();
 

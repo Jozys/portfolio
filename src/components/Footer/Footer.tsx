@@ -14,8 +14,8 @@ import Timo from "../../assets/timo_logo.svg";
 
 const useStyles = makeStyles((theme: Theme) => ({
   background: {
+    height: window.innerHeight * 0.5,
     backgroundColor: theme.palette.secondary.main,
-    height: "20%",
     clipPath:
       "polygon(50% 0%, 83% 12%, 100% 43%, 100% 100%, 68% 100%, 29% 100%, 0 100%, 0% 3%, 18% 12%);",
     display: "flex",
@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export interface FooterProps {}
+export interface FooterProps { }
 export default function Footer(props: FooterProps) {
   const styles = useStyles();
 

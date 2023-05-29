@@ -1,13 +1,10 @@
 import { Button, makeStyles, Theme, Typography } from "@material-ui/core";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import React from "react";
 import Typing from "react-typing-animation";
 import { contrastBlack } from "../../utils/textContrast";
+import DevLightsImageCarousel from "../DevLightsImageCarousel/DevLightsImageCarousel";
 import DevLightsTimeline from "../DevLightsTimeline";
 import LEDStrip from "../LEDStrip";
-import DevLight from "../../assets/devlight.jpg";
-import Tilt from "react-parallax-tilt";
-import DevLightsImageCarousel from "../DevLightsImageCarousel/DevLightsImageCarousel";
+import GitHubIcon from "@material-ui/icons/GitHub";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -76,26 +73,26 @@ export default function DevLights() {
           <div className={styles.strip}>
             <LEDStrip />
           </div>
-      
-        </div>  
+
+        </div>
       </div>
       <div className={styles.carousel}>
         <DevLightsImageCarousel />
-      </div> 
+      </div>
       <div className={styles.introText}>
         <Typography className={styles.text}>
-          DevLights are self-programmed smart home led stripes using the WS2812B chip for controlling the stripes. <br/>
+          DevLights are self-programmed smart home led stripes using the WS2812B chip for controlling the stripes. <br />
           There is a backend server developed with NestJS and MongoDB, a smartphone and desktop application for the management.
         </Typography>
       </div>
 
-      
 
-      {/* <Typography className={styles.text}>
+
+      <Typography className={styles.text}>
         <br />
         The project is open source. It can be viewed on GitHub.
-      </Typography> */}
-      {/* <Button
+      </Typography>
+      <Button
         size="large"
         onClick={() =>
           window.open("https://github.com/ProjektDevLights", "_blank")
@@ -103,18 +100,18 @@ export default function DevLights() {
         endIcon={<GitHubIcon fontSize="inherit" />}
       >
         Visit Project Devlights on GitHub
-      </Button> */}
+      </Button>
 
-    
+
       <DevLightsTimeline />
-      
 
-      {/* <Typography >
+
+      <Typography >
         All in all developing this project over a year in school was a quite
         good expercience.
         <br />
         The project is still on GitHub and theoretically everyone can use this system at theirs home
-      </Typography> */}
+      </Typography>
     </div>
   );
 }
