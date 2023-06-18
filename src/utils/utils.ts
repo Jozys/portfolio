@@ -7,7 +7,6 @@ export const getAge = (): number => {
   let months = currentDate.getMonth() - birthDate.getMonth();
   // 06 - 07 = -1 => negative age calculated before is not reached;
   let days = currentDate.getDate() - birthDate.getDate();
-  console.log(months);
   if (months <= 0) {
     if (months < 0 || (months == 0 && days < 0)) {
       age--;

@@ -15,6 +15,7 @@ import DHBW from "../../assets/DHBW_Logo.svg";
 import { contrastBlack } from "../../utils/textContrast";
 import { getAge } from "../../utils/utils";
 import Header from "../Header";
+import { language } from "../../language/en";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -94,11 +95,9 @@ export default function Home(props: HomeProps): JSX.Element {
       <Timeline align="alternate" className={styles.div}>
         <TimelineItem className={styles.item}>
           <TimelineOppositeContent>
-            <h1 className={styles.title}> Who am I?</h1>
+            <h1 className={styles.title}>{language.home.me.title}</h1>
             <Typography className={styles.info_text}>
-              I am a {getAge()} year old student, who likes doing sport,
-              developing, and reading books. Currently I study informatics in
-              Karlsruhe and work at SAP in Walldorf, Baden-Württemberg Germany.
+              {language.home.me.description}
             </Typography>
           </TimelineOppositeContent>
           <TimelineSeparator></TimelineSeparator>
@@ -117,12 +116,9 @@ export default function Home(props: HomeProps): JSX.Element {
         </TimelineItem>
         <TimelineItem className={styles.item}>
           <TimelineContent>
-            <h1 className={styles.title}> My life </h1>
+            <h1 className={styles.title}>{language.home.life.title}</h1>
             <Typography className={styles.info_text}>
-              I love going outside and taking walks at my hometown Brochterbeck
-              in North-Rhine-Westphalia. Also I cycle much with my bike through
-              the countryside.Its also very important to me to meet friends and
-              spending time with them reguarly.
+              {language.home.life.description}
             </Typography>
           </TimelineContent>
           <TimelineSeparator></TimelineSeparator>
@@ -147,7 +143,7 @@ export default function Home(props: HomeProps): JSX.Element {
               Since December 2019 I am a member of student company{" "}
               <a href="http://teckdigital.de" className={styles.info_text}>
                 TECKdigital
-              </a>
+              </a>{" "}
               This company was founed in the beginning of 2019 and I joined them in the end of that year.
               At TECKdigital I worked on the{" "}
               <Link to="/projects#teckboard" className={styles.projectLink}>
@@ -173,15 +169,12 @@ export default function Home(props: HomeProps): JSX.Element {
         </TimelineItem>
         <TimelineItem className={styles.item}>
           <TimelineContent>
-            <h1 className={styles.title}> Student@DHBW </h1>
+            <h1 className={styles.title}> {language.home.dhbw.title} </h1>
             <Typography className={styles.info_text}>
-              Since September 2022 I am a Vocational Training Student of Applied Computer Science at SAP in Walldorf.
-              Therefore I work there at SAP and study at the Baden-Wuerttemberg Cooperative State University Karlsruhe (DHBW Karlsruhe).
-
+            {language.home.dhbw.description}
             </Typography>
           </TimelineContent>
           <TimelineSeparator></TimelineSeparator>
-
           <TimelineOppositeContent>
             <Tilt tiltReverse className={styles.tiltLeft}>
               <img
@@ -190,7 +183,7 @@ export default function Home(props: HomeProps): JSX.Element {
                 width="60%"
                 className={styles.image_left}
                 alt="dhbw logo"
-              // src={DHBW}
+                src={DHBW}
               ></img>
             </Tilt>
           </TimelineOppositeContent>

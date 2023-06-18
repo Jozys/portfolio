@@ -12,6 +12,7 @@ import DevLights from "../../assets/devlights.png";
 import TECKboardApp from "../../assets/teckboard_app.png";
 import { contrastBlack } from "../../utils/textContrast";
 import Skills from "../Skills";
+import { language } from "../../language/en";
 
 const useStyles = makeStyles((theme: Theme) => ({
   header: {
@@ -77,10 +78,11 @@ const useStyles = makeStyles((theme: Theme) => ({
 export interface ProjectsProps { }
 export default function Projects(props: ProjectsProps): JSX.Element {
   const styles = useStyles();
+  
   return (
     <div>
       <Typing>
-        <Typography className={styles.header}> I developed... </Typography>
+        <Typography className={styles.header}> {language.projects.main.title} </Typography>
       </Typing>
       <Timeline align="alternate">
         <TimelineItem key="teckboard" className={styles.teckboard}>
@@ -96,13 +98,7 @@ export default function Projects(props: ProjectsProps): JSX.Element {
             </a>
 
             <Typography className={styles.info_text}>
-              TECKboard is a realtime information system that two friends of
-              mine, Timo Peters and Yannick Hahn, developed. I spend really much
-              hours developing a smartphone application for this realtime
-              information system. By using the principe learning by doing, I
-              learned much about planing, developing and communicating with the
-              two developers of this system.
-              {" "}
+              {language.projects.main.teckboard.description}
               <a
                 rel="noreferrer"
                 href="/project/teckboard"
@@ -137,15 +133,11 @@ export default function Projects(props: ProjectsProps): JSX.Element {
               href={"#devlights"}
             >
               <h1 id="devlights" about="DevLights" className={styles.title}>
-                ... DevLights
+                {language.projects.main.devlight.title}
               </h1>
             </a>
             <Typography className={styles.info_text}>
-              DevLights are the smart home LED Stripes for Developers. Together
-              with two friends of mine, Jaan Springer and Timo Peters, we
-              developed these lights during our project course informatic at
-              Graf-Adolf-Gymnasium. From begin we learned new programming
-              languages like C++ and worked at Hard and Software.{" "}
+              {language.projects.main.devlight.description}
               <a
                 rel="noreferrer"
                 href="/project/devlights"

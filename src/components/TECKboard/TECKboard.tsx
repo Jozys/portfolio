@@ -10,6 +10,7 @@ import Content from "../Content";
 import TECKdigital from "../../assets/teckdigital.webp";
 import OldBoard from "../../assets/firstTECKboard.png";
 import NewBoard from "../../assets/newBoard.png";
+import { language } from "../../language/en";
 
 const useStyles = makeStyles((theme: Theme) => ({
   header: {
@@ -100,7 +101,9 @@ export default function TECKboard(props: TECKboardProps) {
   return (
     <div>
       <Typing>
-        <Typography className={styles.header}> TECKboard </Typography>
+        <Typography className={styles.header}>
+          {language.projects.teckboard.title}
+        </Typography>
       </Typing>
 
       <div className={styles.teckboard_container}>
@@ -125,9 +128,7 @@ export default function TECKboard(props: TECKboardProps) {
         </div>
         <div className={styles.teckboard}>
           <Content
-            value={
-              "TECKboard is a real time digital information system. It gives the ability to create individual boards for specific groups, so that everyone just gets the information they need and are allowed to see. In the background there is a secure user and invite system for convenient user management"
-            }
+            value={language.projects.teckboard.content}
             height={250}
             width={400}
             parent={styles.teckboard}
@@ -152,17 +153,12 @@ export default function TECKboard(props: TECKboardProps) {
       </div>
       <div className={styles.textContainer}>
         <div className={styles.textInnerContainer}>
-          <h1 className={styles.title}> How TECKboards have been developed </h1>
+          <h1 className={styles.title}>
+            {language.projects.teckboard.projectDescription.title}
+          </h1>
 
           <Typography className={styles.text}>
-            The first idea for the TECKboards came from the student council of
-            my school, the Graf-Adolf-Gymnasium, to replace the old analog
-            information system of our school. The first version of the
-            TECKboards was created in 2019. In the last two years the system has
-            been developed further and further. At the end of 2019 I started
-            developing a mobile application for our system. The mobile
-            application was released in 2021 and can be downloaded in the known
-            app stores of Apple and Google.
+            {language.projects.teckboard.projectDescription.description}
           </Typography>
         </div>
       </div>
@@ -205,11 +201,7 @@ export default function TECKboard(props: TECKboardProps) {
       <div className={styles.textContainer}>
         <div className={styles.textInnerContainer}>
           <Typography className={styles.text}>
-            The mobile application evolved from the first version developed for
-            Android only in 2019 to the released version in the known app stores
-            for Google and Apple in 2021. The mobile application is currently
-            used by the students and the teachers of our school, the
-            Graf-Adolf-Gymnasium in Tecklenburg, North-Rhine-Westphalia.
+            {language.projects.teckboard.appDescription[0]}
           </Typography>
         </div>
       </div>
@@ -248,14 +240,15 @@ export default function TECKboard(props: TECKboardProps) {
             The current version of the mobile application (v.1.1.8)
           </Typography>
         </div>
-        
       </div>
       <div className={styles.textContainer}>
         <div className={styles.textInnerContainer}>
-            <Typography className={styles.text}>
-              The App was first developed with Android studio in Java. In March 2020 we decided to develope directly for Android and iOS.
-              For this we choose <a href="https://reactnative.dev">React Native</a>, a multiplatform app developement framework.
-            </Typography>
+          <Typography className={styles.text}>
+            The App was first developed with Android studio in Java. In March
+            2020 we decided to develope directly for Android and iOS. For this
+            we choose <a href="https://reactnative.dev">React Native</a>, a
+            multiplatform app developement framework.
+          </Typography>
         </div>
       </div>
     </div>

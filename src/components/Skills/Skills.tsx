@@ -14,6 +14,7 @@ import CPP from "../../assets/cpp.svg";
 import MongoDB from "../../assets/mongodb.svg";
 import NestJS from "../../assets/nestjs.svg";
 import { contrastBlack } from "../../utils/textContrast";
+import { language } from "../../language/en";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -47,7 +48,7 @@ export default function Skills(): JSX.Element {
   const styles = useStyles();
   return (
     <div className={styles.root}>
-      <h1 className={styles.text}> My skills </h1>
+      <h1 className={styles.text}> {language.projects.main.skills.title} </h1>
       <div className={styles.iconContainer}>
         <FontAwesomeIcon size="2x" icon={faJava} color="#EA2D2E" />
         <FontAwesomeIcon size="2x" icon={faJsSquare} color={"#EFD81D"} />
@@ -61,14 +62,7 @@ export default function Skills(): JSX.Element {
       </div>
 
       <Typography className={styles.info_text}>
-        Above you see all the programming languages and frameworks I am familiar
-        with. My experiences in Java and JavaScript are very good, the React,
-        for frontend applications and Nest.js, for backend applications,
-        framework experience is also very good. {"\n"}I have particular
-        experience at HTML5 and CSS3. {"\n"}
-        Allmost everything I have learned by myself, except from Java, I learned
-        Java in school. I want to learn more languages, frameworks and tools in
-        the future. My goal is to always achieve and learn more in my career.
+        {language.projects.main.skills.description}
       </Typography>
     </div>
   );

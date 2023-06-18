@@ -11,6 +11,7 @@ import React from "react";
 import Circle from "../Circle";
 import tinycolor from "tinycolor2";
 import Snackbar from "../Snackbar";
+import { language } from "../../language/en";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -75,6 +76,8 @@ export default function LEDStrip(props: LEDStripProps) {
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    //TODO FIX this function
+    // interval does not stop if enter button is pressed
     if (e.key === "Enter") {
       if (tinycolor(inputRef.current?.value).isValid()) {
         clearInterval(intervalId as NodeJS.Timeout);
@@ -101,7 +104,7 @@ export default function LEDStrip(props: LEDStripProps) {
       <div className={styles.stripContainer}>{renderItems()}</div>
       <div>
         <FormControl>
-          <InputLabel>Type color here</InputLabel>
+          <InputLabel>{language.projects.devlight.ledstrip.color}</InputLabel>
           <Input
             key={"color_input"}
             inputRef={inputRef}
@@ -124,12 +127,12 @@ export default function LEDStrip(props: LEDStripProps) {
             onKeyPress={handleKeyPress}
           />
           <FormHelperText id={"hex-info-text"}>
-            Only valid HEX or RGB values
+            {language.projects.devlight.ledstrip.validity}
           </FormHelperText>
         </FormControl>
         {!intervalId ? (
           <Button className={styles.button} onClick={() => start()}>
-            Restart Random Color
+            {language.projects.devlight.ledstrip.restart}
           </Button>
         ) : null}
       </div>

@@ -11,6 +11,7 @@ import DevLights from "../../assets/devlights.svg";
 import H4hn from "../../assets/h4hn.svg";
 import TECKdigital from "../../assets/teckdigital.svg";
 import Timo from "../../assets/timo_logo.svg";
+import { language } from "../../language/en";
 
 const useStyles = makeStyles((theme: Theme) => ({
   background: {
@@ -75,7 +76,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export interface FooterProps { }
+export interface FooterProps {}
 export default function Footer(props: FooterProps) {
   const styles = useStyles();
 
@@ -83,7 +84,9 @@ export default function Footer(props: FooterProps) {
     <div className={styles.background}>
       <div className={styles.container}>
         <div className={styles.left}>
-          <Typography className={styles.text}>Contact</Typography>
+          <Typography className={styles.text}>
+            {language.footer.contact}
+          </Typography>
           <Button
             size="large"
             onClick={() => window.open("https://github.com/Jozys", "_blank")}
@@ -131,7 +134,9 @@ export default function Footer(props: FooterProps) {
           </Button>
         </div>
         <div className={styles.middle}>
-          <Typography className={styles.text}> Others </Typography>
+          <Typography className={styles.text}>
+            {language.footer.others}
+          </Typography>
           <Button
             style={{ color: "#fff", fontSize: "1.75h" }}
             startIcon={
@@ -166,7 +171,10 @@ export default function Footer(props: FooterProps) {
           </Button>
         </div>
         <div className={styles.left}>
-          <Typography className={styles.text}> Projects </Typography>
+          <Typography className={styles.text}>
+            {" "}
+            {language.footer.projects}{" "}
+          </Typography>
           <Button
             className={styles.button}
             onClick={() => window.open("https://teckboard.de", "_blank")}

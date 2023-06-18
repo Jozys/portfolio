@@ -3,8 +3,9 @@ import React from "react";
 import Typing from "react-typing-animation";
 import { contrastBlack } from "../../utils/textContrast";
 import { getAge } from "../../utils/utils";
+import { language } from "../../language/en";
 
-export interface HeaderProps {}
+export interface HeaderProps { }
 
 const useStyles = makeStyles((theme: Theme) => ({
   text: {
@@ -31,12 +32,12 @@ export default function Header(props: HeaderProps) {
     <div>
       <Typing>
         <Typography className={styles.text}>
-          Hello! <br /> My name is Joshua Slaar!
+          {language.home.greeting} <br /> {language.home.name}
         </Typography>
       </Typing>
       <h1 className={styles.title}>
-        Student - Developer - {getAge()} years old - Germany
+        {language.home.subtitle}
       </h1>
-    </div>
+    </div >
   );
 }
