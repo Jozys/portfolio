@@ -1,14 +1,13 @@
-import React from "react";
-import { useThemeSwitch } from "../ThemeProvider";
-import { MorphReplace } from "react-svg-morph";
-import Brightness7Icon from "@material-ui/icons/Brightness7";
-import Brightness4Icon from "@material-ui/icons/Brightness4";
 import { makeStyles, Theme } from "@material-ui/core";
+import Brightness4Icon from "@material-ui/icons/Brightness4";
+import Brightness7Icon from "@material-ui/icons/Brightness7";
 import { contrastBlack } from "../../utils/textContrast";
+import { useThemeSwitch } from "../ThemeProvider";
 
 const useStyles = makeStyles((theme: Theme) => ({
   icon: {
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
+    transition: `color 300ms ease-in-out`,
   },
 }));
 export default function ThemeSwitcher(): JSX.Element {
@@ -16,7 +15,7 @@ export default function ThemeSwitcher(): JSX.Element {
 
   const styles = useStyles();
   return (
-    <div onClick={toggleTheme}>
+    <div style={{ transition: "color 300ms" }} onClick={toggleTheme}>
       {isThemeDark ? (
         <Brightness4Icon fontSize="large" className={styles.icon} />
       ) : (

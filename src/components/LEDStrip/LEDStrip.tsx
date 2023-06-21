@@ -53,8 +53,14 @@ export default function LEDStrip(props: LEDStripProps) {
 
   const start = () => {
     let id = setInterval(function () {
-      setColor(tinycolor.random().toHexString());
+      let newColor = tinycolor.random().toHexString();
+      // to handle user input in the color input, only update the input, if the activeElement is not the input
+      if (document.activeElement !== inputRef.current && inputRef.current) {
+        inputRef.current.value = newColor;
+      }
+      setColor(newColor);
     }, 5000);
+
     setIntervalId(id);
   };
 
@@ -76,16 +82,16 @@ export default function LEDStrip(props: LEDStripProps) {
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    //TODO FIX this function
-    // interval does not stop if enter button is pressed
     if (e.key === "Enter") {
       if (tinycolor(inputRef.current?.value).isValid()) {
-        clearInterval(intervalId as NodeJS.Timeout);
-        setIntervalId(undefined);
+        if (intervalId) {
+          clearTimeout(intervalId);
+          clearInterval(intervalId);
+          setIntervalId(undefined);
+        }
         setColor(inputRef.current?.value ?? "#00ff6a");
       } else {
         if (inputRef.current) {
-          //inputRef.current.blur();
           inputRef.current.value = color;
         }
         setVisible(true);
@@ -108,11 +114,6 @@ export default function LEDStrip(props: LEDStripProps) {
           <Input
             key={"color_input"}
             inputRef={inputRef}
-            value={
-              document.activeElement == inputRef.current && intervalId
-                ? null
-                : color
-            }
             defaultValue={color}
             endAdornment={
               <Circle

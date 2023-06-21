@@ -9,13 +9,12 @@ import {
 import Tilt from "react-parallax-tilt";
 import { HashLink as Link } from "react-router-hash-link";
 import Brochterbeck from "../../assets/brochterbeck.jpg";
+import DHBW from "../../assets/DHBW_Logo.svg";
 import Me from "../../assets/me.jpg";
 import TECKdigital from "../../assets/teckdigital.webp";
-import DHBW from "../../assets/DHBW_Logo.svg";
-import { contrastBlack } from "../../utils/textContrast";
-import { getAge } from "../../utils/utils";
-import Header from "../Header";
 import { language } from "../../language/en";
+import { contrastBlack } from "../../utils/textContrast";
+import Header from "../Header";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -37,14 +36,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     flex: 2,
   },
   text: {
-    fontSize: "1em",
+    fontSize: "6vh",
     fontFamily: "bungee",
     textAlign: "center",
     filter: `drop-shadow(5px 5px 0px ${theme.palette.secondary.main})`,
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   info_text: {
-    fontSize: "1em",
+    fontSize: "2.0vh",
     textAlign: "center",
     width: window.innerWidth * 0.3,
     overflowWrap: "break-word",
@@ -82,8 +81,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export interface HomeProps { }
-export default function Home(props: HomeProps): JSX.Element {
+export default function Home(): JSX.Element {
   const styles = useStyles();
 
   return (
@@ -108,7 +106,7 @@ export default function Home(props: HomeProps): JSX.Element {
                 src={Me}
                 height="65%"
                 width="65%"
-                alt="Thats me!"
+                alt="Thats me! In 2019 in Egypt"
                 className={styles.image}
               ></img>
             </Tilt>
@@ -144,8 +142,8 @@ export default function Home(props: HomeProps): JSX.Element {
               <a href="http://teckdigital.de" className={styles.info_text}>
                 TECKdigital
               </a>{" "}
-              This company was founed in the beginning of 2019 and I joined them in the end of that year.
-              At TECKdigital I worked on the{" "}
+              This company was founed in the beginning of 2019 and I joined them
+              in the end of that year. At TECKdigital I worked on the{" "}
               <Link to="/projects#teckboard" className={styles.projectLink}>
                 TECKboard
               </Link>
@@ -171,7 +169,7 @@ export default function Home(props: HomeProps): JSX.Element {
           <TimelineContent>
             <h1 className={styles.title}> {language.home.dhbw.title} </h1>
             <Typography className={styles.info_text}>
-            {language.home.dhbw.description}
+              {language.home.dhbw.description}
             </Typography>
           </TimelineContent>
           <TimelineSeparator></TimelineSeparator>
