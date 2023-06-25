@@ -9,6 +9,7 @@ import Home from "../Home";
 import Projects from "../Projects";
 import TECKboard from "../TECKboard";
 import ThemeSwitcher from "../ThemeSwitcher";
+import LanguageChoose from "../LanguageChoose";
 
 const useStyles = makeStyles((theme: Theme) => ({
   navBarContainer: {
@@ -36,12 +37,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: contrastBlack(theme.palette.primary.main) ? "#000" : "#fff",
   },
   warning: {
+    height: window.innerHeight * 0.5,
+    width: "100%",
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
+    alignItems: "center",
   },
   warningIcon: {
     alignSelf: "center",
+    color: contrastBlack(theme.palette.primary.main) ? "#000" : "#fff",
   },
   text: {
     marginLeft: 10,
@@ -50,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export interface RouterProps { }
+export interface RouterProps {}
 export default function Router(props: RouterProps): JSX.Element {
   const styles = useStyles();
 
@@ -66,6 +71,7 @@ export default function Router(props: RouterProps): JSX.Element {
           </Link>
           <ThemeSwitcher />
         </ul>
+        <LanguageChoose />
       </nav>
 
       <Switch>

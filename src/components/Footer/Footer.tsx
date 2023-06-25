@@ -11,7 +11,7 @@ import DevLights from "../../assets/devlights.svg";
 import H4hn from "../../assets/h4hn.svg";
 import TECKdigital from "../../assets/teckdigital.svg";
 import Timo from "../../assets/timo_logo.svg";
-import { language } from "../../language/en";
+import { useLanguage } from "../LanguageProvider";
 
 const useStyles = makeStyles((theme: Theme) => ({
   background: {
@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 export interface FooterProps {}
 export default function Footer(props: FooterProps) {
   const styles = useStyles();
-
+  const { language } = useLanguage();
   return (
     <div className={styles.background}>
       <div className={styles.container}>

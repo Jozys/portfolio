@@ -14,7 +14,7 @@ import CPP from "../../assets/cpp.svg";
 import MongoDB from "../../assets/mongodb.svg";
 import NestJS from "../../assets/nestjs.svg";
 import { contrastBlack } from "../../utils/textContrast";
-import { language } from "../../language/en";
+import { useLanguage } from "../LanguageProvider";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function Skills(): JSX.Element {
   const styles = useStyles();
+  const { language } = useLanguage();
   return (
     <div className={styles.root}>
       <h1 className={styles.text}> {language.projects.main.skills.title} </h1>

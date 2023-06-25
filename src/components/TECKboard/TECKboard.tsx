@@ -10,7 +10,7 @@ import Content from "../Content";
 import TECKdigital from "../../assets/teckdigital.webp";
 import OldBoard from "../../assets/firstTECKboard.png";
 import NewBoard from "../../assets/newBoard.png";
-import { language } from "../../language/en";
+import { useLanguage } from "../LanguageProvider";
 
 const useStyles = makeStyles((theme: Theme) => ({
   header: {
@@ -93,11 +93,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     textAlign: "center",
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
+  link: {
+    "&:link": {
+      color: theme.palette.secondary.main,
+    },
+    "&:visited": {
+      color: theme.palette.secondary.main,
+    },
+  },
 }));
 
 export interface TECKboardProps {}
 export default function TECKboard(props: TECKboardProps) {
   const styles = useStyles();
+  const { language } = useLanguage();
   return (
     <div>
       <Typing>
@@ -212,10 +221,10 @@ export default function TECKboard(props: TECKboardProps) {
             <img
               draggable={false}
               style={{ borderRadius: 12, alignSelf: "center" }}
-              src={App}
+              //   src={App}
               height="auto"
               width="25%"
-              alt="The first version of TECKboards mobile application"
+              alt="The first version of TECKboards mobile application (currently not available)"
             ></img>
           </Tilt>
           <Typography className={styles.subTitle}>
@@ -244,10 +253,11 @@ export default function TECKboard(props: TECKboardProps) {
       <div className={styles.textContainer}>
         <div className={styles.textInnerContainer}>
           <Typography className={styles.text}>
-            The App was first developed with Android studio in Java. In March
-            2020 we decided to develope directly for Android and iOS. For this
-            we choose <a href="https://reactnative.dev">React Native</a>, a
-            multiplatform app developement framework.
+            {language.projects.teckboard.reactNative.start}{" "}
+            <a className={styles.link} href="https://reactnative.dev">
+              React Native
+            </a>
+            {language.projects.teckboard.reactNative.end}
           </Typography>
         </div>
       </div>

@@ -12,7 +12,7 @@ import DevLights from "../../assets/devlights.png";
 import TECKboardApp from "../../assets/teckboard_app.png";
 import { contrastBlack } from "../../utils/textContrast";
 import Skills from "../Skills";
-import { language } from "../../language/en";
+import { useLanguage } from "../LanguageProvider";
 
 const useStyles = makeStyles((theme: Theme) => ({
   header: {
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   image: {
     borderRadius: 15,
-    overflow: "hidden"
+    overflow: "hidden",
   },
   teckboard: {
     display: "flex",
@@ -75,14 +75,18 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export interface ProjectsProps { }
+export interface ProjectsProps {}
 export default function Projects(props: ProjectsProps): JSX.Element {
   const styles = useStyles();
-  
+  const { language } = useLanguage();
+
   return (
     <div>
       <Typing>
-        <Typography className={styles.header}> {language.projects.main.title} </Typography>
+        <Typography className={styles.header}>
+          {" "}
+          {language.projects.main.title}{" "}
+        </Typography>
       </Typing>
       <Timeline align="alternate">
         <TimelineItem key="teckboard" className={styles.teckboard}>
@@ -105,14 +109,13 @@ export default function Projects(props: ProjectsProps): JSX.Element {
                 target="_self"
                 className={styles.info_text}
               >
-                Learn more
+                {language.projects.main.learnMore}
               </a>
             </Typography>
           </TimelineOppositeContent>
           <TimelineSeparator></TimelineSeparator>
           <TimelineContent className={styles.tb_info}>
-
-            <div className={styles.tilt} >
+            <div className={styles.tilt}>
               <Tilt tiltReverse>
                 <img
                   height="50%"
@@ -144,7 +147,7 @@ export default function Projects(props: ProjectsProps): JSX.Element {
                 target="_self"
                 className={styles.info_text}
               >
-                Learn more
+                {language.projects.main.learnMore}
               </a>
             </Typography>
 
@@ -154,7 +157,7 @@ export default function Projects(props: ProjectsProps): JSX.Element {
               className={styles.button}
               onClick={() => window.open("/devlights.pdf", "_blank")}
             >
-              READ DOCUMENTATION
+              {language.projects.main.devlight.readDoc}
             </Button>
           </TimelineContent>
           <TimelineSeparator />

@@ -1,3 +1,5 @@
+import { Language } from "../components/LanguageProvider/LanguageProvider";
+
 export const getAge = (): number => {
   let birthDate = new Date("2004-06-07");
   let currentDate = new Date();

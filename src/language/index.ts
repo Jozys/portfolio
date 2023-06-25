@@ -1,19 +1,31 @@
 export type Language = {
+    languageInfo: {
+        de: string;
+        en: string;
+    }
     home: {
         greeting: string;
         name: string;
         subtitle: string;
         me: Info,
         life: Info,
-        teckdigital: Info,
+        teckdigital: {
+            title: string;
+            description: {
+                start: string;
+                middle: string;
+                end: string;
+            }
+        },
         dhbw: Info
     };
     projects: {
         main: {
             title: string;
             teckboard: Info;
-            devlight: Info;
+            devlight: Info & { readDoc: string };
             skills: Info;
+            learnMore: string;
         },
         devlight: {
             title: string;
@@ -26,6 +38,7 @@ export type Language = {
             summary: string;
             openSourceNotice: string;
             github: string;
+            projectTimelineTitle: string;
             projectTimeline: string[];
             last: string;
         },
@@ -34,7 +47,11 @@ export type Language = {
             content: string;
             projectDescription: Info;
             imageInfo: string[];
-            appDescription: string[]
+            appDescription: string[],
+            reactNative: {
+                start: string;
+                end: string;
+            }
         }
     },
     footer: {

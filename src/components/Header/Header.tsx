@@ -1,7 +1,8 @@
 import { makeStyles, Theme, Typography } from "@material-ui/core";
 import Typing from "react-typing-animation";
-import { language } from "../../language/en";
 import { contrastBlack } from "../../utils/textContrast";
+import { useLanguage } from "../LanguageProvider";
+import React from "react";
 
 export interface HeaderProps {}
 
@@ -25,6 +26,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function Header(props: HeaderProps) {
   const styles = useStyles();
+  const { language } = useLanguage();
 
   return (
     <div>

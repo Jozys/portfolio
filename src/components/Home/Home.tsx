@@ -12,9 +12,9 @@ import Brochterbeck from "../../assets/brochterbeck.jpg";
 import DHBW from "../../assets/DHBW_Logo.svg";
 import Me from "../../assets/me.jpg";
 import TECKdigital from "../../assets/teckdigital.webp";
-import { language } from "../../language/en";
 import { contrastBlack } from "../../utils/textContrast";
 import Header from "../Header";
+import { useLanguage } from "../LanguageProvider";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -83,6 +83,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function Home(): JSX.Element {
   const styles = useStyles();
+  const { language } = useLanguage();
 
   return (
     <div className={styles.root}>
@@ -138,17 +139,16 @@ export default function Home(): JSX.Element {
           <TimelineOppositeContent>
             <h1 className={styles.title}>TECKdigital </h1>
             <Typography className={styles.info_text}>
-              Since December 2019 I am a member of student company{" "}
+              {language.home.teckdigital.description.start}
               <a href="http://teckdigital.de" className={styles.info_text}>
                 TECKdigital
-              </a>{" "}
-              This company was founed in the beginning of 2019 and I joined them
-              in the end of that year. At TECKdigital I worked on the{" "}
+              </a>
+              {". "}
+              {language.home.teckdigital.description.middle}
               <Link to="/projects#teckboard" className={styles.projectLink}>
                 TECKboard
               </Link>
-              . By working there I got more knowledge about working in a team
-              and informatic in general.
+              {language.home.teckdigital.description.end}
             </Typography>
           </TimelineOppositeContent>
           <TimelineSeparator></TimelineSeparator>

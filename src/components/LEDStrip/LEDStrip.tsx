@@ -11,8 +11,7 @@ import React from "react";
 import Circle from "../Circle";
 import tinycolor from "tinycolor2";
 import Snackbar from "../Snackbar";
-import { language } from "../../language/en";
-
+import { useLanguage } from "../LanguageProvider";
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     width: "100%",
@@ -46,6 +45,7 @@ export default function LEDStrip(props: LEDStripProps) {
     return Math.round((window.innerWidth * 0.5) / 20);
   };
   const [length, setLength] = React.useState<number>(calculateLength());
+  const { language } = useLanguage();
 
   const handleResize = (e: UIEvent) => {
     setLength(calculateLength());

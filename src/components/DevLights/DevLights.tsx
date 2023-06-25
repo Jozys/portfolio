@@ -5,7 +5,7 @@ import DevLightsImageCarousel from "../DevLightsImageCarousel/DevLightsImageCaro
 import DevLightsTimeline from "../DevLightsTimeline";
 import LEDStrip from "../LEDStrip";
 import GitHubIcon from "@material-ui/icons/GitHub";
-import { language } from "../../language/en";
+import { useLanguage } from "../LanguageProvider";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -56,18 +56,31 @@ const useStyles = makeStyles((theme: Theme) => ({
     fontSize: "2em",
     textAlign: "center",
   },
+  summary: {
+    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
+    fontSize: "2.5vh",
+    textAlign: "center",
+  },
+  link: {
+    "&:link": {
+      color: theme.palette.secondary.main,
+    },
+    "&:visited": {
+      color: theme.palette.secondary.main,
+    },
+  },
 }));
 
 export default function DevLights() {
   const styles = useStyles();
+  const { language } = useLanguage();
   return (
     <div className={styles.container}>
       <div className={styles.devlightContainer}>
         <div>
           <Typing>
             <Typography className={styles.header}>
-              {" "}
-              {language.projects.devlight.title}{" "}
+              {language.projects.devlight.title}
             </Typography>
           </Typing>
           <Typography className={styles.text}>
@@ -104,7 +117,14 @@ export default function DevLights() {
 
       <DevLightsTimeline />
 
-      <Typography>{language.projects.devlight.last}</Typography>
+      <div className={styles.introText}>
+        <Typography className={styles.summary}>
+          {language.projects.devlight.last}
+          <a className={styles.link} href="/devlights.pdf" target="_blank">
+            Link
+          </a>
+        </Typography>
+      </div>
     </div>
   );
 }
