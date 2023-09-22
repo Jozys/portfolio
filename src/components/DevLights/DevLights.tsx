@@ -1,4 +1,5 @@
-import { Button, makeStyles, Theme, Typography } from "@mui/material";
+import { Button, Theme, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import Typing from "react-typing-animation";
 import { contrastBlack } from "../../utils/textContrast";
 import DevLightsImageCarousel from "../DevLightsImageCarousel/DevLightsImageCarousel";

@@ -1,4 +1,5 @@
-import { makeStyles, Theme, Typography, useTheme } from "@mui/material";
+import { Theme, Typography, useTheme } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import React from "react";
 import { Props, Rnd } from "react-rnd";
 

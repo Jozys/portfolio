@@ -1,4 +1,4 @@
-import { makeStyles, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import {
   Timeline,
   TimelineConnector,
@@ -8,6 +8,7 @@ import {
   TimelineSeparator,
 } from "@mui/lab";
 import { useLanguage } from "../LanguageProvider";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -42,7 +43,7 @@ export default function DevLightsTimeline(props: DevLightsTimelineProps) {
       <Typography className={styles.text}>
         {devlight.projectTimelineTitle}
       </Typography>
-      <Timeline className={styles.timeline} align="alternate">
+      <Timeline className={styles.timeline} position="alternate">
         <TimelineItem>
           <TimelineSeparator>
             <TimelineDot />

@@ -1,4 +1,5 @@
-import { makeStyles, Theme, Typography } from "@mui/material";
+import { Theme, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { CodeOutlined, HomeOutlined, Warning } from "@mui/icons-material/";
 import React from "react";
 import { BrowserRouter, Link, Redirect, Route, Switch } from "react-router-dom";

@@ -1,8 +1,9 @@
-import { makeStyles, Theme } from "@mui/material";
+import { Theme } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { contrastBlack } from "../../utils/textContrast";
 import { useThemeSwitch } from "../ThemeProvider";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme: Theme) => ({
   icon: {

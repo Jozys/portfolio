@@ -1,8 +1,9 @@
-import { makeStyles, Theme, Typography } from "@mui/material";
+import { Theme, Typography } from "@mui/material";
 import Typing from "react-typing-animation";
 import { contrastBlack } from "../../utils/textContrast";
 import { useLanguage } from "../LanguageProvider";
 import React from "react";
+import { makeStyles } from "@mui/styles";
 
 export interface HeaderProps {}
 

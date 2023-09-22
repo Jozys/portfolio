@@ -1,4 +1,4 @@
-import { makeStyles, Theme, Typography } from "@mui/material";
+import { Theme, Typography } from "@mui/material";
 import {
   Timeline,
   TimelineContent,
@@ -15,6 +15,7 @@ import TECKdigital from "../../assets/teckdigital.webp";
 import { contrastBlack } from "../../utils/textContrast";
 import Header from "../Header";
 import { useLanguage } from "../LanguageProvider";
+import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -91,7 +92,7 @@ export default function Home(): JSX.Element {
         <Header />
       </div>
 
-      <Timeline align="alternate" className={styles.div}>
+      <Timeline position="alternate" className={styles.div}>
         <TimelineItem className={styles.item}>
           <TimelineOppositeContent>
             <h1 className={styles.title}>{language.home.me.title}</h1>

@@ -1,4 +1,5 @@
-import { Button, makeStyles, Theme, Typography } from "@mui/material";
+import { Button, Theme, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import {
   Timeline,
   TimelineContent,
@@ -88,7 +89,7 @@ export default function Projects(props: ProjectsProps): JSX.Element {
           {language.projects.main.title}{" "}
         </Typography>
       </Typing>
-      <Timeline align="alternate">
+      <Timeline position="alternate">
         <TimelineItem key="teckboard" className={styles.teckboard}>
           <TimelineOppositeContent className={styles.tb_info}>
             <a

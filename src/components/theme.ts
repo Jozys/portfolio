@@ -20,7 +20,7 @@ const theme = (dark: boolean) => {
         primary: dark ? "#fff" : "#000",
         secondary: dark ? "#fdfdfd" : "#0d0d0d",
       },
-      type: dark ? "dark" : "light",
+      mode: dark ? "dark" : "light",
     },
     //@ts-ignore
     gradients: {
