@@ -1,4 +1,4 @@
-import { createTheme } from "@material-ui/core";
+import { createTheme } from "@mui/material";
 import "@fontsource/bungee";
 import "@fontsource/titillium-web";
 import "@fontsource/open-sans";

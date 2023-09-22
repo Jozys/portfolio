@@ -7,8 +7,8 @@ import {
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Theme, Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import { Theme, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import React from "react";
 import CPP from "../../assets/cpp.svg";
 import MongoDB from "../../assets/mongodb.svg";

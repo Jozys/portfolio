@@ -1,11 +1,11 @@
-import { makeStyles, Theme, Typography } from "@material-ui/core";
+import { makeStyles, Theme, Typography } from "@mui/material";
 import {
   Timeline,
   TimelineContent,
   TimelineItem,
   TimelineOppositeContent,
   TimelineSeparator,
-} from "@material-ui/lab";
+} from "@mui/lab";
 import Tilt from "react-parallax-tilt";
 import { HashLink as Link } from "react-router-hash-link";
 import Brochterbeck from "../../assets/brochterbeck.jpg";

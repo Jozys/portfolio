@@ -1,11 +1,11 @@
-import { Button, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Button, makeStyles, Theme, Typography } from "@mui/material";
 import {
   Timeline,
   TimelineContent,
   TimelineItem,
   TimelineOppositeContent,
   TimelineSeparator,
-} from "@material-ui/lab";
+} from "@mui/lab";
 import Tilt from "react-parallax-tilt";
 import Typing from "react-typing-animation";
 import DevLights from "../../assets/devlights.png";

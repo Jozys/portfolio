@@ -1,4 +1,4 @@
-import { makeStyles, Typography } from "@material-ui/core";
+import { makeStyles, Typography } from "@mui/material";
 import {
   Timeline,
   TimelineConnector,
@@ -6,7 +6,7 @@ import {
   TimelineDot,
   TimelineItem,
   TimelineSeparator,
-} from "@material-ui/lab";
+} from "@mui/lab";
 import { useLanguage } from "../LanguageProvider";
 
 const useStyles = makeStyles((theme) => ({

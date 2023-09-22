@@ -1,11 +1,11 @@
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Theme, Typography } from "@material-ui/core";
-import { LinkedIn } from "@material-ui/icons";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import MailIcon from "@material-ui/icons/Mail";
-import { makeStyles } from "@material-ui/styles";
+import { Button, Theme, Typography } from "@mui/material";
+import { LinkedIn } from "@mui/icons-material";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import MailIcon from "@mui/icons-material/Mail";
+import { makeStyles } from "@mui/styles";
 import TECKboard from "../../assets/Logo_TB.svg";
 import DevLights from "../../assets/devlights.svg";
 import H4hn from "../../assets/h4hn.svg";

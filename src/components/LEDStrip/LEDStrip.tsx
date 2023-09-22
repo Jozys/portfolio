@@ -6,7 +6,7 @@ import {
   FormHelperText,
   InputLabel,
   Button,
-} from "@material-ui/core";
+} from "@mui/material";
 import React from "react";
 import Circle from "../Circle";
 import tinycolor from "tinycolor2";

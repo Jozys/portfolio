@@ -1,4 +1,4 @@
-import { makeStyles, Theme, Typography } from "@material-ui/core";
+import { makeStyles, Theme, Typography } from "@mui/material";
 import React from "react";
 import Typing from "react-typing-animation";
 import { contrastBlack } from "../../utils/textContrast";

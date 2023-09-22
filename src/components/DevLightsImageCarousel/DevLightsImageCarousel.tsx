@@ -1,4 +1,4 @@
-import { Theme, makeStyles } from "@material-ui/core";
+import { Theme, makeStyles } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import DevLights_Desktop from "../../assets/devlight/devlights_desktop_1.jpg";

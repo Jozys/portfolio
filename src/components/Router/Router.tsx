@@ -1,5 +1,5 @@
-import { makeStyles, Theme, Typography } from "@material-ui/core";
-import { CodeOutlined, HomeOutlined, Warning } from "@material-ui/icons/";
+import { makeStyles, Theme, Typography } from "@mui/material";
+import { CodeOutlined, HomeOutlined, Warning } from "@mui/icons-material/";
 import React from "react";
 import { BrowserRouter, Link, Redirect, Route, Switch } from "react-router-dom";
 import { contrastBlack } from "../../utils/textContrast";
