@@ -1,5 +1,5 @@
 import { Theme, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material/styles";
 import React from "react";
 import Typing from "react-typing-animation";
 import { contrastBlack } from "../../utils/textContrast";
@@ -13,8 +13,28 @@ import OldBoard from "../../assets/firstTECKboard.png";
 import NewBoard from "../../assets/newBoard.png";
 import { useLanguage } from "../LanguageProvider";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  header: {
+const PREFIX = "TECKboard";
+
+const classes = {
+  header: `${PREFIX}-header`,
+  teckboard_container: `${PREFIX}-teckboard_container`,
+  teckboardHeader: `${PREFIX}-teckboardHeader`,
+  teckboard: `${PREFIX}-teckboard`,
+  teckboardTitle: `${PREFIX}-teckboardTitle`,
+  iconLeft: `${PREFIX}-iconLeft`,
+  iconRight: `${PREFIX}-iconRight`,
+  textContainer: `${PREFIX}-textContainer`,
+  textInnerContainer: `${PREFIX}-textInnerContainer`,
+  title: `${PREFIX}-title`,
+  text: `${PREFIX}-text`,
+  imagesContainer: `${PREFIX}-imagesContainer`,
+  singleImage: `${PREFIX}-singleImage`,
+  subTitle: `${PREFIX}-subTitle`,
+  link: `${PREFIX}-link`,
+};
+
+const Root = styled("div")(({ theme }: { theme: Theme }) => ({
+  [`& .${classes.header}`]: {
     fontSize: "8vh",
     fontFamily: "bungee",
     textAlign: "center",
@@ -24,57 +44,68 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
-  teckboard_container: {
+
+  [`& .${classes.teckboard_container}`]: {
     height: "60vh",
     display: "flex",
     flexDirection: "column",
     padding: theme.spacing(8),
   },
-  teckboardHeader: {
+
+  [`& .${classes.teckboardHeader}`]: {
     flex: 1,
     background: "#172b4d",
     display: "flex",
     alignItems: "center",
   },
-  teckboard: {
+
+  [`& .${classes.teckboard}`]: {
     position: "relative",
     flex: 10,
     background: "#F1F1F1aa",
     display: "flex",
   },
-  teckboardTitle: {
+
+  [`& .${classes.teckboardTitle}`]: {
     textAlign: "center",
     fontSize: 24,
     color: "#fff",
     flex: 1,
   },
-  iconLeft: {
+
+  [`& .${classes.iconLeft}`]: {
     flex: 1,
   },
-  iconRight: {
+
+  [`& .${classes.iconRight}`]: {
     flex: 1,
   },
-  textContainer: {
+
+  [`& .${classes.textContainer}`]: {
     display: "flex",
     flexDirection: "column",
 
     alignContent: "center",
   },
-  textInnerContainer: {
+
+  [`& .${classes.textInnerContainer}`]: {
     alignSelf: "center",
     flex: 1,
     width: "50%",
   },
-  title: {
+
+  [`& .${classes.title}`]: {
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
     textAlign: "center",
   },
-  text: {
+
+  [`& .${classes.text}`]: {
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
     fontSize: "2.5vh",
     textAlign: "center",
   },
-  imagesContainer: {
+
+  [`& .${classes.imagesContainer}`]: {
     width: window.innerWidth,
     display: "flex",
     flex: 1,
@@ -84,17 +115,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
   },
-  singleImage: {
+
+  [`& .${classes.singleImage}`]: {
     display: "flex",
     flexDirection: "column",
     flex: 1,
     justifyContent: "center",
   },
-  subTitle: {
+
+  [`& .${classes.subTitle}`]: {
     textAlign: "center",
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
-  link: {
+
+  [`& .${classes.link}`]: {
     "&:link": {
       color: theme.palette.secondary.main,
     },
@@ -106,42 +140,41 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export interface TECKboardProps {}
 export default function TECKboard(props: TECKboardProps) {
-  const styles = useStyles();
   const { language } = useLanguage();
   return (
-    <div>
+    <Root>
       <Typing>
-        <Typography className={styles.header}>
+        <Typography className={classes.header}>
           {language.projects.teckboard.title}
         </Typography>
       </Typing>
 
-      <div className={styles.teckboard_container}>
-        <div className={styles.teckboardHeader}>
+      <div className={classes.teckboard_container}>
+        <div className={classes.teckboardHeader}>
           <img
             alt="TECKboard Logo"
-            className={styles.iconLeft}
+            className={classes.iconLeft}
             height={25}
             width={25}
             src={TECKLogo}
             draggable={false}
           />
-          <Typography className={styles.teckboardTitle}>Test</Typography>
+          <Typography className={classes.teckboardTitle}>Test</Typography>
           <img
             alt="TECKboard Logo"
-            className={styles.iconRight}
+            className={classes.iconRight}
             height={25}
             width={25}
             src={TECKIcon}
             draggable={false}
           />
         </div>
-        <div className={styles.teckboard}>
+        <div className={classes.teckboard}>
           <Content
             value={language.projects.teckboard.content}
             height={250}
             width={400}
-            parent={styles.teckboard}
+            parent={classes.teckboard}
             type="text"
             x={200}
             y={100}
@@ -150,7 +183,7 @@ export default function TECKboard(props: TECKboardProps) {
           />
           <Content
             value={TECKdigital}
-            parent={styles.teckboard}
+            parent={classes.teckboard}
             lockAspectRatio
             height={200}
             width={"auto"}
@@ -161,19 +194,19 @@ export default function TECKboard(props: TECKboardProps) {
           />
         </div>
       </div>
-      <div className={styles.textContainer}>
-        <div className={styles.textInnerContainer}>
-          <h1 className={styles.title}>
+      <div className={classes.textContainer}>
+        <div className={classes.textInnerContainer}>
+          <h1 className={classes.title}>
             {language.projects.teckboard.projectDescription.title}
           </h1>
 
-          <Typography className={styles.text}>
+          <Typography className={classes.text}>
             {language.projects.teckboard.projectDescription.description}
           </Typography>
         </div>
       </div>
-      <div className={styles.imagesContainer}>
-        <div className={styles.singleImage}>
+      <div className={classes.imagesContainer}>
+        <div className={classes.singleImage}>
           <Tilt style={{ display: "flex", justifyContent: "center" }}>
             <img
               draggable={false}
@@ -184,11 +217,11 @@ export default function TECKboard(props: TECKboardProps) {
               alt="The first version of TECKboards"
             ></img>
           </Tilt>
-          <Typography className={styles.subTitle}>
+          <Typography className={classes.subTitle}>
             The first version of the TECKboard, which was created in 2019
           </Typography>
         </div>
-        <div className={styles.singleImage}>
+        <div className={classes.singleImage}>
           <Tilt
             style={{ display: "flex", justifyContent: "center" }}
             tiltReverse
@@ -202,22 +235,22 @@ export default function TECKboard(props: TECKboardProps) {
               alt="The second version of TECKboards"
             ></img>
           </Tilt>
-          <Typography className={styles.subTitle}>
+          <Typography className={classes.subTitle}>
             The second version of the TECKboard, which was created in 2020, and
             is now used in our school
           </Typography>
         </div>
       </div>
-      <div className={styles.textContainer}>
-        <div className={styles.textInnerContainer}>
-          <Typography className={styles.text}>
+      <div className={classes.textContainer}>
+        <div className={classes.textInnerContainer}>
+          <Typography className={classes.text}>
             {language.projects.teckboard.appDescription[0]}
           </Typography>
         </div>
       </div>
 
-      <div className={styles.imagesContainer}>
-        <div className={styles.singleImage}>
+      <div className={classes.imagesContainer}>
+        <div className={classes.singleImage}>
           <Tilt style={{ display: "flex", justifyContent: "center" }}>
             <img
               draggable={false}
@@ -228,11 +261,11 @@ export default function TECKboard(props: TECKboardProps) {
               alt="The first version of TECKboards mobile application (currently not available)"
             ></img>
           </Tilt>
-          <Typography className={styles.subTitle}>
+          <Typography className={classes.subTitle}>
             The first version of the TECKboard mobile application
           </Typography>
         </div>
-        <div className={styles.singleImage}>
+        <div className={classes.singleImage}>
           <Tilt
             style={{ display: "flex", justifyContent: "center" }}
             tiltReverse
@@ -246,22 +279,22 @@ export default function TECKboard(props: TECKboardProps) {
               alt="The released version of TECKboards mobile application"
             ></img>
           </Tilt>
-          <Typography className={styles.subTitle}>
+          <Typography className={classes.subTitle}>
             The current version of the mobile application (v.1.1.8)
           </Typography>
         </div>
       </div>
-      <div className={styles.textContainer}>
-        <div className={styles.textInnerContainer}>
-          <Typography className={styles.text}>
+      <div className={classes.textContainer}>
+        <div className={classes.textInnerContainer}>
+          <Typography className={classes.text}>
             {language.projects.teckboard.reactNative.start}{" "}
-            <a className={styles.link} href="https://reactnative.dev">
+            <a className={classes.link} href="https://reactnative.dev">
               React Native
             </a>
             {language.projects.teckboard.reactNative.end}
           </Typography>
         </div>
       </div>
-    </div>
+    </Root>
   );
 }

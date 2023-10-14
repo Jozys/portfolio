@@ -6,9 +6,9 @@ import {
   faNodeJs,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
+import { styled } from "@mui/material/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Theme, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import React from "react";
 import CPP from "../../assets/cpp.svg";
 import MongoDB from "../../assets/mongodb.svg";
@@ -16,15 +16,25 @@ import NestJS from "../../assets/nestjs.svg";
 import { contrastBlack } from "../../utils/textContrast";
 import { useLanguage } from "../LanguageProvider";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
+const PREFIX = "Skills";
+
+const classes = {
+  root: `${PREFIX}-root`,
+  iconContainer: `${PREFIX}-iconContainer`,
+  text: `${PREFIX}-text`,
+  info_text: `${PREFIX}-info_text`,
+};
+
+const Root = styled("div")(({ theme }: { theme: Theme }) => ({
+  [`&.${classes.root}`]: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: theme.spacing(6),
   },
-  iconContainer: {
+
+  [`& .${classes.iconContainer}`]: {
     height: 100,
     width: "60%",
     display: "flex",
@@ -33,10 +43,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     justifySelf: "center",
   },
-  text: {
+
+  [`& .${classes.text}`]: {
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
-  info_text: {
+
+  [`& .${classes.info_text}`]: {
     fontSize: "2.5vh",
     width: window.innerWidth * 0.4,
     overflowWrap: "break-word",
@@ -45,12 +57,11 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 export default function Skills(): JSX.Element {
-  const styles = useStyles();
   const { language } = useLanguage();
   return (
-    <div className={styles.root}>
-      <h1 className={styles.text}> {language.projects.main.skills.title} </h1>
-      <div className={styles.iconContainer}>
+    <Root className={classes.root}>
+      <h1 className={classes.text}> {language.projects.main.skills.title} </h1>
+      <div className={classes.iconContainer}>
         <FontAwesomeIcon size="2x" icon={faJava} color="#EA2D2E" />
         <FontAwesomeIcon size="2x" icon={faJsSquare} color={"#EFD81D"} />
         <FontAwesomeIcon size="2x" icon={faReact} color={"#62DAFB"} />
@@ -62,9 +73,9 @@ export default function Skills(): JSX.Element {
         <img alt="MongDB Logo" height={30} width={30} src={CPP} />
       </div>
 
-      <Typography className={styles.info_text}>
+      <Typography className={classes.info_text}>
         {language.projects.main.skills.description}
       </Typography>
-    </div>
+    </Root>
   );
 }

@@ -1,11 +1,11 @@
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
+import { styled } from "@mui/material/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Theme, Typography } from "@mui/material";
 import { LinkedIn } from "@mui/icons-material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import MailIcon from "@mui/icons-material/Mail";
-import { makeStyles } from "@mui/styles";
 import TECKboard from "../../assets/Logo_TB.svg";
 import DevLights from "../../assets/devlights.svg";
 import H4hn from "../../assets/h4hn.svg";
@@ -13,17 +13,33 @@ import TECKdigital from "../../assets/teckdigital.svg";
 import Timo from "../../assets/timo_logo.svg";
 import { useLanguage } from "../LanguageProvider";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  background: {
+const PREFIX = "Footer";
+
+const classes = {
+  root: `${PREFIX}-root`,
+  container: `${PREFIX}-container`,
+  backgroundColor: `${PREFIX}-backgroundColor`,
+  text: `${PREFIX}-text`,
+  left: `${PREFIX}-left`,
+  middle: `${PREFIX}-middle`,
+  button: `${PREFIX}-button`,
+  image: `${PREFIX}-image`,
+  copyrightContainer: `${PREFIX}-copyrightContainer`,
+  copyrightText: `${PREFIX}-copyrightText`,
+};
+
+const Root = styled("div")(({ theme }: { theme: Theme }) => ({
+  [`&.${classes.root}`]: {
     height: window.innerHeight * 0.5,
-    backgroundColor: theme.palette.secondary.main,
+    background: theme.palette.secondary.main,
     clipPath:
       "polygon(50% 0%, 83% 12%, 100% 43%, 100% 100%, 68% 100%, 29% 100%, 0 100%, 0% 3%, 18% 12%);",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
-  container: {
+
+  [`& .${classes.container}`]: {
     flex: 6,
     alignContent: "space-around",
     alignItems: "center",
@@ -31,10 +47,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     width: "100%",
   },
-  backgroundColor: {
-    backgroundColor: theme.palette.primary.main,
-  },
-  text: {
+
+  [`& .${classes.text}`]: {
     display: "flex",
     flex: 1,
     textAlign: "end",
@@ -42,7 +56,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: "#fff",
     fontWeight: "bold",
   },
-  left: {
+
+  [`& .${classes.left}`]: {
     margin: theme.spacing(2),
     display: "flex",
     flexDirection: "column",
@@ -50,27 +65,32 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     justifyContent: "flex-end",
   },
-  middle: {
+
+  [`& .${classes.middle}`]: {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "column",
     flex: 1,
   },
-  button: {
+
+  [`& .${classes.button}`]: {
     height: "5vh",
     fontSize: "1.65vh",
     width: "25%",
     color: "#fff",
   },
-  image: {
+
+  [`& .${classes.image}`]: {
     alignSelf: "center",
   },
-  copyrightContainer: {
+
+  [`& .${classes.copyrightContainer}`]: {
     flex: 1,
     justifySelf: "start",
   },
-  copyrightText: {
+
+  [`& .${classes.copyrightText}`]: {
     verticalAlign: "top",
     color: "#fff",
   },
@@ -78,19 +98,18 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export interface FooterProps {}
 export default function Footer(props: FooterProps) {
-  const styles = useStyles();
   const { language } = useLanguage();
   return (
-    <div className={styles.background}>
-      <div className={styles.container}>
-        <div className={styles.left}>
-          <Typography className={styles.text}>
+    <Root className={classes.root}>
+      <div className={classes.container}>
+        <div className={classes.left}>
+          <Typography className={classes.text}>
             {language.footer.contact}
           </Typography>
           <Button
             size="large"
             onClick={() => window.open("https://github.com/Jozys", "_blank")}
-            className={styles.button}
+            className={classes.button}
             startIcon={<GitHubIcon fontSize="inherit" />}
           >
             Jozys
@@ -102,7 +121,7 @@ export default function Footer(props: FooterProps) {
                 "_blank"
               )
             }
-            className={styles.button}
+            className={classes.button}
             startIcon={<LinkedIn fontSize="inherit" />}
           >
             Joshua Slaar
@@ -112,7 +131,7 @@ export default function Footer(props: FooterProps) {
             onClick={() =>
               window.open("https://www.instagram.com/jozys_04/", "_blank")
             }
-            className={styles.button}
+            className={classes.button}
             startIcon={<InstagramIcon fontSize="inherit" />}
           >
             Jozys04
@@ -120,21 +139,21 @@ export default function Footer(props: FooterProps) {
           <Button
             size="large"
             onClick={() => window.open("mailto:joshua@slaar.de", "_blank")}
-            className={styles.button}
+            className={classes.button}
             startIcon={<MailIcon fontSize="inherit" />}
           >
             Mail
           </Button>
           <Button
             onClick={() => window.open("https://discord.com/app")}
-            className={styles.button}
+            className={classes.button}
             startIcon={<FontAwesomeIcon icon={faDiscord} fontSize="inherit" />}
           >
             Jozys#0704
           </Button>
         </div>
-        <div className={styles.middle}>
-          <Typography className={styles.text}>
+        <div className={classes.middle}>
+          <Typography className={classes.text}>
             {language.footer.others}
           </Typography>
           <Button
@@ -170,13 +189,13 @@ export default function Footer(props: FooterProps) {
             TECKdigital
           </Button>
         </div>
-        <div className={styles.left}>
-          <Typography className={styles.text}>
+        <div className={classes.left}>
+          <Typography className={classes.text}>
             {" "}
             {language.footer.projects}{" "}
           </Typography>
           <Button
-            className={styles.button}
+            className={classes.button}
             onClick={() => window.open("https://teckboard.de", "_blank")}
             startIcon={
               <img
@@ -190,7 +209,7 @@ export default function Footer(props: FooterProps) {
             TECKboard
           </Button>
           <Button
-            className={styles.button}
+            className={classes.button}
             onClick={() =>
               window.open("https://github.com/ProjektDevLights", "_blank")
             }
@@ -207,11 +226,11 @@ export default function Footer(props: FooterProps) {
           </Button>
         </div>
       </div>
-      <div className={styles.copyrightContainer}>
-        <Typography className={styles.copyrightText}>
+      <div className={classes.copyrightContainer}>
+        <Typography className={classes.copyrightText}>
           © Copyright {new Date().getFullYear()} Joshua Slaar
         </Typography>
       </div>
-    </div>
+    </Root>
   );
 }
