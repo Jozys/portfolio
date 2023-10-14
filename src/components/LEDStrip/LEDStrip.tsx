@@ -1,33 +1,43 @@
 import {
-  makeStyles,
   Theme,
   Input,
   FormControl,
   FormHelperText,
   InputLabel,
   Button,
-} from "@material-ui/core";
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
 import React from "react";
 import Circle from "../Circle";
 import tinycolor from "tinycolor2";
 import Snackbar from "../Snackbar";
 import { useLanguage } from "../LanguageProvider";
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
+const PREFIX = "LEDStrip";
+
+const classes = {
+  root: `${PREFIX}-root`,
+  stripContainer: `${PREFIX}-stripContainer`,
+  button: `${PREFIX}-button`,
+};
+
+const Root = styled("div")(({ theme: Theme }) => ({
+  [`&.${classes.root}`]: {
     width: "100%",
     height: "auto",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
-  stripContainer: {
+
+  [`& .${classes.stripContainer}`]: {
     display: "flex",
     width: "100%",
     height: 75,
     alignItems: "center",
     justifyContent: "center",
   },
-  button: {
+
+  [`& .${classes.button}`]: {
     display: "flex",
     alignItems: "center",
   },
@@ -72,7 +82,6 @@ export default function LEDStrip(props: LEDStripProps) {
     };
   }, []);
 
-  const styles = useStyles();
   const renderItems = () => {
     const items = [];
     for (let i = 0; i < length; i++) {
@@ -106,8 +115,8 @@ export default function LEDStrip(props: LEDStripProps) {
   };
 
   return (
-    <div className={styles.root}>
-      <div className={styles.stripContainer}>{renderItems()}</div>
+    <Root className={classes.root}>
+      <div className={classes.stripContainer}>{renderItems()}</div>
       <div>
         <FormControl>
           <InputLabel>{language.projects.devlight.ledstrip.color}</InputLabel>
@@ -132,7 +141,7 @@ export default function LEDStrip(props: LEDStripProps) {
           </FormHelperText>
         </FormControl>
         {!intervalId ? (
-          <Button className={styles.button} onClick={() => start()}>
+          <Button className={classes.button} onClick={() => start()}>
             {language.projects.devlight.ledstrip.restart}
           </Button>
         ) : null}
@@ -143,6 +152,6 @@ export default function LEDStrip(props: LEDStripProps) {
         open={visible}
         severity="error"
       />
-    </div>
+    </Root>
   );
 }

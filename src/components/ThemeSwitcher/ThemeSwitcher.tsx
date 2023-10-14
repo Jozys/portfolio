@@ -1,26 +1,32 @@
-import { makeStyles, Theme } from "@material-ui/core";
-import Brightness4Icon from "@material-ui/icons/Brightness4";
-import Brightness7Icon from "@material-ui/icons/Brightness7";
+import { Theme } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { contrastBlack } from "../../utils/textContrast";
 import { useThemeSwitch } from "../ThemeProvider";
+const PREFIX = "ThemeSwitcher";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  icon: {
+const classes = {
+  icon: `${PREFIX}-icon`,
+};
+
+const Root = styled("div")(({ theme }: { theme: Theme }) => ({
+  [`& .${classes.icon}`]: {
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
     transition: `color 300ms ease-in-out`,
   },
 }));
+
 export default function ThemeSwitcher(): JSX.Element {
   const { isThemeDark, toggleTheme } = useThemeSwitch();
 
-  const styles = useStyles();
   return (
-    <div style={{ transition: "color 300ms" }} onClick={toggleTheme}>
+    <Root style={{ transition: "color 300ms" }} onClick={toggleTheme}>
       {isThemeDark ? (
-        <Brightness4Icon fontSize="large" className={styles.icon} />
+        <Brightness4Icon fontSize="large" className={classes.icon} />
       ) : (
-        <Brightness7Icon fontSize="large" className={styles.icon} />
+        <Brightness7Icon fontSize="large" className={classes.icon} />
       )}
-    </div>
+    </Root>
   );
 }
