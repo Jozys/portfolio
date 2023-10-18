@@ -1,5 +1,6 @@
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { Button, Theme, Typography } from "@material-ui/core";
 import { LinkedIn } from "@material-ui/icons";
 import GitHubIcon from "@material-ui/icons/GitHub";
@@ -128,7 +129,12 @@ export default function Footer(props: FooterProps) {
           <Button
             onClick={() => window.open("https://discord.com/app")}
             className={styles.button}
-            startIcon={<FontAwesomeIcon icon={faDiscord} fontSize="inherit" />}
+            startIcon={
+              <FontAwesomeIcon
+                icon={faDiscord as IconProp}
+                fontSize="inherit"
+              />
+            }
           >
             Jozys#0704
           </Button>

@@ -50,13 +50,17 @@ export default function LanguageProvider(props: LanguageProviderProps) {
   const fetch = () => {
     let language = localStorage.getItem("language");
     if (!language?.length) {
+      let defaultLanguage = getUserDefaultLanguage() as Language ?? "en";
       localStorage.setItem(
         "language",
         (getUserDefaultLanguage() as Language) ?? "en"
       );
+      setLanguageType(defaultLanguage);
+      setLanguage(getLanguage(defaultLanguage));
+    } else {
+      setLanguage(getLanguage(language as Language));
+      setLanguageType(language as Language);
     }
-    setLanguage(getLanguage(language as Language));
-    setLanguageType(language as Language);
   };
 
   React.useEffect(() => {

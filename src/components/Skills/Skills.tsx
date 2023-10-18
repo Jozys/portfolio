@@ -7,6 +7,7 @@ import {
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { Theme, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import React from "react";
@@ -51,12 +52,24 @@ export default function Skills(): JSX.Element {
     <div className={styles.root}>
       <h1 className={styles.text}> {language.projects.main.skills.title} </h1>
       <div className={styles.iconContainer}>
-        <FontAwesomeIcon size="2x" icon={faJava} color="#EA2D2E" />
-        <FontAwesomeIcon size="2x" icon={faJsSquare} color={"#EFD81D"} />
-        <FontAwesomeIcon size="2x" icon={faReact} color={"#62DAFB"} />
-        <FontAwesomeIcon size="2x" icon={faNodeJs} color="#43853D" />
-        <FontAwesomeIcon size="2x" icon={faHtml5} color="#DD4B25" />
-        <FontAwesomeIcon size="2x" icon={faCss3} color="#2861EE" />
+        <FontAwesomeIcon size="2x" icon={faJava as IconProp} color="#EA2D2E" />
+        <FontAwesomeIcon
+          size="2x"
+          icon={faJsSquare as IconProp}
+          color={"#EFD81D"}
+        />
+        <FontAwesomeIcon
+          size="2x"
+          icon={faReact as IconProp}
+          color={"#62DAFB"}
+        />
+        <FontAwesomeIcon
+          size="2x"
+          icon={faNodeJs as IconProp}
+          color="#43853D"
+        />
+        <FontAwesomeIcon size="2x" icon={faHtml5 as IconProp} color="#DD4B25" />
+        <FontAwesomeIcon size="2x" icon={faCss3 as IconProp} color="#2861EE" />
         <img alt="NestJS Logo" height={30} width={30} src={NestJS} />
         <img alt="MongDB Logo" height={30} width={30} src={MongoDB} />
         <img alt="MongDB Logo" height={30} width={30} src={CPP} />
