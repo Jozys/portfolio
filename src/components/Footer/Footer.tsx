@@ -147,8 +147,8 @@ export default function Footer(props: FooterProps) {
           </Button>
           <Button
             onClick={() => window.open("https://discord.com/app")}
-            className={styles.button}
-            startIcon={<FontAwesomeIcon icon={faDiscord} fontSize="inherit" />}
+            className={classes.button}
+            startIcon={<FontAwesomeIcon icon={faDiscord as IconProp} fontSize="inherit" />}
           >
             Jozys#0704
           </Button>
