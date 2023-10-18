@@ -1,10 +1,11 @@
-import { Button, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Button, Theme, Typography } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import Typing from "react-typing-animation";
 import { contrastBlack } from "../../utils/textContrast";
 import DevLightsImageCarousel from "../DevLightsImageCarousel/DevLightsImageCarousel";
 import DevLightsTimeline from "../DevLightsTimeline";
 import LEDStrip from "../LEDStrip";
-import GitHubIcon from "@material-ui/icons/GitHub";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import { useLanguage } from "../LanguageProvider";
 
 const useStyles = makeStyles((theme: Theme) => ({

@@ -1,5 +1,5 @@
 import React from "react";
-import { Theme, ThemeProvider as MaterialProvider } from "@material-ui/core";
+import { Theme, ThemeProvider as MaterialProvider } from "@mui/material";
 import { default as myTheme } from "../theme";
 
 export interface ThemeProviderProps {

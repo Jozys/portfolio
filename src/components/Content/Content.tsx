@@ -1,26 +1,39 @@
-import { makeStyles, Theme, Typography, useTheme } from "@material-ui/core";
+import { Theme, Typography, useTheme } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import React from "react";
 import { Props, Rnd } from "react-rnd";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  textContainer: {
+const PREFIX = "Content";
+
+const classes = {
+  textContainer: `${PREFIX}-textContainer`,
+  textHeader: `${PREFIX}-textHeader`,
+  textBody: `${PREFIX}-textBody`,
+  text: `${PREFIX}-text`,
+};
+
+const StyledRnd = styled(Rnd)(({ theme }: { theme: Theme }) => ({
+  [`& .${classes.textContainer}`]: {
     display: "flex",
     flex: 1,
     flexDirection: "column",
   },
-  textHeader: {
+
+  [`& .${classes.textHeader}`]: {
     height: 20,
     backgroundColor: "#192C4C",
     borderTopLeftRadius: theme.shape.borderRadius,
     borderTopRightRadius: theme.shape.borderRadius,
   },
-  textBody: {
+
+  [`& .${classes.textBody}`]: {
     flex: 4,
     backgroundColor: "#F9A041",
     borderBottomLeftRadius: theme.shape.borderRadius,
     borderBottomRightRadius: theme.shape.borderRadius,
   },
-  text: {
+
+  [`& .${classes.text}`]: {
     border: "none",
     margin: theme.spacing(1),
     fontFamily: "Open Sans",
@@ -42,9 +55,9 @@ export default function Content(props: ContentProps) {
   const [draggableHeight, setHeight] = React.useState<number | string>(height);
   const [draggableWidth, setWidth] = React.useState<number | string>(width);
   const theme = useTheme();
-  const styles = useStyles();
+
   return (
-    <Rnd
+    <StyledRnd
       bounds={`${props.parent ?? "parent"}`}
       default={{ x: props.x ?? 0, y: props.y ?? 0, width, height }}
       onResize={(e: any, dir, ref: HTMLElement, d, position) => {
@@ -57,14 +70,14 @@ export default function Content(props: ContentProps) {
         <div style={{ height: draggableHeight, width: draggableWidth }}>
           <div
             style={{ height: draggableHeight, width: draggableWidth }}
-            className={styles.textContainer}
+            className={classes.textContainer}
           >
-            <div className={styles.textHeader} />
-            <div className={styles.textBody}>
+            <div className={classes.textHeader} />
+            <div className={classes.textBody}>
               <Typography
                 draggable={false}
                 contentEditable
-                className={styles.text}
+                className={classes.text}
               >
                 {value}
               </Typography>
@@ -88,6 +101,6 @@ export default function Content(props: ContentProps) {
           />
         </div>
       )}
-    </Rnd>
+    </StyledRnd>
   );
 }

@@ -1,4 +1,5 @@
-import { makeStyles, Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import {
   Timeline,
   TimelineConnector,
@@ -6,26 +7,39 @@ import {
   TimelineDot,
   TimelineItem,
   TimelineSeparator,
-} from "@material-ui/lab";
+} from "@mui/lab";
 import { useLanguage } from "../LanguageProvider";
+const PREFIX = "DevLightsTimeline";
 
-const useStyles = makeStyles((theme) => ({
-  container: {
+const classes = {
+  container: `${PREFIX}-container`,
+  text: `${PREFIX}-text`,
+  timelineContent: `${PREFIX}-timelineContent`,
+  timelineText: `${PREFIX}-timelineText`,
+  timeline: `${PREFIX}-timeline`,
+};
+
+const Root = styled("div")(({ theme }) => ({
+  [`&.${classes.container}`]: {
     marginTop: theme.spacing(2),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
-  text: {
+
+  [`& .${classes.text}`]: {
     fontSize: "3vh",
   },
-  timelineContent: {
+
+  [`& .${classes.timelineContent}`]: {
     width: "50%",
   },
-  timelineText: {
+
+  [`& .${classes.timelineText}`]: {
     lineBreak: "auto",
   },
-  timeline: {
+
+  [`& .${classes.timeline}`]: {
     display: "flex",
     alignContent: "center",
     width: "70%",
@@ -34,22 +48,21 @@ const useStyles = makeStyles((theme) => ({
 
 export interface DevLightsTimelineProps {}
 export default function DevLightsTimeline(props: DevLightsTimelineProps) {
-  const styles = useStyles();
   const { language } = useLanguage();
   const { devlight } = language.projects;
   return (
-    <div className={styles.container}>
-      <Typography className={styles.text}>
+    <Root className={classes.container}>
+      <Typography className={classes.text}>
         {devlight.projectTimelineTitle}
       </Typography>
-      <Timeline className={styles.timeline} align="alternate">
+      <Timeline className={classes.timeline} position="alternate">
         <TimelineItem>
           <TimelineSeparator>
             <TimelineDot />
             <TimelineConnector />
           </TimelineSeparator>
-          <TimelineContent className={styles.timelineContent}>
-            <Typography className={styles.timelineText}>
+          <TimelineContent className={classes.timelineContent}>
+            <Typography className={classes.timelineText}>
               {devlight.projectTimeline[0]}
             </Typography>
           </TimelineContent>
@@ -60,7 +73,7 @@ export default function DevLightsTimeline(props: DevLightsTimelineProps) {
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent>
-            <Typography className={styles.timelineText}>
+            <Typography className={classes.timelineText}>
               {devlight.projectTimeline[1]}
             </Typography>
           </TimelineContent>
@@ -71,7 +84,7 @@ export default function DevLightsTimeline(props: DevLightsTimelineProps) {
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent>
-            <Typography className={styles.timelineText}>
+            <Typography className={classes.timelineText}>
               {devlight.projectTimeline[2]}
             </Typography>
           </TimelineContent>
@@ -82,12 +95,12 @@ export default function DevLightsTimeline(props: DevLightsTimelineProps) {
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent>
-            <Typography className={styles.timelineText}>
+            <Typography className={classes.timelineText}>
               {devlight.projectTimeline[3]}
             </Typography>
           </TimelineContent>
         </TimelineItem>
       </Timeline>
-    </div>
+    </Root>
   );
 }

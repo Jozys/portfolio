@@ -1,4 +1,4 @@
-import { InputLabel, MenuItem, Select, useTheme } from "@material-ui/core";
+import { InputLabel, MenuItem, Select, useTheme } from "@mui/material";
 import React from "react";
 import { useLanguage } from "../LanguageProvider";
 import { Language } from "../LanguageProvider/LanguageProvider";

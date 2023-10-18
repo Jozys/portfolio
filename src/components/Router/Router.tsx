@@ -1,5 +1,6 @@
-import { makeStyles, Theme, Typography } from "@material-ui/core";
-import { CodeOutlined, HomeOutlined, Warning } from "@material-ui/icons/";
+import { Theme, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { CodeOutlined, HomeOutlined, Warning } from "@mui/icons-material/";
 import React from "react";
 import { BrowserRouter, Link, Redirect, Route, Switch } from "react-router-dom";
 import { contrastBlack } from "../../utils/textContrast";
@@ -11,14 +12,27 @@ import TECKboard from "../TECKboard";
 import ThemeSwitcher from "../ThemeSwitcher";
 import LanguageChoose from "../LanguageChoose";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  navBarContainer: {
+const PREFIX = "Router";
+
+const classes = {
+  navBarContainer: `${PREFIX}-navBarContainer`,
+  navBar: `${PREFIX}-navBar`,
+  themeSwitcher: `${PREFIX}-themeSwitcher`,
+  icon: `${PREFIX}-icon`,
+  warning: `${PREFIX}-warning`,
+  warningIcon: `${PREFIX}-warningIcon`,
+  text: `${PREFIX}-text`,
+};
+
+const StyledRouter = styled("div")(({ theme }: { theme: Theme }) => ({
+  [`& .${classes.navBarContainer}`]: {
     display: "flex",
     flex: 1,
     alignSelf: "center",
     alignItems: "space-between",
   },
-  navBar: {
+
+  [`& .${classes.navBar}`]: {
     alignContent: "space-between",
     display: "flex",
     flex: 6,
@@ -26,17 +40,20 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignSelf: "center",
     justifyContent: "space-between",
   },
-  themeSwitcher: {
+
+  [`& .${classes.themeSwitcher}`]: {
     display: "flex",
     flex: 1,
     flexDirection: "row",
     alignSelf: "center",
     justifyContent: "center",
   },
-  icon: {
+
+  [`& .${classes.icon}`]: {
     color: contrastBlack(theme.palette.primary.main) ? "#000" : "#fff",
   },
-  warning: {
+
+  [`& .${classes.warning}`]: {
     height: window.innerHeight * 0.5,
     width: "100%",
     display: "flex",
@@ -44,11 +61,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
-  warningIcon: {
+
+  [`& .${classes.warningIcon}`]: {
     alignSelf: "center",
     color: contrastBlack(theme.palette.primary.main) ? "#000" : "#fff",
   },
-  text: {
+
+  [`& .${classes.text}`]: {
     marginLeft: 10,
     fontSize: 25,
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
@@ -57,49 +76,49 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export interface RouterProps {}
 export default function Router(props: RouterProps): JSX.Element {
-  const styles = useStyles();
-
   return (
-    <BrowserRouter>
-      <nav className={styles.navBarContainer}>
-        <ul className={styles.navBar}>
-          <Link to="/home">
-            <HomeOutlined fontSize="large" className={styles.icon} />
-          </Link>
-          <Link to="/projects">
-            <CodeOutlined fontSize="large" className={styles.icon} />
-          </Link>
-          <ThemeSwitcher />
-        </ul>
-        <LanguageChoose />
-      </nav>
+    <StyledRouter>
+      <BrowserRouter>
+        <nav className={classes.navBarContainer}>
+          <ul className={classes.navBar}>
+            <Link to="/home">
+              <HomeOutlined fontSize="large" className={classes.icon} />
+            </Link>
+            <Link to="/projects">
+              <CodeOutlined fontSize="large" className={classes.icon} />
+            </Link>
+            <ThemeSwitcher />
+          </ul>
+          <LanguageChoose />
+        </nav>
 
-      <Switch>
-        <Redirect exact from="/" to="/home" />
-        <Route path="/home">
-          <Home />
-        </Route>
-        <Redirect exact from="/projects" to="/projects/home" />
-        <Route path="/projects/home">
-          <Projects />
-        </Route>
-        <Route exact path="/project/teckboard">
-          <TECKboard />
-        </Route>
-        <Route exact path="/project/devlights">
-          <DevLights />
-        </Route>
+        <Switch>
+          <Redirect exact from="/" to="/home" />
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Redirect exact from="/projects" to="/projects/home" />
+          <Route path="/projects/home">
+            <Projects />
+          </Route>
+          <Route exact path="/project/teckboard">
+            <TECKboard />
+          </Route>
+          <Route exact path="/project/devlights">
+            <DevLights />
+          </Route>
 
-        <Route>
-          <div className={styles.warning}>
-            <Warning fontSize="large" className={styles.warningIcon} />
-            <Typography className={styles.text}>
-              404 | page not found
-            </Typography>
-          </div>
-        </Route>
-      </Switch>
-      <Footer />
-    </BrowserRouter>
+          <Route>
+            <div className={classes.warning}>
+              <Warning fontSize="large" className={classes.warningIcon} />
+              <Typography className={classes.text}>
+                404 | page not found
+              </Typography>
+            </div>
+          </Route>
+        </Switch>
+        <Footer />
+      </BrowserRouter>
+    </StyledRouter>
   );
 }
