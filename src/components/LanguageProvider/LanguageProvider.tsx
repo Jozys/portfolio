@@ -50,7 +50,7 @@ export default function LanguageProvider(props: LanguageProviderProps) {
   const fetch = () => {
     let language = localStorage.getItem("language");
     if (!language?.length) {
-      let defaultLanguage = getUserDefaultLanguage() as Language ?? "en";
+      let defaultLanguage = (getUserDefaultLanguage() as Language) ?? "en";
       localStorage.setItem(
         "language",
         (getUserDefaultLanguage() as Language) ?? "en"

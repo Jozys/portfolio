@@ -11,7 +11,7 @@ import Tilt from "react-parallax-tilt";
 import { HashLink as Link } from "react-router-hash-link";
 import Brochterbeck from "../../assets/brochterbeck.jpg";
 import DHBW from "../../assets/DHBW_Logo.svg";
-import Me from "../../assets/me.jpg";
+import Me2 from "../../assets/me2.jpg";
 import TECKdigital from "../../assets/teckdigital.webp";
 import { contrastBlack } from "../../utils/textContrast";
 import Header from "../Header";
@@ -122,10 +122,10 @@ export default function Home(): JSX.Element {
             <Tilt className={classes.tilt} tiltReverse>
               <img
                 draggable={false}
-                src={Me}
+                src={Me2}
                 height="65%"
                 width="65%"
-                alt="Thats me! In 2019 in Egypt"
+                alt="Thats me! In 2023 in Paris, France"
                 className={classes.image}
               ></img>
             </Tilt>

@@ -8,17 +8,16 @@ import {
   TimelineSeparator,
 } from "@mui/lab";
 import Tilt from "react-parallax-tilt";
-import Typing from "react-typing-animation";
 import DevLights from "../../assets/devlights.png";
 import TECKboardApp from "../../assets/teckboard_app.png";
 import { contrastBlack } from "../../utils/textContrast";
 import Skills from "../Skills";
 import { useLanguage } from "../LanguageProvider";
+import Typing from "../Typing";
 
 const PREFIX = "Projects";
 
 const classes = {
-  header: `${PREFIX}-header`,
   title: `${PREFIX}-title`,
   image: `${PREFIX}-image`,
   teckboard: `${PREFIX}-teckboard`,
@@ -31,17 +30,6 @@ const classes = {
 };
 
 const Root = styled("div")(({ theme }: { theme: Theme }) => ({
-  [`& .${classes.header}`]: {
-    fontSize: "6vh",
-    fontFamily: "bungee",
-    textAlign: "center",
-    filter: `drop-shadow(5px 5px 0px ${theme.palette.secondary.main})`,
-    "&:hover": {
-      filter: `drop-shadow(5px 5px 0px ${theme.palette.primary.main})`,
-    },
-    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
-  },
-
   [`& .${classes.title}`]: {
     fontSize: "4vh",
     textAlign: "center",
@@ -106,12 +94,7 @@ export default function Projects(props: ProjectsProps): JSX.Element {
 
   return (
     <Root>
-      <Typing>
-        <Typography className={classes.header}>
-          {" "}
-          {language.projects.main.title}{" "}
-        </Typography>
-      </Typing>
+      <Typing text={language.projects.main.title} />
       <Timeline position="alternate">
         <TimelineItem key="teckboard" className={classes.teckboard}>
           <TimelineOppositeContent className={classes.tb_info}>
