@@ -1,6 +1,6 @@
 import { Button, Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import Typing from "react-typing-animation";
+import Typing from "../Typing";
 import { contrastBlack } from "../../utils/textContrast";
 import DevLightsImageCarousel from "../DevLightsImageCarousel/DevLightsImageCarousel";
 import DevLightsTimeline from "../DevLightsTimeline";
@@ -13,16 +13,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-  },
-  header: {
-    fontSize: "8vh",
-    fontFamily: "bungee",
-    textAlign: "center",
-    filter: `drop-shadow(5px 5px 0px ${theme.palette.secondary.main})`,
-    "&:hover": {
-      filter: `drop-shadow(5px 5px 0px ${theme.palette.primary.main})`,
-    },
-    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
   introText: {
     width: "75%",
@@ -79,11 +69,7 @@ export default function DevLights() {
     <div className={styles.container}>
       <div className={styles.devlightContainer}>
         <div>
-          <Typing>
-            <Typography className={styles.header}>
-              {language.projects.devlight.title}
-            </Typography>
-          </Typing>
+          <Typing text={language.projects.devlight.title}></Typing>
           <Typography className={styles.text}>
             {language.projects.devlight.subtitle}
           </Typography>

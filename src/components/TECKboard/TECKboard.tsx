@@ -1,7 +1,7 @@
 import { Theme, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
-import Typing from "react-typing-animation";
+import Typing from "../Typing";
 import { contrastBlack } from "../../utils/textContrast";
 import Tilt from "react-parallax-tilt";
 import TECKLogo from "../../assets/Logo_TB.svg";
@@ -16,7 +16,6 @@ import { useLanguage } from "../LanguageProvider";
 const PREFIX = "TECKboard";
 
 const classes = {
-  header: `${PREFIX}-header`,
   teckboard_container: `${PREFIX}-teckboard_container`,
   teckboardHeader: `${PREFIX}-teckboardHeader`,
   teckboard: `${PREFIX}-teckboard`,
@@ -34,17 +33,6 @@ const classes = {
 };
 
 const Root = styled("div")(({ theme }: { theme: Theme }) => ({
-  [`& .${classes.header}`]: {
-    fontSize: "8vh",
-    fontFamily: "bungee",
-    textAlign: "center",
-    filter: `drop-shadow(5px 5px 0px ${theme.palette.secondary.main})`,
-    "&:hover": {
-      filter: `drop-shadow(5px 5px 0px ${theme.palette.primary.main})`,
-    },
-    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
-  },
-
   [`& .${classes.teckboard_container}`]: {
     height: "60vh",
     display: "flex",
@@ -143,11 +131,7 @@ export default function TECKboard(props: TECKboardProps) {
   const { language } = useLanguage();
   return (
     <Root>
-      <Typing>
-        <Typography className={classes.header}>
-          {language.projects.teckboard.title}
-        </Typography>
-      </Typing>
+      <Typing text={language.projects.teckboard.title}></Typing>
 
       <div className={classes.teckboard_container}>
         <div className={classes.teckboardHeader}>

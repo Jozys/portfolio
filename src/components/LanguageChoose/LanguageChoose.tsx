@@ -7,10 +7,6 @@ export default function LanguageChoose() {
   const theme = useTheme();
   const { languages, language, languageType, changeLanguage } = useLanguage();
 
-  React.useEffect(() => {
-    console.log(languageType);
-  }, [languageType]);
-
   return (
     <div
       style={{

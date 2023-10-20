@@ -125,7 +125,7 @@ export default function Home(): JSX.Element {
                 src={Me}
                 height="65%"
                 width="65%"
-                alt="Thats me! In 2019 in Egypt"
+                alt="Thats me! In 2023 in Paris, France"
                 className={classes.image}
               ></img>
             </Tilt>
