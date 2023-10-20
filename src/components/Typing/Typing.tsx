@@ -26,7 +26,7 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
     height: "25%",
     width: "100%",
     display: "block",
-    fontSize: "2.5rem",
+    fontSize: "8vh",
     fontFamily: "bungee",
     textAlign: "center",
     filter: `drop-shadow(5px 5px 0px ${theme.palette.secondary.main})`,
@@ -40,8 +40,6 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
 }));
 
 export default function Typing(props: TypingProps) {
-  const theme = useTheme();
-  console.log(props);
   return (
     <Root className={classes.root}>
       <TypeAnimation

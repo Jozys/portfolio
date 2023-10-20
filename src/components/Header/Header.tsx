@@ -30,16 +30,9 @@ export default function Header(props: HeaderProps) {
   const styles = useStyles();
   const { language } = useLanguage();
 
-  const string = `${language.home.greeting}\n${language.home.name}`;
-  console.log(string);
   return (
     <div>
-      <Typing text={string} />
-      {/* <Typing>
-        <Typography className={styles.text}>
-          {language.home.greeting} <br /> {language.home.name}
-        </Typography>
-      </Typing> */}
+      <Typing text={`${language.home.greeting}\n${language.home.name}`} />
       <h1 className={styles.title}>{language.home.subtitle}</h1>
     </div>
   );
