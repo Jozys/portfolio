@@ -80,7 +80,7 @@ export default function LEDStrip(props: LEDStripProps) {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const renderItems = () => {
     const items = [];
