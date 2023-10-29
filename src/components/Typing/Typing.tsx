@@ -1,6 +1,6 @@
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
-import { Theme, styled, useTheme } from "@mui/material/styles";
+import { Theme, styled } from "@mui/material/styles";
 import { contrastBlack } from "../../utils/textContrast";
 
 export interface TypingProps {

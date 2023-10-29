@@ -20,7 +20,7 @@ const classes = {
   button: `${PREFIX}-button`,
 };
 
-const Root = styled("div")(({ theme: Theme }) => ({
+const Root = styled("div")(({ theme }: { theme: Theme }) => ({
   [`&.${classes.root}`]: {
     width: "100%",
     height: "auto",

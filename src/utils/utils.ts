@@ -1,9 +1,6 @@
-import { Language } from "../components/LanguageProvider/LanguageProvider";
-
 export const getAge = (): number => {
-  let birthDate = new Date("2004-06-07");
+  let birthDate = new Date(process.env.REACT_APP_USER_BIRTHDATE ?? "1970-01-01");
   let currentDate = new Date();
-  // 2023-2004 = 19
   let age = currentDate.getFullYear() - birthDate.getFullYear();
   // 05 - 06 => negative, age calculated before is not reached
   let months = currentDate.getMonth() - birthDate.getMonth();
