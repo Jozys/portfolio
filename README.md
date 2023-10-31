@@ -1,3 +1,5 @@
+![Build status](https://github.com/Jozys/portfolio/actions/workflows/test_and_deploy.yml/badge.svg)
+
 ### My Website (2023)
 
 In this repository you will find the source code of my website (which is available at <a href="https://joshua.slaar.de" >https://joshua.slaar.de</a>)
