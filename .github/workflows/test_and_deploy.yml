@@ -29,4 +29,4 @@ jobs:
           ssh-keyscan -H "${{ secrets.SSH_HOST }}" > ~/.ssh/known_hosts
       - name: ssh into server
         run:  | # ssh into the server and execute build scripts
-          ssh -t ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}} "./buildPortfolio.sh" 
+          ssh -o ServerAliveInterval=900 -t ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}} "./buildPortfolio.sh" 
