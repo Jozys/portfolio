@@ -1,0 +1,26 @@
+name: Test application
+on: 
+    pull_request:
+        types: 
+            - opened
+            - reopened
+            - review_requested
+        paths-ignore: 
+            - ./github
+            
+jobs:
+    test-build:
+        name: Build application
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
+              with:
+                node-version: 18
+            - name: Install dependencies
+              run: |
+                yarn install
+            - name: Build application
+              run: |
+                yarn build
+  
