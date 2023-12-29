@@ -10,7 +10,7 @@ import Home from "../Home";
 import Projects from "../Projects";
 import TECKboard from "../TECKboard";
 import ThemeSwitcher from "../ThemeSwitcher";
-import LanguageChoose from "../LanguageChoose";
+import LanguageSwitch from "../LanguageSwitch";
 
 const PREFIX = "Router";
 
@@ -89,7 +89,7 @@ export default function Router(props: RouterProps): JSX.Element {
             </Link>
             <ThemeSwitcher />
           </ul>
-          <LanguageChoose />
+          <LanguageSwitch />
         </nav>
 
         <Switch>

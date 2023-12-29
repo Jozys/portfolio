@@ -1,26 +1,40 @@
-import { InputLabel, MenuItem, Select, useTheme } from "@mui/material";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  useTheme,
+  InputBase
+} from "@mui/material";
+import { styled } from '@mui/material/styles';
 import React from "react";
 import { useLanguage } from "../LanguageProvider";
 import { Language } from "../LanguageProvider/LanguageProvider";
 
-export default function LanguageChoose() {
+const CustomizedInputBase = styled(InputBase)(() => ({
+  '& .MuiInputBase-input': {
+    border: "none",
+    '&:focus': {
+      border: "none"
+    },
+  },
+
+}));
+
+export default function LanguageSwitch() {
   const theme = useTheme();
   const { languages, language, languageType, changeLanguage } = useLanguage();
 
   return (
-    <div
-      style={{
-        alignSelf: "center",
-        marginLeft: theme.spacing(4),
-        marginRight: theme.spacing(4),
-      }}
-    >
+    <FormControl sx={{ m: 1, minWidth:  80}} size="small">
       <InputLabel id="languageLabel" title="Language"></InputLabel>
       <Select
-        variant="outlined"
         labelId="languageLabel"
         value={languageType as Language}
+        //@ts-ignore
+        renderValue={() => <p style={{textAlign: "center"}}>{language.languageInfo[languageType]}</p>}
         onChange={(e) => changeLanguage(e.target.value as string as Language)}
+        input={<CustomizedInputBase />}
       >
         {languages.map((l) => (
           <MenuItem value={l}>
@@ -31,6 +45,6 @@ export default function LanguageChoose() {
           </MenuItem>
         ))}
       </Select>
-    </div>
+    </FormControl>
   );
 }

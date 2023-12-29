@@ -58,7 +58,7 @@ export type Language = {
         contact: string;
         others: string;
         projects: string;
-    }
+    },
 }
 
 export type Info = {

@@ -3,8 +3,8 @@ import { Language } from "../index";
 
 export const language: Language = {
     languageInfo: {
-        de: "Deutsch",
-        en: "Englisch",
+        de: "🇩🇪",
+        en: "🇬🇧",
     },
     home: {
         greeting: "Hallo",
@@ -118,6 +118,6 @@ export const language: Language = {
         contact: "Kontakt",
         others: "Andere",
         projects: "Projekte"
-    }
+    },
 }
 export default language;
