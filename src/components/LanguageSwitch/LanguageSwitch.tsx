@@ -3,7 +3,6 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  useTheme,
   InputBase
 } from "@mui/material";
 import { styled } from '@mui/material/styles';
@@ -22,7 +21,6 @@ const CustomizedInputBase = styled(InputBase)(() => ({
 }));
 
 export default function LanguageSwitch() {
-  const theme = useTheme();
   const { languages, language, languageType, changeLanguage } = useLanguage();
 
   return (
