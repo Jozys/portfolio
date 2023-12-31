@@ -102,7 +102,6 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
 
 export default function Home(): JSX.Element {
   const { language } = useLanguage();
-
   return (
     <Root className={classes.root}>
       <div className={classes.header}>

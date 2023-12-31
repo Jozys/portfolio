@@ -1,6 +1,6 @@
-import { Theme, Typography } from "@mui/material";
+import { Theme, Typography , useTheme} from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { CodeOutlined, HomeOutlined, Warning } from "@mui/icons-material/";
+import { HomeOutlined, Warning } from "@mui/icons-material/";
 import React from "react";
 import { BrowserRouter, Link, Redirect, Route, Switch } from "react-router-dom";
 import { contrastBlack } from "../../utils/textContrast";
@@ -11,6 +11,9 @@ import Projects from "../Projects";
 import TECKboard from "../TECKboard";
 import ThemeSwitcher from "../ThemeSwitcher";
 import LanguageSwitch from "../LanguageSwitch";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
 
 const PREFIX = "Router";
 
@@ -19,6 +22,7 @@ const classes = {
   navBar: `${PREFIX}-navBar`,
   themeSwitcher: `${PREFIX}-themeSwitcher`,
   icon: `${PREFIX}-icon`,
+  link: `${PREFIX}-link`,
   warning: `${PREFIX}-warning`,
   warningIcon: `${PREFIX}-warningIcon`,
   text: `${PREFIX}-text`,
@@ -52,6 +56,7 @@ const StyledRouter = styled("div")(({ theme }: { theme: Theme }) => ({
   [`& .${classes.icon}`]: {
     color: contrastBlack(theme.palette.primary.main) ? "#000" : "#fff",
   },
+  [`& .${classes.link}`]: {display: "flex", alignSelf: "center"},
 
   [`& .${classes.warning}`]: {
     height: window.innerHeight * 0.5,
@@ -61,12 +66,10 @@ const StyledRouter = styled("div")(({ theme }: { theme: Theme }) => ({
     justifyContent: "center",
     alignItems: "center",
   },
-
   [`& .${classes.warningIcon}`]: {
     alignSelf: "center",
     color: contrastBlack(theme.palette.primary.main) ? "#000" : "#fff",
   },
-
   [`& .${classes.text}`]: {
     marginLeft: 10,
     fontSize: 25,
@@ -76,6 +79,7 @@ const StyledRouter = styled("div")(({ theme }: { theme: Theme }) => ({
 
 export interface RouterProps {}
 export default function Router(props: RouterProps): JSX.Element {
+  const theme = useTheme();
   return (
     <StyledRouter>
       <BrowserRouter>
@@ -84,8 +88,8 @@ export default function Router(props: RouterProps): JSX.Element {
             <Link to="/home">
               <HomeOutlined fontSize="large" className={classes.icon} />
             </Link>
-            <Link to="/projects">
-              <CodeOutlined fontSize="large" className={classes.icon} />
+            <Link className={classes.link} to="/projects">
+              <FontAwesomeIcon className={classes.icon} icon={faLaptopCode as IconProp}  color={contrastBlack(theme.palette.background.default) ? "#000" : "#fff"} size={"2x"} />
             </Link>
             <ThemeSwitcher />
           </ul>

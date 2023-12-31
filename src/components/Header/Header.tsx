@@ -4,28 +4,14 @@ import { contrastBlack } from "../../utils/textContrast";
 import { useLanguage } from "../LanguageProvider";
 import Typing from "../Typing";
 
-export interface HeaderProps {}
-
 const useStyles = makeStyles((theme: Theme) => ({
-  text: {
-    height: "50%",
-    fontSize: "8vh",
-    fontFamily: "bungee",
-    textAlign: "center",
-    filter: `drop-shadow(5px 5px 0px ${theme.palette.secondary.main})`,
-    "&:hover": {
-      filter: `drop-shadow(5px 5px 0px ${theme.palette.primary.main})`,
-    },
-    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
-    whiteSpace: "pre-line",
-  },
   title: {
     textAlign: "center",
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
 }));
 
-export default function Header(props: HeaderProps) {
+export default function Header() {
   const styles = useStyles();
   const { language } = useLanguage();
 

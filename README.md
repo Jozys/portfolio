@@ -1,14 +1,23 @@
-![Build status](https://github.com/Jozys/portfolio/actions/workflows/test_and_deploy.yml/badge.svg)
+# My Website ![Build status](https://github.com/Jozys/portfolio/actions/workflows/deploy.yml/badge.svg)
 
-### My Website (2023)
+<span class="overview">
+  <img src="./assets/Overview.png" alt="Overview image" width="100%" height="auto" style="border-radius: 12px" />
+</span>
 
-In this repository you will find the source code of my website (which is available at <a href="https://joshua.slaar.de" >https://joshua.slaar.de</a>)
-The Website is made with <a href="https://create-react-app.dev/"> create-react-app </a> and TypeScript.
+Welcome to the repository of my personal website, available at [https://joshua.slaar.de](https://joshua.slaar.de). This website serves as my online portfolio and is a showcase of my projects and skills.
 
-#### Contact
+## Built With
 
-If you want to give me any feedback about this website, you can write me an <a href="mailto:joshu@slaar.de">email</a>.
+The website is built using the following technologies:
 
-##### Current availibity
+- [Create React App](https://create-react-app.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Material UI](https://material-ui.com/)
 
-The Website is now available (AS OF 25th June 2023)
+## Availability
+
+As of 25th June 2023, the website is live and accessible under https://joshua.slaar.de.
+
+## Feedback
+
+I appreciate any feedback or suggestions. If you have something to share, please feel free to send me an [email](mailto:joshu@slaar.de).

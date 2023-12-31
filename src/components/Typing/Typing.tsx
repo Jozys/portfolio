@@ -15,7 +15,7 @@ const classes = {
 };
 
 const Root = styled("div")(({ theme }: { theme: Theme }) => ({
-  [`& .${classes.root}`]: {
+  [`&.${classes.root}`]: {
     height: "50%",
     display: "flex",
     justifyContent: "center",
@@ -26,7 +26,7 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
     height: "25%",
     width: "100%",
     display: "block",
-    fontSize: "8vh",
+    fontSize: "5vh",
     fontFamily: "bungee",
     textAlign: "center",
     filter: `drop-shadow(5px 5px 0px ${theme.palette.secondary.main})`,
