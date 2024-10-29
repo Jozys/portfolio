@@ -1,12 +1,12 @@
 import { Button, Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import Typing from "../Typing";
-import { contrastBlack } from "../../utils/textContrast";
+import Typing from "../../modules/core/components/Typing";
+import { contrastBlack } from "../../modules/core/utils/textContrast";
 import DevLightsImageCarousel from "../DevLightsImageCarousel/DevLightsImageCarousel";
 import DevLightsTimeline from "../DevLightsTimeline";
 import LEDStrip from "../LEDStrip";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { useLanguage } from "../LanguageProvider";
+import { useLanguage } from "../../language/hooks/index";
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {

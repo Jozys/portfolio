@@ -1,8 +1,8 @@
 import { Theme, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
-import Typing from "../Typing";
-import { contrastBlack } from "../../utils/textContrast";
+import Typing from "../../modules/core/components/Typing";
+import { contrastBlack } from "../../modules/core/utils/textContrast";
 import Tilt from "react-parallax-tilt";
 import TECKLogo from "../../assets/Logo_TB.svg";
 import TECKIcon from "../../assets/Rounded_Logo.svg";
@@ -11,7 +11,7 @@ import Content from "../Content";
 import TECKdigital from "../../assets/teckdigital.webp";
 import OldBoard from "../../assets/firstTECKboard.png";
 import NewBoard from "../../assets/newBoard.png";
-import { useLanguage } from "../LanguageProvider";
+import { useLanguage } from "../../language/hooks/index";
 
 const PREFIX = "TECKboard";
 

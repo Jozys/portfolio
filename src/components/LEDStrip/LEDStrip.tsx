@@ -11,7 +11,7 @@ import React from "react";
 import Circle from "../Circle";
 import tinycolor from "tinycolor2";
 import Snackbar from "../Snackbar";
-import { useLanguage } from "../LanguageProvider";
+import { useLanguage } from "../../language/hooks/index";
 const PREFIX = "LEDStrip";
 
 const classes = {

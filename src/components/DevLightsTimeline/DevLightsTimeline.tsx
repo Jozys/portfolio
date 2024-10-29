@@ -8,7 +8,7 @@ import {
   TimelineItem,
   TimelineSeparator,
 } from "@mui/lab";
-import { useLanguage } from "../LanguageProvider";
+import { useLanguage } from "../../language/hooks/index";
 const PREFIX = "DevLightsTimeline";
 
 const classes = {
