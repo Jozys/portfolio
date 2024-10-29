@@ -1,5 +1,5 @@
-import { getAge } from "../utils/getAge";
-import { Language } from "../index";
+import { getAge } from "../../utils/getAge";
+import { Language } from "../../index";
 
 export const language: Language = {
   languageInfo: {

@@ -1,5 +1,5 @@
-import { getAge } from "../utils/getAge";
-import { Language } from "../index";
+import { getAge } from "../../utils/getAge";
+import { Language } from "../../index";
 
 export const language: Language = {
   languageInfo: {
@@ -16,8 +16,9 @@ export const language: Language = {
     },
     life: {
       title: "Mein Leben",
-      description: `Ich mag es nach draußen zu gehen, um im Raum Karlsruhe, oder Richtung Schwarzwald durch die Region zu spazieren. Ebenfalls fahre ich gerne mit dem Rad durch die Regionen.
-            Zudem treffe ich mich sehr gerne mit Freunden, um mit diesen Zeit zu verbringen. Weiter fahre ich auch gerne mit der Bahn durch Deutschland und Europa.`,
+      description: `Ich mag es nach draußen zu gehen, um zum Beispiel in meiner Heimatstadt Brochterbeck in Nordrhein-Westfalen
+             oder mittlerweile auch in Karlsruhe und Umgebung spazieren zu gehen. Ebenfalls fahre ich gerne mit dem Rad durch die Regionen.
+            Zudem treffe ich mich sehr gerne mit Freunden, um mit diesen Zeit zu verbringen.`,
     },
     teckdigital: {
       title: "TECKdigital",
