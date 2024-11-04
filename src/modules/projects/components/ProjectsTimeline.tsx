@@ -13,7 +13,7 @@ export default function ProjectsTimeline() {
         description={
           <>
             {language.projects.main.teckboard.description}
-            <a rel="noreferrer" href="/project/teckboard" target="_self">
+            <a rel="noreferrer" href="/projects/teckboard" target="_self">
               {language.projects.main.learnMore}
             </a>
           </>
@@ -29,7 +29,7 @@ export default function ProjectsTimeline() {
         description={
           <>
             {language.projects.main.devlight.description}
-            <a rel="noreferrer" href="/project/devlights" target="_self">
+            <a rel="noreferrer" href="/projects/devlights" target="_self">
               {language.projects.main.learnMore}
             </a>
           </>

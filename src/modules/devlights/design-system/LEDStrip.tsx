@@ -8,10 +8,10 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
-import Circle from "../Circle";
 import tinycolor from "tinycolor2";
-import Snackbar from "../Snackbar";
-import { useLanguage } from "../../language/hooks/index";
+import { useLanguage } from "../../../language/hooks";
+import Circle from "../../core/design-system/Circle";
+import Snackbar from "../../core/design-system/Snackbar";
 const PREFIX = "LEDStrip";
 
 const classes = {
