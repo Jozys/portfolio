@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Timeline } from "@mui/lab";
 import { Theme, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
-import Brochterbeck from "../../../assets/brochterbeck.jpg";
+import Schwarzwald from "../../../assets/schwarzwald.jpg";
 import DHBW from "../../../assets/DHBW_Logo.svg";
 import Me from "../../../assets/me.jpg";
 import TECKdigital from "../../../assets/teckdigital.webp";
@@ -55,7 +55,7 @@ export default function HomeTimeline() {
           description={language.home.life.description}
           title={language.home.life.title}
           direction="opposite"
-          image={Brochterbeck}
+          image={Schwarzwald}
         />
         <CustomTimelineItem
           key="TECKdigital"

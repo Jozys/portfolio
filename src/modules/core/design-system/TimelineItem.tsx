@@ -15,20 +15,24 @@ const PREFIX = "CustomTimelineItem";
 
 const classes = {
   root: `${PREFIX}-root`,
+  textContainer: `${PREFIX}-textContainer`,
   text: `${PREFIX}-text`,
   title: `${PREFIX}-title`,
   item: `${PREFIX}-item`,
   textItem: `${PREFIX}-textItem`,
+  tilt: `${PREFIX}-tilt`,
 };
 
 const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
-  [`&.${classes.root}`]: {
-    flex: 3,
-    marginTop: theme.spacing(8),
-  },
-  [`& .${classes.item}`]: {
+  marginTop: theme.spacing(2),
+  [`& .${classes.root}`]: {
     margin: theme.spacing(8),
     flex: 2,
+  },
+  [`& .${classes.textContainer}`]: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
     alignItems: "center",
   },
   [`& .${classes.title}`]: {
@@ -38,6 +42,7 @@ const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
     width: "50%",
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
+
   [`& .${classes.text}`]: {
     fontSize: "2.0vh",
     width: "50%",
@@ -51,6 +56,14 @@ const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
     justifyItems: "center",
     textAlign: "center",
   },
+
+  [`& .${classes.tilt}`]: {
+    width: "auto",
+    height: "auto",
+    flex: 1,
+    display: "flex",
+    justifyContent: "center",
+  },
 }));
 
 export interface TimelineItemProps {
@@ -63,6 +76,7 @@ export interface TimelineItemProps {
   direction: "normal" | "opposite";
   textChildren?: React.ReactNode;
   useDot?: boolean;
+  containerStyle?: React.CSSProperties;
 }
 
 export default function CustomizedTimelineItem(props: TimelineItemProps) {
@@ -71,16 +85,9 @@ export default function CustomizedTimelineItem(props: TimelineItemProps) {
 
 function CustomTimelineItem(props: TimelineItemProps) {
   return (
-    <StyledCustomTimelineItem className={classes.item}>
+    <StyledCustomTimelineItem style={props.containerStyle}>
       <TimelineOppositeContent className={classes.textItem}>
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+        <div className={classes.textContainer}>
           <h1 className={classes.title}>{props.title}</h1>
 
           <Typography className={classes.text}>{props.description}</Typography>
@@ -96,18 +103,14 @@ function CustomTimelineItem(props: TimelineItemProps) {
 
       <TimelineContent sx={{ flex: 5 }}>
         {props.image != null ? (
-          <Tilt
-            style={{
-              width: "auto",
-              height: "auto",
-              flex: 1,
-            }}
-          >
+          <Tilt tiltReverse className={classes.tilt}>
             <img
               style={{
                 borderRadius: 10,
                 transform: props.rotateImage
-                  ? "rotate(0.025turn) translate(0%, 10%)"
+                  ? props.direction === "normal"
+                    ? "rotate(0.025turn) translate(0%, 10%)"
+                    : "rotate(-0.025turn) translate(20%, 10%"
                   : undefined,
               }}
               height={props.imageStyle?.height ?? "65%"}
@@ -116,9 +119,7 @@ function CustomTimelineItem(props: TimelineItemProps) {
               alt={props.title}
             />
           </Tilt>
-        ) : (
-          <></>
-        )}
+        ) : null}
       </TimelineContent>
     </StyledCustomTimelineItem>
   );
