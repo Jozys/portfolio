@@ -17,7 +17,7 @@ const classes = {
 
 const Root = styled("div")(({ theme }: { theme: Theme }) => ({
   [`& .${classes.root}`]: {
-    height: "60vh",
+    height: "70vh",
     display: "flex",
     flexDirection: "column",
     padding: theme.spacing(8),
@@ -31,7 +31,7 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
 
   [`& .${classes.teckboard}`]: {
     position: "relative",
-    flex: 10,
+    flex: 12,
     background: "#F1F1F1aa",
     display: "flex",
   },

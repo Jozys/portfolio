@@ -12,12 +12,6 @@ import MockTECKboard from "./MockTECKboard";
 const PREFIX = "TECKboard";
 
 const classes = {
-  teckboard_container: `${PREFIX}-teckboard_container`,
-  teckboardHeader: `${PREFIX}-teckboardHeader`,
-  teckboard: `${PREFIX}-teckboard`,
-  teckboardTitle: `${PREFIX}-teckboardTitle`,
-  iconLeft: `${PREFIX}-iconLeft`,
-  iconRight: `${PREFIX}-iconRight`,
   textContainer: `${PREFIX}-textContainer`,
   textInnerContainer: `${PREFIX}-textInnerContainer`,
   title: `${PREFIX}-title`,
@@ -29,46 +23,9 @@ const classes = {
 };
 
 const Root = styled("div")(({ theme }: { theme: Theme }) => ({
-  [`& .${classes.teckboard_container}`]: {
-    height: "60vh",
-    display: "flex",
-    flexDirection: "column",
-    padding: theme.spacing(8),
-  },
-
-  [`& .${classes.teckboardHeader}`]: {
-    flex: 1,
-    background: "#172b4d",
-    display: "flex",
-    alignItems: "center",
-  },
-
-  [`& .${classes.teckboard}`]: {
-    position: "relative",
-    flex: 10,
-    background: "#F1F1F1aa",
-    display: "flex",
-  },
-
-  [`& .${classes.teckboardTitle}`]: {
-    textAlign: "center",
-    fontSize: 24,
-    color: "#fff",
-    flex: 1,
-  },
-
-  [`& .${classes.iconLeft}`]: {
-    flex: 1,
-  },
-
-  [`& .${classes.iconRight}`]: {
-    flex: 1,
-  },
-
   [`& .${classes.textContainer}`]: {
     display: "flex",
     flexDirection: "column",
-
     alignContent: "center",
   },
 
@@ -85,7 +42,7 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
 
   [`& .${classes.text}`]: {
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
-    fontSize: "2.5vh",
+    fontSize: "2.0vh",
     textAlign: "center",
   },
 
@@ -122,8 +79,7 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
   },
 }));
 
-export interface TECKboardProps {}
-export default function TECKboard(props: TECKboardProps) {
+export default function TECKboard() {
   const { language } = useLanguage();
   return (
     <Root>
@@ -178,13 +134,6 @@ export default function TECKboard(props: TECKboardProps) {
           </Typography>
         </div>
       </div>
-      <div className={classes.textContainer}>
-        <div className={classes.textInnerContainer}>
-          <Typography className={classes.text}>
-            {language.projects.teckboard.appDescription[0]}
-          </Typography>
-        </div>
-      </div>
 
       <div className={classes.imagesContainer}>
         <div className={classes.singleImage}>
@@ -229,6 +178,14 @@ export default function TECKboard(props: TECKboardProps) {
               React Native
             </a>
             {language.projects.teckboard.reactNative.end}
+          </Typography>
+        </div>
+      </div>
+
+      <div className={classes.textContainer}>
+        <div className={classes.textInnerContainer}>
+          <Typography className={classes.text}>
+            {language.projects.teckboard.appDescription[0]}
           </Typography>
         </div>
       </div>
