@@ -7,6 +7,7 @@ import {
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
 import { styled } from "@mui/material/styles";
+import { useTheme } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Theme, Typography } from "@mui/material";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
@@ -14,6 +15,8 @@ import React from "react";
 import CPP from "../../../assets/cpp.svg";
 import MongoDB from "../../../assets/mongodb.svg";
 import NestJS from "../../../assets/nestjs.svg";
+import TypeScript from "../../../assets/typescript.svg";
+
 import { contrastBlack } from "../../../modules/core/utils/textContrast";
 import { useLanguage } from "../../../language/hooks/index";
 
@@ -59,6 +62,7 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
 
 export default function Skills(): JSX.Element {
   const { language } = useLanguage();
+  const theme = useTheme();
   return (
     <Root className={classes.root}>
       <h1 className={classes.text}> {language.projects.main.skills.title} </h1>
@@ -69,10 +73,11 @@ export default function Skills(): JSX.Element {
           icon={faJsSquare as IconProp}
           color={"#EFD81D"}
         />
+        <img alt="MongDB Logo" height={30} width={30} src={TypeScript} />
         <FontAwesomeIcon
           size="2x"
           icon={faReact as IconProp}
-          color={"#62DAFB"}
+          color={theme.palette.secondary.main}
         />
         <FontAwesomeIcon
           size="2x"
