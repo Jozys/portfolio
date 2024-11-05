@@ -1,7 +1,7 @@
 import React from "react";
 import { Language as LanguageObjType } from "../../language";
-import de from "../../language/de";
-import en from "../../language/en";
+import de from "../locales/de";
+import en from "../locales/en";
 export interface LanguageProviderProps {
   children: React.ReactNode | React.ReactNode[];
 }

@@ -58,6 +58,18 @@ export const language: Language = {
                 languages like C++ and worked at Hard and Software. `,
         readDoc: "READ DOCUMENTATION",
       },
+      simpleQ: {
+        title: "... SimpleQ",
+        description: `SimpleQ is a web application developed as part of a project at DHBW Karlsruhe, which allows asking and answering questions. 
+        In the Software Engineering course, the entire process of product development was worked through. 
+        This project made it possible to gain valuable experiences in collaboration and task coordination with people with whom I had previously worked little.`,
+      },
+      dbDelay: {
+        title: "... DB Delay",
+        description: `DB Delay is an application that I developed privately to collect personal statistics about travels using railways, especially using the German state-owned Deutsche Bahn. 
+        Timetable data from the Deutsche Bahn is stored and evaluated in a database together with manually entered data. The application was developed in TypeScript with NestJS and React. 
+        It has nothing to do with the Deutsche Bahn itself but is purely a private application.`,
+      },
       skills: {
         title: "My skills",
         description: `Above you see all the programming languages and frameworks I am familiar
@@ -123,9 +135,7 @@ export const language: Language = {
       },
       imageInfo: [],
       appDescription: [
-        `The mobile application evolved from the first version developed for
-            Android only in 2019 to the released version in the known app stores
-            for Google and Apple in 2021. The mobile application is currently
+        `  After publishing the app, it was
             used by the students and the teachers of our school, the
             Graf-Adolf-Gymnasium in Tecklenburg, North-Rhine-Westphalia.`,
       ],

@@ -24,6 +24,8 @@ export type Language = {
       title: string;
       teckboard: Info;
       devlight: Info & { readDoc: string };
+      simpleQ: Info;
+      dbDelay: Info;
       skills: Info;
       learnMore: string;
     };

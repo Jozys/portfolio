@@ -16,9 +16,8 @@ export const language: Language = {
     },
     life: {
       title: "Mein Leben",
-      description: `Ich mag es nach draußen zu gehen, um zum Beispiel in meiner Heimatstadt Brochterbeck in Nordrhein-Westfalen
-             oder mittlerweile auch in Karlsruhe und Umgebung spazieren zu gehen. Ebenfalls fahre ich gerne mit dem Rad durch die Regionen.
-            Zudem treffe ich mich sehr gerne mit Freunden, um mit diesen Zeit zu verbringen.`,
+      description: `Ich mag es nach draußen zu gehen, um im Raum Karlsruhe, oder Richtung Schwarzwald durch die Region zu spazieren. Ebenfalls fahre ich gerne mit dem Rad durch die Regionen.
+      Zudem treffe ich mich sehr gerne mit Freunden, um mit diesen Zeit zu verbringen. Weiter fahre ich auch gerne mit der Bahn durch Deutschland und Europa. Auch meine eigentliche Heimat Brochterbeck in Nordrhein-Westfalen besuche ich regelmäßig.`,
     },
     teckdigital: {
       title: "TECKdigital",
@@ -38,15 +37,29 @@ export const language: Language = {
       title: "Entwickelt hab ich...",
       teckboard: {
         title: "... TECKboards",
-        description:
-          'TECKboard ist ein digitales Echtzeit-Informationssystem, was zwei Freunde von mir, Timo Peters und Yannik Hahn, entwickelt haben. Ich selber habe viel Zeit aufgebracht eine Smartphone Anwendung für das bestehende System zu entwickeln. Mittels des Prinzips "Learning by Doing" erlernte ich viele Dinge im Bereich Planung, Entwicklung und Kommunikation mit andereren Entwicklern. ',
+        description: `TECKboard ist ein digitales Echtzeit-Informationssystem, was zwei Freunde von mir, Timo Peters und Yannik Hahn, entwickelt haben. 
+          Ich selber habe viel Zeit aufgebracht eine Smartphone Anwendung für das bestehende System zu entwickeln. 
+          Mittels des Prinzips "Learning by Doing" erlernte ich viele Dinge im Bereich Planung, Entwicklung und Kommunikation mit andereren Entwicklern.`,
       },
       devlight: {
         title: "... DevLights",
-        description: `DevLights sind Smarthome LED Streifen für Entwickler. Zusammen mit zwei Freunden von mir, Jaan Springer und Timo Peters, 
-                entwickelten wir unsere eigenen Smarthome LED Streifen im Zuge eines Projektkurses Informatik am Graf-Adolf-Gymnasium.
+        description: `DevLights sind Smart Home  LED Streifen für Entwickler. Zusammen mit zwei Freunden von mir, Jaan Springer und Timo Peters, 
+                entwickelten wir unsere eigenen Smart Home  LED Streifen im Zuge eines Projektkurses Informatik am Graf-Adolf-Gymnasium.
                  Dadurch lernten wir neue Techniken im Bereich Hardware und Software Entwicklung kennen, zum Beispiel die Programmiersprache C++. `,
         readDoc: "DOKUMENTATION LESEN",
+      },
+      simpleQ: {
+        title: "... SimpleQ",
+        description: `SimpleQ ist eine im Zuge eines Projektes an der DHBW Karlsruhe entwickelte Webanwendung, die es ermöglicht, Fragen zu stellen und zu beantworten. 
+          Dabei wurde im Fach Software Engineering der gesamte Prozess der Entwicklung eines Produktes durchgearbeitet. 
+          Dieses Projekt ermöglichte es mit Personen, mit denen man vorher wenig gemeinsam gearbeitet hat, wertvolle Erfahrungen über Zusammenarbeit und Koordination von Aufgaben zu lernen.`,
+      },
+      dbDelay: {
+        title: "... DB Delay",
+        description: `DB Delay ist eine Anwendung, welche ich privat entwickelt habe, um persönliche Statistiken über Reisen mit der (Deutschen) Bahn zu sammeln. 
+          Dabei werden Fahrplandaten der Deutschen Bahn zusammen mit eigenen Daten in einer Datenbank gespeichert und ausgewertet.
+          Die Anwendung wurde in TypeScript mit NestJS und React entwickelt. 
+          Sie hat selbst nichts mit der Deutschen Bahn zu tun, sondern ist eine rein private Anwendung.`,
       },
       skills: {
         title: "Meine Skills",
@@ -57,18 +70,19 @@ export const language: Language = {
                 In der Zukunft möchte ich noch weitere Frameworks und Programmiersprachen erlernen. 
                 Mein Ziel dabei bleibt immer was neues zu lernen`,
       },
+
       learnMore: "Erfahre mehr",
     },
     devlight: {
       title: "DevLights",
-      subtitle: "Die Smarthome LED Streifen für Entwickler",
+      subtitle: "Die Smart Home  LED Streifen für Entwickler",
       ledstrip: {
         color: "Tippe hier eine Farbe ein.",
         validity: "Es werden nur HEX or RGB unterstützt",
         restart: "Farbwechsel neustarten",
       },
       github: "Programmcode anschauen auf GitHub",
-      summary: `DevLights sind selbst entwickelte Smarthome LED Streifen, die den WS2812B Chip für die einzelne Ansteuerung der Lichter benutzen.
+      summary: `DevLights sind selbst entwickelte Smart Home  LED Streifen, die den WS2812B Chip für die einzelne Ansteuerung der Lichter benutzen.
             Gleichzeitig dient eine eigens designte Platine mit ESP8266 Wifi Modul zur Kommunikation mit dem Backend.
             Das Backend stellt ein NestJS Server mit MongoDB, es exisitiert eine Smartphone, sowie eine Desktop Anwendung für die Steuerung.`,
       openSourceNotice:
@@ -109,10 +123,13 @@ export const language: Language = {
       },
       imageInfo: [],
       appDescription: [
-        `Die App entwickelte sich von einer zunächst in 2019 nur für Android entwickelten zu der heutigen App in 2021. Heute wird die App von Schülern und Lehrern am Graf Adolf Gymnasium genutzt.`,
+        `Nachdem diese veröffentlicht wurde, wurde die App von Schülern der Oberstufe und Lehrern am Graf Adolf Gymnasium genutzt.
+        Das Feedback zur App von den Schülern war sehr positiv, da sie die App als sehr hilfreich empfanden. 
+        Die Fähigkeit Informationen der Lehrkräfte und der Schule schnell und einfach zu erhalten, war ein großer Vorteil.
+        Zudem bot die Anwendung noch eine Anzeige des Vertretungsplans des jeweiligen Tages.`,
       ],
       reactNative: {
-        start: `Zunächst wurde die App nur für Android in Android Studio mit Java entwickelt. Im März 2020 wurde dann entschieden direkt für Android und iOS zu entwickeltn mit `,
+        start: `Zunächst wurde die App nur für Android in Android Studio mit Java entwickelt. Im März 2020 wurde dann entschieden direkt für Android und iOS zu entwickeln mit `,
         end: `, ein Framework zur Multiplattform App Entwicklung.`,
       },
     },

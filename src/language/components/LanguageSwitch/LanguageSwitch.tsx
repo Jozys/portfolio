@@ -30,17 +30,19 @@ export default function LanguageSwitch() {
         value={languageType as Language}
         //@ts-ignore
         renderValue={() => (
-          <p style={{ textAlign: "center" }}>
-            {
-              //@ts-ignore
-              language.languageInfo[languageType]
-            }
-          </p>
+          <div>
+            <p style={{ textAlign: "center" }}>
+              {
+                //@ts-ignore
+                language.languageInfo[languageType]
+              }
+            </p>
+          </div>
         )}
         onChange={(e) => changeLanguage(e.target.value as string as Language)}
         input={<CustomizedInputBase />}
       >
-        {languages.map((l) => (
+        {languages.map((l: Language) => (
           <MenuItem value={l}>
             {
               //@ts-ignore
