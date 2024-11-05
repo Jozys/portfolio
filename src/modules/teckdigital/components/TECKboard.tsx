@@ -1,17 +1,13 @@
 import { Theme, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import React from "react";
-import Typing from "../../modules/core/components/Typing";
-import { contrastBlack } from "../../modules/core/utils/textContrast";
 import Tilt from "react-parallax-tilt";
-import TECKLogo from "../../assets/Logo_TB.svg";
-import TECKIcon from "../../assets/Rounded_Logo.svg";
-import App from "../../assets/teckboard_app.png";
-import Content from "../Content";
-import TECKdigital from "../../assets/teckdigital.webp";
-import OldBoard from "../../assets/firstTECKboard.png";
-import NewBoard from "../../assets/newBoard.png";
-import { useLanguage } from "../../language/hooks/index";
+import OldBoard from "../../../assets/firstTECKboard.png";
+import NewBoard from "../../../assets/newBoard.png";
+import App from "../../../assets/teckboard_app.png";
+import { useLanguage } from "../../../language/hooks";
+import Typing from "../../core/components/Typing";
+import { contrastBlack } from "../../core/utils/textContrast";
+import MockTECKboard from "./MockTECKboard";
 
 const PREFIX = "TECKboard";
 
@@ -133,51 +129,8 @@ export default function TECKboard(props: TECKboardProps) {
     <Root>
       <Typing text={language.projects.teckboard.title}></Typing>
 
-      <div className={classes.teckboard_container}>
-        <div className={classes.teckboardHeader}>
-          <img
-            alt="TECKboard Logo"
-            className={classes.iconLeft}
-            height={25}
-            width={25}
-            src={TECKLogo}
-            draggable={false}
-          />
-          <Typography className={classes.teckboardTitle}>Test</Typography>
-          <img
-            alt="TECKboard Logo"
-            className={classes.iconRight}
-            height={25}
-            width={25}
-            src={TECKIcon}
-            draggable={false}
-          />
-        </div>
-        <div className={classes.teckboard}>
-          <Content
-            value={language.projects.teckboard.content}
-            height={250}
-            width={400}
-            parent={classes.teckboard}
-            type="text"
-            x={200}
-            y={100}
-            bounds="parent"
-            defaultPosition={{ x: 100, y: 100 }}
-          />
-          <Content
-            value={TECKdigital}
-            parent={classes.teckboard}
-            lockAspectRatio
-            height={200}
-            width={"auto"}
-            bounds="parent"
-            x={1000}
-            y={50}
-            type="image"
-          />
-        </div>
-      </div>
+      <MockTECKboard />
+
       <div className={classes.textContainer}>
         <div className={classes.textInnerContainer}>
           <h1 className={classes.title}>

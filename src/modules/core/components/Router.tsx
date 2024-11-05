@@ -1,11 +1,11 @@
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Footer from "../components/Footer";
 import Projects from "../../projects/components/Projects";
-import TECKboard from "../../../components/TECKboard";
 import EmptyPage from "../design-system/EmptyPage";
 import Menu from "./Menu";
 import Home from "../../home/components/Home";
 import DevLights from "../../devlights/components/DevLights";
+import TECKboard from "../../teckdigital/components/TECKboard";
 
 export default function Router() {
   return (

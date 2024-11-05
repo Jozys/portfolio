@@ -17,7 +17,9 @@ export const ThemeSwitchContext = React.createContext<{
 export default function ThemeProvider(props: ThemeProviderProps) {
   const { children } = props;
   const getUserDefaultTheme = (): boolean => {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return window
+      ? window?.matchMedia("(prefers-color-scheme: dark)")?.matches
+      : false;
   };
 
   const [isDark, setIsDark] = React.useState<boolean>(

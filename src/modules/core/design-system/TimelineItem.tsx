@@ -100,7 +100,6 @@ function CustomTimelineItem(props: TimelineItemProps) {
             style={{
               width: "auto",
               height: "auto",
-
               flex: 1,
             }}
           >
