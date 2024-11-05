@@ -1,18 +1,16 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
-import { styled } from "@mui/material/styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Theme, Typography } from "@mui/material";
-import { LinkedIn } from "@mui/icons-material";
+import { LinkedIn, Search, TrainOutlined } from "@mui/icons-material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import MailIcon from "@mui/icons-material/Mail";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { Theme, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import TECKboard from "../../../assets/Logo_TB.svg";
 import DevLights from "../../../assets/devlights.svg";
-import H4hn from "../../../assets/h4hn.svg";
-import TECKdigital from "../../../assets/teckdigital.svg";
-import Timo from "../../../assets/timo_logo.svg";
 import { useLanguage } from "../../../language/hooks/index";
+import CustomFooterButton from "../design-system/CustomFooterButton";
 
 const PREFIX = "Footer";
 
@@ -107,102 +105,47 @@ export default function Footer(props: FooterProps) {
           <Typography className={classes.text}>
             {language.footer.contact}
           </Typography>
-          <Button
-            size="large"
-            onClick={() => window.open("https://github.com/Jozys", "_blank")}
-            className={classes.button}
+
+          <CustomFooterButton
+            text="Jozys"
+            href={"https://github.com/Jozys"}
             startIcon={<GitHubIcon fontSize="inherit" />}
-          >
-            Jozys
-          </Button>
-          <Button
-            onClick={() =>
-              window.open(
-                "https://www.linkedin.com/in/joshua-slaar-00346424b/",
-                "_blank"
-              )
-            }
-            className={classes.button}
+          />
+          <CustomFooterButton
+            text="Joshua Slaar"
+            href={"https://www.linkedin.com/in/joshua-slaar-00346424b/"}
             startIcon={<LinkedIn fontSize="inherit" />}
-          >
-            Joshua Slaar
-          </Button>
-          <Button
-            size="large"
-            onClick={() =>
-              window.open("https://www.instagram.com/jozys_04/", "_blank")
-            }
-            className={classes.button}
+          />
+          <CustomFooterButton
+            text="Jozys04"
+            href={"https://www.instagram.com/jozys_04/"}
             startIcon={<InstagramIcon fontSize="inherit" />}
-          >
-            Jozys04
-          </Button>
-          <Button
-            size="large"
-            onClick={() => window.open("mailto:joshua@slaar.de", "_blank")}
-            className={classes.button}
+          />
+          <CustomFooterButton
+            text="Jozys"
+            href={"mailto:joshua@slaar.de"}
             startIcon={<MailIcon fontSize="inherit" />}
-          >
-            Mail
-          </Button>
-          <Button
-            onClick={() => window.open("https://discord.com/app")}
-            className={classes.button}
+          />
+          <CustomFooterButton
+            text="@jozys"
+            href={"https://discord.com/app"}
             startIcon={
               <FontAwesomeIcon
                 icon={faDiscord as IconProp}
                 fontSize="inherit"
               />
             }
-          >
-            Jozys#0704
-          </Button>
+          />
         </div>
-        <div className={classes.middle}>
-          <Typography className={classes.text}>
-            {language.footer.others}
-          </Typography>
-          <Button
-            style={{ color: "#fff", fontSize: "1.75h" }}
-            startIcon={
-              <img alt="Timo_Logo" height={40} width={40} src={Timo} />
-            }
-            onClick={() => window.open("https://tipela.de")}
-          >
-            Timo
-          </Button>
-          <Button
-            style={{ color: "#fff", fontSize: "1.75h" }}
-            startIcon={
-              <img alt="H4hn_Logo" height={40} width={40} src={H4hn} />
-            }
-            onClick={() => window.open("https://h4hn.de")}
-          >
-            Yannik
-          </Button>
-          <Button
-            style={{ color: "#fff", fontSize: "1.75h" }}
-            startIcon={
-              <img
-                alt="TECKdigital_Logo"
-                height={40}
-                width={40}
-                src={TECKdigital}
-              />
-            }
-            onClick={() => window.open("http://teckdigital.de/")}
-          >
-            TECKdigital
-          </Button>
-        </div>
+
         <div className={classes.left}>
           <Typography className={classes.text}>
             {" "}
             {language.footer.projects}{" "}
           </Typography>
-          <Button
-            className={classes.button}
-            onClick={() => window.open("https://teckboard.de", "_blank")}
+          <CustomFooterButton
+            href="https://github.com/TECKdigital"
+            text="TECKboard"
             startIcon={
               <img
                 alt="TECKboard Logo"
@@ -211,14 +154,11 @@ export default function Footer(props: FooterProps) {
                 src={TECKboard}
               />
             }
-          >
-            TECKboard
-          </Button>
-          <Button
-            className={classes.button}
-            onClick={() =>
-              window.open("https://github.com/ProjektDevLights", "_blank")
-            }
+          />
+
+          <CustomFooterButton
+            href={"https://github.com/ProjektDevLights"}
+            text="DevLights"
             startIcon={
               <img
                 alt="DevLights Logo"
@@ -227,9 +167,17 @@ export default function Footer(props: FooterProps) {
                 src={DevLights}
               />
             }
-          >
-            DevLights
-          </Button>
+          />
+          <CustomFooterButton
+            href={"https://github.com/SE-TINF22B2/G6-SimpleQ"}
+            text="SimpleQ"
+            startIcon={<Search fontSize="inherit" />}
+          />
+          <CustomFooterButton
+            href={"https://bahn.joshua.slaar.de"}
+            text="DB Delay"
+            startIcon={<TrainOutlined fontSize="inherit" />}
+          />
         </div>
       </div>
       <div className={classes.copyrightContainer}>
