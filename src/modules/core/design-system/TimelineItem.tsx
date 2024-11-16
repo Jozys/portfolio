@@ -45,7 +45,7 @@ const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
 
   [`& .${classes.text}`]: {
     fontSize: "2.0vh",
-    width: "50%",
+    width: window.innerWidth < 1000 ? "80%" : "50%",
     textAlign: "center",
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
@@ -84,43 +84,83 @@ export default function CustomizedTimelineItem(props: TimelineItemProps) {
 }
 
 function CustomTimelineItem(props: TimelineItemProps) {
+  if (window.innerWidth >= 1000) {
+    return (
+      <StyledCustomTimelineItem style={{ ...props.containerStyle }}>
+        <TimelineOppositeContent className={classes.textItem}>
+          <TextContent {...props} />
+        </TimelineOppositeContent>
+        {props.useDot && (
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+        )}
+        <TimelineContent sx={{ flex: 5 }}>
+          <ImageContent {...props} />
+        </TimelineContent>
+      </StyledCustomTimelineItem>
+    );
+  } else {
+    return (
+      <StyledCustomTimelineItem
+        style={
+          props.image != null
+            ? {
+                display: "flex",
+                flexDirection: "column",
+                ...props.containerStyle,
+              }
+            : { ...props.containerStyle }
+        }
+      >
+        {props.useDot && (
+          <TimelineSeparator>
+            <TimelineDot />
+            <TimelineConnector />
+          </TimelineSeparator>
+        )}
+        <TimelineContent className={classes.textItem}>
+          <TextContent {...props} />
+        </TimelineContent>
+
+        {props.image != null && (
+          <TimelineContent sx={{ flex: 5 }}>
+            <ImageContent {...props} />
+          </TimelineContent>
+        )}
+      </StyledCustomTimelineItem>
+    );
+  }
+}
+
+function TextContent(props: Partial<TimelineItemProps>) {
   return (
-    <StyledCustomTimelineItem style={props.containerStyle}>
-      <TimelineOppositeContent className={classes.textItem}>
-        <div className={classes.textContainer}>
-          <h1 className={classes.title}>{props.title}</h1>
+    <div className={classes.textContainer}>
+      <h1 className={classes.title}>{props.title}</h1>
+      <Typography className={classes.text}>{props.description}</Typography>
+      {props.textChildren}
+    </div>
+  );
+}
 
-          <Typography className={classes.text}>{props.description}</Typography>
-          {props.textChildren}
-        </div>
-      </TimelineOppositeContent>
-      {props.useDot && (
-        <TimelineSeparator>
-          <TimelineDot />
-          <TimelineConnector />
-        </TimelineSeparator>
-      )}
-
-      <TimelineContent sx={{ flex: 5 }}>
-        {props.image != null ? (
-          <Tilt tiltReverse className={classes.tilt}>
-            <img
-              style={{
-                borderRadius: 10,
-                transform: props.rotateImage
-                  ? props.direction === "normal"
-                    ? "rotate(0.025turn) translate(0%, 10%)"
-                    : "rotate(-0.025turn) translate(20%, 10%"
-                  : undefined,
-              }}
-              height={props.imageStyle?.height ?? "65%"}
-              width={props.imageStyle?.width ?? "65%"}
-              src={props.image}
-              alt={props.title}
-            />
-          </Tilt>
-        ) : null}
-      </TimelineContent>
-    </StyledCustomTimelineItem>
+function ImageContent(props: Partial<TimelineItemProps>) {
+  return (
+    <Tilt tiltReverse className={classes.tilt}>
+      <img
+        style={{
+          borderRadius: 10,
+          transform: props.rotateImage
+            ? props.direction === "normal"
+              ? "rotate(0.025turn) translate(0%, 10%)"
+              : "rotate(-0.025turn) translate(20%, 10%"
+            : undefined,
+        }}
+        height={props.imageStyle?.height ?? "50%"}
+        width={props.imageStyle?.width ?? "50%"}
+        src={props.image}
+        alt={props.title}
+      />
+    </Tilt>
   );
 }

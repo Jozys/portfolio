@@ -36,7 +36,6 @@ const Root = styled("div")(({ theme }) => ({
   [`& .${classes.timeline}`]: {
     display: "flex",
     alignContent: "center",
-    width: "70%",
   },
 }));
 
@@ -49,7 +48,10 @@ export default function DevLightsTimeline(props: DevLightsTimelineProps) {
       <Typography className={classes.text}>
         {devlight.projectTimelineTitle}
       </Typography>
-      <Timeline className={classes.timeline} position="alternate">
+      <Timeline
+        className={classes.timeline}
+        position={window.innerWidth < 1000 ? "right" : "alternate"}
+      >
         {devlight.projectTimeline.map((item: string, index: number) => (
           <CustomizedTimelineItem
             key={`devlight-timeline-item-${index}`}

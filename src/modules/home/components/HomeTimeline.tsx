@@ -41,7 +41,7 @@ export default function HomeTimeline() {
   const theme = useTheme();
   return (
     <StyledHomeTimeline theme={theme}>
-      <Timeline position="alternate">
+      <Timeline position={window.innerWidth < 1000 ? "left" : "alternate"}>
         <CustomTimelineItem
           key="Me"
           description={language.home.me.description}
