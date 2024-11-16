@@ -42,12 +42,13 @@ export const language: Language = {
       title: "I developed...",
       teckboard: {
         title: "... TECKboards",
-        description: `TECKboard is a realtime information system that two friends of
-                mine, Timo Peters and Yannik Hahn, developed. I spend really much
-                hours developing a smartphone application for this realtime
-                information system. By using the principe learning by doing, I
-                learned much about planing, developing and communicating with the
-                two developers of this system. `,
+        description: {
+          start: `TECKboard is a digital real time information system that two friends of mine, `,
+          name1: "Timo Peters",
+          middle: " and ",
+          name2: "Yannik Hahn",
+          end: ` developed. I spend really much hours developing a smartphone application for this system. By using the principe learning by doing, I learned much about planing, developing and communicating with the two developers of this system.`,
+        },
       },
       devlight: {
         title: "... DevLights",

@@ -35,6 +35,7 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: theme.spacing(4),
     marginBottom: theme.spacing(6),
   },
 
@@ -54,7 +55,7 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
 
   [`& .${classes.info_text}`]: {
     fontSize: "2.5vh",
-    width: window.innerWidth * 0.4,
+    width: window.innerWidth < 1000 ? "80%" : "50%",
     overflowWrap: "break-word",
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },

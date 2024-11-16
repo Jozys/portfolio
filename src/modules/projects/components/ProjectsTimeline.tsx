@@ -14,7 +14,15 @@ export default function ProjectsTimeline() {
         title={language.projects.main.teckboard.title}
         description={
           <>
-            {language.projects.main.teckboard.description}{" "}
+            {language.projects.main.teckboard.description.start}
+            <a href="https://tipela.de" target="_blank" rel="noreferrer">
+              {language.projects.main.teckboard.description.name1}
+            </a>
+            {language.projects.main.teckboard.description.middle}
+            <a href="https://h4hn.de" target="_blank" rel="noreferrer">
+              {language.projects.main.teckboard.description.name2}
+            </a>
+            {language.projects.main.teckboard.description.end}
             <a rel="noreferrer" href="/projects/teckboard" target="_self">
               {language.projects.main.learnMore}
             </a>

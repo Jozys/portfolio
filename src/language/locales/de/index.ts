@@ -37,9 +37,13 @@ export const language: Language = {
       title: "Entwickelt hab ich...",
       teckboard: {
         title: "... TECKboards",
-        description: `TECKboard ist ein digitales Echtzeit-Informationssystem, was zwei Freunde von mir, Timo Peters und Yannik Hahn, entwickelt haben. 
-          Ich selber habe viel Zeit aufgebracht eine Smartphone Anwendung für das bestehende System zu entwickeln. 
-          Mittels des Prinzips "Learning by Doing" erlernte ich viele Dinge im Bereich Planung, Entwicklung und Kommunikation mit andereren Entwicklern.`,
+        description: {
+          start: `TECKboard ist ein digitales Echtzeit-Informationssystem, was zwei Freunde von mir, `,
+          name1: "Timo Peters",
+          middle: " und ",
+          name2: "Yannik Hahn",
+          end: " entwickelt haben. Ich selber habe viel Zeit aufgebracht eine Smartphone Anwendung für das bestehende System zu entwickeln. Mittels des Prinzips 'Learning by Doing' erlernte ich viele Dinge im Bereich Planung, Entwicklung und Kommunikation mit andereren Entwicklern.",
+        },
       },
       devlight: {
         title: "... DevLights",

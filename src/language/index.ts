@@ -22,7 +22,16 @@ export type Language = {
   projects: {
     main: {
       title: string;
-      teckboard: Info;
+      teckboard: {
+        title: string;
+        description: {
+          start: string;
+          name1: string;
+          middle: string;
+          name2: string;
+          end: string;
+        };
+      };
       devlight: Info & { readDoc: string };
       simpleQ: Info;
       dbDelay: Info;

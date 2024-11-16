@@ -32,7 +32,7 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
     height: window.innerHeight * 0.5,
     background: theme.palette.secondary.main,
     clipPath:
-      "polygon(50% 0%, 83% 12%, 100% 43%, 100% 100%, 68% 100%, 29% 100%, 0 100%, 0% 3%, 18% 12%);",
+      "polygon(50% 0%, 83% 12%, 100% 43%, 100% 100%, 68% 100%, 29% 100%, 0 100%, 0% 10%, 18% 12%);",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
