@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import Router from "./components/Router";
-import ThemeProvider from "./components/ThemeProvider";
-import LanguageProvider from "./components/LanguageProvider/LanguageProvider";
+import Router from "./modules/core/components/Router";
+import LanguageProvider from "./language/hooks/LanguageProvider";
 import { StyledEngineProvider } from "@mui/material";
+import ThemeProvider from "./theme/hooks";
 
 function App() {
   return (
