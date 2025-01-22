@@ -16,10 +16,7 @@ export const language: Language = {
     },
     life: {
       title: "My Life",
-      description: ` I love going outside and taking walks at my hometown Brochterbeck
-            in North-Rhine-Westphalia and currently also in Karlsruhe. Also I cycle much with my bike through
-            the countrysides. Its also very important to me to meet friends and
-            spending time with them reguarly.`,
+      description: ` I like to go outside to walk around the Karlsruhe area or towards the Black Forest. I also enjoy cycling through the regions. Additionally, I love meeting friends to spend time with them. Furthermore, I enjoy traveling by train through Germany and Europe. I also regularly visit my hometown Brochterbeck in North Rhine-Westphalia.`,
     },
     teckdigital: {
       title: "TECKdigital",
