@@ -108,27 +108,27 @@ export default function Footer(props: FooterProps) {
 
           <CustomFooterButton
             text="Jozys"
-            href={"https://github.com/Jozys"}
+            href={process.env.REACT_APP_USER_GITHUB}
             startIcon={<GitHubIcon fontSize="inherit" />}
           />
           <CustomFooterButton
             text="Joshua Slaar"
-            href={"https://www.linkedin.com/in/joshua-slaar-00346424b/"}
+            href={process.env.REACT_APP_USER_LINKEDIN}
             startIcon={<LinkedIn fontSize="inherit" />}
           />
           <CustomFooterButton
             text="Jozys04"
-            href={"https://www.instagram.com/jozys_04/"}
+            href={process.env.REACT_APP_USER_INSTAGRAM}
             startIcon={<InstagramIcon fontSize="inherit" />}
           />
           <CustomFooterButton
             text="Jozys"
-            href={"mailto:joshua@slaar.de"}
+            href={process.env.REACT_APP_USER_MAIL}
             startIcon={<MailIcon fontSize="inherit" />}
           />
           <CustomFooterButton
             text="@jozys"
-            href={"https://discord.com/app"}
+            href={process.env.REACT_APP_USER_DISCORD}
             startIcon={
               <FontAwesomeIcon
                 icon={faDiscord as IconProp}
@@ -144,7 +144,7 @@ export default function Footer(props: FooterProps) {
             {language.footer.projects}{" "}
           </Typography>
           <CustomFooterButton
-            href="https://github.com/TECKdigital"
+            href={process.env.REACT_APP_TECKBOARD_LINK}
             text="TECKboard"
             startIcon={
               <img
@@ -157,7 +157,7 @@ export default function Footer(props: FooterProps) {
           />
 
           <CustomFooterButton
-            href={"https://github.com/ProjektDevLights"}
+            href={process.env.REACT_APP_DEVLIGHTS_LINK}
             text="DevLights"
             startIcon={
               <img
@@ -169,12 +169,12 @@ export default function Footer(props: FooterProps) {
             }
           />
           <CustomFooterButton
-            href={"https://github.com/SE-TINF22B2/G6-SimpleQ"}
+            href={process.env.REACT_APP_SIMPLEQ_LINK}
             text="SimpleQ"
             startIcon={<Search fontSize="inherit" />}
           />
           <CustomFooterButton
-            href={"https://bahn.joshua.slaar.de"}
+            href={process.env.REACT_APP_DB_DELAY_LINK}
             text="DB Delay"
             startIcon={<TrainOutlined fontSize="inherit" />}
           />
