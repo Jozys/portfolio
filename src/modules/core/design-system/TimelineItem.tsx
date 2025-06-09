@@ -6,7 +6,7 @@ import {
   TimelineOppositeContent,
   TimelineSeparator,
 } from "@mui/lab";
-import { styled, Typography } from "@mui/material";
+import { Paper, styled, Typography } from "@mui/material";
 import React from "react";
 import Tilt from "react-parallax-tilt";
 import { contrastBlack } from "../../../modules/core/utils/textContrast";
@@ -21,6 +21,8 @@ const classes = {
   item: `${PREFIX}-item`,
   textItem: `${PREFIX}-textItem`,
   tilt: `${PREFIX}-tilt`,
+  card: `${PREFIX}-card`,
+  imageContainer: `${PREFIX}-imageContainer`,
 };
 
 const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
@@ -31,21 +33,24 @@ const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
   },
   [`& .${classes.textContainer}`]: {
     width: "100%",
+    height: "100%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    justifyContent: "center",
+    padding: theme.spacing(2),
   },
   [`& .${classes.title}`]: {
     fontFamily: "bungee",
     textAlign: "center",
     alignSelf: "center",
-    width: "50%",
+    width: "100%",
+    marginBottom: theme.spacing(2),
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
-
   [`& .${classes.text}`]: {
     fontSize: "2.0vh",
-    width: window.innerWidth < 1000 ? "80%" : "50%",
+    width: "100%",
     textAlign: "center",
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
   },
@@ -56,25 +61,53 @@ const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
     justifyItems: "center",
     textAlign: "center",
   },
-
   [`& .${classes.tilt}`]: {
-    width: "auto",
+    width: "100%",
     height: "auto",
-    flex: 1,
     display: "flex",
+    justifyContent: "center",
+  },
+  [`& .${classes.card}`]: {
+    padding: theme.spacing(3),
+    borderRadius: theme.spacing(2),
+    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.1)",
+    background:
+      theme.palette.mode === "dark"
+        ? theme.palette.background.paper
+        : "#ffffff",
+    transition: "transform 0.3s, box-shadow 0.3s",
+    "&:hover": {
+      transform: "translateY(-5px)",
+      boxShadow: `0 12px 30px rgba(0, 0, 0, 0.15), 0 0 0 2px ${theme.palette.primary.main}88`,
+    },
+    overflow: "hidden",
+    width: "100%",
+    maxWidth: window.innerWidth < 1000 ? "85%" : "90%",
+    height: "400px",
+  },
+  [`& .${classes.imageContainer}`]: {
+    overflow: "hidden",
+    borderRadius: theme.spacing(1),
+    marginTop: theme.spacing(2),
+    textAlign: "center",
+    maxWidth: window.innerWidth < 1000 ? "85%" : "90%",
+    height: "400px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     justifyContent: "center",
   },
 }));
 
 export interface TimelineItemProps {
   key: string;
-  title?: string;
+  title?: string | React.ReactNode;
   description: string | React.ReactNode;
-  image?: string;
+  image?: string | React.ReactNode;
   imageStyle?: React.CSSProperties;
   rotateImage?: boolean;
   direction: "normal" | "opposite";
-  textChildren?: React.ReactNode;
+  children?: React.ReactNode;
   useDot?: boolean;
   containerStyle?: React.CSSProperties;
 }
@@ -88,11 +121,13 @@ function CustomTimelineItem(props: TimelineItemProps) {
     return (
       <StyledCustomTimelineItem style={{ ...props.containerStyle }}>
         <TimelineOppositeContent className={classes.textItem}>
-          <TextContent {...props} />
+          <Paper className={classes.card} elevation={0}>
+            <TextContent {...props} />
+          </Paper>
         </TimelineOppositeContent>
         {props.useDot && (
           <TimelineSeparator>
-            <TimelineDot />
+            <TimelineDot color="primary" />
             <TimelineConnector />
           </TimelineSeparator>
         )}
@@ -103,33 +138,35 @@ function CustomTimelineItem(props: TimelineItemProps) {
     );
   } else {
     return (
-      <StyledCustomTimelineItem
-        style={
-          props.image != null
-            ? {
-                display: "flex",
-                flexDirection: "column",
-                ...props.containerStyle,
-              }
-            : { ...props.containerStyle }
-        }
-      >
-        {props.useDot && (
-          <TimelineSeparator>
-            <TimelineDot />
-            <TimelineConnector />
-          </TimelineSeparator>
-        )}
-        <TimelineContent className={classes.textItem}>
-          <TextContent {...props} />
-        </TimelineContent>
-
-        {props.image != null && (
-          <TimelineContent sx={{ flex: 5 }}>
-            <ImageContent {...props} />
+      <Paper className={classes.card} elevation={0}>
+        <StyledCustomTimelineItem
+          style={
+            props.image != null
+              ? {
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                  width: "100%",
+                  ...props.containerStyle,
+                }
+              : { ...props.containerStyle }
+          }
+        >
+          {props.useDot && (
+            <TimelineSeparator>
+              <TimelineDot color="primary" />
+              <TimelineConnector />
+            </TimelineSeparator>
+          )}
+          <TimelineContent
+            className={[classes.imageContainer, classes.textItem].join(" ")}
+            style={{ ...props.containerStyle }}
+          >
+            {props.image != null && <ImageContent {...props} />}
+            <TextContent {...props} />
           </TimelineContent>
-        )}
-      </StyledCustomTimelineItem>
+        </StyledCustomTimelineItem>
+      </Paper>
     );
   }
 }
@@ -139,28 +176,58 @@ function TextContent(props: Partial<TimelineItemProps>) {
     <div className={classes.textContainer}>
       <h1 className={classes.title}>{props.title}</h1>
       <Typography className={classes.text}>{props.description}</Typography>
-      {props.textChildren}
+      <div
+        style={{
+          display: "flex",
+          width: "100%",
+          justifyContent: "space-around",
+          alignContent: "center",
+          /* alignContent: "space-around", */
+        }}
+      >
+        {props.children}
+      </div>
     </div>
   );
 }
 
 function ImageContent(props: Partial<TimelineItemProps>) {
   return (
-    <Tilt tiltReverse className={classes.tilt}>
-      <img
+    <div className={classes.imageContainer}>
+      <Tilt
+        tiltReverse
+        className={classes.tilt}
+        tiltMaxAngleX={5}
+        tiltMaxAngleY={5}
         style={{
-          borderRadius: 10,
-          transform: props.rotateImage
-            ? props.direction === "normal"
-              ? "rotate(0.025turn) translate(0%, 10%)"
-              : "rotate(-0.025turn) translate(20%, 10%"
-            : undefined,
+          width: "100%",
+          height: "100%",
         }}
-        height={props.imageStyle?.height ?? "50%"}
-        width={props.imageStyle?.width ?? "50%"}
-        src={props.image}
-        alt={props.title}
-      />
-    </Tilt>
+      >
+        <div
+          style={{
+            textAlign: "center",
+            height: "100%",
+            width: "100%",
+          }}
+        >
+          {typeof props.image === "string" ? (
+            <img
+              style={{
+                borderRadius: 10,
+                maxWidth: "100%",
+                maxHeight: "400px",
+                objectFit: "contain",
+                ...props.imageStyle,
+              }}
+              src={props.image}
+              alt={props.title}
+            />
+          ) : (
+            props.image
+          )}
+        </div>
+      </Tilt>
+    </div>
   );
 }

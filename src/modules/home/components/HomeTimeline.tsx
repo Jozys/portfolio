@@ -43,39 +43,11 @@ export default function HomeTimeline() {
     <StyledHomeTimeline theme={theme}>
       <Timeline position={window.innerWidth < 1000 ? "left" : "alternate"}>
         <CustomTimelineItem
-          key="Me"
-          description={language.home.me.description}
-          direction="normal"
-          imageStyle={{ height: "65%", width: "70%" }}
           title={language.home.me.title}
+          description={language.home.me.description}
           image={Me}
-        />
-        <CustomTimelineItem
-          key="Life"
-          description={language.home.life.description}
-          title={language.home.life.title}
-          direction="opposite"
-          image={Schwarzwald}
-        />
-        <CustomTimelineItem
-          key="TECKdigital"
-          description={
-            <>
-              {language.home.teckdigital.description.start}
-              <a href="http://teckdigital.de" className={classes.info_text}>
-                TECKdigital
-              </a>
-              {". "}
-              {language.home.teckdigital.description.middle}
-              <Link to="/projects#teckboard" className={classes.projectLink}>
-                TECKboard
-              </Link>
-              {language.home.teckdigital.description.end}
-            </>
-          }
-          title="TECKdigital"
           direction="normal"
-          image={TECKdigital}
+          key="me"
         />
         <CustomTimelineItem
           title={language.home.dhbw.title}
@@ -83,6 +55,13 @@ export default function HomeTimeline() {
           image={DHBW}
           direction="opposite"
           key="DHBW"
+        />
+        <CustomTimelineItem
+          key="Life"
+          description={language.home.life.description}
+          title={language.home.life.title}
+          direction="normal"
+          image={Schwarzwald}
         />
       </Timeline>
     </StyledHomeTimeline>

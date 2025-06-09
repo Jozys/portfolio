@@ -31,6 +31,7 @@ export default function Home() {
         <Header
           title={`${language.home.greeting}\n${language.home.name}`}
           subTitle={language.home.subtitle}
+          showAvatar
         />
       </div>
 

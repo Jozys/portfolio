@@ -1,5 +1,5 @@
 export const getAge = (): number => {
-  let birthDate = new Date(process.env.REACT_APP_USER_BIRTHDATE ?? "1970-01-01");
+  let birthDate = new Date(import.meta.env.VITE_USER_BIRTHDATE ?? "1970-01-01");
   let currentDate = new Date();
   let age = currentDate.getFullYear() - birthDate.getFullYear();
   // 05 - 06 => negative, age calculated before is not reached

@@ -22,19 +22,12 @@ export type Language = {
   projects: {
     main: {
       title: string;
-      teckboard: {
-        title: string;
-        description: {
-          start: string;
-          name1: string;
-          middle: string;
-          name2: string;
-          end: string;
-        };
-      };
+      teckboard: Info;
       devlight: Info & { readDoc: string };
       simpleQ: Info;
       dbDelay: Info;
+      moveTopia: Info;
+      sensoration: Info;
       skills: Info;
       learnMore: string;
     };

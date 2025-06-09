@@ -12,7 +12,7 @@ export const language: Language = {
     subtitle: `Student - Entwickler - ${getAge()} Jahre alt - Deutschland`,
     me: {
       title: "Wer bin ich",
-      description: `Ich bin ein ${getAge()} Jahre alter Student, der gerne Sport macht, entwickelt, und Bücher liest. Aktuell studiere ich Informatik in Karlsruhe und arbeite bei der SAP in Walldorf, Baden-Württemberg.`,
+      description: `Ich bin ein ${getAge()} Jahre alter Student, der gerne Sport macht, entwickelt, und Bücher liest. Mein aktueller Fokus liegt auf meinem Bachelorstudium und meiner Arbeit bei der SAP.`,
     },
     life: {
       title: "Mein Leben",
@@ -37,13 +37,8 @@ export const language: Language = {
       title: "Entwickelt hab ich...",
       teckboard: {
         title: "... TECKboards",
-        description: {
-          start: `TECKboard ist ein digitales Echtzeit-Informationssystem, was zwei Freunde von mir, `,
-          name1: "Timo Peters",
-          middle: " und ",
-          name2: "Yannik Hahn",
-          end: " entwickelt haben. Ich selber habe viel Zeit aufgebracht eine Smartphone Anwendung für das bestehende System zu entwickeln. Mittels des Prinzips 'Learning by Doing' erlernte ich viele Dinge im Bereich Planung, Entwicklung und Kommunikation mit andereren Entwicklern.",
-        },
+        description: `TECKboard ist ein digitales Echtzeit-Informationssystem, was zwei Freunde von mir, Timo Peters und Yannik Hahn
+           entwickelt haben. Ich selber habe viel Zeit aufgebracht eine Smartphone Anwendung für das bestehende System zu entwickeln. Mittels des Prinzips 'Learning by Doing' erlernte ich viele Dinge im Bereich Planung, Entwicklung und Kommunikation mit andereren Entwicklern.`,
       },
       devlight: {
         title: "... DevLights",
@@ -64,6 +59,16 @@ export const language: Language = {
           Dabei werden Fahrplandaten der Deutschen Bahn zusammen mit eigenen Daten in einer Datenbank gespeichert und ausgewertet.
           Die Anwendung wurde in TypeScript mit NestJS und React entwickelt. 
           Sie hat selbst nichts mit der Deutschen Bahn zu tun, sondern ist eine rein private Anwendung.`,
+      },
+      moveTopia: {
+        title: "MoveTopia",
+        description:
+          "MoveTopia ist eine innovative Fitness-Tracking-App, die Nutzern hilft, ihre Trainingsfortschritte effektiv zu verfolgen und zu dokumentieren. Die App habe ich zusammen im Rahmen eines Projektes an der DHBW Karlsruhe entwickelt. Sie bietet eine benutzerfreundliche Oberfläche, um Trainingsdaten zu erfassen und Fortschritte zu visualisieren.",
+      },
+      sensoration: {
+        title: "Sensoration",
+        description: `Sensoration ist eine Android-App, die im Rahmen des Studiums an der DHBW im Modul "Verteilte Systeme" von mir zusammen mit einem weiteren Kommilitonen entwickelt wurde. Diese ermöglicht es, Sensordaten von verteilten Android-Geräten zu sammeln und zu visualisieren. 
+          Die App wurde in Kotlin mit Jetpack Compose entwickelt und bietet eine moderne Benutzeroberfläche.`,
       },
       skills: {
         title: "Meine Skills",
@@ -108,7 +113,7 @@ export const language: Language = {
         `Ein Jahr lang dauerte die Entwicklung von der Hardware und den Software Beispielen,
                 drei Stück sind es am Ende geworden, eine Smartphone-App, eine Desktop-App und eine Modifikation für das Spiel Minecraft.
                 Für das gesamte Projekt mussten wir eine Facharbeit verfassen, um das entwickelte zu präsentieren. 
-                Nachdem wir diese abgegeben hatten und eine kleine Präsentation vor unseren Lehrkräften hatten, bekamen wir die Noten für das Projekt. 
+                Nachdem  wir diese abgegeben hatten und eine kleine Präsentation vor unseren Lehrkräften hatten, bekamen wir die Noten für das Projekt. 
                 Diese waren die Bestnote (15 Punkte).`,
       ],
       last: `Insgesamt war dieses Projekt eine sehr gute Lernerfahrung und auch notentechnisch sehr gut.

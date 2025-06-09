@@ -1,82 +1,132 @@
 import { Timeline } from "@mui/lab";
+import { IconButton, useTheme } from "@mui/material";
 import DevLights from "../../../assets/devlights.png";
 import TECKboardApp from "../../../assets/teckboard_app.png";
 import SimpleQ from "../../../assets/simpleQ.png";
 import DBDelay from "../../../assets/db_delay.png";
+import MoveTopia from "../../../assets/MoveTopia.png";
 import { useLanguage } from "../../../language/hooks";
-import CustomizedTimelineItem from "../../core/design-system/TimelineItem";
+import CustomTimelineItem from "../../core/design-system/TimelineItem";
 import TimelineButton from "../design-system/TimelineButton";
+
+import { Project } from "../../../data/types/Project";
+import {
+  getAllProjects,
+  getProjectDescription,
+  getProjectTitle,
+} from "../../../data/Projects";
 export default function ProjectsTimeline() {
   const { language } = useLanguage();
+  const theme = useTheme();
+  const projects = getAllProjects();
+
+  console.log(projects[0].name);
   return (
-    <Timeline position="alternate">
-      <CustomizedTimelineItem
-        title={language.projects.main.teckboard.title}
-        description={
-          <>
-            {language.projects.main.teckboard.description.start}
-            <a href="https://tipela.de" target="_blank" rel="noreferrer">
-              {language.projects.main.teckboard.description.name1}
-            </a>
-            {language.projects.main.teckboard.description.middle}
-            <a href="https://h4hn.de" target="_blank" rel="noreferrer">
-              {language.projects.main.teckboard.description.name2}
-            </a>
-            {language.projects.main.teckboard.description.end}
-            <a rel="noreferrer" href="/projects/teckboard" target="_self">
-              {language.projects.main.learnMore}
-            </a>
-          </>
-        }
-        direction="normal"
-        rotateImage
-        imageStyle={{ height: "50%", width: "25%" }}
-        image={TECKboardApp}
-        key="teckboard"
-      />
-      <CustomizedTimelineItem
-        title={language.projects.main.devlight.title}
-        description={
-          <>
-            {language.projects.main.devlight.description}{" "}
-            <a rel="noreferrer" href="/projects/devlights" target="_self">
-              {language.projects.main.learnMore}
-            </a>
-          </>
-        }
-        direction="opposite"
-        image={DevLights}
-        key="devlights"
-        containerStyle={{ marginTop: "10vh" }}
-        rotateImage
-        imageStyle={{ height: "50%", width: "25%" }}
-        textChildren={
-          <TimelineButton
-            onClick={() => window.open("/devlights.pdf", "_blank")}
-            title={language.projects.main.devlight.readDoc}
-          />
-        }
-      />
-      <CustomizedTimelineItem
-        title={language.projects.main.simpleQ.title}
-        description={language.projects.main.simpleQ.description}
-        direction="normal"
-        rotateImage
-        containerStyle={{ marginTop: "10vh" }}
-        imageStyle={{ height: "auto", width: "45%" }}
-        image={SimpleQ}
-        key="simpleQ"
-      />
-      <CustomizedTimelineItem
-        title={language.projects.main.dbDelay.title}
-        description={language.projects.main.dbDelay.description}
-        containerStyle={{ marginTop: "10vh" }}
-        direction="opposite"
-        rotateImage
-        imageStyle={{ height: "auto", width: "45%" }}
-        image={DBDelay}
-        key="dbDelay"
-      />
+    <Timeline position={window.innerWidth < 1000 ? "left" : "alternate"}>
+      {projects.map((project: Project, index) => (
+        <CustomTimelineItem
+          key={project.name}
+          title={getProjectTitle(project, language)}
+          description={getProjectDescription(project, language)}
+          image={project.image}
+          direction={index % 2 === 0 ? "normal" : "opposite"}
+          useDot={true}
+          children={<AdditionalProjectInformation project={project} />}
+        ></CustomTimelineItem>
+      ))}
     </Timeline>
+  );
+}
+
+function AdditionalProjectInformation(props: { project: Project }) {
+  const { project } = props;
+  const theme = useTheme();
+  const { language } = useLanguage();
+
+  const projectButton = (project: Project): React.ReactNode[] => {
+    return Object.keys(project.links).map((linkKey, linkIndex) => {
+      const link = project.links[linkKey];
+      return (
+        <TimelineButton
+          key={`${project.name}-link-${linkIndex}`}
+          onClick={() => {
+            console.log(`Opening link: ${link.url}`);
+            window.open(link.url);
+          }}
+          title={link.label}
+          icon={
+            link.icon ? (
+              typeof link.icon === "string" ? (
+                <img
+                  src={link.icon}
+                  alt={link.label}
+                  height={24}
+                  width={"auto"}
+                />
+              ) : (
+                link.icon
+              )
+            ) : null
+          }
+        />
+      );
+    });
+  };
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        marginTop: theme.spacing(2),
+        width: "100%",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flex: 1,
+          flexDirection: "row",
+          flexWrap: "wrap",
+        }}
+      >
+        {project.technologies.map((tech, techIndex) => (
+          <IconButton
+            key={`${project.name}-tech-${techIndex}`}
+            onClick={() => {
+              if (tech.link) {
+                window.open(tech.link);
+              }
+            }}
+            style={{
+              margin: theme.spacing(0.5),
+              color: tech.color || "inherit",
+            }}
+          >
+            <img
+              src={tech.icon}
+              alt={tech.name}
+              height={24}
+              width={"auto"}
+              style={{ filter: tech.color ? `invert(${tech.color})` : "none" }}
+            />
+          </IconButton>
+        ))}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flex: 1,
+          flexDirection: "row",
+          alignItems: "center",
+          //justifyContent: "space-around", // Fügt space-around hinzu
+          //width: "100%", // Stellt sicher, dass die volle Breite genutzt wird
+          flexWrap: "wrap", // Erlaubt Umbruch bei vielen Buttons
+          gap: theme.spacing(2), // Optional: Fügt Abstand zwischen den Buttons hinzu
+        }}
+      >
+        {projectButton(project)}
+      </div>
+    </div>
   );
 }

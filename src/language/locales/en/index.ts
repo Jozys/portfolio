@@ -39,13 +39,7 @@ export const language: Language = {
       title: "I developed...",
       teckboard: {
         title: "... TECKboards",
-        description: {
-          start: `TECKboard is a digital real time information system that two friends of mine, `,
-          name1: "Timo Peters",
-          middle: " and ",
-          name2: "Yannik Hahn",
-          end: ` developed. I spend really much hours developing a smartphone application for this system. By using the principe learning by doing, I learned much about planing, developing and communicating with the two developers of this system.`,
-        },
+        description: `TECKboard is a digital real time information system that two friends of mine,Timo Peters and Yannik Hahn", developed. I spend really much hours developing a smartphone application for this system. By using the principe learning by doing, I learned much about planing, developing and communicating with the two developers of this system.`,
       },
       devlight: {
         title: "... DevLights",
@@ -67,6 +61,16 @@ export const language: Language = {
         description: `DB Delay is an application that I developed privately to collect personal statistics about travels using railways, especially using the German state-owned Deutsche Bahn. 
         Timetable data from the Deutsche Bahn is stored and evaluated in a database together with manually entered data. The application was developed in TypeScript with NestJS and React. 
         It has nothing to do with the Deutsche Bahn itself but is purely a private application.`,
+      },
+      moveTopia: {
+        title: "MoveTopia",
+        description:
+          "MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress. I developed the app together with others as part of a project at DHBW Karlsruhe. It offers a user-friendly interface to record training data and visualize progress.",
+      },
+      sensoration: {
+        title: "Sensoration",
+        description: `Sensoration is an Android app that was developed by me together with another fellow student as part of the "Distributed Systems" module at DHBW. It enables the collection and visualization of sensor data from distributed Android devices. 
+          The app was developed in Kotlin with Jetpack Compose and offers a modern user interface.`,
       },
       skills: {
         title: "My skills",
