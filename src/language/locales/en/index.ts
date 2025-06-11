@@ -65,23 +65,21 @@ export const language: Language = {
       moveTopia: {
         title: "MoveTopia",
         description:
-          "MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress. I developed the app together with others as part of a project at DHBW Karlsruhe. It offers a user-friendly interface to record training data and visualize progress.",
+          "MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress. I developed the app together with Niklas Buse as part of a project at DHBW Karlsruhe. It offers a user-friendly interface to record training data and visualize progress.",
       },
       sensoration: {
         title: "Sensoration",
-        description: `Sensoration is an Android app that was developed by me together with another fellow student as part of the "Distributed Systems" module at DHBW. It enables the collection and visualization of sensor data from distributed Android devices. 
+        description: `Sensoration is an Android app that was developed by me together with Tom Schütt as part of the "Distributed Systems" module at DHBW. It enables the collection and visualization of sensor data from distributed Android devices. 
           The app was developed in Kotlin with Jetpack Compose and offers a modern user interface.`,
       },
       skills: {
         title: "My skills",
-        description: `Above you see all the programming languages and frameworks I am familiar
-                with. My experiences in Java and JavaScript are very good, the React,
-                for frontend applications and Nest.js, for backend applications,
-                framework experience is also very good. \nI have particular
-                experience at HTML5 and CSS3. \n
-                Allmost everything I have learned by myself, except from Java, I learned
-                Java in school. I want to learn more languages, frameworks and tools in
-                the future. My goal is to always achieve and learn more in my career.`,
+        description: `This overview shows all programming languages and frameworks with which I am well or reasonably familiar.
+                      My main experience has expanded from Java and JavaScript or TypeScript to frameworks for frontend development such as React and for backend development such as NestJS.
+                      I have also gained experience in app development with React Native, Jetpack Compose, and Flutter.
+                      I also have some knowledge in hardware development with C++ and the ESP8266 microcontroller.
+                      My knowledge of databases ranges from MongoDB, MySQL to PostgreSQL.
+                      My knowledge of programming languages and frameworks does not stand still, but I always try to keep learning.`,
       },
       learnMore: "Learn more",
     },

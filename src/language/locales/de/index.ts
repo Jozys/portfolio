@@ -63,21 +63,22 @@ export const language: Language = {
       moveTopia: {
         title: "MoveTopia",
         description:
-          "MoveTopia ist eine innovative Fitness-Tracking-App, die Nutzern hilft, ihre Trainingsfortschritte effektiv zu verfolgen und zu dokumentieren. Die App habe ich zusammen im Rahmen eines Projektes an der DHBW Karlsruhe entwickelt. Sie bietet eine benutzerfreundliche Oberfläche, um Trainingsdaten zu erfassen und Fortschritte zu visualisieren.",
+          "MoveTopia ist eine innovative Fitness-Tracking-App, die Nutzern hilft, ihre Trainingsfortschritte effektiv zu verfolgen und zu dokumentieren. Die App habe ich zusammen mit Niklas Buse im Rahmen unserer Studienarbeit an der DHBW Karlsruhe entwickelt. Sie bietet eine benutzerfreundliche Oberfläche, um Trainingsdaten zu erfassen und Fortschritte zu visualisieren.",
       },
       sensoration: {
         title: "Sensoration",
-        description: `Sensoration ist eine Android-App, die im Rahmen des Studiums an der DHBW im Modul "Verteilte Systeme" von mir zusammen mit einem weiteren Kommilitonen entwickelt wurde. Diese ermöglicht es, Sensordaten von verteilten Android-Geräten zu sammeln und zu visualisieren. 
+        description: `Sensoration ist eine Android-App, die im Rahmen des Studiums an der DHBW im Modul "Verteilte Systeme" von mir zusammen mit Tom Schütt entwickelt wurde. Diese ermöglicht es, Sensordaten von verteilten Android-Geräten zu sammeln und zu visualisieren. 
           Die App wurde in Kotlin mit Jetpack Compose entwickelt und bietet eine moderne Benutzeroberfläche.`,
       },
       skills: {
         title: "Meine Skills",
-        description: `Hier sieht man alle Programmiersprachen und Frameworks, die ich bereits benutzt habe.
-                Aktuell sind meine Kenntnisse vor allem in der Java und JavaScript Entwicklung sehr gut. 
-                Entwickelt hab ich bisher viel mit React für Frontend und NestJS für Backend Anwendungen. 
-                Zudem habe ich gute Kenntnisse in HTML5 und CSS3. Das meiste davon hab ich mir selber beigebracht, abgesehen von Java, da dies in der Schule gelehrt wurde. 
-                In der Zukunft möchte ich noch weitere Frameworks und Programmiersprachen erlernen. 
-                Mein Ziel dabei bleibt immer was neues zu lernen`,
+        description: `Diese Übersicht zeigt alle Programmiersprachen und Frameworks, mit denen ich gut oder einigermaßen vertraut bin. 
+        Meine Haupterfahrungen erweiterten sich von Java und JavaScript bzw. TypeScript hinzu Frameworks zur Frontend-Entwicklung wie React und zur Backend-Entwicklung wie NestJS.         
+        Zudem sammelte ich Erfahrungen in der App-Entwicklung mit React Native, Jetpack Compose und Flutter.
+        Ich habe auch einige Kenntnisse in der Hardware-Entwicklung mit C++ und dem ESP8266 Mikrocontroller.
+        Mein Wissen über Datenbanken erstreckt sich von MongoDB, MySQL bis hin zu PostgreSQL.
+        Dabei bleibt mein Wissen über die Programmiersprachen und Frameworks nicht stehen, sondern ich versuche immer weiter dazuzulernen.
+        `,
       },
 
       learnMore: "Erfahre mehr",
