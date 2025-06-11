@@ -48,4 +48,15 @@ export interface Technology {
   icon: string; // URL to the icon image
   link?: string; // Optional link to the technology's website or documentation
   color?: string; // Optional color for the technology
+  type?: TechnologyType; // Optional type of technology (e.g., frontend, backend)
+}
+
+export enum TechnologyType {
+  Frontend = "frontend",
+  Backend = "backend",
+  Mobile = "mobile",
+  Database = "database",
+  Hardware = "hardware",
+  DevOps = "devops",
+  Other = "other",
 }

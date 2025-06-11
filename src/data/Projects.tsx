@@ -64,6 +64,7 @@ export const projects: Record<string, Project> = {
       getTechnology("cpp")!,
       getTechnology("typescript")!,
       getTechnology("nestJS")!,
+      getTechnology("mongoDB")!,
     ],
     links: {
       github: {
@@ -88,6 +89,7 @@ export const projects: Record<string, Project> = {
       getTechnology("typescript")!,
       getTechnology("vite")!,
       getTechnology("nestJS")!,
+      getTechnology("mySQL")!,
     ],
     links: {
       github: {
@@ -121,6 +123,8 @@ export const projects: Record<string, Project> = {
       getTechnology("typescript")!,
       getTechnology("mui")!,
       getTechnology("nestJS")!,
+      getTechnology("mySQL")!,
+      getTechnology("docker")!,
     ],
     links: {
       demo: {
@@ -140,7 +144,7 @@ export const projects: Record<string, Project> = {
     name: "projects.main.moveTopia.title",
     description: "projects.main.moveTopia.description",
     image: MoveTopiaApp,
-    technologies: [getTechnology("flutter")],
+    technologies: [getTechnology("flutter"), getTechnology("dart")!],
     links: {
       github: {
         url: "https://github.com/ScreepCode/MoveTopia",
@@ -165,7 +169,7 @@ export const projects: Record<string, Project> = {
     name: "projects.main.sensoration.title",
     description: "projects.main.sensoration.description",
     image: Sensoration,
-    technologies: [getTechnology("jetpackCompose")!],
+    technologies: [getTechnology("kotlin")!, getTechnology("jetpackCompose")!],
     links: {
       github: {
         url: "https://github.com/Jozys/Sensoration",
