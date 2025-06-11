@@ -30,7 +30,8 @@ const classes = {
 const Root = styled("div")(({ theme }: { theme: Theme }) => ({
   [`&.${classes.root}`]: {
     height: window.innerHeight * 0.5,
-    background: theme.palette.secondary.main,
+    //@ts-ignore
+    background: theme.gradients.footer.default,
     clipPath:
       "polygon(50% 0%, 83% 12%, 100% 43%, 100% 100%, 68% 100%, 29% 100%, 0 100%, 0% 10%, 18% 12%);",
     display: "flex",

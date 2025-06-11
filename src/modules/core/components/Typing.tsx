@@ -1,7 +1,8 @@
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
-import { Theme, styled } from "@mui/material/styles";
+import { Theme, styled, useTheme } from "@mui/material/styles";
 import { contrastBlack } from "../../../modules/core/utils/textContrast";
+import { useMediaQuery } from "@mui/material";
 
 export interface TypingProps {
   text: string;
@@ -40,12 +41,16 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
 }));
 
 export default function Typing(props: TypingProps) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Root className={classes.root}>
       <TypeAnimation
         wrapper="span"
         className={classes.text}
         sequence={[props.text]}
+        speed={isMobile ? 75 : 50}
       />
     </Root>
   );
