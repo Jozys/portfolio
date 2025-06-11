@@ -20,6 +20,7 @@ const theme = (dark: boolean) => {
         primary: dark ? "#fff" : "#000",
         secondary: dark ? "#fdfdfd" : "#0d0d0d",
       },
+
       mode: dark ? "dark" : "light",
     },
     //@ts-ignore
@@ -27,11 +28,11 @@ const theme = (dark: boolean) => {
       background: {
         default: dark
           ? "linear-gradient(90deg, rgba(50, 0, 83, 1) 0%, rgba(9, 9, 121, 1) 100%)"
-          : "linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,253,158,1) 100%)",
+          : "linear-gradient(0deg, rgba(75,155,155,0.8) 0%, rgba(135,195,175,0.7) 100%)",
       },
       footer: {
         default: dark
-          ? "linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,253,158,1) 100%)"
+          ? "linear-gradient(0deg, rgba(75,155,155,0.8) 0%, rgba(135,195,175,0.7) 100%)"
           : "linear-gradient(90deg, rgba(50, 0, 83, 1) 0%, rgba(9, 9, 121, 1) 100%)",
       },
     },
