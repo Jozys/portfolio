@@ -46,13 +46,13 @@ const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
     alignSelf: "center",
     width: "100%",
     marginBottom: theme.spacing(2),
-    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
+    color: contrastBlack(theme.palette.background.paper) ? "#000" : "#fff",
   },
   [`& .${classes.text}`]: {
     fontSize: "2.0vh",
     width: "100%",
     textAlign: "center",
-    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
+    color: contrastBlack(theme.palette.background.paper) ? "#000" : "#fff",
   },
   [`& .${classes.textItem}`]: {
     flex: 5,

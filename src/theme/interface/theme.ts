@@ -13,12 +13,13 @@ const theme = (dark: boolean) => {
         main: dark ? "rgba(34,193,195,1)" : "rgba(50, 0, 83, 1)",
       },
       background: {
+        paper: dark ? "#5CCCCC" : "#dedede",
         default: dark ? "#281547" : "#dedede",
-        paper: dark ? "#281547" : "#dedede",
       },
       text: {
         primary: dark ? "#fff" : "#000",
         secondary: dark ? "#fdfdfd" : "#0d0d0d",
+        disabled: dark ? "#b0b0b0" : "#7d7d7d",
       },
 
       mode: dark ? "dark" : "light",
