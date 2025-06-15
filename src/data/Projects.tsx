@@ -1,17 +1,18 @@
 import { Project } from "./types/Project";
 import GooglePlayIcon from "../assets/GooglePlay.png";
+import AppleAppStore from "../assets/AppleAppStore.png";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import SimpleQ from "../assets/simpleQ.png";
-import MoveTopiaApp from "../assets/MoveTopia.png";
+import MoveTopiaApp from "../assets/MoveTopia_Mockup.png";
 import DevLights from "../assets/devlights.svg";
 import DevLightsApp from "../assets/devlights.png";
-import MoveTopia from "../assets/MT_ICON.png";
 import TECKboard from "../assets/Logo_TB.svg";
 import TECKboardApp from "../assets/teckboard_app.png";
 import DBDelay from "../assets/db_delay.png";
 import SensorationLogo from "../assets/Sensoration_Logo.png";
-import Sensoration from "../assets/sensoration.png";
+import Sensoration from "../assets/Sensoration_Mockup.png";
 import { getTechnology } from "./Technologies";
+import { Article } from "@mui/icons-material";
 
 /**
  * Represents all projects with their details.
@@ -155,13 +156,18 @@ export const projects: Record<string, Project> = {
         url: "https://play.google.com/store/apps/details?id=de.buseslaar.movetopia",
         label: "",
         icon: (
-          <img src={GooglePlayIcon} height="24px" alt="Google Play Store" />
+          <img height={"24px"} src={GooglePlayIcon} alt="GooglePlay Icon" />
         ),
+      },
+      appStore: {
+        url: "https://testflight.apple.com/join/1MYANqEt",
+        label: "",
+        icon: <img height={"24px"} src={AppleAppStore} alt="App Store Icon" />,
       },
       documentation: {
         url: "https://niklas-buse.de/project/movetopia",
         label: "Documentation",
-        icon: <img height={"24px"} src={MoveTopia} alt="MoveTopia Icon" />,
+        icon: <Article />,
       },
     },
   },
