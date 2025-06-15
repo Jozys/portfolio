@@ -36,25 +36,25 @@ export const language: Language = {
     main: {
       title: "Entwickelt hab ich...",
       teckboard: {
-        title: "... TECKboards",
+        title: "TECKboards",
         description: `TECKboard ist ein digitales Echtzeit-Informationssystem, was zwei Freunde von mir, Timo Peters und Yannik Hahn
            entwickelt haben. Ich selber habe viel Zeit aufgebracht eine Smartphone Anwendung für das bestehende System zu entwickeln. Mittels des Prinzips 'Learning by Doing' erlernte ich viele Dinge im Bereich Planung, Entwicklung und Kommunikation mit andereren Entwicklern.`,
       },
       devlight: {
-        title: "... DevLights",
+        title: "DevLights",
         description: `DevLights sind Smart Home  LED Streifen für Entwickler. Zusammen mit zwei Freunden von mir, Jaan Springer und Timo Peters, 
                 entwickelten wir unsere eigenen Smart Home  LED Streifen im Zuge eines Projektkurses Informatik am Graf-Adolf-Gymnasium.
                  Dadurch lernten wir neue Techniken im Bereich Hardware und Software Entwicklung kennen, zum Beispiel die Programmiersprache C++. `,
         readDoc: "DOKUMENTATION LESEN",
       },
       simpleQ: {
-        title: "... SimpleQ",
+        title: "SimpleQ",
         description: `SimpleQ ist eine im Zuge eines Projektes an der DHBW Karlsruhe entwickelte Webanwendung, die es ermöglicht, Fragen zu stellen und zu beantworten. 
           Dabei wurde im Fach Software Engineering der gesamte Prozess der Entwicklung eines Produktes durchgearbeitet. 
           Dieses Projekt ermöglichte es mit Personen, mit denen man vorher wenig gemeinsam gearbeitet hat, wertvolle Erfahrungen über Zusammenarbeit und Koordination von Aufgaben zu lernen.`,
       },
       dbDelay: {
-        title: "... DB Delay",
+        title: "DB Delay",
         description: `DB Delay ist eine Anwendung, welche ich privat entwickelt habe, um persönliche Statistiken über Reisen mit der (Deutschen) Bahn zu sammeln. 
           Dabei werden Fahrplandaten der Deutschen Bahn zusammen mit eigenen Daten in einer Datenbank gespeichert und ausgewertet.
           Die Anwendung wurde in TypeScript mit NestJS und React entwickelt. 
@@ -129,7 +129,7 @@ export const language: Language = {
         description: `Die erste Idee für die TECKboards kam durch einen Wunsch der Schülervertretung des Graf Adolf Gymnasiums, die die alten analogen Infotafeln ersetzen wollten.
                 Die erste Version der Boards wurde 2019 erstellt und im Verlaufe der Zeit immer weiter verbessert. 
                 Im selben Jahr der ersten Version startete ich damit eine mobile Anwendung für die TECKboards zu entwickeln.
-                Diese App wurde dann 2021 veröffentlich und kann in den gängigen Stores von Google und Apple heruntergeladen werden.`,
+                Diese App wurde dann 2021 veröffentlicht und kann in den gängigen Stores von Google und Apple heruntergeladen werden.`,
       },
       imageInfo: [],
       appDescription: [

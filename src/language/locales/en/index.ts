@@ -38,11 +38,11 @@ export const language: Language = {
     main: {
       title: "I developed...",
       teckboard: {
-        title: "... TECKboards",
+        title: "TECKboards",
         description: `TECKboard is a digital real time information system that two friends of mine,Timo Peters and Yannik Hahn", developed. I spend really much hours developing a smartphone application for this system. By using the principe learning by doing, I learned much about planing, developing and communicating with the two developers of this system.`,
       },
       devlight: {
-        title: "... DevLights",
+        title: "DevLights",
         description: `DevLights are the smart home LED Stripes for Developers. Together
                 with two friends of mine, Jaan Springer and Timo Peters, we
                 developed these lights during our project course informatic at
@@ -51,13 +51,13 @@ export const language: Language = {
         readDoc: "READ DOCUMENTATION",
       },
       simpleQ: {
-        title: "... SimpleQ",
+        title: "SimpleQ",
         description: `SimpleQ is a web application developed as part of a project at DHBW Karlsruhe, which allows asking and answering questions. 
         In the Software Engineering course, the entire process of product development was worked through. 
         This project made it possible to gain valuable experiences in collaboration and task coordination with people with whom I had previously worked little.`,
       },
       dbDelay: {
-        title: "... DB Delay",
+        title: "DB Delay",
         description: `DB Delay is an application that I developed privately to collect personal statistics about travels using railways, especially using the German state-owned Deutsche Bahn. 
         Timetable data from the Deutsche Bahn is stored and evaluated in a database together with manually entered data. The application was developed in TypeScript with NestJS and React. 
         It has nothing to do with the Deutsche Bahn itself but is purely a private application.`,
