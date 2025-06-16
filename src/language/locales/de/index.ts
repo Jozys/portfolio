@@ -32,30 +32,42 @@ export const language: Language = {
       description: `Seit September 2022 bin ich dualer Student der Informatik bei der SAP in Walldorf und an der Dualen Hochschule Baden-Württemberg in Karlsruhe.`,
     },
   },
+  status: {
+    currentWork: {
+      name: "Aktuelle Arbeit",
+      description: "SAP@Walldorf, Deutschland.",
+    },
+    currentFocus: {
+      name: "Aktueller Fokus",
+      description: "Studium an der DHBW Karlsruhe, Deutschland.",
+    },
+    location: {
+      name: "Standort",
+      description: "Karlsruhe, Deutschland.",
+    },
+  },
   projects: {
     main: {
-      title: "Entwickelt hab ich...",
+      title: "Ich habe entwickelt...",
       teckboard: {
         title: "TECKboards",
-        description: `TECKboard ist ein digitales Echtzeit-Informationssystem, was zwei Freunde von mir, Timo Peters und Yannik Hahn
-           entwickelt haben. Ich selber habe viel Zeit aufgebracht eine Smartphone Anwendung für das bestehende System zu entwickeln. Mittels des Prinzips 'Learning by Doing' erlernte ich viele Dinge im Bereich Planung, Entwicklung und Kommunikation mit andereren Entwicklern.`,
+        description: `TECKboard ist ein digitales Echtzeit-Informationssystem, das zwei Freunde von mir, Timo Peters und Yannik Hahn, entwickelt haben. Ich selbst habe viel Zeit darauf verwendet, eine Smartphone-Anwendung für das bestehende System zu entwickeln. Durch das Prinzip 'Learning by Doing' habe ich viel über Planung, Entwicklung und die Zusammenarbeit mit anderen Entwicklern gelernt.`,
       },
       devlight: {
         title: "DevLights",
-        description: `DevLights sind Smart Home  LED Streifen für Entwickler. Zusammen mit zwei Freunden von mir, Jaan Springer und Timo Peters, 
-                entwickelten wir unsere eigenen Smart Home  LED Streifen im Zuge eines Projektkurses Informatik am Graf-Adolf-Gymnasium.
-                 Dadurch lernten wir neue Techniken im Bereich Hardware und Software Entwicklung kennen, zum Beispiel die Programmiersprache C++. `,
+        description: `DevLights sind Smart Home LED-Streifen für Entwickler. Zusammen mit zwei Freunden, Jaan Springer und Timo Peters, haben wir im Rahmen eines Projektkurses Informatik am Graf-Adolf-Gymnasium unsere eigenen Smart Home LED-Streifen entwickelt.
+                 Dadurch haben wir neue Techniken im Bereich Hardware- und Softwareentwicklung kennengelernt, zum Beispiel die Programmiersprache C++. `,
         readDoc: "DOKUMENTATION LESEN",
       },
       simpleQ: {
         title: "SimpleQ",
-        description: `SimpleQ ist eine im Zuge eines Projektes an der DHBW Karlsruhe entwickelte Webanwendung, die es ermöglicht, Fragen zu stellen und zu beantworten. 
-          Dabei wurde im Fach Software Engineering der gesamte Prozess der Entwicklung eines Produktes durchgearbeitet. 
-          Dieses Projekt ermöglichte es mit Personen, mit denen man vorher wenig gemeinsam gearbeitet hat, wertvolle Erfahrungen über Zusammenarbeit und Koordination von Aufgaben zu lernen.`,
+        description: `SimpleQ ist eine im Rahmen eines Projekts an der DHBW Karlsruhe entwickelte Webanwendung, die es ermöglicht, Fragen zu stellen und zu beantworten. 
+          Im Fach Software Engineering wurde der gesamte Prozess der Produktentwicklung durchlaufen. 
+          Dieses Projekt ermöglichte es, mit Personen zusammenzuarbeiten, mit denen man vorher wenig Kontakt hatte, und wertvolle Erfahrungen über Zusammenarbeit und Aufgabenkoordination zu sammeln.`,
       },
       dbDelay: {
         title: "DB Delay",
-        description: `DB Delay ist eine Anwendung, welche ich privat entwickelt habe, um persönliche Statistiken über Reisen mit der (Deutschen) Bahn zu sammeln. 
+        description: `DB Delay ist eine Anwendung, die ich privat entwickelt habe, um persönliche Statistiken über Reisen mit der (Deutschen) Bahn zu sammeln. 
           Dabei werden Fahrplandaten der Deutschen Bahn zusammen mit eigenen Daten in einer Datenbank gespeichert und ausgewertet.
           Die Anwendung wurde in TypeScript mit NestJS und React entwickelt. 
           Sie hat selbst nichts mit der Deutschen Bahn zu tun, sondern ist eine rein private Anwendung.`,

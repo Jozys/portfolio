@@ -34,6 +34,20 @@ export const language: Language = {
             Therefore I work there at SAP and study at the Baden-Wuerttemberg Cooperative State University Karlsruhe (DHBW Karlsruhe).`,
     },
   },
+  status: {
+    currentWork: {
+      name: "Current Work",
+      description: "SAP@Walldorf, Germany.",
+    },
+    currentFocus: {
+      name: "Current Focus",
+      description: "Studying at DHBW Karlsruhe, Germany.",
+    },
+    location: {
+      name: "Location",
+      description: "Karlsruhe, Germany.",
+    },
+  },
   projects: {
     main: {
       title: "I developed...",
