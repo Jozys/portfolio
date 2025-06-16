@@ -27,7 +27,6 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
     height: "25%",
     width: "100%",
     display: "block",
-    fontSize: "5vh",
     fontFamily: "bungee",
     textAlign: "center",
     filter: `drop-shadow(5px 5px 0px ${theme.palette.secondary.main})`,
@@ -44,11 +43,20 @@ export default function Typing(props: TypingProps) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
+  // Responsive Breakpoints für verschiedene Geräte
+  const isTablet = useMediaQuery(theme.breakpoints.down("md"));
+
+  // Responsive Schriftgröße bestimmen
+  const fontSize = isMobile ? "1.5rem" : isTablet ? "1.75rem" : "2.5rem";
+
   return (
     <Root className={classes.root}>
       <TypeAnimation
         wrapper="span"
         className={classes.text}
+        style={{
+          fontSize,
+        }}
         sequence={[props.text]}
         speed={isMobile ? 75 : 50}
       />

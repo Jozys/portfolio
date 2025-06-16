@@ -13,6 +13,7 @@ import SensorationLogo from "../assets/Sensoration_Logo.png";
 import Sensoration from "../assets/Sensoration_Mockup.png";
 import { getTechnology } from "./Technologies";
 import { Article } from "@mui/icons-material";
+import { getNestedValue } from "../utils/utils";
 
 /**
  * Represents all projects with their details.
@@ -219,17 +220,6 @@ export const getProjectTitle = (project: Project, language: any): string => {
   }
   return project.name;
 };
-
-/**
- * Get a nested value from an object based on a dot-separated path.
- * This function allows you to access deeply nested properties in an object.
- * @param obj - The object from which to retrieve the value.
- * @param path - A string representing the path to the desired property, using dot notation (e.g., "a.b.c").
- * @returns The value at the specified path, or undefined if the path does not exist.
- */
-function getNestedValue(obj: any, path: string): any {
-  return path.split(".").reduce((prev, curr) => prev && prev[curr], obj);
-}
 
 /**
  * Returns an array of all projects defined in the projects object.

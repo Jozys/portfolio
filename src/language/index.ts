@@ -1,3 +1,8 @@
+import {
+  StatusInformation,
+  StatusInformationLocale,
+} from "../data/types/StatusInformation";
+
 export type Language = {
   languageInfo: {
     de: string;
@@ -18,6 +23,11 @@ export type Language = {
       };
     };
     dhbw: Info;
+  };
+  status: {
+    currentWork: StatusInformationLocale;
+    currentFocus: StatusInformationLocale;
+    location: StatusInformationLocale;
   };
   projects: {
     main: {

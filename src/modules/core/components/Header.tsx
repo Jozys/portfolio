@@ -27,11 +27,10 @@ const classes = {
 const Root = styled("div")(({ theme }: { theme: Theme }) => ({
   [`&.${classes.root}`]: {
     display: "flex",
-    flexDirection: "row",
+
     alignItems: "center",
     justifyContent: "center", // Center content by default
     width: "100%",
-    padding: theme.spacing(2),
 
     // Responsive layout - switch to column on small screens
     [theme.breakpoints.down("sm")]: {
@@ -80,7 +79,7 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: theme.spacing(4),
+    textAlign: "center",
 
     // Remove margin on mobile and use full width
     [theme.breakpoints.down("sm")]: {
@@ -96,7 +95,14 @@ export default function Header(props: HeaderProps) {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Root className={classes.root} theme={theme}>
+    <Root
+      className={classes.root}
+      style={{
+        flexDirection: isMobile ? "column" : "row",
+        padding: isMobile ? 0 : theme.spacing(2),
+      }}
+      theme={theme}
+    >
       {props.showAvatar && (
         <Avatar className={classes.avatar} src={Me} alt="Profile picture" />
       )}
