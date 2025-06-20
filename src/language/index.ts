@@ -36,6 +36,7 @@ export type Language = {
       devlight: Info & { readDoc: string };
       simpleQ: Info;
       dbDelay: Info;
+      concertHistory: Info;
       moveTopia: Info;
       sensoration: Info;
       skills: Info;

@@ -39,8 +39,7 @@ const Root = styled("div")(({ theme }) => ({
   },
 }));
 
-export interface DevLightsTimelineProps {}
-export default function DevLightsTimeline(props: DevLightsTimelineProps) {
+export default function DevLightsTimeline() {
   const { language } = useLanguage();
   const { devlight } = language.projects;
   return (

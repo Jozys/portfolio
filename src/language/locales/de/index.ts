@@ -72,6 +72,11 @@ export const language: Language = {
           Die Anwendung wurde in TypeScript mit NestJS und React entwickelt. 
           Sie hat selbst nichts mit der Deutschen Bahn zu tun, sondern ist eine rein private Anwendung.`,
       },
+      concertHistory: {
+        title: "Concert History",
+        description:
+          'ConcertHistory ist eine native Android-App, die es Konzertgängern ermöglicht, ihre besuchten Konzerte zu dokumentieren und jederzeit mobil darauf zuzugreifen. Die App habe ich Rahmen des Modules "Entwurf mobiler Applikationen" an der DHBW Karlsruhe zusammen mit Niklas Buse entwickelt.',
+      },
       moveTopia: {
         title: "MoveTopia",
         description:

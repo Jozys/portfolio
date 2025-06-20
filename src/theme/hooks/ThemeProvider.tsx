@@ -3,7 +3,7 @@ import { Theme, ThemeProvider as MaterialProvider } from "@mui/material";
 import { default as myTheme } from "../interface/theme";
 
 export interface ThemeProviderProps {
-  children: React.ReactNode | React.ReactNodeArray;
+  children: React.ReactNode | React.ReactNode[];
 }
 
 export const ThemeSwitchContext = React.createContext<{
@@ -31,13 +31,9 @@ export default function ThemeProvider(props: ThemeProviderProps) {
   );
   const [theme, setTheme] = React.useState<Theme>(myTheme(isDark));
 
-  React.useEffect(
-    () => {
-      //@ts-ignore
-      document.body.style.background = theme.gradients.background.default;
-    }, //@ts-ignore
-    [theme.gradients.background.default]
-  );
+  React.useEffect(() => {
+    document.body.style.background = theme.gradients.background.default;
+  }, [theme.gradients.background.default]);
 
   const toggleTheme = () => {
     localStorage.setItem("isDark", JSON.stringify(!isDark));

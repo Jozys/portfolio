@@ -76,6 +76,11 @@ export const language: Language = {
         Timetable data from the Deutsche Bahn is stored and evaluated in a database together with manually entered data. The application was developed in TypeScript with NestJS and React. 
         It has nothing to do with the Deutsche Bahn itself but is purely a private application.`,
       },
+      concertHistory: {
+        title: "Concert History",
+        description:
+          'ConcertHistory is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices. I developed the app as part of the module "Design of mobile applications" at the DHBW Karlsruhe together with Niklas Buse.',
+      },
       moveTopia: {
         title: "MoveTopia",
         description:

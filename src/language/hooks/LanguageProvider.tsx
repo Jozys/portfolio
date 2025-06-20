@@ -12,7 +12,7 @@ export type Language = (typeof languages)[number];
 export type LanguageContextType = {
   languageType: Language;
   language: LanguageObjType;
-  changeLanguage: (language: Language) => void;
+  changeLanguage: (_: Language) => void;
   languages: typeof languages;
 };
 
@@ -48,9 +48,9 @@ export default function LanguageProvider(props: LanguageProviderProps) {
   };
 
   React.useEffect(() => {
-    let language = localStorage.getItem("language");
+    const language = localStorage.getItem("language");
     if (!language?.length) {
-      let defaultLanguage = (getUserDefaultLanguage() as Language) ?? "en";
+      const defaultLanguage = (getUserDefaultLanguage() as Language) ?? "en";
       localStorage.setItem(
         "language",
         (getUserDefaultLanguage() as Language) ?? "en"

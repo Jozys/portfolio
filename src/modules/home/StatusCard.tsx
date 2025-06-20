@@ -1,22 +1,11 @@
-import CodeIcon from "@mui/icons-material/Code";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import WorkIcon from "@mui/icons-material/Work";
-import {
-  Box,
-  Card,
-  CardContent,
-  Chip,
-  Grid,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { useLanguage } from "../../language/hooks";
 import {
   getAllStatusInformations,
   getStatusInformationDescription,
   getStatusInformationTitle,
 } from "../../data/StatusInformation";
+import { useLanguage } from "../../language/hooks";
 
 const PREFIX = "StatusCard";
 

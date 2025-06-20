@@ -1,7 +1,6 @@
-import { Button, ButtonProps, styled, Theme } from "@mui/material";
-import React from "react";
+import { Button, ButtonProps, styled } from "@mui/material";
 
-const Root = styled(Button)(({ theme }: { theme: Theme }) => ({
+const Root = styled(Button)(() => ({
   height: "5vh",
   fontSize: "1.65vh",
   width: "25%",

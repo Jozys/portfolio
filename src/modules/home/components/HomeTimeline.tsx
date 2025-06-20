@@ -1,11 +1,8 @@
 import styled from "@emotion/styled";
 import { Timeline } from "@mui/lab";
 import { Theme, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
-import Schwarzwald from "../../../assets/schwarzwald.jpg";
 import DHBW from "../../../assets/DHBW_Logo.svg";
-import Me from "../../../assets/me.jpg";
-import TECKdigital from "../../../assets/teckdigital.webp";
+import Schwarzwald from "../../../assets/schwarzwald.jpg";
 import { useLanguage } from "../../../language/hooks";
 import { contrastBlack } from "../../../modules/core/utils/textContrast";
 import CustomTimelineItem from "../../core/design-system/TimelineItem";

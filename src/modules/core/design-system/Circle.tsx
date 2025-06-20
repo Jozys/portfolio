@@ -13,7 +13,7 @@ export default function Circle(props: CircleProps) {
           cy="10"
           r="10"
           stroke="black"
-          stroke-width="1"
+          strokeWidth="1"
           fill={color}
         />
         Sorry, your browser does not support inline SVG.

@@ -1,11 +1,13 @@
 export const getAge = (): number => {
-  let birthDate = new Date(import.meta.env.VITE_USER_BIRTHDATE ?? "1970-01-01");
-  let currentDate = new Date();
+  const birthDate = new Date(
+    import.meta.env.VITE_USER_BIRTHDATE ?? "1970-01-01"
+  );
+  const currentDate = new Date();
   let age = currentDate.getFullYear() - birthDate.getFullYear();
   // 05 - 06 => negative, age calculated before is not reached
-  let months = currentDate.getMonth() - birthDate.getMonth();
+  const months = currentDate.getMonth() - birthDate.getMonth();
   // 06 - 07 = -1 => negative age calculated before is not reached;
-  let days = currentDate.getDate() - birthDate.getDate();
+  const days = currentDate.getDate() - birthDate.getDate();
   if (months <= 0) {
     if (months < 0 || (months === 0 && days < 0)) {
       age--;
@@ -21,6 +23,12 @@ export const getAge = (): number => {
  * @param path - A string representing the path to the desired property, using dot notation (e.g., "a.b.c").
  * @returns The value at the specified path, or undefined if the path does not exist.
  */
-export function getNestedValue(obj: any, path: string): any {
-  return path.split(".").reduce((prev, curr) => prev && prev[curr], obj);
+export function getNestedValue(obj: unknown, path: string): string {
+  return path.split(".").reduce((prev: unknown, curr: string) => {
+    if (prev && typeof prev === "object" && curr in prev) {
+      // Type assertion to index signature
+      return (prev as Record<string, unknown>)[curr];
+    }
+    return "";
+  }, obj) as string;
 }

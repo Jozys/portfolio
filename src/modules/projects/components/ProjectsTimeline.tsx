@@ -1,10 +1,5 @@
 import { Timeline } from "@mui/lab";
 import { IconButton, useTheme } from "@mui/material";
-import DevLights from "../../../assets/devlights.png";
-import TECKboardApp from "../../../assets/teckboard_app.png";
-import SimpleQ from "../../../assets/simpleQ.png";
-import DBDelay from "../../../assets/db_delay.png";
-import MoveTopia from "../../../assets/MoveTopia.png";
 import { useLanguage } from "../../../language/hooks";
 import CustomTimelineItem from "../../core/design-system/TimelineItem";
 import TimelineButton from "../design-system/TimelineButton";
@@ -15,12 +10,11 @@ import {
   getProjectDescription,
   getProjectTitle,
 } from "../../../data/Projects";
+import React from "react";
 export default function ProjectsTimeline() {
   const { language } = useLanguage();
-  const theme = useTheme();
   const projects = getAllProjects();
 
-  console.log(projects[0].name);
   return (
     <Timeline position={window.innerWidth < 1000 ? "left" : "alternate"}>
       {projects.map((project: Project, index) => (
@@ -31,8 +25,9 @@ export default function ProjectsTimeline() {
           image={project.image}
           direction={index % 2 === 0 ? "normal" : "opposite"}
           useDot={true}
-          children={<AdditionalProjectInformation project={project} />}
-        ></CustomTimelineItem>
+        >
+          <AdditionalProjectInformation project={project} />
+        </CustomTimelineItem>
       ))}
     </Timeline>
   );
@@ -41,7 +36,6 @@ export default function ProjectsTimeline() {
 function AdditionalProjectInformation(props: { project: Project }) {
   const { project } = props;
   const theme = useTheme();
-  const { language } = useLanguage();
 
   const projectButton = (project: Project): React.ReactNode[] => {
     return Object.keys(project.links).map((linkKey, linkIndex) => {
@@ -50,7 +44,6 @@ function AdditionalProjectInformation(props: { project: Project }) {
         <TimelineButton
           key={`${project.name}-link-${linkIndex}`}
           onClick={() => {
-            console.log(`Opening link: ${link.url}`);
             window.open(link.url);
           }}
           title={link.label}

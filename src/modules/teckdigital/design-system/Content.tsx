@@ -60,7 +60,7 @@ export default function Content(props: ContentProps) {
     <StyledRnd
       bounds={`${props.parent ?? "parent"}`}
       default={{ x: props.x ?? 0, y: props.y ?? 0, width, height }}
-      onResize={(e: any, dir, ref: HTMLElement, d, position) => {
+      onResize={(e: MouseEvent | TouchEvent, _, ref: HTMLElement) => {
         setHeight(ref.style.height);
         setWidth(ref.style.width);
       }}

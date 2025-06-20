@@ -1,5 +1,4 @@
 import {
-  Theme,
   Input,
   FormControl,
   FormHelperText,
@@ -20,7 +19,7 @@ const classes = {
   button: `${PREFIX}-button`,
 };
 
-const Root = styled("div")(({ theme }: { theme: Theme }) => ({
+const Root = styled("div")(() => ({
   [`&.${classes.root}`]: {
     width: "100%",
     height: "auto",
@@ -43,27 +42,26 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
   },
 }));
 
-export interface LEDStripProps {}
-export default function LEDStrip(props: LEDStripProps) {
+export default function LEDStrip() {
   const [color, setColor] = React.useState<string>("#00ff6a");
   const [intervalId, setIntervalId] = React.useState<NodeJS.Timeout>();
 
   const [visible, setVisible] = React.useState<boolean>(false);
   const [message, setMessage] = React.useState<string>("");
-  const inputRef = React.useRef<HTMLInputElement>();
+  const inputRef = React.useRef<HTMLInputElement>(null);
   const calculateLength = (): number => {
     return Math.round((window.innerWidth * 0.5) / 20);
   };
   const [length, setLength] = React.useState<number>(calculateLength());
   const { language } = useLanguage();
 
-  const handleResize = (e: UIEvent) => {
+  const handleResize = () => {
     setLength(calculateLength());
   };
 
   const start = () => {
-    let id = setInterval(function () {
-      let newColor = tinycolor.random().toHexString();
+    const id = setInterval(function () {
+      const newColor = tinycolor.random().toHexString();
       // to handle user input in the color input, only update the input, if the activeElement is not the input
       if (document.activeElement !== inputRef.current && inputRef.current) {
         inputRef.current.value = newColor;
@@ -80,7 +78,7 @@ export default function LEDStrip(props: LEDStripProps) {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
   const renderItems = () => {
     const items = [];

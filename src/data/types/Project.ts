@@ -1,3 +1,5 @@
+import React from "react";
+
 /**
  * Represents a project with its details.
  * @typedef {Object} Project

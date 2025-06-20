@@ -6,6 +6,7 @@ import Menu from "./Menu";
 import Home from "../../home/components/Home";
 import DevLights from "../../devlights/components/DevLights";
 import TECKboard from "../../teckdigital/components/TECKboard";
+import React from "react";
 
 export default function Router() {
   return (

@@ -1,5 +1,5 @@
 import { Box, Fade, IconButton, styled, useTheme } from "@mui/material";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import Header from "../../core/components/Header";
 import { useLanguage } from "../../../language/hooks";
 import HomeTimeline from "./HomeTimeline";
@@ -16,7 +16,7 @@ const classes = {
   boxContainer: `${PREFIX}-boxContainer`,
 };
 
-const StyledHome = styled("div")(({ theme }) => ({
+const StyledHome = styled("div")(() => ({
   [`&.${classes.container}`]: {
     display: "flex",
     flexDirection: "column",
@@ -35,7 +35,7 @@ const StyledHome = styled("div")(({ theme }) => ({
   },
 }));
 
-const TitleBoxContainer = styled(Box)(({ theme }) => ({
+const TitleBoxContainer = styled(Box)(() => ({
   minHeight: "100vh",
   display: "flex",
   flexDirection: "column",

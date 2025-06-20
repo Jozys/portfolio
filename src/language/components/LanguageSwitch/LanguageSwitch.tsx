@@ -6,7 +6,6 @@ import {
   InputBase,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import React from "react";
 import { Language } from "../../hooks/LanguageProvider";
 import { useLanguage } from "../../hooks";
 
@@ -43,7 +42,7 @@ export default function LanguageSwitch() {
         input={<CustomizedInputBase />}
       >
         {languages.map((l: Language) => (
-          <MenuItem value={l}>
+          <MenuItem key={l} value={l}>
             {
               //@ts-ignore
               language.languageInfo[l]

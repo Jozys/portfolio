@@ -2,18 +2,20 @@ import { Project } from "./types/Project";
 import GooglePlayIcon from "../assets/GooglePlay.png";
 import AppleAppStore from "../assets/AppleAppStore.png";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import SimpleQ from "../assets/simpleQ.png";
+import SimpleQ from "../assets/SimpleQ_Mockup.png";
+import ConcertHistory from "../assets/ConcertHistory_Mockup.png";
 import MoveTopiaApp from "../assets/MoveTopia_Mockup.png";
 import DevLights from "../assets/devlights.svg";
 import DevLightsApp from "../assets/devlights.png";
 import TECKboard from "../assets/Logo_TB.svg";
 import TECKboardApp from "../assets/teckboard_app.png";
-import DBDelay from "../assets/db_delay.png";
+import DBDelay from "../assets/DB_Delay_Mockup.png";
 import SensorationLogo from "../assets/Sensoration_Logo.png";
-import Sensoration from "../assets/Sensoration_Mockup.png";
+import Sensoration from "@/assets/Sensoration_Mockup.png";
 import { getTechnology } from "./Technologies";
 import { Article } from "@mui/icons-material";
 import { getNestedValue } from "../utils/utils";
+import { Language } from "../language";
 
 /**
  * Represents all projects with their details.
@@ -142,6 +144,26 @@ export const projects: Record<string, Project> = {
       },
     },
   },
+  concertHistory: {
+    name: "projects.main.concertHistory.title",
+    description: "projects.main.concertHistory.description",
+    image: ConcertHistory,
+    technologies: [getTechnology("jetpackCompose"), getTechnology("kotlin")!],
+    links: {
+      github: {
+        url: "https://github.com/ScreepCode/ConcertHistory",
+        label: "GitHub",
+        icon: <GitHubIcon />,
+      },
+      playStore: {
+        url: "https://play.google.com/store/apps/details?id=de.buseslaar.concerhistory",
+        label: "",
+        icon: (
+          <img height={"24px"} src={GooglePlayIcon} alt="GooglePlay Icon" />
+        ),
+      },
+    },
+  },
   moveTopia: {
     name: "projects.main.moveTopia.title",
     description: "projects.main.moveTopia.description",
@@ -200,10 +222,13 @@ export const projects: Record<string, Project> = {
  */
 export const getProjectDescription = (
   project: Project,
-  language: any // Ihre Sprach-Objekt-Struktur
+  language: Language
 ): string | React.ReactNode => {
   if (project.description) {
-    return getNestedValue(language, project.description) || project.description;
+    return (
+      getNestedValue(language, project.description.toString()) ||
+      project.description
+    );
   }
   return project.description;
 };
@@ -214,7 +239,10 @@ export const getProjectDescription = (
  * @param language - The language object containing translations.
  * @returns The project title as a string. Either the translated title or the original name if no translation is found.
  */
-export const getProjectTitle = (project: Project, language: any): string => {
+export const getProjectTitle = (
+  project: Project,
+  language: Language
+): string => {
   if (project.name) {
     return getNestedValue(language, project.name) || project.name;
   }

@@ -1,5 +1,4 @@
-import { styled, Theme } from "@mui/material";
-import React from "react";
+import { styled } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 
 type Image = {
@@ -22,7 +21,7 @@ const classes = {
   image: `${PREFIX}-image`,
 };
 
-const Root = styled("div")(({ theme }: { theme: Theme }) => ({
+const Root = styled("div")(() => ({
   [`& .${classes.root}`]: {
     height: "100%",
     width: "100%",

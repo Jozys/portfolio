@@ -3,6 +3,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CodeIcon from "@mui/icons-material/Code";
 import WorkIcon from "@mui/icons-material/Work";
 import { getNestedValue } from "../utils/utils";
+import { Language } from "../language";
 export const statusInformation: Record<string, StatusInformation> = {
   currentWork: {
     name: "status.currentWork.name",
@@ -29,7 +30,7 @@ export const statusInformation: Record<string, StatusInformation> = {
  */
 export const getStatusInformationDescription = (
   statusInformation: StatusInformation,
-  language: any // Ihre Sprach-Objekt-Struktur
+  language: Language
 ): string | React.ReactNode => {
   if (statusInformation.description) {
     return (
@@ -48,7 +49,7 @@ export const getStatusInformationDescription = (
  */
 export const getStatusInformationTitle = (
   statusInformation: StatusInformation,
-  language: any
+  language: Language
 ): string => {
   if (statusInformation.name) {
     return (

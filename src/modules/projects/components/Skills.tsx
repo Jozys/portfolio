@@ -4,6 +4,7 @@ import { getTechnologiesByType } from "../../../data/Technologies";
 import { TechnologyType } from "../../../data/types/Project";
 import { useLanguage } from "../../../language/hooks/index";
 import { contrastBlack } from "../../../modules/core/utils/textContrast";
+import React from "react";
 
 const PREFIX = "Skills";
 
@@ -112,7 +113,7 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
   },
 }));
 
-export default function Skills(): JSX.Element {
+export default function Skills(): React.ReactElement {
   const { language } = useLanguage();
   const technologyTypes = Object.keys(TechnologyType) as Array<
     keyof typeof TechnologyType
@@ -124,6 +125,7 @@ export default function Skills(): JSX.Element {
     // Hier können Sie die Übersetzungen aus Ihrer Sprachdatei verwenden
     // Falls keine Übersetzung vorhanden ist, wird der Typ formatiert angezeigt
     const typeKey = `projects.technologies.categories.${techType.toLowerCase()}`;
+    //@ts-ignore
     return language[typeKey] || formatTechType(techType);
   };
 

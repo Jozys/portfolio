@@ -1,11 +1,32 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import svgr from "vite-plugin-svgr";
+import eslint from "vite-plugin-eslint";
+import path from "path";
 
 export default defineConfig(() => {
   return {
     build: {
       outDir: "build",
     },
-    plugins: [react()],
+    plugins: [
+      react(),
+      // svgr options: https://react-svgr.com/docs/options/
+      svgr({ svgrOptions: { icon: true } }),
+      eslint(),
+    ],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+        assets: path.resolve(__dirname, "./src/assets"),
+      },
+    },
+    assetsInclude: [
+      "**/*.png",
+      "**/*.jpg",
+      "**/*.jpeg",
+      "**/*.gif",
+      "**/*.svg",
+    ],
   };
 });

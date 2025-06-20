@@ -24,7 +24,6 @@ const theme = (dark: boolean) => {
 
       mode: dark ? "dark" : "light",
     },
-    //@ts-ignore
     gradients: {
       background: {
         default: dark

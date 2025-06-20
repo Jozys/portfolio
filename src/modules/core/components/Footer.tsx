@@ -96,8 +96,7 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
   },
 }));
 
-export interface FooterProps {}
-export default function Footer(props: FooterProps) {
+export default function Footer() {
   const { language } = useLanguage();
   return (
     <Root className={classes.root}>
