@@ -1,9 +1,9 @@
 import { Theme, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Tilt from "react-parallax-tilt";
-import OldBoard from "../../../assets/firstTECKboard.png";
-import NewBoard from "../../../assets/newBoard.png";
-import App from "../../../assets/teckboard_app.png";
+import OldBoard from "../../../assets/projects/teckboard/firstTECKboard.png";
+import NewBoard from "../../../assets/projects/teckboard/newBoard.png";
+import App from "../../../assets/projects/teckboard/teckboard_app.png";
 import { useLanguage } from "../../../language/hooks";
 import Typing from "../../core/components/Typing";
 import { contrastBlack } from "../../core/utils/textContrast";

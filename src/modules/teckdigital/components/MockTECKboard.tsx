@@ -1,7 +1,7 @@
 import { styled, Theme, Typography } from "@mui/material";
-import TECKLogo from "../../../assets/Logo_TB.svg";
-import TECKIcon from "../../../assets/Rounded_Logo.svg";
-import TECKdigital from "../../../assets/teckdigital.webp";
+import TECKLogo from "../../../assets/projects/teckboard/Logo_TB.svg";
+import TECKIcon from "../../../assets/projects/teckboard/Rounded_Logo.svg";
+import TECKdigital from "../../../assets/teckdigital/teckdigital.webp";
 import { useLanguage } from "../../../language/hooks";
 import Content from "../design-system/Content";
 

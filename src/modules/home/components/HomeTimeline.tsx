@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { Timeline } from "@mui/lab";
 import { Theme, useTheme } from "@mui/material";
-import DHBW from "../../../assets/DHBW_Logo.svg";
-import Schwarzwald from "../../../assets/schwarzwald.jpg";
+import DHBW from "../../../assets/life/DHBW_Logo.svg";
+import Schwarzwald from "../../../assets/life/schwarzwald.jpg";
 import { useLanguage } from "../../../language/hooks";
 import { contrastBlack } from "../../../modules/core/utils/textContrast";
 import CustomTimelineItem from "../../core/design-system/TimelineItem";

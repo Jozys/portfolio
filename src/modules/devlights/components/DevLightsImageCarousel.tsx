@@ -1,8 +1,8 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import DevLights_Desktop from "../../../assets/devlight/devlights_desktop_1.jpg";
-import Image1 from "../../../assets/devlight/images/image1.jpg";
-import Image3 from "../../../assets/devlight/images/image3.jpg";
-import ESPBreadboard from "../../../assets/esp_breadboard.jpeg";
+import DevLights_Desktop from "../../../assets/projects/devlights/devlights_desktop_1.jpg";
+import ESPBreadboard from "../../../assets/projects/devlights/esp_breadboard.jpeg";
+import Image1 from "../../../assets/projects/devlights/images/image1.jpg";
+import Image3 from "../../../assets/projects/devlights/images/image3.jpg";
 import ImageCarousel from "../../core/design-system/ImageCarousel";
 
 export default function DevLightsImageCarousel() {

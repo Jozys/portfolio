@@ -1,21 +1,21 @@
-import { Project } from "./types/Project";
-import GooglePlayIcon from "../assets/GooglePlay.png";
-import AppleAppStore from "../assets/AppleAppStore.png";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import SimpleQ from "../assets/SimpleQ_Mockup.png";
-import ConcertHistory from "../assets/ConcertHistory_Mockup.png";
-import MoveTopiaApp from "../assets/MoveTopia_Mockup.png";
-import DevLights from "../assets/devlights.svg";
-import DevLightsApp from "../assets/devlights.png";
-import TECKboard from "../assets/Logo_TB.svg";
-import TECKboardApp from "../assets/teckboard_app.png";
-import DBDelay from "../assets/DB_Delay_Mockup.png";
-import SensorationLogo from "../assets/Sensoration_Logo.png";
-import Sensoration from "@/assets/Sensoration_Mockup.png";
-import { getTechnology } from "./Technologies";
 import { Article } from "@mui/icons-material";
-import { getNestedValue } from "../utils/utils";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import ConcertHistory from "../assets/projects/concertHistory/ConcertHistory_Mockup.png";
+import DBDelay from "../assets/projects/dbDelay/DB_Delay_Mockup.png";
+import DevLightsApp from "../assets/projects/devlights/devlights.png";
+import DevLights from "../assets/projects/devlights/devlights.svg";
+import MoveTopiaApp from "../assets/projects/moveTopia/MoveTopia_Mockup.png";
+import SensorationLogo from "../assets/projects/sensoration/Sensoration_Logo.png";
+import Sensoration from "../assets/projects/sensoration/Sensoration_Mockup.png";
+import SimpleQ from "../assets/projects/simpleQ/SimpleQ_Mockup.png";
+import TECKboard from "../assets/projects/teckboard/Logo_TB.svg";
+import TECKboardApp from "../assets/projects/teckboard/teckboard_app.png";
+import AppleAppStore from "../assets/technologies/AppleAppStore.png";
+import GooglePlayIcon from "../assets/technologies/GooglePlay.png";
 import { Language } from "../language";
+import { getNestedValue } from "../utils/utils";
+import { getTechnology } from "./Technologies";
+import { Project } from "./types/Project";
 
 /**
  * Represents all projects with their details.

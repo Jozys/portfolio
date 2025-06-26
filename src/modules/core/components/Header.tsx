@@ -1,14 +1,14 @@
-import { contrastBlack } from "../../../modules/core/utils/textContrast";
+import styled from "@emotion/styled";
 import {
   Avatar,
   Theme,
   Typography,
-  useTheme,
   useMediaQuery,
+  useTheme,
 } from "@mui/material";
+import Me from "../../../assets/life/me.jpg";
 import Typing from "../../../modules/core/components/Typing";
-import styled from "@emotion/styled";
-import Me from "../../../assets/me.jpg";
+import { contrastBlack } from "../../../modules/core/utils/textContrast";
 
 export interface HeaderProps {
   title: string;

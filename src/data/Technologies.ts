@@ -1,25 +1,37 @@
-import NestJS from "../assets/nestjs.svg";
-import JavaScript from "../assets/javascript.svg";
-import Flutter from "../assets/flutter.svg";
-import JetpackCompose from "../assets/jetpack-compose.png";
-import Dart from "../assets/Dart_Logo.svg";
-import Kotlin from "../assets/Kotlin_Logo.svg";
-import MySQL from "../assets/MySQL.png";
-import CSS from "../assets/CSS.png";
+import CPP from "../assets/technologies/cpp.ico";
+import CSS from "../assets/technologies/CSS.png";
+import Dart from "../assets/technologies/Dart_Logo.svg";
+import Docker from "../assets/technologies/docker.ico";
+import Flutter from "../assets/technologies/flutter.svg";
+import Java from "../assets/technologies/java.ico";
+import JavaScript from "../assets/technologies/javascript.svg";
+import Jenkins from "../assets/technologies/jenkins.ico";
+import JetpackCompose from "../assets/technologies/jetpack-compose.png";
+import Kotlin from "../assets/technologies/Kotlin_Logo.svg";
+import MongoDB from "../assets/technologies/mongodb.ico";
+import MUI from "../assets/technologies/mui.ico";
+import MySQL from "../assets/technologies/MySQL.png";
+import NestJS from "../assets/technologies/nestjs.svg";
+import NodeJS from "../assets/technologies/nodejs.png";
+import PHP from "../assets/technologies/php.ico";
+import React from "../assets/technologies/react.ico";
+import ReactNative from "../assets/technologies/reactNative.ico";
+import TypeScript from "../assets/technologies/typescript.ico";
+import Vite from "../assets/technologies/vite.svg";
 import { Technology } from "../types/Project";
 import { TechnologyType } from "./types/Project";
 
 const technologies: Record<string, Technology> = {
   react: {
     name: "React",
-    icon: "https://reactjs.org/favicon.ico",
+    icon: React,
     link: "https://reactjs.org/",
     color: "#61DAFB",
     type: TechnologyType.Frontend,
   },
   typescript: {
     name: "TypeScript",
-    icon: "https://www.typescriptlang.org/favicon.ico",
+    icon: TypeScript,
     link: "https://www.typescriptlang.org/",
     color: "#3178C6",
     type: TechnologyType.Backend,
@@ -47,28 +59,28 @@ const technologies: Record<string, Technology> = {
   },
   mui: {
     name: "Material UI",
-    icon: "https://mui.com/favicon.ico",
+    icon: MUI,
     link: "https://mui.com/",
     color: "#0081CB",
     type: TechnologyType.Frontend,
   },
   vite: {
     name: "Vite",
-    icon: "https://vitejs.dev/logo.svg",
+    icon: Vite,
     link: "https://vitejs.dev/",
     color: "#646CFF",
     type: TechnologyType.Frontend,
   },
   java: {
     name: "Java",
-    icon: "https://www.java.com/favicon.ico",
+    icon: Java,
     link: "https://www.java.com/",
     color: "#007396",
     type: TechnologyType.Backend,
   },
   nodejs: {
     name: "Node.js",
-    icon: "https://nodejs.org/favicon.ico",
+    icon: NodeJS,
     link: "https://nodejs.org/",
     color: "#339933",
     type: TechnologyType.Backend,
@@ -82,7 +94,7 @@ const technologies: Record<string, Technology> = {
   },
   reactNative: {
     name: "React Native",
-    icon: "https://reactnative.dev/img/favicon.ico",
+    icon: ReactNative,
     link: "https://reactnative.dev/",
     color: "#61DAFB",
     type: TechnologyType.Mobile,
@@ -103,14 +115,14 @@ const technologies: Record<string, Technology> = {
   },
   php: {
     name: "PHP",
-    icon: "https://www.php.net/favicon.ico",
+    icon: PHP,
     link: "https://www.php.net/",
     color: "#777BB4",
     type: TechnologyType.Backend,
   },
   cpp: {
     name: "C++",
-    icon: "https://isocpp.org/favicon.ico",
+    icon: CPP,
     link: "https://isocpp.org/",
     color: "#00599C",
     type: TechnologyType.Hardware,
@@ -131,7 +143,7 @@ const technologies: Record<string, Technology> = {
   },
   mongoDB: {
     name: "MongoDB",
-    icon: "https://www.mongodb.com/favicon.ico",
+    icon: MongoDB,
     link: "https://www.mongodb.com/",
     color: "#47A248",
     type: TechnologyType.Database,
@@ -145,14 +157,14 @@ const technologies: Record<string, Technology> = {
   },
   docker: {
     name: "Docker",
-    icon: "https://www.docker.com/favicon.ico",
+    icon: Docker,
     link: "https://www.docker.com/",
     color: "#2496ED",
     type: TechnologyType.DevOps,
   },
   jenkins: {
     name: "Jenkins",
-    icon: "https://www.jenkins.io/favicon.ico",
+    icon:Jenkins,
     link: "https://www.jenkins.io/",
     color: "#D24939",
     type: TechnologyType.DevOps,

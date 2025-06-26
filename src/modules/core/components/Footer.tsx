@@ -7,8 +7,8 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import MailIcon from "@mui/icons-material/Mail";
 import { Theme, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import TECKboard from "../../../assets/Logo_TB.svg";
-import DevLights from "../../../assets/devlights.svg";
+import DevLights from "../../../assets/projects/devlights/devlights.svg";
+import TECKboard from "../../../assets/projects/teckboard/Logo_TB.svg";
 import { useLanguage } from "../../../language/hooks/index";
 import CustomFooterButton from "../design-system/CustomFooterButton";
 
