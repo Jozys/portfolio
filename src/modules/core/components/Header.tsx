@@ -30,7 +30,6 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
 
     alignItems: "center",
     justifyContent: "center", // Center content by default
-    width: "100%",
 
     // Responsive layout - switch to column on small screens
     [theme.breakpoints.down("sm")]: {
