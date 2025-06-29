@@ -6,7 +6,7 @@ import {
   TimelineOppositeContent,
   TimelineSeparator,
 } from "@mui/lab";
-import { Paper, styled, Typography } from "@mui/material";
+import { Paper, styled, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
 import Tilt from "react-parallax-tilt";
 import { contrastBlack } from "../../../modules/core/utils/textContrast";
@@ -71,10 +71,7 @@ const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
     padding: theme.spacing(3),
     borderRadius: theme.spacing(2),
     boxShadow: "0 8px 24px rgba(0, 0, 0, 0.1)",
-    background:
-      theme.palette.mode === "dark"
-        ? theme.palette.background.paper
-        : "#ffffff",
+    background: theme.palette.background.paper,
     transition: "transform 0.3s, box-shadow 0.3s",
     "&:hover": {
       transform: "translateY(-5px)",
@@ -83,7 +80,7 @@ const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
     overflow: "hidden",
     width: "100%",
     maxWidth: window.innerWidth < 1000 ? "85%" : "90%",
-    height: "400px",
+    minHeight: "400px",
   },
   [`& .${classes.imageContainer}`]: {
     overflow: "hidden",
@@ -91,7 +88,7 @@ const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
     marginTop: theme.spacing(2),
     textAlign: "center",
     maxWidth: window.innerWidth < 1000 ? "85%" : "90%",
-    height: "400px",
+    minHeight: window.innerWidth >= 1000 ? "400px" : "200px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -109,6 +106,7 @@ export interface TimelineItemProps {
   direction: "normal" | "opposite";
   children?: React.ReactNode;
   useDot?: boolean;
+  dotContent?: React.ReactNode;
   containerStyle?: React.CSSProperties;
 }
 
@@ -117,7 +115,10 @@ export default function CustomizedTimelineItem(props: TimelineItemProps) {
 }
 
 function CustomTimelineItem(props: TimelineItemProps) {
-  if (window.innerWidth >= 1000) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  if (!isMobile) {
     return (
       <StyledCustomTimelineItem style={{ ...props.containerStyle }}>
         <TimelineOppositeContent className={classes.textItem}>
@@ -127,7 +128,7 @@ function CustomTimelineItem(props: TimelineItemProps) {
         </TimelineOppositeContent>
         {props.useDot && (
           <TimelineSeparator>
-            <TimelineDot color="primary" />
+            <TimelineDot color="primary" >{props.dotContent}</TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
         )}
@@ -138,7 +139,7 @@ function CustomTimelineItem(props: TimelineItemProps) {
     );
   } else {
     return (
-      <Paper className={classes.card} elevation={0}>
+      
         <StyledCustomTimelineItem
           style={
             props.image != null
@@ -158,6 +159,7 @@ function CustomTimelineItem(props: TimelineItemProps) {
               <TimelineConnector />
             </TimelineSeparator>
           )}
+          <Paper className={classes.card} elevation={0}>
           <TimelineContent
             className={[classes.imageContainer, classes.textItem].join(" ")}
             style={{ ...props.containerStyle }}
@@ -165,13 +167,16 @@ function CustomTimelineItem(props: TimelineItemProps) {
             {props.image != null && <ImageContent {...props} />}
             <TextContent {...props} />
           </TimelineContent>
+          </Paper>
         </StyledCustomTimelineItem>
-      </Paper>
+    
     );
   }
 }
 
 function TextContent(props: Partial<TimelineItemProps>) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <div className={classes.textContainer}>
       <h1 className={classes.title}>{props.title}</h1>
@@ -179,10 +184,10 @@ function TextContent(props: Partial<TimelineItemProps>) {
       <div
         style={{
           display: "flex",
+          flexDirection: isMobile ? "column" : "row",
           width: "100%",
           justifyContent: "space-around",
           alignContent: "center",
-          /* alignContent: "space-around", */
         }}
       >
         {props.children}
@@ -221,7 +226,7 @@ function ImageContent(props: Partial<TimelineItemProps>) {
                 ...props.imageStyle,
               }}
               src={props.image}
-              alt={props.title}
+              alt={props.title?.toString()}
             />
           ) : (
             props.image

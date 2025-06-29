@@ -113,7 +113,7 @@ export default function Header(props: HeaderProps) {
             variant={isMobile ? "h5" : "h4"}
             className={classes.title}
             sx={{
-              mt: 1,
+              m: 1,
               fontWeight: "medium",
               overflowWrap: "break-word",
               wordBreak: "break-word",

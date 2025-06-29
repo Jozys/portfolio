@@ -20,7 +20,7 @@ export default function TimelineButton(props: {
       <Button
         startIcon={props.icon}
         variant="contained"
-        color="secondary"
+        color="primary"
         onClick={() => props.onClick()}
       >
         {props.title}

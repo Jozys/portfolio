@@ -44,6 +44,7 @@ export const projects: Record<string, Project> = {
   teckboard: {
     name: "projects.main.teckboard.title",
     description: "projects.main.teckboard.description",
+    years: "2019 - 2022",
     image: TECKboardApp,
     technologies: [
       getTechnology("react")!,
@@ -63,6 +64,7 @@ export const projects: Record<string, Project> = {
   devlight: {
     name: "projects.main.devlight.title",
     description: "projects.main.devlight.description",
+    years: "2020 - 2021",
     image: DevLightsApp,
     technologies: [
       getTechnology("cpp")!,
@@ -87,6 +89,7 @@ export const projects: Record<string, Project> = {
   simpleQ: {
     name: "projects.main.simpleQ.title",
     description: "projects.main.simpleQ.description",
+    years: "2023",
     image: SimpleQ,
     technologies: [
       getTechnology("react")!,
@@ -121,6 +124,7 @@ export const projects: Record<string, Project> = {
   dbDelay: {
     name: "projects.main.dbDelay.title",
     description: "projects.main.dbDelay.description",
+    years: "2024 - Now",
     image: DBDelay,
     technologies: [
       getTechnology("react")!,
@@ -148,6 +152,7 @@ export const projects: Record<string, Project> = {
     name: "projects.main.concertHistory.title",
     description: "projects.main.concertHistory.description",
     image: ConcertHistory,
+    years: "2024",
     technologies: [getTechnology("jetpackCompose"), getTechnology("kotlin")!],
     links: {
       github: {
@@ -156,7 +161,7 @@ export const projects: Record<string, Project> = {
         icon: <GitHubIcon />,
       },
       playStore: {
-        url: "https://play.google.com/store/apps/details?id=de.buseslaar.concerhistory",
+        url: "https://groups.google.com/g/concert-history-beta",
         label: "",
         icon: (
           <img height={"24px"} src={GooglePlayIcon} alt="GooglePlay Icon" />
@@ -167,6 +172,7 @@ export const projects: Record<string, Project> = {
   moveTopia: {
     name: "projects.main.moveTopia.title",
     description: "projects.main.moveTopia.description",
+    years: "2024 - 2025",
     image: MoveTopiaApp,
     technologies: [getTechnology("flutter"), getTechnology("dart")!],
     links: {
@@ -198,6 +204,7 @@ export const projects: Record<string, Project> = {
     name: "projects.main.sensoration.title",
     description: "projects.main.sensoration.description",
     image: Sensoration,
+    years: "2025",
     technologies: [getTechnology("kotlin")!, getTechnology("jetpackCompose")!],
     links: {
       github: {
