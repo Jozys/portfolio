@@ -1,5 +1,5 @@
 import { Timeline } from "@mui/lab";
-import { Typography, useMediaQuery } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import { useLanguage } from "../../../language/hooks";
 import CustomizedTimelineItem from "../../core/design-system/TimelineItem";
@@ -47,9 +47,6 @@ export default function DevLightsTimeline() {
 
   return (
     <Root className={classes.container}>
-      <Typography className={classes.text}>
-        {devlight.projectTimelineTitle}
-      </Typography>
       <Timeline
         className={classes.timeline}
         position={isMobile ? "right" : "alternate"}
@@ -59,7 +56,7 @@ export default function DevLightsTimeline() {
             key={`devlight-timeline-item-${index}`}
             description={item}
             direction={index % 2 === 0 ? "normal" : "opposite"}
-            useDot={true}
+            useDot={!isMobile}
           />
         ))}
       </Timeline>

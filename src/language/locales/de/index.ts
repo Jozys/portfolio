@@ -113,6 +113,11 @@ export const language: Language = {
       summary: `DevLights sind selbst entwickelte Smart Home  LED Streifen, die den WS2812B Chip für die einzelne Ansteuerung der Lichter benutzen.
             Gleichzeitig dient eine eigens designte Platine mit ESP8266 Wifi Modul zur Kommunikation mit dem Backend.
             Das Backend stellt ein NestJS Server mit MongoDB, es exisitiert eine Smartphone, sowie eine Desktop Anwendung für die Steuerung.`,
+      evolution: {
+        title: "Der Werdegang der DevLights",
+        description:
+          "Die Entwicklung von DevLights begann 2020, als ich das Projekt zusammen mit zwei Freunden, Jaan Springer und Timo Peters, startete. Wir begannen mit der Entwicklung im Projektkurs am Graf-Adolf-Gymnasium in Tecklenburg, Nordrhein-Westfalen. In einem Jahr Entwicklungszeit lernten wir viel über Programmierung, Hardware- und Softwareentwicklung.",
+      },
       openSourceNotice:
         "Das Projekt ist Open Source. Der Code kann angeschaut werden auf GitHub.",
       projectTimelineTitle: "Projektablauf",

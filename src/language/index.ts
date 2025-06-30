@@ -49,6 +49,10 @@ export type Language = {
         restart: string;
       };
       summary: string;
+      evolution: {
+        title: string;
+        description: string;
+      };
       openSourceNotice: string;
       github: string;
       projectTimelineTitle: string;

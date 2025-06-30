@@ -114,6 +114,11 @@ export const language: Language = {
       github: "Visit Project Devlights on GitHub",
       summary: `DevLights are self-programmed smart home led stripes using the WS2812B chip for controlling the stripes. ${"\n\n"}
             There is a backend server developed with NestJS and MongoDB, a smartphone and desktop application for the management.`,
+      evolution: {
+        title: "The evolution of DevLights",
+        description:
+          "The evolution of DevLights began in 2020 when I started the project together with two friends of mine, Jaan Springer and Timo Peters. We started developing on that project in our project course at Graf-Adolf-Gymnasium in Tecklenburg, North-Rhine-Westphalia, Germany. Through one year of development, we learned a lot about programming, hardware, and software development.",
+      },
       openSourceNotice:
         "The project is open source. It can be viewed on GitHub.",
       projectTimelineTitle: "Project timeline",

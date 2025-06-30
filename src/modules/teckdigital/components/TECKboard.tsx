@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   Grid,
   Paper,
   Theme,
@@ -12,9 +11,13 @@ import Tilt from "react-parallax-tilt";
 import OldBoard from "../../../assets/projects/teckboard/firstTECKboard.png";
 import NewBoard from "../../../assets/projects/teckboard/newBoard.png";
 import App from "../../../assets/projects/teckboard/teckboard_app.png";
+import { getProjectById } from "../../../data/Projects";
 import { useLanguage } from "../../../language/hooks";
-import Typing from "../../core/components/Typing";
+import ProjectPage, {
+  TextSection,
+} from "../../projects/details/design-system/ProjectPage";
 import MockTECKboard from "./MockTECKboard";
+import { useRef } from "react";
 
 const PREFIX = "TECKboard";
 
@@ -149,207 +152,202 @@ export default function TECKboard() {
   const { language } = useLanguage();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const teckboardProject = getProjectById("teckboard");
+  const componentRef = useRef<HTMLDivElement>(null);
 
-  return (
-    <Root className={classes.root}>
-      <Box className={classes.heroSection}>
-        <Box textAlign="center" mb={4}>
-          <Typing text={language.projects.teckboard.title} />
-        </Box>
+  // Evolution der TECKboard-Sektion
+  const evolutionSection = (
+    <Grid container spacing={4}>
+      <Grid item xs={12} md={6}>
+        <Paper elevation={0} className={classes.singleImage}>
+          <Typography variant="h6" className={classes.imageTitle}>
+            First Version (2019)
+          </Typography>
 
-        <MockTECKboard />
+          <Tilt
+            tiltMaxAngleX={isMobile ? 5 : 10}
+            tiltMaxAngleY={isMobile ? 5 : 10}
+            scale={1.05}
+            transitionSpeed={1500}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <Box
+              component="img"
+              src={OldBoard}
+              alt="The first version of TECKboards"
+              sx={{
+                borderRadius: 2,
+                width: "100%",
+                maxWidth: "350px",
+                height: "auto",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+              }}
+              draggable={false}
+            />
+          </Tilt>
+
+          <Typography className={classes.subTitle}>
+            The first version of the TECKboard, created in 2019
+          </Typography>
+        </Paper>
+      </Grid>
+
+      <Grid item xs={12} md={6}>
+        <Paper elevation={0} className={classes.singleImage}>
+          <Typography variant="h6" className={classes.imageTitle}>
+            Current Version (2020)
+          </Typography>
+
+          <Tilt
+            tiltMaxAngleX={isMobile ? 5 : 10}
+            tiltMaxAngleY={isMobile ? 5 : 10}
+            tiltReverse
+            scale={1.05}
+            transitionSpeed={1500}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <Box
+              component="img"
+              src={NewBoard}
+              alt="The second version of TECKboards"
+              sx={{
+                borderRadius: 2,
+                width: "100%",
+                maxWidth: "350px",
+                height: "auto",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+              }}
+              draggable={false}
+            />
+          </Tilt>
+
+          <Typography className={classes.subTitle}>
+            The current version, deployed in our school since 2020
+          </Typography>
+        </Paper>
+      </Grid>
+    </Grid>
+  );
+
+  // Mobile App Evolution-Sektion
+  const mobileAppSection = (
+    <Grid container spacing={4}>
+      <Grid item xs={12} md={6}>
+        <Paper elevation={0} className={classes.singleImage}>
+          <Typography variant="h6" className={classes.imageTitle}>
+            Prototype Version
+          </Typography>
+
+          <Tilt
+            tiltMaxAngleX={isMobile ? 5 : 10}
+            tiltMaxAngleY={isMobile ? 5 : 10}
+            scale={1.05}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <Box
+              sx={{
+                width: "30%",
+                height: "400px",
+                backgroundColor: "rgba(200,200,200,0.2)",
+                borderRadius: 2,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography variant="body2" color="textSecondary">
+                Image not available
+              </Typography>
+            </Box>
+          </Tilt>
+
+          <Typography className={classes.subTitle}>
+            The first prototype of the mobile application
+          </Typography>
+        </Paper>
+      </Grid>
+
+      <Grid item xs={12} md={6}>
+        <Paper elevation={0} className={classes.singleImage}>
+          <Typography variant="h6" className={classes.imageTitle}>
+            Released Version (v.1.1.8)
+          </Typography>
+
+          <Tilt
+            tiltMaxAngleX={isMobile ? 5 : 10}
+            tiltMaxAngleY={isMobile ? 5 : 10}
+            tiltReverse
+            scale={1.05}
+            style={{ display: "flex", justifyContent: "center" }}
+          >
+            <Box
+              component="img"
+              src={App}
+              alt="The released version of TECKboards mobile application"
+              sx={{
+                borderRadius: 2,
+                width: "auto",
+                height: "400px",
+                boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+              }}
+              draggable={false}
+            />
+          </Tilt>
+
+          <Typography className={classes.subTitle}>
+            The current version of the mobile application (v.1.1.8)
+          </Typography>
+        </Paper>
+      </Grid>
+    </Grid>
+  );
+
+  // Footer-Bereich
+  const footerContent = (
+    <>
+      <Box mb={2} pb={2} borderBottom={`1px solid ${theme.palette.divider}`}>
+        <Typography className={classes.text}>
+          {language.projects.teckboard.reactNative.start}{" "}
+          <a
+            className={classes.link}
+            href="https://reactnative.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            React Native
+          </a>
+          {language.projects.teckboard.reactNative.end}
+        </Typography>
       </Box>
 
-      <Container maxWidth="lg">
-        <Box className={classes.section}>
-          <Typography variant="h4" className={classes.sectionTitle}>
-            {language.projects.teckboard.projectDescription.title}
-          </Typography>
+      <TextSection text={language.projects.teckboard.appDescription[0]} />
+    </>
+  );
 
-          <Typography className={classes.text}>
-            {language.projects.teckboard.projectDescription.description}
-          </Typography>
-        </Box>
-
-        {/* Evolution der TECKboard */}
-        <Box className={classes.section}>
-          <Typography variant="h5" className={classes.sectionTitle}>
-            {language.projects.teckboard.evolution}
-          </Typography>
-
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={6}>
-              <Paper elevation={0} className={classes.singleImage}>
-                <Typography variant="h6" className={classes.imageTitle}>
-                  First Version (2019)
-                </Typography>
-
-                <Tilt
-                  tiltMaxAngleX={isMobile ? 5 : 10}
-                  tiltMaxAngleY={isMobile ? 5 : 10}
-                  scale={1.05}
-                  transitionSpeed={1500}
-                  style={{ display: "flex", justifyContent: "center" }}
-                >
-                  <Box
-                    component="img"
-                    src={OldBoard}
-                    alt="The first version of TECKboards"
-                    sx={{
-                      borderRadius: 2,
-                      width: "100%",
-                      maxWidth: "350px",
-                      height: "auto",
-                      boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-                    }}
-                    draggable={false}
-                  />
-                </Tilt>
-
-                <Typography className={classes.subTitle}>
-                  The first version of the TECKboard, created in 2019
-                </Typography>
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} md={6}>
-              <Paper elevation={0} className={classes.singleImage}>
-                <Typography variant="h6" className={classes.imageTitle}>
-                  Current Version (2020)
-                </Typography>
-
-                <Tilt
-                  tiltMaxAngleX={isMobile ? 5 : 10}
-                  tiltMaxAngleY={isMobile ? 5 : 10}
-                  tiltReverse
-                  scale={1.05}
-                  transitionSpeed={1500}
-                  style={{ display: "flex", justifyContent: "center" }}
-                >
-                  <Box
-                    component="img"
-                    src={NewBoard}
-                    alt="The second version of TECKboards"
-                    sx={{
-                      borderRadius: 2,
-                      width: "100%",
-                      maxWidth: "350px",
-                      height: "auto",
-                      boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-                    }}
-                    draggable={false}
-                  />
-                </Tilt>
-
-                <Typography className={classes.subTitle}>
-                  The current version, deployed in our school since 2020
-                </Typography>
-              </Paper>
-            </Grid>
-          </Grid>
-        </Box>
-
-        <Box className={classes.section}>
-          <Typography variant="h5" className={classes.sectionTitle}>
-            {language.projects.teckboard.mobileEvolution}
-          </Typography>
-
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={6}>
-              <Paper elevation={0} className={classes.singleImage}>
-                <Typography variant="h6" className={classes.imageTitle}>
-                  Prototype Version
-                </Typography>
-
-                <Tilt
-                  tiltMaxAngleX={isMobile ? 5 : 10}
-                  tiltMaxAngleY={isMobile ? 5 : 10}
-                  scale={1.05}
-                  style={{ display: "flex", justifyContent: "center" }}
-                >
-                  <Box
-                    sx={{
-                      width: "30%",
-                      height: "400px",
-                      backgroundColor: "rgba(200,200,200,0.2)",
-                      borderRadius: 2,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Typography variant="body2" color="textSecondary">
-                      Image not available
-                    </Typography>
-                  </Box>
-                </Tilt>
-
-                <Typography className={classes.subTitle}>
-                  The first prototype of the mobile application
-                </Typography>
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} md={6}>
-              <Paper elevation={0} className={classes.singleImage}>
-                <Typography variant="h6" className={classes.imageTitle}>
-                  Released Version (v.1.1.8)
-                </Typography>
-
-                <Tilt
-                  tiltMaxAngleX={isMobile ? 5 : 10}
-                  tiltMaxAngleY={isMobile ? 5 : 10}
-                  tiltReverse
-                  scale={1.05}
-                  style={{ display: "flex", justifyContent: "center" }}
-                >
-                  <Box
-                    component="img"
-                    src={App}
-                    alt="The released version of TECKboards mobile application"
-                    sx={{
-                      borderRadius: 2,
-                      width: "auto",
-                      height: "400px",
-                      boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-                    }}
-                    draggable={false}
-                  />
-                </Tilt>
-
-                <Typography className={classes.subTitle}>
-                  The current version of the mobile application (v.1.1.8)
-                </Typography>
-              </Paper>
-            </Grid>
-          </Grid>
-        </Box>
-
-        <Box className={classes.section}>
-          <Box
-            mb={2}
-            pb={2}
-            borderBottom={`1px solid ${theme.palette.divider}`}
-          >
-            <Typography className={classes.text}>
-              {language.projects.teckboard.reactNative.start}{" "}
-              <a
-                className={classes.link}
-                href="https://reactnative.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                React Native
-              </a>
-              {language.projects.teckboard.reactNative.end}
-            </Typography>
-          </Box>
-
-          <Typography className={classes.text}>
-            {language.projects.teckboard.appDescription[0]}
-          </Typography>
-        </Box>
-      </Container>
+  return (
+    <Root>
+      <ProjectPage
+        title={language.projects.teckboard.title}
+        hero={<MockTECKboard />}
+        technologies={teckboardProject?.technologies}
+        projectDescription={{
+          title: language.projects.teckboard.projectDescription.title,
+          description:
+            language.projects.teckboard.projectDescription.description,
+          ref: componentRef,
+        }}
+        sections={[
+          {
+            title: language.projects.teckboard.evolution,
+            content: evolutionSection,
+          },
+          {
+            title: language.projects.teckboard.mobileEvolution,
+            content: mobileAppSection,
+          },
+        ]}
+        footer={footerContent}
+      />
     </Root>
   );
 }
