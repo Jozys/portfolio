@@ -104,7 +104,10 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
 
   [`& .${classes.info_text}`]: {
     fontSize: "1.1rem",
-    width: theme.breakpoints.down("sm") ? "90%" : "70%",
+    width: "70%",
+    [theme.breakpoints.down("md")]: {
+      width: "90%",
+    },
     maxWidth: "800px",
     overflowWrap: "break-word",
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",

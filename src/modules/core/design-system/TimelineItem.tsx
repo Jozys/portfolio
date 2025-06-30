@@ -85,7 +85,11 @@ const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
     },
     overflow: "hidden",
     width: "100%",
-    maxWidth: theme.breakpoints.down("sm") ? "85%" : "90%",
+    maxWidth: "90%",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      maxWidth: "85%",
+    },
     minHeight: "400px",
   },
   [`& .${classes.imageContainer}`]: {
@@ -93,8 +97,12 @@ const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
     borderRadius: theme.spacing(1),
     marginTop: theme.spacing(2),
     textAlign: "center",
-    maxWidth: theme.breakpoints.down("sm") ? "85%" : "90%",
-    minHeight: theme.breakpoints.up("sm") ? "400px" : "200px",
+    maxWidth: "90%",
+    minHeight: "400px",
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "85%",
+      minHeight: "200px",
+    },
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
