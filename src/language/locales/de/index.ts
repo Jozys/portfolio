@@ -49,6 +49,7 @@ export const language: Language = {
   projects: {
     main: {
       title: "Ich habe entwickelt...",
+      readMore: "Mehr lesen",
       teckboard: {
         title: "TECKboards",
         description: `TECKboard ist ein digitales Echtzeit-Informationssystem, das zwei Freunde von mir, Timo Peters und Yannik Hahn, entwickelt haben. Ich selbst habe viel Zeit darauf verwendet, eine Smartphone-Anwendung für das bestehende System zu entwickeln. Durch das Prinzip 'Learning by Doing' habe ich viel über Planung, Entwicklung und die Zusammenarbeit mit anderen Entwicklern gelernt.`,
@@ -146,8 +147,10 @@ export const language: Language = {
         description: `Die erste Idee für die TECKboards kam durch einen Wunsch der Schülervertretung des Graf Adolf Gymnasiums, die die alten analogen Infotafeln ersetzen wollten.
                 Die erste Version der Boards wurde 2019 erstellt und im Verlaufe der Zeit immer weiter verbessert. 
                 Im selben Jahr der ersten Version startete ich damit eine mobile Anwendung für die TECKboards zu entwickeln.
-                Diese App wurde dann 2021 veröffentlicht und kann in den gängigen Stores von Google und Apple heruntergeladen werden.`,
+                Diese App wurde dann 2021 veröffentlicht und konnte bis 2023 in den gängigen Stores von Google und Apple heruntergeladen werden.`,
       },
+      mobileEvolution: "Die Evolution der TECKboard App",
+      evolution: "Die Evolution der TECKboards",
       imageInfo: [],
       appDescription: [
         `Nachdem diese veröffentlicht wurde, wurde die App von Schülern der Oberstufe und Lehrern am Graf Adolf Gymnasium genutzt.

@@ -51,6 +51,7 @@ export const language: Language = {
   projects: {
     main: {
       title: "I developed...",
+      readMore: "Read more",
       teckboard: {
         title: "TECKboards",
         description: `TECKboard is a digital real time information system that two friends of mine,Timo Peters and Yannik Hahn", developed. I spend really much hours developing a smartphone application for this system. By using the principe learning by doing, I learned much about planing, developing and communicating with the two developers of this system.`,
@@ -139,6 +140,8 @@ export const language: Language = {
     },
     teckboard: {
       title: "TECKboard",
+      evolution: "The evolution of the TECKboard",
+      mobileEvolution: "The evolution of the TECKboard mobile app",
       content:
         "TECKboard is a real time digital information system. It gives the ability to create individual boards for specific groups, so that everyone just gets the information they need and are allowed to see. In the background there is a secure user and invite system for convenient user management",
       projectDescription: {
@@ -149,7 +152,7 @@ export const language: Language = {
                 TECKboards was created in 2019. In the last two years the system has
                 been developed further and further. At the end of 2019 I started
                 developing a mobile application for our system. The mobile
-                application was released in 2021 and can be downloaded in the known
+                application was released in 2021 and could have been downloaded until 2023 in the known
                 app stores of Apple and Google.`,
       },
       imageInfo: [],

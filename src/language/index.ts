@@ -1,7 +1,4 @@
-import {
-  StatusInformation,
-  StatusInformationLocale,
-} from "../data/types/StatusInformation";
+import { StatusInformationLocale } from "../data/types/StatusInformation";
 
 export type Language = {
   languageInfo: {
@@ -32,6 +29,7 @@ export type Language = {
   projects: {
     main: {
       title: string;
+      readMore: string;
       teckboard: Info;
       devlight: Info & { readDoc: string };
       simpleQ: Info;
@@ -61,6 +59,8 @@ export type Language = {
       title: string;
       content: string;
       projectDescription: Info;
+      evolution: string;
+      mobileEvolution: string;
       imageInfo: string[];
       appDescription: string[];
       reactNative: {

@@ -62,7 +62,7 @@ export const projects: Record<string, Project> = {
       },
       furtherInformation: {
         url: "/projects/teckboard",
-        label: "Read more",
+        label: "projects.main.readMore",
         disableOpenInNewTab: true,
       },
     },
@@ -92,7 +92,7 @@ export const projects: Record<string, Project> = {
       },
       furtherInformation: {
         url: "/projects/devlights",
-        label: "Read more",
+        label: "projects.main.readMore",
         disableOpenInNewTab: true,
       },
     },
@@ -263,9 +263,9 @@ export const getProjectTitle = (
 
 export const getLabel = (label: string, language: Language): string => {
   if (label) {
-    return getNestedValue(language, label) || "Documentation";
+    return getNestedValue(language, label) || label;
   }
-  return "Documentation";
+  return label;
 };
 
 /**

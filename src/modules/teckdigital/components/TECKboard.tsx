@@ -1,12 +1,19 @@
-import { Theme, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import {
+  Box,
+  Container,
+  Grid,
+  Paper,
+  Theme,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
+import { styled, useTheme } from "@mui/material/styles";
 import Tilt from "react-parallax-tilt";
 import OldBoard from "../../../assets/projects/teckboard/firstTECKboard.png";
 import NewBoard from "../../../assets/projects/teckboard/newBoard.png";
 import App from "../../../assets/projects/teckboard/teckboard_app.png";
 import { useLanguage } from "../../../language/hooks";
 import Typing from "../../core/components/Typing";
-import { contrastBlack } from "../../core/utils/textContrast";
 import MockTECKboard from "./MockTECKboard";
 
 const PREFIX = "TECKboard";
@@ -20,175 +27,329 @@ const classes = {
   singleImage: `${PREFIX}-singleImage`,
   subTitle: `${PREFIX}-subTitle`,
   link: `${PREFIX}-link`,
+  section: `${PREFIX}-section`,
+  sectionTitle: `${PREFIX}-sectionTitle`,
+  heroSection: `${PREFIX}-heroSection`,
+  root: `${PREFIX}-root`,
+  imageTitle: `${PREFIX}-imageTitle`,
 };
-
 const Root = styled("div")(({ theme }: { theme: Theme }) => ({
+  [`&.${classes.root}`]: {
+    width: "100%",
+    overflowX: "hidden",
+    paddingBottom: theme.spacing(8),
+  },
+
+  [`& .${classes.heroSection}`]: {
+    marginBottom: theme.spacing(6),
+    padding: theme.spacing(2),
+  },
+
   [`& .${classes.textContainer}`]: {
     display: "flex",
     flexDirection: "column",
-    alignContent: "center",
+    alignItems: "center",
+    marginBottom: theme.spacing(4),
   },
 
   [`& .${classes.textInnerContainer}`]: {
-    alignSelf: "center",
-    flex: 1,
-    width: "50%",
+    width: "100%",
+    maxWidth: "800px",
+    padding: theme.spacing(0, 2),
   },
 
   [`& .${classes.title}`]: {
-    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
-    textAlign: "center",
+    color: theme.palette.text.primary,
+    marginBottom: theme.spacing(2),
+    fontWeight: 600,
+    fontSize: "2rem",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1.75rem",
+    },
   },
 
   [`& .${classes.text}`]: {
-    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
-    fontSize: "2.0vh",
-    textAlign: "center",
+    color: theme.palette.text.secondary,
+    fontSize: "1.1rem",
+    lineHeight: 1.6,
+    [theme.breakpoints.down("md")]: {
+      fontSize: "1rem",
+    },
   },
 
   [`& .${classes.imagesContainer}`]: {
-    width: window.innerWidth,
+    width: "100%",
     display: "flex",
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    alignContent: "center",
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
+    flexDirection: "row",
+    gap: theme.spacing(3),
+    marginBottom: theme.spacing(6),
+
+    [theme.breakpoints.down("md")]: {
+      flexDirection: "column",
+      alignItems: "center",
+    },
   },
 
   [`& .${classes.singleImage}`]: {
-    display: "flex",
-    flexDirection: "column",
     flex: 1,
-    justifyContent: "center",
+    padding: theme.spacing(3),
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: "0 6px 12px rgba(0,0,0,0.08)",
+    transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
+    "&:hover": {
+      transform: "translateY(-5px)",
+      boxShadow: "0 12px 24px rgba(0,0,0,0.12)",
+    },
+  },
+
+  [`& .${classes.imageTitle}`]: {
+    marginBottom: theme.spacing(2),
+    fontWeight: 600,
+    color: theme.palette.primary.main,
   },
 
   [`& .${classes.subTitle}`]: {
-    textAlign: "center",
-    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
+    marginTop: theme.spacing(2),
+    fontSize: "0.9rem",
+    color: theme.palette.text.secondary,
+    fontStyle: "italic",
   },
 
   [`& .${classes.link}`]: {
-    "&:link": {
-      color: theme.palette.secondary.main,
+    color: theme.palette.secondary.main,
+    textDecoration: "none",
+    borderBottom: `1px solid ${theme.palette.secondary.main}`,
+    transition: "opacity 0.2s",
+    "&:hover": {
+      opacity: 0.8,
     },
-    "&:visited": {
-      color: theme.palette.secondary.main,
+  },
+
+  [`& .${classes.section}`]: {
+    marginBottom: theme.spacing(6),
+  },
+
+  [`& .${classes.sectionTitle}`]: {
+    position: "relative",
+    paddingBottom: theme.spacing(1),
+    marginBottom: theme.spacing(3),
+    "&:after": {
+      content: '""',
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      width: "60px",
+      height: "3px",
+      background: theme.palette.primary.main,
     },
   },
 }));
-
 export default function TECKboard() {
   const { language } = useLanguage();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
-    <Root>
-      <Typing text={language.projects.teckboard.title}></Typing>
+    <Root className={classes.root}>
+      <Box className={classes.heroSection}>
+        <Box textAlign="center" mb={4}>
+          <Typing text={language.projects.teckboard.title} />
+        </Box>
 
-      <MockTECKboard />
+        <MockTECKboard />
+      </Box>
 
-      <div className={classes.textContainer}>
-        <div className={classes.textInnerContainer}>
-          <h1 className={classes.title}>
+      <Container maxWidth="lg">
+        <Box className={classes.section}>
+          <Typography variant="h4" className={classes.sectionTitle}>
             {language.projects.teckboard.projectDescription.title}
-          </h1>
+          </Typography>
 
           <Typography className={classes.text}>
             {language.projects.teckboard.projectDescription.description}
           </Typography>
-        </div>
-      </div>
-      <div className={classes.imagesContainer}>
-        <div className={classes.singleImage}>
-          <Tilt style={{ display: "flex", justifyContent: "center" }}>
-            <img
-              draggable={false}
-              style={{ borderRadius: 12, alignSelf: "center" }}
-              src={OldBoard}
-              height="auto"
-              width="70%"
-              alt="The first version of TECKboards"
-            ></img>
-          </Tilt>
-          <Typography className={classes.subTitle}>
-            The first version of the TECKboard, which was created in 2019
-          </Typography>
-        </div>
-        <div className={classes.singleImage}>
-          <Tilt
-            style={{ display: "flex", justifyContent: "center" }}
-            tiltReverse
-          >
-            <img
-              draggable={false}
-              style={{ borderRadius: 12, alignSelf: "center" }}
-              src={NewBoard}
-              height="auto"
-              width="70%"
-              alt="The second version of TECKboards"
-            ></img>
-          </Tilt>
-          <Typography className={classes.subTitle}>
-            The second version of the TECKboard, which was created in 2020, and
-            is now used in our school
-          </Typography>
-        </div>
-      </div>
+        </Box>
 
-      <div className={classes.imagesContainer}>
-        <div className={classes.singleImage}>
-          <Tilt style={{ display: "flex", justifyContent: "center" }}>
-            <img
-              draggable={false}
-              style={{ borderRadius: 12, alignSelf: "center" }}
-              //   src={App}
-              height="auto"
-              width="25%"
-              alt="The first version of TECKboards mobile application (currently not available)"
-            ></img>
-          </Tilt>
-          <Typography className={classes.subTitle}>
-            The first version of the TECKboard mobile application
+        {/* Evolution der TECKboard */}
+        <Box className={classes.section}>
+          <Typography variant="h5" className={classes.sectionTitle}>
+            {language.projects.teckboard.evolution}
           </Typography>
-        </div>
-        <div className={classes.singleImage}>
-          <Tilt
-            style={{ display: "flex", justifyContent: "center" }}
-            tiltReverse
-          >
-            <img
-              draggable={false}
-              style={{ borderRadius: 12, alignSelf: "center" }}
-              src={App}
-              height="auto"
-              width="25%"
-              alt="The released version of TECKboards mobile application"
-            ></img>
-          </Tilt>
-          <Typography className={classes.subTitle}>
-            The current version of the mobile application (v.1.1.8)
-          </Typography>
-        </div>
-      </div>
-      <div className={classes.textContainer}>
-        <div className={classes.textInnerContainer}>
-          <Typography className={classes.text}>
-            {language.projects.teckboard.reactNative.start}{" "}
-            <a className={classes.link} href="https://reactnative.dev">
-              React Native
-            </a>
-            {language.projects.teckboard.reactNative.end}
-          </Typography>
-        </div>
-      </div>
 
-      <div className={classes.textContainer}>
-        <div className={classes.textInnerContainer}>
+          <Grid container spacing={4}>
+            <Grid item xs={12} md={6}>
+              <Paper elevation={0} className={classes.singleImage}>
+                <Typography variant="h6" className={classes.imageTitle}>
+                  First Version (2019)
+                </Typography>
+
+                <Tilt
+                  tiltMaxAngleX={isMobile ? 5 : 10}
+                  tiltMaxAngleY={isMobile ? 5 : 10}
+                  scale={1.05}
+                  transitionSpeed={1500}
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <Box
+                    component="img"
+                    src={OldBoard}
+                    alt="The first version of TECKboards"
+                    sx={{
+                      borderRadius: 2,
+                      width: "100%",
+                      maxWidth: "350px",
+                      height: "auto",
+                      boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                    }}
+                    draggable={false}
+                  />
+                </Tilt>
+
+                <Typography className={classes.subTitle}>
+                  The first version of the TECKboard, created in 2019
+                </Typography>
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Paper elevation={0} className={classes.singleImage}>
+                <Typography variant="h6" className={classes.imageTitle}>
+                  Current Version (2020)
+                </Typography>
+
+                <Tilt
+                  tiltMaxAngleX={isMobile ? 5 : 10}
+                  tiltMaxAngleY={isMobile ? 5 : 10}
+                  tiltReverse
+                  scale={1.05}
+                  transitionSpeed={1500}
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <Box
+                    component="img"
+                    src={NewBoard}
+                    alt="The second version of TECKboards"
+                    sx={{
+                      borderRadius: 2,
+                      width: "100%",
+                      maxWidth: "350px",
+                      height: "auto",
+                      boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                    }}
+                    draggable={false}
+                  />
+                </Tilt>
+
+                <Typography className={classes.subTitle}>
+                  The current version, deployed in our school since 2020
+                </Typography>
+              </Paper>
+            </Grid>
+          </Grid>
+        </Box>
+
+        <Box className={classes.section}>
+          <Typography variant="h5" className={classes.sectionTitle}>
+            {language.projects.teckboard.mobileEvolution}
+          </Typography>
+
+          <Grid container spacing={4}>
+            <Grid item xs={12} md={6}>
+              <Paper elevation={0} className={classes.singleImage}>
+                <Typography variant="h6" className={classes.imageTitle}>
+                  Prototype Version
+                </Typography>
+
+                <Tilt
+                  tiltMaxAngleX={isMobile ? 5 : 10}
+                  tiltMaxAngleY={isMobile ? 5 : 10}
+                  scale={1.05}
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <Box
+                    sx={{
+                      width: "30%",
+                      height: "400px",
+                      backgroundColor: "rgba(200,200,200,0.2)",
+                      borderRadius: 2,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Typography variant="body2" color="textSecondary">
+                      Image not available
+                    </Typography>
+                  </Box>
+                </Tilt>
+
+                <Typography className={classes.subTitle}>
+                  The first prototype of the mobile application
+                </Typography>
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Paper elevation={0} className={classes.singleImage}>
+                <Typography variant="h6" className={classes.imageTitle}>
+                  Released Version (v.1.1.8)
+                </Typography>
+
+                <Tilt
+                  tiltMaxAngleX={isMobile ? 5 : 10}
+                  tiltMaxAngleY={isMobile ? 5 : 10}
+                  tiltReverse
+                  scale={1.05}
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <Box
+                    component="img"
+                    src={App}
+                    alt="The released version of TECKboards mobile application"
+                    sx={{
+                      borderRadius: 2,
+                      width: "auto",
+                      height: "400px",
+                      boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                    }}
+                    draggable={false}
+                  />
+                </Tilt>
+
+                <Typography className={classes.subTitle}>
+                  The current version of the mobile application (v.1.1.8)
+                </Typography>
+              </Paper>
+            </Grid>
+          </Grid>
+        </Box>
+
+        <Box className={classes.section}>
+          <Box
+            mb={2}
+            pb={2}
+            borderBottom={`1px solid ${theme.palette.divider}`}
+          >
+            <Typography className={classes.text}>
+              {language.projects.teckboard.reactNative.start}{" "}
+              <a
+                className={classes.link}
+                href="https://reactnative.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                React Native
+              </a>
+              {language.projects.teckboard.reactNative.end}
+            </Typography>
+          </Box>
+
           <Typography className={classes.text}>
             {language.projects.teckboard.appDescription[0]}
           </Typography>
-        </div>
-      </div>
+        </Box>
+      </Container>
     </Root>
   );
 }
