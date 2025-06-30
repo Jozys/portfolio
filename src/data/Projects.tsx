@@ -7,6 +7,7 @@ import DevLights from "../assets/projects/devlights/devlights.svg";
 import MoveTopiaApp from "../assets/projects/moveTopia/MoveTopia_Mockup.png";
 import SensorationLogo from "../assets/projects/sensoration/Sensoration_Logo.png";
 import Sensoration from "../assets/projects/sensoration/Sensoration_Mockup.png";
+import SimpleQLogo from "../assets/projects/simpleQ/simpleQ.ico";
 import SimpleQ from "../assets/projects/simpleQ/SimpleQ_Mockup.png";
 import TECKboard from "../assets/projects/teckboard/Logo_TB.svg";
 import TECKboardApp from "../assets/projects/teckboard/teckboard_app.png";
@@ -59,6 +60,11 @@ export const projects: Record<string, Project> = {
         label: "Demo",
         icon: <img src={TECKboard} height="24px" />,
       },
+      furtherInformation: {
+        url: "/projects/teckboard",
+        label: "Read more",
+        disableOpenInNewTab: true,
+      },
     },
   },
   devlight: {
@@ -81,8 +87,13 @@ export const projects: Record<string, Project> = {
 
       documentation: {
         url: `/devlights.pdf`,
-        label: "Documentation",
+        label: "projects.main.devlight.readDoc",
         icon: <img height={"24px"} src={DevLights} alt="DevLights Icon" />,
+      },
+      furtherInformation: {
+        url: "/projects/devlights",
+        label: "Read more",
+        disableOpenInNewTab: true,
       },
     },
   },
@@ -107,13 +118,7 @@ export const projects: Record<string, Project> = {
       demo: {
         url: "https://simpleq.joshua.slaar.de",
         label: "Demo",
-        icon: (
-          <img
-            height="24px"
-            src="https://simpleq.joshua.slaar.de/favicon.ico"
-            alt="SimpleQ Demo"
-          />
-        ),
+        icon: <img height="24px" src={SimpleQLogo} alt="SimpleQ Demo" />,
       },
       documentation: {
         url: "https://github.com/SE-TINF22B2/SimpleQ/wiki",
@@ -254,6 +259,13 @@ export const getProjectTitle = (
     return getNestedValue(language, project.name) || project.name;
   }
   return project.name;
+};
+
+export const getLabel = (label: string, language: Language): string => {
+  if (label) {
+    return getNestedValue(language, label) || "Documentation";
+  }
+  return "Documentation";
 };
 
 /**

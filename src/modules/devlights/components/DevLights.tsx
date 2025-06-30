@@ -1,5 +1,5 @@
 import { Button, Theme, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { styled } from "@mui/material/styles";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { contrastBlack } from "../../core/utils/textContrast";
 import { useLanguage } from "../../../language/hooks";
@@ -8,51 +8,75 @@ import Typing from "../../core/components/Typing";
 import DevLightsImageCarousel from "./DevLightsImageCarousel";
 import DevLightsTimeline from "./DevLightsTimeline";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  container: {
+const PREFIX = "DevLights";
+
+const classes = {
+  container: `${PREFIX}-container`,
+  introText: `${PREFIX}-introText`,
+  devlightContainer: `${PREFIX}-devlightContainer`,
+  devlight: `${PREFIX}-devlight`,
+  carousel: `${PREFIX}-carousel`,
+  image: `${PREFIX}-image`,
+  strip: `${PREFIX}-strip`,
+  text: `${PREFIX}-text`,
+  summary: `${PREFIX}-summary`,
+  link: `${PREFIX}-link`,
+};
+
+const StyledDevLights = styled("div")(({ theme }: { theme: Theme }) => ({
+  [`&.${classes.container}`]: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
-  introText: {
+
+  [`& .${classes.introText}`]: {
     width: "75%",
     display: "flex",
     flex: 7,
   },
-  devlightContainer: {
+
+  [`& .${classes.devlightContainer}`]: {
     flex: 8,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
-  devlight: {
+
+  [`& .${classes.devlight}`]: {
     width: "50%",
   },
-  carousel: {
+
+  [`& .${classes.carousel}`]: {
     display: "flex",
     flexDirection: "column",
     marginTop: theme.spacing(4),
     flex: 1,
   },
-  image: {
+
+  [`& .${classes.image}`]: {
     borderRadius: 12,
     alignSelf: "center",
     zIndex: -1,
   },
-  strip: {
+
+  [`& .${classes.strip}`]: {
     display: "flex",
     justifyContent: "center",
   },
-  text: {
+
+  [`& .${classes.text}`]: {
     fontSize: "2em",
     textAlign: "center",
   },
-  summary: {
+
+  [`& .${classes.summary}`]: {
     color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
     fontSize: "2.5vh",
     textAlign: "center",
   },
-  link: {
+
+  [`& .${classes.link}`]: {
     "&:link": {
       color: theme.palette.secondary.main,
     },
@@ -63,32 +87,31 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 export default function DevLights() {
-  const styles = useStyles();
   const { language } = useLanguage();
   return (
-    <div className={styles.container}>
-      <div className={styles.devlightContainer}>
+    <StyledDevLights className={classes.container}>
+      <div className={classes.devlightContainer}>
         <div>
           <Typing text={language.projects.devlight.title}></Typing>
-          <Typography className={styles.text}>
+          <Typography className={classes.text}>
             {language.projects.devlight.subtitle}
           </Typography>
 
-          <div className={styles.strip}>
+          <div className={classes.strip}>
             <LEDStrip />
           </div>
         </div>
       </div>
-      <div className={styles.carousel}>
+      <div className={classes.carousel}>
         <DevLightsImageCarousel />
       </div>
-      <div className={styles.introText}>
-        <Typography className={styles.text}>
+      <div className={classes.introText}>
+        <Typography className={classes.text}>
           {language.projects.devlight.summary}
         </Typography>
       </div>
 
-      <Typography className={styles.text}>
+      <Typography className={classes.text}>
         <br />
         {language.projects.devlight.openSourceNotice}
       </Typography>
@@ -104,14 +127,14 @@ export default function DevLights() {
 
       <DevLightsTimeline />
 
-      <div className={styles.introText}>
-        <Typography className={styles.summary}>
+      <div className={classes.introText}>
+        <Typography className={classes.summary}>
           {language.projects.devlight.last}
-          <a className={styles.link} href="/devlights.pdf" target="_blank">
+          <a className={classes.link} href="/devlights.pdf" target="_blank">
             Link
           </a>
         </Typography>
       </div>
-    </div>
+    </StyledDevLights>
   );
 }

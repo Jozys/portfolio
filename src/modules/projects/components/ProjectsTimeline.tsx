@@ -13,6 +13,7 @@ import TimelineButton from "../design-system/TimelineButton";
 import { Project } from "../../../data/types/Project";
 import {
   getAllProjects,
+  getLabel,
   getProjectDescription,
   getProjectTitle,
 } from "../../../data/Projects";
@@ -67,6 +68,7 @@ export default function ProjectsTimeline() {
 function AdditionalProjectInformation(props: { project: Project }) {
   const { project } = props;
   const theme = useTheme();
+  const { language } = useLanguage();
 
   const projectButton = (project: Project): React.ReactNode[] => {
     return Object.keys(project.links).map((linkKey, linkIndex) => {
@@ -75,9 +77,12 @@ function AdditionalProjectInformation(props: { project: Project }) {
         <TimelineButton
           key={`${project.name}-link-${linkIndex}`}
           onClick={() => {
-            window.open(link.url);
+            window.open(
+              link.url,
+              link.disableOpenInNewTab ? "_self" : "_blank"
+            );
           }}
-          title={link.label}
+          title={getLabel(link.label, language)}
           icon={
             link.icon ? (
               typeof link.icon === "string" ? (

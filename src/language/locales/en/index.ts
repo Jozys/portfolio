@@ -62,7 +62,7 @@ export const language: Language = {
                 developed these lights during our project course informatic at
                 Graf-Adolf-Gymnasium. From begin we learned new programming
                 languages like C++ and worked at Hard and Software. `,
-        readDoc: "READ DOCUMENTATION",
+        readDoc: "READ PAPER",
       },
       simpleQ: {
         title: "SimpleQ",

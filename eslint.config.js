@@ -8,12 +8,16 @@ export default tseslint.config([
   pluginReact.configs.flat.recommended,
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
-    plugins: { js },
-    // extends: ["js/recommended"],
+    plugins: { js, react: pluginReact },
     rules: {
       "@typescript-eslint/ban-ts-comment": "off",
       "react/jsx-uses-react": "off",
       "react/react-in-jsx-scope": "off",
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
     },
   },
   {

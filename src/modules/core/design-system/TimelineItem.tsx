@@ -6,7 +6,13 @@ import {
   TimelineOppositeContent,
   TimelineSeparator,
 } from "@mui/lab";
-import { Paper, styled, Typography, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Paper,
+  styled,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import React from "react";
 import Tilt from "react-parallax-tilt";
 import { contrastBlack } from "../../../modules/core/utils/textContrast";
@@ -79,7 +85,7 @@ const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
     },
     overflow: "hidden",
     width: "100%",
-    maxWidth: window.innerWidth < 1000 ? "85%" : "90%",
+    maxWidth: theme.breakpoints.down("sm") ? "85%" : "90%",
     minHeight: "400px",
   },
   [`& .${classes.imageContainer}`]: {
@@ -87,8 +93,8 @@ const StyledCustomTimelineItem = styled(TimelineItem)(({ theme }) => ({
     borderRadius: theme.spacing(1),
     marginTop: theme.spacing(2),
     textAlign: "center",
-    maxWidth: window.innerWidth < 1000 ? "85%" : "90%",
-    minHeight: window.innerWidth >= 1000 ? "400px" : "200px",
+    maxWidth: theme.breakpoints.down("sm") ? "85%" : "90%",
+    minHeight: theme.breakpoints.up("sm") ? "400px" : "200px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -128,7 +134,7 @@ function CustomTimelineItem(props: TimelineItemProps) {
         </TimelineOppositeContent>
         {props.useDot && (
           <TimelineSeparator>
-            <TimelineDot color="primary" >{props.dotContent}</TimelineDot>
+            <TimelineDot color="primary">{props.dotContent}</TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
         )}
@@ -139,27 +145,26 @@ function CustomTimelineItem(props: TimelineItemProps) {
     );
   } else {
     return (
-      
-        <StyledCustomTimelineItem
-          style={
-            props.image != null
-              ? {
-                  display: "flex",
-                  flexDirection: "column",
-                  height: "100%",
-                  width: "100%",
-                  ...props.containerStyle,
-                }
-              : { ...props.containerStyle }
-          }
-        >
-          {props.useDot && (
-            <TimelineSeparator>
-              <TimelineDot color="primary" />
-              <TimelineConnector />
-            </TimelineSeparator>
-          )}
-          <Paper className={classes.card} elevation={0}>
+      <StyledCustomTimelineItem
+        style={
+          props.image != null
+            ? {
+                display: "flex",
+                flexDirection: "column",
+                height: "100%",
+                width: "100%",
+                ...props.containerStyle,
+              }
+            : { ...props.containerStyle }
+        }
+      >
+        {props.useDot && (
+          <TimelineSeparator>
+            <TimelineDot color="primary" />
+            <TimelineConnector />
+          </TimelineSeparator>
+        )}
+        <Paper className={classes.card} elevation={0}>
           <TimelineContent
             className={[classes.imageContainer, classes.textItem].join(" ")}
             style={{ ...props.containerStyle }}
@@ -167,9 +172,8 @@ function CustomTimelineItem(props: TimelineItemProps) {
             {props.image != null && <ImageContent {...props} />}
             <TextContent {...props} />
           </TimelineContent>
-          </Paper>
-        </StyledCustomTimelineItem>
-    
+        </Paper>
+      </StyledCustomTimelineItem>
     );
   }
 }

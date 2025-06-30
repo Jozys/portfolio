@@ -42,6 +42,7 @@ export interface Project {
 
 export interface Link {
   url: string;
+  disableOpenInNewTab?: boolean; // Optional flag to disable opening the link in a new tab
   icon?: string | React.ReactNode; // Optional icon URL for the link
   label: string; // Label for the link, e.g., "GitHub", "Demo"
 }

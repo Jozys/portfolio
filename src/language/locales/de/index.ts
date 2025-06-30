@@ -57,7 +57,7 @@ export const language: Language = {
         title: "DevLights",
         description: `DevLights sind Smart Home LED-Streifen für Entwickler. Zusammen mit zwei Freunden, Jaan Springer und Timo Peters, haben wir im Rahmen eines Projektkurses Informatik am Graf-Adolf-Gymnasium unsere eigenen Smart Home LED-Streifen entwickelt.
                  Dadurch haben wir neue Techniken im Bereich Hardware- und Softwareentwicklung kennengelernt, zum Beispiel die Programmiersprache C++. `,
-        readDoc: "DOKUMENTATION LESEN",
+        readDoc: "FACHARBEIT LESEN",
       },
       simpleQ: {
         title: "SimpleQ",
