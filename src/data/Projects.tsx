@@ -268,6 +268,10 @@ export const getLabel = (label: string, language: Language): string => {
   return label;
 };
 
+export const getProjectById = (id: string): Project | undefined => {
+  return projects[id];
+};
+
 /**
  * Returns an array of all projects defined in the projects object.
  * @returns An array of all projects.

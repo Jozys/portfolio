@@ -1,23 +1,18 @@
 import { Timeline } from "@mui/lab";
-import {
-  Box,
-  IconButton,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useLanguage } from "../../../language/hooks";
 import CustomTimelineItem from "../../core/design-system/TimelineItem";
 import TimelineButton from "../design-system/TimelineButton";
 
-import { Project } from "../../../data/types/Project";
+import React from "react";
 import {
   getAllProjects,
   getLabel,
   getProjectDescription,
   getProjectTitle,
 } from "../../../data/Projects";
-import React from "react";
+import { Project } from "../../../data/types/Project";
+import { Technologies } from "../../core/components/Technologies";
 export default function ProjectsTimeline() {
   const { language } = useLanguage();
   const projects = getAllProjects();
@@ -120,28 +115,7 @@ function AdditionalProjectInformation(props: { project: Project }) {
           flexWrap: "wrap",
         }}
       >
-        {project.technologies.map((tech, techIndex) => (
-          <IconButton
-            key={`${project.name}-tech-${techIndex}`}
-            onClick={() => {
-              if (tech.link) {
-                window.open(tech.link);
-              }
-            }}
-            style={{
-              margin: theme.spacing(0.5),
-              color: tech.color || "inherit",
-            }}
-          >
-            <img
-              src={tech.icon}
-              alt={tech.name}
-              height={24}
-              width={"auto"}
-              style={{ filter: tech.color ? `invert(${tech.color})` : "none" }}
-            />
-          </IconButton>
-        ))}
+        <Technologies technologies={project.technologies} />
       </div>
       <div
         style={{
