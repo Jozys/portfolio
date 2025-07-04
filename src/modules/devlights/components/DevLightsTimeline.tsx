@@ -1,6 +1,6 @@
 import { Timeline } from "@mui/lab";
-import { Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
+import { styled, useTheme } from "@mui/material/styles";
 import { useLanguage } from "../../../language/hooks";
 import CustomizedTimelineItem from "../../core/design-system/TimelineItem";
 const PREFIX = "DevLightsTimeline";
@@ -39,25 +39,24 @@ const Root = styled("div")(({ theme }) => ({
   },
 }));
 
-export interface DevLightsTimelineProps {}
-export default function DevLightsTimeline(props: DevLightsTimelineProps) {
+export default function DevLightsTimeline() {
   const { language } = useLanguage();
   const { devlight } = language.projects;
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Root className={classes.container}>
-      <Typography className={classes.text}>
-        {devlight.projectTimelineTitle}
-      </Typography>
       <Timeline
         className={classes.timeline}
-        position={window.innerWidth < 1000 ? "right" : "alternate"}
+        position={isMobile ? "right" : "alternate"}
       >
         {devlight.projectTimeline.map((item: string, index: number) => (
           <CustomizedTimelineItem
             key={`devlight-timeline-item-${index}`}
             description={item}
             direction={index % 2 === 0 ? "normal" : "opposite"}
-            useDot={true}
+            useDot={!isMobile}
           />
         ))}
       </Timeline>

@@ -3,6 +3,7 @@ import React from "react";
 
 export default function TimelineButton(props: {
   title: string;
+  icon?: React.ReactNode;
   onClick: () => void;
 }) {
   const theme = useTheme();
@@ -17,9 +18,10 @@ export default function TimelineButton(props: {
       }}
     >
       <Button
+        startIcon={props.icon}
         variant="contained"
-        color="secondary"
-        onClick={() => props.onClick}
+        color="primary"
+        onClick={() => props.onClick()}
       >
         {props.title}
       </Button>

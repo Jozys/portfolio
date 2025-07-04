@@ -1,11 +1,8 @@
 import styled from "@emotion/styled";
 import { Timeline } from "@mui/lab";
-import { Theme, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
-import Schwarzwald from "../../../assets/schwarzwald.jpg";
-import DHBW from "../../../assets/DHBW_Logo.svg";
-import Me from "../../../assets/me.jpg";
-import TECKdigital from "../../../assets/teckdigital.webp";
+import { Theme, useMediaQuery, useTheme } from "@mui/material";
+import DHBW from "../../../assets/life/DHBW_Logo.svg";
+import Schwarzwald from "../../../assets/life/schwarzwald.jpg";
 import { useLanguage } from "../../../language/hooks";
 import { contrastBlack } from "../../../modules/core/utils/textContrast";
 import CustomTimelineItem from "../../core/design-system/TimelineItem";
@@ -38,51 +35,25 @@ const StyledHomeTimeline = styled("div")(({ theme }: { theme: Theme }) => ({
 
 export default function HomeTimeline() {
   const { language } = useLanguage();
+
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <StyledHomeTimeline theme={theme}>
-      <Timeline position={window.innerWidth < 1000 ? "left" : "alternate"}>
-        <CustomTimelineItem
-          key="Me"
-          description={language.home.me.description}
-          direction="normal"
-          imageStyle={{ height: "65%", width: "70%" }}
-          title={language.home.me.title}
-          image={Me}
-        />
-        <CustomTimelineItem
-          key="Life"
-          description={language.home.life.description}
-          title={language.home.life.title}
-          direction="opposite"
-          image={Schwarzwald}
-        />
-        <CustomTimelineItem
-          key="TECKdigital"
-          description={
-            <>
-              {language.home.teckdigital.description.start}
-              <a href="http://teckdigital.de" className={classes.info_text}>
-                TECKdigital
-              </a>
-              {". "}
-              {language.home.teckdigital.description.middle}
-              <Link to="/projects#teckboard" className={classes.projectLink}>
-                TECKboard
-              </Link>
-              {language.home.teckdigital.description.end}
-            </>
-          }
-          title="TECKdigital"
-          direction="normal"
-          image={TECKdigital}
-        />
+      <Timeline position={isMobile ? "left" : "alternate"}>
         <CustomTimelineItem
           title={language.home.dhbw.title}
           description={language.home.dhbw.description}
           image={DHBW}
           direction="opposite"
           key="DHBW"
+        />
+        <CustomTimelineItem
+          key="Life"
+          description={language.home.life.description}
+          title={language.home.life.title}
+          direction="normal"
+          image={Schwarzwald}
         />
       </Timeline>
     </StyledHomeTimeline>

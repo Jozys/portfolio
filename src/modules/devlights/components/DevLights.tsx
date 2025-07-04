@@ -1,117 +1,108 @@
-import { Button, Theme, Typography } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import { contrastBlack } from "../../core/utils/textContrast";
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
+import { Box, Button, Typography } from "@mui/material";
+import { useRef } from "react";
+import { getProjectById } from "../../../data/Projects";
 import { useLanguage } from "../../../language/hooks";
+import ProjectPage, {
+  classes,
+} from "../../projects/details/design-system/ProjectPage";
 import LEDStrip from "../design-system/LEDStrip";
-import Typing from "../../core/components/Typing";
 import DevLightsImageCarousel from "./DevLightsImageCarousel";
 import DevLightsTimeline from "./DevLightsTimeline";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  introText: {
-    width: "75%",
-    display: "flex",
-    flex: 7,
-  },
-  devlightContainer: {
-    flex: 8,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  devlight: {
-    width: "50%",
-  },
-  carousel: {
-    display: "flex",
-    flexDirection: "column",
-    marginTop: theme.spacing(4),
-    flex: 1,
-  },
-  image: {
-    borderRadius: 12,
-    alignSelf: "center",
-    zIndex: -1,
-  },
-  strip: {
-    display: "flex",
-    justifyContent: "center",
-  },
-  text: {
-    fontSize: "2em",
-    textAlign: "center",
-  },
-  summary: {
-    color: contrastBlack(theme.palette.background.default) ? "#000" : "#fff",
-    fontSize: "2.5vh",
-    textAlign: "center",
-  },
-  link: {
-    "&:link": {
-      color: theme.palette.secondary.main,
-    },
-    "&:visited": {
-      color: theme.palette.secondary.main,
-    },
-  },
-}));
-
 export default function DevLights() {
-  const styles = useStyles();
   const { language } = useLanguage();
-  return (
-    <div className={styles.container}>
-      <div className={styles.devlightContainer}>
-        <div>
-          <Typing text={language.projects.devlight.title}></Typing>
-          <Typography className={styles.text}>
-            {language.projects.devlight.subtitle}
-          </Typography>
+  const { devlight } = language.projects;
+  const devlightsProject = getProjectById("devlight");
+  const componentRef = useRef<HTMLDivElement>(null);
 
-          <div className={styles.strip}>
-            <LEDStrip />
-          </div>
-        </div>
-      </div>
-      <div className={styles.carousel}>
-        <DevLightsImageCarousel />
-      </div>
-      <div className={styles.introText}>
-        <Typography className={styles.text}>
-          {language.projects.devlight.summary}
-        </Typography>
-      </div>
+  const carouselSection = (
+    <Box sx={{ maxWidth: "900px", margin: "0 auto" }}>
+      <DevLightsImageCarousel />
+    </Box>
+  );
 
-      <Typography className={styles.text}>
-        <br />
-        {language.projects.devlight.openSourceNotice}
+  const devlightsHero = (
+    <>
+      <LEDStrip />
+      {carouselSection}
+    </>
+  );
+
+  const devlightsEvolutionSection = (
+    <Box sx={{ marginBottom: 4 }}>
+      <Typography className={classes.text} sx={{ marginBottom: 2 }}>
+        {devlight.evolution.description}
       </Typography>
-      <Button
-        size="large"
-        onClick={() =>
-          window.open("https://github.com/ProjektDevLights", "_blank")
-        }
-        endIcon={<GitHubIcon fontSize="inherit" />}
-      >
-        {language.projects.devlight.github}
-      </Button>
+    </Box>
+  );
 
-      <DevLightsTimeline />
+  const timelineSection = <DevLightsTimeline />;
 
-      <div className={styles.introText}>
-        <Typography className={styles.summary}>
-          {language.projects.devlight.last}
-          <a className={styles.link} href="/devlights.pdf" target="_blank">
-            Link
-          </a>
-        </Typography>
-      </div>
-    </div>
+  const actionButtonsSection = (
+    <Box sx={{ textAlign: "center" }}>
+      <Box>
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          onClick={() =>
+            window.open("https://github.com/ProjektDevLights", "_blank")
+          }
+          startIcon={<GitHubIcon />}
+        >
+          {devlight.github}
+        </Button>
+
+        <Button
+          variant="outlined"
+          size="large"
+          onClick={() => window.open("/devlights.pdf", "_blank")}
+          startIcon={<PictureAsPdfIcon />}
+        >
+          Documentation PDF
+        </Button>
+      </Box>
+
+      <Typography className={classes.text} sx={{ marginTop: 2 }}>
+        {devlight.last}{" "}
+        <a
+          className={classes.link}
+          href="/devlights.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          PDF Documentation
+        </a>
+      </Typography>
+    </Box>
+  );
+
+  return (
+    <ProjectPage
+      title={devlight.title}
+      hero={devlightsHero}
+      technologies={devlightsProject?.technologies}
+      projectDescription={{
+        title: devlight.title || "Project Description",
+        description: devlight.summary || "",
+        ref: componentRef,
+      }}
+      sections={[
+        {
+          title: devlight.evolution.title || "Project Timeline",
+          content: devlightsEvolutionSection,
+        },
+        {
+          title: devlight.projectTimelineTitle || "Project Timeline",
+          content: timelineSection,
+        },
+        {
+          title: "Open Source",
+          content: actionButtonsSection,
+        },
+      ]}
+    />
   );
 }

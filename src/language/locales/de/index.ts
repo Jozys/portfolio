@@ -3,8 +3,8 @@ import { Language } from "../../index";
 
 export const language: Language = {
   languageInfo: {
-    de: "🇩🇪",
-    en: "🇬🇧",
+    de: "🇩🇪 Deutsch",
+    en: "🇬🇧 Englisch",
   },
   home: {
     greeting: "Hallo",
@@ -12,7 +12,7 @@ export const language: Language = {
     subtitle: `Student - Entwickler - ${getAge()} Jahre alt - Deutschland`,
     me: {
       title: "Wer bin ich",
-      description: `Ich bin ein ${getAge()} Jahre alter Student, der gerne Sport macht, entwickelt, und Bücher liest. Aktuell studiere ich Informatik in Karlsruhe und arbeite bei der SAP in Walldorf, Baden-Württemberg.`,
+      description: `Ich bin ein ${getAge()} Jahre alter Student, der gerne Sport macht, entwickelt, und Bücher liest. Mein aktueller Fokus liegt auf meinem Bachelorstudium und meiner Arbeit bei der SAP.`,
     },
     life: {
       title: "Mein Leben",
@@ -32,47 +32,71 @@ export const language: Language = {
       description: `Seit September 2022 bin ich dualer Student der Informatik bei der SAP in Walldorf und an der Dualen Hochschule Baden-Württemberg in Karlsruhe.`,
     },
   },
+  status: {
+    currentWork: {
+      name: "Aktuelle Arbeit",
+      description: "SAP@Walldorf, Deutschland.",
+    },
+    currentFocus: {
+      name: "Aktueller Fokus",
+      description: "Studium an der DHBW Karlsruhe, Deutschland.",
+    },
+    location: {
+      name: "Standort",
+      description: "Karlsruhe, Deutschland.",
+    },
+  },
   projects: {
     main: {
-      title: "Entwickelt hab ich...",
+      title: "Ich habe entwickelt...",
+      readMore: "Mehr lesen",
       teckboard: {
-        title: "... TECKboards",
-        description: {
-          start: `TECKboard ist ein digitales Echtzeit-Informationssystem, was zwei Freunde von mir, `,
-          name1: "Timo Peters",
-          middle: " und ",
-          name2: "Yannik Hahn",
-          end: " entwickelt haben. Ich selber habe viel Zeit aufgebracht eine Smartphone Anwendung für das bestehende System zu entwickeln. Mittels des Prinzips 'Learning by Doing' erlernte ich viele Dinge im Bereich Planung, Entwicklung und Kommunikation mit andereren Entwicklern.",
-        },
+        title: "TECKboards",
+        description: `TECKboard ist ein digitales Echtzeit-Informationssystem, das zwei Freunde von mir, Timo Peters und Yannik Hahn, entwickelt haben. Ich selbst habe viel Zeit darauf verwendet, eine Smartphone-Anwendung für das bestehende System zu entwickeln. Durch das Prinzip 'Learning by Doing' habe ich viel über Planung, Entwicklung und die Zusammenarbeit mit anderen Entwicklern gelernt.`,
       },
       devlight: {
-        title: "... DevLights",
-        description: `DevLights sind Smart Home  LED Streifen für Entwickler. Zusammen mit zwei Freunden von mir, Jaan Springer und Timo Peters, 
-                entwickelten wir unsere eigenen Smart Home  LED Streifen im Zuge eines Projektkurses Informatik am Graf-Adolf-Gymnasium.
-                 Dadurch lernten wir neue Techniken im Bereich Hardware und Software Entwicklung kennen, zum Beispiel die Programmiersprache C++. `,
-        readDoc: "DOKUMENTATION LESEN",
+        title: "DevLights",
+        description: `DevLights sind Smart Home LED-Streifen für Entwickler. Zusammen mit zwei Freunden, Jaan Springer und Timo Peters, haben wir im Rahmen eines Projektkurses Informatik am Graf-Adolf-Gymnasium unsere eigenen Smart Home LED-Streifen entwickelt.
+                 Dadurch haben wir neue Techniken im Bereich Hardware- und Softwareentwicklung kennengelernt, zum Beispiel die Programmiersprache C++. `,
+        readDoc: "FACHARBEIT LESEN",
       },
       simpleQ: {
-        title: "... SimpleQ",
-        description: `SimpleQ ist eine im Zuge eines Projektes an der DHBW Karlsruhe entwickelte Webanwendung, die es ermöglicht, Fragen zu stellen und zu beantworten. 
-          Dabei wurde im Fach Software Engineering der gesamte Prozess der Entwicklung eines Produktes durchgearbeitet. 
-          Dieses Projekt ermöglichte es mit Personen, mit denen man vorher wenig gemeinsam gearbeitet hat, wertvolle Erfahrungen über Zusammenarbeit und Koordination von Aufgaben zu lernen.`,
+        title: "SimpleQ",
+        description: `SimpleQ ist eine im Rahmen eines Projekts an der DHBW Karlsruhe entwickelte Webanwendung, die es ermöglicht, Fragen zu stellen und zu beantworten. 
+          Im Fach Software Engineering wurde der gesamte Prozess der Produktentwicklung durchlaufen. 
+          Dieses Projekt ermöglichte es, mit Personen zusammenzuarbeiten, mit denen man vorher wenig Kontakt hatte, und wertvolle Erfahrungen über Zusammenarbeit und Aufgabenkoordination zu sammeln.`,
       },
       dbDelay: {
-        title: "... DB Delay",
-        description: `DB Delay ist eine Anwendung, welche ich privat entwickelt habe, um persönliche Statistiken über Reisen mit der (Deutschen) Bahn zu sammeln. 
+        title: "DB Delay",
+        description: `DB Delay ist eine Anwendung, die ich privat entwickelt habe, um persönliche Statistiken über Reisen mit der (Deutschen) Bahn zu sammeln. 
           Dabei werden Fahrplandaten der Deutschen Bahn zusammen mit eigenen Daten in einer Datenbank gespeichert und ausgewertet.
           Die Anwendung wurde in TypeScript mit NestJS und React entwickelt. 
           Sie hat selbst nichts mit der Deutschen Bahn zu tun, sondern ist eine rein private Anwendung.`,
       },
+      concertHistory: {
+        title: "Concert History",
+        description:
+          'ConcertHistory ist eine native Android-App, die es Konzertgängern ermöglicht, ihre besuchten Konzerte zu dokumentieren und jederzeit mobil darauf zuzugreifen. Die App habe ich Rahmen des Modules "Entwurf mobiler Applikationen" an der DHBW Karlsruhe zusammen mit Niklas Buse entwickelt.',
+      },
+      moveTopia: {
+        title: "MoveTopia",
+        description:
+          "MoveTopia ist eine innovative Fitness-Tracking-App, die Nutzern hilft, ihre Trainingsfortschritte effektiv zu verfolgen und zu dokumentieren. Die App habe ich zusammen mit Niklas Buse im Rahmen unserer Studienarbeit an der DHBW Karlsruhe entwickelt. Sie bietet eine benutzerfreundliche Oberfläche, um Trainingsdaten zu erfassen und Fortschritte zu visualisieren.",
+      },
+      sensoration: {
+        title: "Sensoration",
+        description: `Sensoration ist eine Android-App, die im Rahmen des Studiums an der DHBW im Modul "Verteilte Systeme" von mir zusammen mit Tom Schütt entwickelt wurde. Diese ermöglicht es, Sensordaten von verteilten Android-Geräten zu sammeln und zu visualisieren. 
+          Die App wurde in Kotlin mit Jetpack Compose entwickelt und bietet eine moderne Benutzeroberfläche.`,
+      },
       skills: {
         title: "Meine Skills",
-        description: `Hier sieht man alle Programmiersprachen und Frameworks, die ich bereits benutzt habe.
-                Aktuell sind meine Kenntnisse vor allem in der Java und JavaScript Entwicklung sehr gut. 
-                Entwickelt hab ich bisher viel mit React für Frontend und NestJS für Backend Anwendungen. 
-                Zudem habe ich gute Kenntnisse in HTML5 und CSS3. Das meiste davon hab ich mir selber beigebracht, abgesehen von Java, da dies in der Schule gelehrt wurde. 
-                In der Zukunft möchte ich noch weitere Frameworks und Programmiersprachen erlernen. 
-                Mein Ziel dabei bleibt immer was neues zu lernen`,
+        description: `Diese Übersicht zeigt alle Programmiersprachen und Frameworks, mit denen ich gut oder einigermaßen vertraut bin. 
+        Meine Haupterfahrungen erweiterten sich von Java und JavaScript bzw. TypeScript hinzu Frameworks zur Frontend-Entwicklung wie React und zur Backend-Entwicklung wie NestJS.         
+        Zudem sammelte ich Erfahrungen in der App-Entwicklung mit React Native, Jetpack Compose und Flutter.
+        Ich habe auch einige Kenntnisse in der Hardware-Entwicklung mit C++ und dem ESP8266 Mikrocontroller.
+        Mein Wissen über Datenbanken erstreckt sich von MongoDB, MySQL bis hin zu PostgreSQL.
+        Dabei bleibt mein Wissen über die Programmiersprachen und Frameworks nicht stehen, sondern ich versuche immer weiter dazuzulernen.
+        `,
       },
 
       learnMore: "Erfahre mehr",
@@ -89,6 +113,11 @@ export const language: Language = {
       summary: `DevLights sind selbst entwickelte Smart Home  LED Streifen, die den WS2812B Chip für die einzelne Ansteuerung der Lichter benutzen.
             Gleichzeitig dient eine eigens designte Platine mit ESP8266 Wifi Modul zur Kommunikation mit dem Backend.
             Das Backend stellt ein NestJS Server mit MongoDB, es exisitiert eine Smartphone, sowie eine Desktop Anwendung für die Steuerung.`,
+      evolution: {
+        title: "Der Werdegang der DevLights",
+        description:
+          "Die Entwicklung von DevLights begann 2020, als ich das Projekt zusammen mit zwei Freunden, Jaan Springer und Timo Peters, startete. Wir begannen mit der Entwicklung im Projektkurs am Graf-Adolf-Gymnasium in Tecklenburg, Nordrhein-Westfalen. In einem Jahr Entwicklungszeit lernten wir viel über Programmierung, Hardware- und Softwareentwicklung.",
+      },
       openSourceNotice:
         "Das Projekt ist Open Source. Der Code kann angeschaut werden auf GitHub.",
       projectTimelineTitle: "Projektablauf",
@@ -108,7 +137,7 @@ export const language: Language = {
         `Ein Jahr lang dauerte die Entwicklung von der Hardware und den Software Beispielen,
                 drei Stück sind es am Ende geworden, eine Smartphone-App, eine Desktop-App und eine Modifikation für das Spiel Minecraft.
                 Für das gesamte Projekt mussten wir eine Facharbeit verfassen, um das entwickelte zu präsentieren. 
-                Nachdem wir diese abgegeben hatten und eine kleine Präsentation vor unseren Lehrkräften hatten, bekamen wir die Noten für das Projekt. 
+                Nachdem  wir diese abgegeben hatten und eine kleine Präsentation vor unseren Lehrkräften hatten, bekamen wir die Noten für das Projekt. 
                 Diese waren die Bestnote (15 Punkte).`,
       ],
       last: `Insgesamt war dieses Projekt eine sehr gute Lernerfahrung und auch notentechnisch sehr gut.
@@ -123,8 +152,10 @@ export const language: Language = {
         description: `Die erste Idee für die TECKboards kam durch einen Wunsch der Schülervertretung des Graf Adolf Gymnasiums, die die alten analogen Infotafeln ersetzen wollten.
                 Die erste Version der Boards wurde 2019 erstellt und im Verlaufe der Zeit immer weiter verbessert. 
                 Im selben Jahr der ersten Version startete ich damit eine mobile Anwendung für die TECKboards zu entwickeln.
-                Diese App wurde dann 2021 veröffentlich und kann in den gängigen Stores von Google und Apple heruntergeladen werden.`,
+                Diese App wurde dann 2021 veröffentlicht und konnte bis 2023 in den gängigen Stores von Google und Apple heruntergeladen werden.`,
       },
+      mobileEvolution: "Die Evolution der TECKboard App",
+      evolution: "Die Evolution der TECKboards",
       imageInfo: [],
       appDescription: [
         `Nachdem diese veröffentlicht wurde, wurde die App von Schülern der Oberstufe und Lehrern am Graf Adolf Gymnasium genutzt.

@@ -1,5 +1,4 @@
-import { Snackbar as UISnackbar } from "@mui/material/";
-import { Alert } from "@mui/lab";
+import { Snackbar as UISnackbar, Alert } from "@mui/material";
 import React from "react";
 
 type Severity = "error" | "info" | "success" | "warning";

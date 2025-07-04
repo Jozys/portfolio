@@ -7,8 +7,8 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import MailIcon from "@mui/icons-material/Mail";
 import { Theme, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import TECKboard from "../../../assets/Logo_TB.svg";
-import DevLights from "../../../assets/devlights.svg";
+import DevLights from "../../../assets/projects/devlights/devlights.svg";
+import TECKboard from "../../../assets/projects/teckboard/Logo_TB.svg";
 import { useLanguage } from "../../../language/hooks/index";
 import CustomFooterButton from "../design-system/CustomFooterButton";
 
@@ -30,7 +30,8 @@ const classes = {
 const Root = styled("div")(({ theme }: { theme: Theme }) => ({
   [`&.${classes.root}`]: {
     height: window.innerHeight * 0.5,
-    background: theme.palette.secondary.main,
+    //@ts-ignore
+    background: theme.gradients.footer.default,
     clipPath:
       "polygon(50% 0%, 83% 12%, 100% 43%, 100% 100%, 68% 100%, 29% 100%, 0 100%, 0% 10%, 18% 12%);",
     display: "flex",
@@ -95,8 +96,7 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
   },
 }));
 
-export interface FooterProps {}
-export default function Footer(props: FooterProps) {
+export default function Footer() {
   const { language } = useLanguage();
   return (
     <Root className={classes.root}>
@@ -108,27 +108,27 @@ export default function Footer(props: FooterProps) {
 
           <CustomFooterButton
             text="Jozys"
-            href={process.env.REACT_APP_USER_GITHUB}
+            href={import.meta.env.VITE_USER_GITHUB}
             startIcon={<GitHubIcon fontSize="inherit" />}
           />
           <CustomFooterButton
             text="Joshua Slaar"
-            href={process.env.REACT_APP_USER_LINKEDIN}
+            href={import.meta.env.VITE_USER_LINKEDIN}
             startIcon={<LinkedIn fontSize="inherit" />}
           />
           <CustomFooterButton
             text="Jozys04"
-            href={process.env.REACT_APP_USER_INSTAGRAM}
+            href={import.meta.env.VITE_USER_INSTAGRAM}
             startIcon={<InstagramIcon fontSize="inherit" />}
           />
           <CustomFooterButton
             text="Jozys"
-            href={process.env.REACT_APP_USER_MAIL}
+            href={import.meta.env.VITE_USER_MAIL}
             startIcon={<MailIcon fontSize="inherit" />}
           />
           <CustomFooterButton
             text="@jozys"
-            href={process.env.REACT_APP_USER_DISCORD}
+            href={import.meta.env.VITE_USER_DISCORD}
             startIcon={
               <FontAwesomeIcon
                 icon={faDiscord as IconProp}
@@ -144,7 +144,7 @@ export default function Footer(props: FooterProps) {
             {language.footer.projects}{" "}
           </Typography>
           <CustomFooterButton
-            href={process.env.REACT_APP_TECKBOARD_LINK}
+            href={import.meta.env.VITE_TECKBOARD_LINK}
             text="TECKboard"
             startIcon={
               <img
@@ -157,7 +157,7 @@ export default function Footer(props: FooterProps) {
           />
 
           <CustomFooterButton
-            href={process.env.REACT_APP_DEVLIGHTS_LINK}
+            href={import.meta.env.VITE_DEVLIGHTS_LINK}
             text="DevLights"
             startIcon={
               <img
@@ -169,12 +169,12 @@ export default function Footer(props: FooterProps) {
             }
           />
           <CustomFooterButton
-            href={process.env.REACT_APP_SIMPLEQ_LINK}
+            href={import.meta.env.VITE_SIMPLEQ_LINK}
             text="SimpleQ"
             startIcon={<Search fontSize="inherit" />}
           />
           <CustomFooterButton
-            href={process.env.REACT_APP_DB_DELAY_LINK}
+            href={import.meta.env.VITE_DB_DELAY_LINK}
             text="DB Delay"
             startIcon={<TrainOutlined fontSize="inherit" />}
           />

@@ -12,7 +12,7 @@ export type Language = (typeof languages)[number];
 export type LanguageContextType = {
   languageType: Language;
   language: LanguageObjType;
-  changeLanguage: (language: Language) => void;
+  changeLanguage: (_: Language) => void;
   languages: typeof languages;
 };
 
@@ -28,7 +28,12 @@ export default function LanguageProvider(props: LanguageProviderProps) {
 
   // default/fallback language
   const getUserDefaultLanguage = (): Language => {
-    return window.navigator.language.split("-")[0] as Language;
+    const language = window.navigator.language.split("-")[0] as Language;
+    if (languages.includes(language)) {
+      return language;
+    }
+
+    return "en"; // default to English if no match found
   };
 
   const [languageType, setLanguageType] = React.useState<Language>(
@@ -48,9 +53,9 @@ export default function LanguageProvider(props: LanguageProviderProps) {
   };
 
   React.useEffect(() => {
-    let language = localStorage.getItem("language");
+    const language = localStorage.getItem("language");
     if (!language?.length) {
-      let defaultLanguage = (getUserDefaultLanguage() as Language) ?? "en";
+      const defaultLanguage = (getUserDefaultLanguage() as Language) ?? "en";
       localStorage.setItem(
         "language",
         (getUserDefaultLanguage() as Language) ?? "en"
@@ -63,16 +68,10 @@ export default function LanguageProvider(props: LanguageProviderProps) {
     }
   }, []);
 
-  const changeLanguage = (newLanguageType: Language, mount = false) => {
+  const changeLanguage = (newLanguageType: Language) => {
     localStorage.setItem("language", newLanguageType);
     setLanguageType(newLanguageType);
-
     setLanguage(getLanguage(newLanguageType));
-    // reload typing animation to new language
-    // TODO find a better way for that
-    if (document.URL.endsWith("home") && !mount) {
-      window.location.reload();
-    }
   };
   return (
     <LanguageContext.Provider

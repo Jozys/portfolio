@@ -3,9 +3,10 @@ import { Language } from "../../index";
 
 export const language: Language = {
   languageInfo: {
-    de: "🇩🇪",
-    en: "🇬🇧",
+    de: "🇩🇪 German",
+    en: "🇬🇧 English",
   },
+
   home: {
     greeting: "Hello",
     name: "My name is Joshua Slaar!",
@@ -34,50 +35,72 @@ export const language: Language = {
             Therefore I work there at SAP and study at the Baden-Wuerttemberg Cooperative State University Karlsruhe (DHBW Karlsruhe).`,
     },
   },
+  status: {
+    currentWork: {
+      name: "Current Work",
+      description: "SAP@Walldorf, Germany.",
+    },
+    currentFocus: {
+      name: "Current Focus",
+      description: "Studying at DHBW Karlsruhe, Germany.",
+    },
+    location: {
+      name: "Location",
+      description: "Karlsruhe, Germany.",
+    },
+  },
   projects: {
     main: {
       title: "I developed...",
+      readMore: "Read more",
       teckboard: {
-        title: "... TECKboards",
-        description: {
-          start: `TECKboard is a digital real time information system that two friends of mine, `,
-          name1: "Timo Peters",
-          middle: " and ",
-          name2: "Yannik Hahn",
-          end: ` developed. I spend really much hours developing a smartphone application for this system. By using the principe learning by doing, I learned much about planing, developing and communicating with the two developers of this system.`,
-        },
+        title: "TECKboards",
+        description: `TECKboard is a digital real time information system that two friends of mine,Timo Peters and Yannik Hahn", developed. I spend really much hours developing a smartphone application for this system. By using the principe learning by doing, I learned much about planing, developing and communicating with the two developers of this system.`,
       },
       devlight: {
-        title: "... DevLights",
+        title: "DevLights",
         description: `DevLights are the smart home LED Stripes for Developers. Together
                 with two friends of mine, Jaan Springer and Timo Peters, we
                 developed these lights during our project course informatic at
                 Graf-Adolf-Gymnasium. From begin we learned new programming
                 languages like C++ and worked at Hard and Software. `,
-        readDoc: "READ DOCUMENTATION",
+        readDoc: "READ PAPER",
       },
       simpleQ: {
-        title: "... SimpleQ",
+        title: "SimpleQ",
         description: `SimpleQ is a web application developed as part of a project at DHBW Karlsruhe, which allows asking and answering questions. 
         In the Software Engineering course, the entire process of product development was worked through. 
         This project made it possible to gain valuable experiences in collaboration and task coordination with people with whom I had previously worked little.`,
       },
       dbDelay: {
-        title: "... DB Delay",
+        title: "DB Delay",
         description: `DB Delay is an application that I developed privately to collect personal statistics about travels using railways, especially using the German state-owned Deutsche Bahn. 
         Timetable data from the Deutsche Bahn is stored and evaluated in a database together with manually entered data. The application was developed in TypeScript with NestJS and React. 
         It has nothing to do with the Deutsche Bahn itself but is purely a private application.`,
       },
+      concertHistory: {
+        title: "Concert History",
+        description:
+          'ConcertHistory is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices. I developed the app as part of the module "Design of mobile applications" at the DHBW Karlsruhe together with Niklas Buse.',
+      },
+      moveTopia: {
+        title: "MoveTopia",
+        description:
+          "MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress. I developed the app together with Niklas Buse as part of a project at DHBW Karlsruhe. It offers a user-friendly interface to record training data and visualize progress.",
+      },
+      sensoration: {
+        title: "Sensoration",
+        description: `Sensoration is an Android app that was developed by me together with Tom Schütt as part of the "Distributed Systems" module at DHBW. It enables the collection and visualization of sensor data from distributed Android devices. 
+          The app was developed in Kotlin with Jetpack Compose and offers a modern user interface.`,
+      },
       skills: {
         title: "My skills",
-        description: `Above you see all the programming languages and frameworks I am familiar
-                with. My experiences in Java and JavaScript are very good, the React,
-                for frontend applications and Nest.js, for backend applications,
-                framework experience is also very good. \nI have particular
-                experience at HTML5 and CSS3. \n
-                Allmost everything I have learned by myself, except from Java, I learned
-                Java in school. I want to learn more languages, frameworks and tools in
-                the future. My goal is to always achieve and learn more in my career.`,
+        description: `This overview shows all programming languages and frameworks with which I am well or reasonably familiar.
+                      My main experience has expanded from Java and JavaScript or TypeScript to frameworks for frontend development such as React and for backend development such as NestJS.
+                      I have also gained experience in app development with React Native, Jetpack Compose, and Flutter.
+                      I also have some knowledge in hardware development with C++ and the ESP8266 microcontroller.
+                      My knowledge of databases ranges from MongoDB, MySQL to PostgreSQL.
+                      My knowledge of programming languages and frameworks does not stand still, but I always try to keep learning.`,
       },
       learnMore: "Learn more",
     },
@@ -92,6 +115,11 @@ export const language: Language = {
       github: "Visit Project Devlights on GitHub",
       summary: `DevLights are self-programmed smart home led stripes using the WS2812B chip for controlling the stripes. ${"\n\n"}
             There is a backend server developed with NestJS and MongoDB, a smartphone and desktop application for the management.`,
+      evolution: {
+        title: "The evolution of DevLights",
+        description:
+          "The evolution of DevLights began in 2020 when I started the project together with two friends of mine, Jaan Springer and Timo Peters. We started developing on that project in our project course at Graf-Adolf-Gymnasium in Tecklenburg, North-Rhine-Westphalia, Germany. Through one year of development, we learned a lot about programming, hardware, and software development.",
+      },
       openSourceNotice:
         "The project is open source. It can be viewed on GitHub.",
       projectTimelineTitle: "Project timeline",
@@ -118,6 +146,8 @@ export const language: Language = {
     },
     teckboard: {
       title: "TECKboard",
+      evolution: "The evolution of the TECKboard",
+      mobileEvolution: "The evolution of the TECKboard mobile app",
       content:
         "TECKboard is a real time digital information system. It gives the ability to create individual boards for specific groups, so that everyone just gets the information they need and are allowed to see. In the background there is a secure user and invite system for convenient user management",
       projectDescription: {
@@ -128,7 +158,7 @@ export const language: Language = {
                 TECKboards was created in 2019. In the last two years the system has
                 been developed further and further. At the end of 2019 I started
                 developing a mobile application for our system. The mobile
-                application was released in 2021 and can be downloaded in the known
+                application was released in 2021 and could have been downloaded until 2023 in the known
                 app stores of Apple and Google.`,
       },
       imageInfo: [],

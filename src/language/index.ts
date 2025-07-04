@@ -1,3 +1,5 @@
+import { StatusInformationLocale } from "../data/types/StatusInformation";
+
 export type Language = {
   languageInfo: {
     de: string;
@@ -19,22 +21,22 @@ export type Language = {
     };
     dhbw: Info;
   };
+  status: {
+    currentWork: StatusInformationLocale;
+    currentFocus: StatusInformationLocale;
+    location: StatusInformationLocale;
+  };
   projects: {
     main: {
       title: string;
-      teckboard: {
-        title: string;
-        description: {
-          start: string;
-          name1: string;
-          middle: string;
-          name2: string;
-          end: string;
-        };
-      };
+      readMore: string;
+      teckboard: Info;
       devlight: Info & { readDoc: string };
       simpleQ: Info;
       dbDelay: Info;
+      concertHistory: Info;
+      moveTopia: Info;
+      sensoration: Info;
       skills: Info;
       learnMore: string;
     };
@@ -47,6 +49,10 @@ export type Language = {
         restart: string;
       };
       summary: string;
+      evolution: {
+        title: string;
+        description: string;
+      };
       openSourceNotice: string;
       github: string;
       projectTimelineTitle: string;
@@ -57,6 +63,8 @@ export type Language = {
       title: string;
       content: string;
       projectDescription: Info;
+      evolution: string;
+      mobileEvolution: string;
       imageInfo: string[];
       appDescription: string[];
       reactNative: {
