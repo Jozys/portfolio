@@ -1,13 +1,11 @@
-import React from "react";
-import { contrastBlack } from "../../../modules/core/utils/textContrast";
-import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { styled, useTheme } from "@mui/material";
-import ThemeSwitcher from "../../../theme/components/ThemeSwitcher";
-import LanguageSwitch from "../../../language/components/LanguageSwitch";
+import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
 import { HomeOutlined } from "@mui/icons-material";
+import { styled, useTheme } from "@mui/material";
+import { Link } from "react-router-dom";
+import { contrastBlack } from "../../../modules/core/utils/textContrast";
+import Settings from "../../settings/components/Settings";
 
 const PREFIX = "Menu";
 
@@ -22,13 +20,15 @@ const classes = {
 const StyledMenu = styled("div")(({ theme }) => ({
   [`& .${classes.navBarContainer}`]: {
     display: "flex",
-    flex: 1,
-    alignSelf: "center",
-    alignItems: "space-between",
+    margin: 0,
+    padding: 0,
   },
 
   [`& .${classes.navBar}`]: {
     alignContent: "space-between",
+    marginLeft: 0,
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
     display: "flex",
     flex: 6,
     flexDirection: "row",
@@ -70,9 +70,8 @@ export default function Menu() {
               size={"2x"}
             />
           </Link>
-          <ThemeSwitcher />
+          <Settings />
         </ul>
-        <LanguageSwitch />
       </nav>
     </StyledMenu>
   );

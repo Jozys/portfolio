@@ -3,9 +3,10 @@ import { Language } from "../../index";
 
 export const language: Language = {
   languageInfo: {
-    de: "🇩🇪",
-    en: "🇬🇧",
+    de: "🇩🇪 German",
+    en: "🇬🇧 English",
   },
+
   home: {
     greeting: "Hello",
     name: "My name is Joshua Slaar!",
