@@ -21,10 +21,10 @@ const StyledHome = styled("div")(() => ({
     flexDirection: "column",
     justifyContent: "space-between",
   },
-  [`& .${classes.header}`]: {
+  [`&.${classes.header}`]: {
     flex: 10,
   },
-  [`&. ${classes.boxContainer}`]: {
+  [`&.${classes.boxContainer}`]: {
     minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
