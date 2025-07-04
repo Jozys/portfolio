@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Timeline } from "@mui/lab";
-import { Theme, useTheme } from "@mui/material";
+import { Theme, useMediaQuery, useTheme } from "@mui/material";
 import DHBW from "../../../assets/life/DHBW_Logo.svg";
 import Schwarzwald from "../../../assets/life/schwarzwald.jpg";
 import { useLanguage } from "../../../language/hooks";
@@ -35,10 +35,12 @@ const StyledHomeTimeline = styled("div")(({ theme }: { theme: Theme }) => ({
 
 export default function HomeTimeline() {
   const { language } = useLanguage();
+
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <StyledHomeTimeline theme={theme}>
-      <Timeline position={window.innerWidth < 1000 ? "left" : "alternate"}>
+      <Timeline position={isMobile ? "left" : "alternate"}>
         <CustomTimelineItem
           title={language.home.dhbw.title}
           description={language.home.dhbw.description}

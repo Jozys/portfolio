@@ -20,7 +20,7 @@ export default function ProjectsTimeline() {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Timeline position={window.innerWidth < 1000 ? "left" : "alternate"}>
+    <Timeline position={isMobile ? "left" : "alternate"}>
       {projects.map((project: Project, index) => (
         <CustomTimelineItem
           key={project.name}
