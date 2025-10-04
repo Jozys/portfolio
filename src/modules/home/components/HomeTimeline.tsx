@@ -42,6 +42,12 @@ export default function HomeTimeline() {
     <StyledHomeTimeline theme={theme}>
       <Timeline position={isMobile ? "left" : "alternate"}>
         <CustomTimelineItem
+          title={language.home.tud.title}
+          description={language.home.tud.description}
+          key="TUD"
+          direction="normal"
+        />
+        <CustomTimelineItem
           title={language.home.dhbw.title}
           description={language.home.dhbw.description}
           image={DHBW}

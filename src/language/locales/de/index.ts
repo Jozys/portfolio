@@ -27,9 +27,14 @@ export const language: Language = {
         end: `. Durch das Arbeiten dort lernte ich mehr über Informatik und das Arbeiten im Team.`,
       },
     },
+    tud: {
+      title: "Student@TU-Darmstadt",
+      description:
+        "Seit Oktober 2025 bin ich an der Technischen Universität Darmstadt immatrikuliert, um meinen Master in Informatik zu machen und mir weiteres Wissen in der Informatik anzueignen.",
+    },
     dhbw: {
       title: "Student@DHBW",
-      description: `Seit September 2022 bin ich dualer Student der Informatik bei der SAP in Walldorf und an der Dualen Hochschule Baden-Württemberg in Karlsruhe.`,
+      description: `Von September 2022 bis Ende September 2025 war ich dualer Student der Informatik bei der SAP in Walldorf und an der Dualen Hochschule Baden-Württemberg in Karlsruhe.`,
     },
   },
   status: {
@@ -39,7 +44,8 @@ export const language: Language = {
     },
     currentFocus: {
       name: "Aktueller Fokus",
-      description: "Studium an der DHBW Karlsruhe, Deutschland.",
+      description:
+        "Studium an der Technischen Universität Darmstadt, Deutschland.",
     },
     location: {
       name: "Standort",
