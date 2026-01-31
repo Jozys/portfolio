@@ -29,9 +29,14 @@ export const language: Language = {
                 and informatic in general.`,
       },
     },
+    tud: {
+      title: "Student@TU-Darmstadt",
+      description:
+        "Since October 2025 I am enrolled at the Technical University of Darmstadt to do my Master's in Computer Science and acquire further knowledge in computer science.",
+    },
     dhbw: {
       title: "Student@DHBW",
-      description: `Since September 2022 I am a Vocational Training Student of Applied Computer Science at SAP in Walldorf.
+      description: `From September 2022 until the end of September 2025 I was a Vocational Training Student of Applied Computer Science at SAP in Walldorf.
             Therefore I work there at SAP and study at the Baden-Wuerttemberg Cooperative State University Karlsruhe (DHBW Karlsruhe).`,
     },
   },
@@ -42,11 +47,11 @@ export const language: Language = {
     },
     currentFocus: {
       name: "Current Focus",
-      description: "Studying at DHBW Karlsruhe, Germany.",
+      description: "Studying at Technical University of Darmstadt, Germany.",
     },
     location: {
       name: "Location",
-      description: "Karlsruhe, Germany.",
+      description: "Wiesloch, Germany.",
     },
   },
   projects: {

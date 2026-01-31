@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Timeline } from "@mui/lab";
 import { Theme, useMediaQuery, useTheme } from "@mui/material";
 import DHBW from "../../../assets/life/DHBW_Logo.svg";
+import TUD from "../../../assets/life/TUD_Logo.png";
 import Schwarzwald from "../../../assets/life/schwarzwald.jpg";
 import { useLanguage } from "../../../language/hooks";
 import { contrastBlack } from "../../../modules/core/utils/textContrast";
@@ -41,6 +42,14 @@ export default function HomeTimeline() {
   return (
     <StyledHomeTimeline theme={theme}>
       <Timeline position={isMobile ? "left" : "alternate"}>
+        <CustomTimelineItem
+          title={language.home.tud.title}
+          description={language.home.tud.description}
+          key="TUD"
+          imageStyle={{height: "50%", borderRadius: "8rem"}}
+          image={TUD}
+          direction="normal"
+        />
         <CustomTimelineItem
           title={language.home.dhbw.title}
           description={language.home.dhbw.description}
