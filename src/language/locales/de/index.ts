@@ -49,7 +49,7 @@ export const language: Language = {
     },
     location: {
       name: "Standort",
-      description: "Karlsruhe, Deutschland.",
+      description: "Wiesloch, Deutschland.",
     },
   },
   projects: {

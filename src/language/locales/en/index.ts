@@ -51,7 +51,7 @@ export const language: Language = {
     },
     location: {
       name: "Location",
-      description: "Karlsruhe, Germany.",
+      description: "Wiesloch, Germany.",
     },
   },
   projects: {
