@@ -41,11 +41,30 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
     width: "100%",
     overflowX: "hidden",
     paddingBottom: theme.spacing(8),
+    position: "relative",
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundImage:
+        theme.palette.mode === "dark"
+          ? "radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px)"
+          : "radial-gradient(circle, rgba(0, 0, 0, 0.03) 1px, transparent 1px)",
+      backgroundSize: "30px 30px",
+      opacity: 0.5,
+      pointerEvents: "none",
+      zIndex: 0,
+    },
   },
 
   [`& .${classes.heroSection}`]: {
     marginBottom: theme.spacing(6),
     padding: theme.spacing(2),
+    position: "relative",
+    zIndex: 1,
   },
 
   [`& .${classes.textContainer}`]: {
