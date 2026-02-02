@@ -60,10 +60,10 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
     minHeight: "80px",
     borderRadius: "50%",
     marginTop: theme.spacing(1),
-    boxShadow: `0px 0px 10px ${theme.palette.primary.main}`,
+    boxShadow: `0px 0px 10px ${theme.palette.secondary.main}`,
     transition: "box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out",
     "&:hover": {
-      boxShadow: `0px 0px 20px ${theme.palette.primary.main}`,
+      boxShadow: `0px 0px 20px ${theme.palette.secondary.main}`,
       transform: "scale(1.05)",
     },
 
