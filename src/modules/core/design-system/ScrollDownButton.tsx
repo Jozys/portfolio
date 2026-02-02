@@ -3,7 +3,7 @@ import getContrastTextColor from "../utils/textContrast";
 import { ArrowDownward } from "@mui/icons-material";
 
 export interface ScrollDownProps {
-  componentRef: React.RefObject<HTMLDivElement>;
+  componentRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export function ScrollDownButton(props: ScrollDownProps) {

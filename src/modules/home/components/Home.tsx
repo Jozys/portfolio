@@ -202,10 +202,7 @@ export default function Home() {
                 animation: `${float} 3s ease-in-out infinite`,
               }}
             >
-              <ScrollDownButton
-                //@ts-ignore
-                componentRef={timelineRef}
-              />
+              <ScrollDownButton componentRef={timelineRef} />
             </Box>
           </Box>
         </Container>
