@@ -81,7 +81,7 @@
     "globals": "^16.2.0",
     "react-router-sitemap-generator": "^0.0.8",
     "typescript-eslint": "^8.34.1",
-    "vite": "^6.4.1",
+    "vite": "^6.4.2",
     "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-svgr": "^4.3.0"
   }
