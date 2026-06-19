@@ -22,7 +22,7 @@
     "react-parallax-tilt": "^1.5.57",
     "react-responsive-carousel": "^3.2.23",
     "react-rnd": "^10.3.5",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^7.18.0",
     "react-router-hash-link": "^2.4.3",
     "react-router-sitemap-maker": "^1.1.0",
     "react-svg-morph": "^0.2.1",
