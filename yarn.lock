@@ -2520,10 +2520,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/bungee/-/bungee-4.5.9.tgz#33a06fedb583d75240367a8c4c483e79f34e29a5"
   integrity sha512-58qwujcunMkogjVZHK3yU/AezNoVjZdImo08aCeslYT1INwtECz7Q8seMcosile4N0fDUZ1MPfp5zj9s/5tjuw==
 
-"@fontsource/open-sans@^4.5.0":
-  version "4.5.14"
-  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.14.tgz#b3e1665c0b3fdfc1f030ded2843749e3cf3a5900"
-  integrity sha512-mBXIIETBlW8q/ocuUN0hyGow2iuf75hQEHQt8R/RJ/HcphVbLg8KB7pHYGbFGDqs75W+SWvTC7JkVeAjT65BuQ==
+"@fontsource/open-sans@^5.2.7":
+  version "5.2.7"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.2.7.tgz#dc82cec21f3995163bfb15affea937083b4701fb"
+  integrity sha512-8yfgDYjE5O0vmTPdrcjV35y4yMnctsokmi9gN49Gcsr0sjzkMkR97AnKDe6OqZh2SFkYlR28fxOvi21bYEgMSw==
 
 "@fontsource/titillium-web@^4.5.0":
   version "4.5.9"
