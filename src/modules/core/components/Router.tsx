@@ -1,4 +1,4 @@
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Footer from "../components/Footer";
 import Projects from "../../projects/components/Projects";
 import EmptyPage from "../design-system/EmptyPage";
@@ -12,26 +12,19 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Menu />
-      <Switch>
-        <Redirect exact from="/" to="/home" />
-        <Route path="/home">
-          <Home />
-        </Route>
-        <Redirect exact from="/projects" to="/projects/home" />
-        <Route path="/projects/home">
-          <Projects />
-        </Route>
-        <Route exact path="/projects/teckboard">
-          <TECKboard />
-        </Route>
-        <Route exact path="/projects/devlights">
-          <DevLights />
-        </Route>
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" replace />} />
+        <Route path="/home" element={<Home />} />
+        <Route
+          path="/projects"
+          element={<Navigate to="/projects/home" replace />}
+        />
+        <Route path="/projects/home" element={<Projects />} />
+        <Route path="/projects/teckboard" element={<TECKboard />} />
+        <Route path="/projects/devlights" element={<DevLights />} />
 
-        <Route>
-          <EmptyPage />
-        </Route>
-      </Switch>
+        <Route path="*" element={<EmptyPage />} />
+      </Routes>
       <Footer />
     </BrowserRouter>
   );
