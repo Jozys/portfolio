@@ -39,6 +39,8 @@ jobs:
   create-release:
     runs-on: ubuntu-latest
     needs: deploy
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -60,5 +62,5 @@ jobs:
         with:
           tag_name: v${{ steps.tag.outputs.version }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        continue-on-error: true # Ignore if no n
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true # Ignore if no new version (release already exists)
