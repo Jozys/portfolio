@@ -10,10 +10,10 @@ export const language: Language = {
   home: {
     greeting: "Hello",
     name: "My name is Joshua Slaar!",
-    subtitle: `Student - Developer - ${getAge()} years old - Germany`,
+    subtitle: `Developer - ${getAge()} years old - Germany`,
     me: {
       title: "Who am I",
-      description: `I am a ${getAge()} year old student, who likes doing sport, developing, and reading books. Currently I study informatics in Karlsruhe and work at SAP in Walldorf, Baden-Württemberg Germany.`,
+      description: `I am a ${getAge()} year old developer, who likes doing sport, developing, and reading books. Currently I work as a software engineer at SAP in Walldorf, Baden-Württemberg Germany, focusing on artificial intelligence and full stack development.`,
     },
     life: {
       title: "My Life",
@@ -29,11 +29,6 @@ export const language: Language = {
                 and informatic in general.`,
       },
     },
-    tud: {
-      title: "Student@TU-Darmstadt",
-      description:
-        "Since October 2025 I am enrolled at the Technical University of Darmstadt to do my Master's in Computer Science and acquire further knowledge in computer science.",
-    },
     dhbw: {
       title: "Student@DHBW",
       description: `From September 2022 until the end of September 2025 I was a Vocational Training Student of Applied Computer Science at SAP in Walldorf.
@@ -47,7 +42,7 @@ export const language: Language = {
     },
     currentFocus: {
       name: "Current Focus",
-      description: "Studying at Technical University of Darmstadt, Germany.",
+      description: "Artificial Intelligence and Full Stack Development",
     },
     location: {
       name: "Location",

@@ -9,10 +9,10 @@ export const language: Language = {
   home: {
     greeting: "Hallo",
     name: "Ich bin Joshua Slaar!",
-    subtitle: `Student - Entwickler - ${getAge()} Jahre alt - Deutschland`,
+    subtitle: `Entwickler - ${getAge()} Jahre alt - Deutschland`,
     me: {
       title: "Wer bin ich",
-      description: `Ich bin ein ${getAge()} Jahre alter Student, der gerne Sport macht, entwickelt, und Bücher liest. Mein aktueller Fokus liegt auf meinem Bachelorstudium und meiner Arbeit bei der SAP.`,
+      description: `Ich bin ein ${getAge()} Jahre alter Entwickler, der gerne Sport macht, entwickelt, und Bücher liest. Aktuell arbeite ich als Software Engineer bei der SAP in Walldorf mit Fokus auf Künstliche Intelligenz und Full Stack Entwicklung.`,
     },
     life: {
       title: "Mein Leben",
@@ -27,11 +27,6 @@ export const language: Language = {
         end: `. Durch das Arbeiten dort lernte ich mehr über Informatik und das Arbeiten im Team.`,
       },
     },
-    tud: {
-      title: "Student@TU-Darmstadt",
-      description:
-        "Seit Oktober 2025 bin ich an der Technischen Universität Darmstadt immatrikuliert, um meinen Master in Informatik zu machen und mir weiteres Wissen in der Informatik anzueignen.",
-    },
     dhbw: {
       title: "Student@DHBW",
       description: `Von September 2022 bis Ende September 2025 war ich dualer Student der Informatik bei der SAP in Walldorf und an der Dualen Hochschule Baden-Württemberg in Karlsruhe.`,
@@ -44,8 +39,7 @@ export const language: Language = {
     },
     currentFocus: {
       name: "Aktueller Fokus",
-      description:
-        "Studium an der Technischen Universität Darmstadt, Deutschland.",
+      description: "Künstliche Intelligenz und Full Stack Entwicklung",
     },
     location: {
       name: "Standort",
