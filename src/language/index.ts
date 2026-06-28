@@ -19,7 +19,6 @@ export type Language = {
         end: string;
       };
     };
-    tud: Info;
     dhbw: Info;
   };
   status: {

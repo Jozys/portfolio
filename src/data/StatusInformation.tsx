@@ -30,7 +30,7 @@ export const statusInformation: Record<string, StatusInformation> = {
  */
 export const getStatusInformationDescription = (
   statusInformation: StatusInformation,
-  language: Language
+  language: Language,
 ): string | React.ReactNode => {
   if (statusInformation.description) {
     return (
@@ -49,7 +49,7 @@ export const getStatusInformationDescription = (
  */
 export const getStatusInformationTitle = (
   statusInformation: StatusInformation,
-  language: Language
+  language: Language,
 ): string => {
   if (statusInformation.name) {
     return (
