@@ -177,5 +177,9 @@ export const language: Language = {
   notFound: {
     title: "Dieser Inhalt wurde nicht gefunden",
   },
+  ui5: {
+    backToPortfolio: "Zurück zum Portfolio",
+    tagline: "Gebaut mit Open UI5 — Secret Mode 🛠️",
+  },
 };
 export default language;
