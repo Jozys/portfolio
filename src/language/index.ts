@@ -81,6 +81,10 @@ export type Language = {
   notFound: {
     title: string;
   };
+  ui5: {
+    backToPortfolio: string;
+    tagline: string;
+  };
 };
 
 export type Info = {

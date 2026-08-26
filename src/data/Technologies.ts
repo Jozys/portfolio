@@ -18,7 +18,8 @@ import React from "../assets/technologies/react.ico";
 import ReactNative from "../assets/technologies/reactNative.ico";
 import TypeScript from "../assets/technologies/typescript.ico";
 import Vite from "../assets/technologies/vite.svg";
-import { Technology } from "../types/Project";
+import UI5 from "../assets/technologies/openui5.svg";
+import { Technology } from "./types/Project";
 import { TechnologyType } from "./types/Project";
 
 const technologies: Record<string, Technology> = {
@@ -69,6 +70,13 @@ const technologies: Record<string, Technology> = {
     icon: Vite,
     link: "https://vitejs.dev/",
     color: "#646CFF",
+    type: TechnologyType.Frontend,
+  },
+  openui5: {
+    name: "OpenUI5",
+    icon: UI5,
+    link: "https://openui5.org/",
+    color: "#0A6ED1",
     type: TechnologyType.Frontend,
   },
   java: {
@@ -164,7 +172,7 @@ const technologies: Record<string, Technology> = {
   },
   jenkins: {
     name: "Jenkins",
-    icon:Jenkins,
+    icon: Jenkins,
     link: "https://www.jenkins.io/",
     color: "#D24939",
     type: TechnologyType.DevOps,
@@ -182,6 +190,6 @@ export const getTechnologies = (): Technology[] => {
 export const getTechnologiesByType = (type: TechnologyType): Technology[] => {
   const typeString = type.toLowerCase();
   return Object.values(technologies).filter(
-    (tech: Technology) => tech.type?.toLowerCase() === typeString
+    (tech: Technology) => tech.type?.toLowerCase() === typeString,
   );
 };
