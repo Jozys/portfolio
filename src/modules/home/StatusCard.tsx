@@ -134,7 +134,7 @@ export default function StatusCard() {
           spacing={0}
         >
           {statusInformation.map((currentStatus, index) => (
-            <Grid item xs={12} md={4} key={index}>
+            <Grid size={{ xs: 12, md: 4 }} key={index}>
               <StatusItem
                 sx={{
                   height: "100%",
@@ -149,10 +149,16 @@ export default function StatusCard() {
                   display="flex"
                   alignItems="center"
                   justifyContent="center"
+                  width="100%"
+                  gap={1}
                   mb={1.5}
                 >
                   {currentStatus.icon}
-                  <Typography variant="subtitle1" fontWeight="bold">
+                  <Typography
+                    variant="subtitle1"
+                    fontWeight="bold"
+                    textAlign="center"
+                  >
                     {getStatusInformationTitle(currentStatus, language)}
                   </Typography>
                 </Box>
