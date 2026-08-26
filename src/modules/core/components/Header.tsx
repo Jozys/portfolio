@@ -79,6 +79,7 @@ const Root = styled("div")(({ theme }: { theme: Theme }) => ({
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
+    marginLeft: theme.spacing(4),
 
     // Remove margin on mobile and use full width
     [theme.breakpoints.down("sm")]: {
