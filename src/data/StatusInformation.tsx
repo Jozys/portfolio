@@ -8,17 +8,17 @@ export const statusInformation: Record<string, StatusInformation> = {
   currentWork: {
     name: "status.currentWork.name",
     description: "status.currentWork.description",
-    icon: <WorkIcon color="secondary" fontSize="small" sx={{ mr: 1 }} />,
+    icon: <WorkIcon color="secondary" fontSize="small" />,
   },
   currentFocus: {
     name: "status.currentFocus.name",
     description: "status.currentFocus.description",
-    icon: <CodeIcon color="secondary" fontSize="small" sx={{ mr: 1 }} />,
+    icon: <CodeIcon color="secondary" fontSize="small" />,
   },
   location: {
     name: "status.location.name",
     description: "status.location.description",
-    icon: <LocationOnIcon color="secondary" fontSize="small" sx={{ mr: 1 }} />,
+    icon: <LocationOnIcon color="secondary" fontSize="small" />,
   },
 };
 

@@ -39,7 +39,7 @@ export const language: Language = {
     },
     currentFocus: {
       name: "Aktueller Fokus",
-      description: "Künstliche Intelligenz und Full Stack Entwicklung",
+      description: "Künstliche Intelligenz und Full Stack Entwicklung.",
     },
     location: {
       name: "Standort",
