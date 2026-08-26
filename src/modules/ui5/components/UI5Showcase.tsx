@@ -161,7 +161,15 @@ export function UI5Showcase() {
                         .filter((tech): tech is Technology => Boolean(tech))
                         .map((tech, techIndex) => (
                           <Tag
-                            onClick={() => window.open(tech.link, "_blank")}
+                            onClick={() => {
+                              if (!tech.link) return;
+                              const w = window.open(
+                                tech.link,
+                                "_blank",
+                                "noopener,noreferrer",
+                              );
+                              if (w) w.opener = null;
+                            }}
                             key={techIndex}
                             style={{ cursor: "pointer" }}
                             colorScheme={getTagColorScheme(tech.type)}
