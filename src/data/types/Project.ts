@@ -33,7 +33,7 @@ export interface Project {
   description: string | React.ReactNode;
   image: React.ReactNode;
   technologies: Technology[];
-  years?: string; // Optional years of the project, e.g., "2021-2022"
+  years?: { start: number; end?: number }; // Optional years of the project, e.g., "2021-2022"
   links: {
     [key: string]: Link;
     // Allow additional links

@@ -8,6 +8,7 @@ import {
   useTheme,
 } from "@mui/material";
 import {
+  formatProjectYears,
   getProjectDescription,
   getProjectTitle,
 } from "../../../../../data/Projects";
@@ -81,7 +82,10 @@ export default function ProjectCard({
             </Typography>
             {project.years && (
               <Chip
-                label={project.years}
+                label={formatProjectYears(
+                  project.years,
+                  languageType === "de" ? "Heute" : "Now",
+                )}
                 size="small"
                 sx={{
                   fontSize: 11,
@@ -108,9 +112,7 @@ export default function ProjectCard({
               overflow: "hidden",
             }}
           >
-            {typeof description === "string"
-              ? description
-              : "Ausgewähltes Projekt aus dem Portfolio."}
+            {description}
           </Typography>
 
           <Stack direction="row" flexWrap="wrap" gap={0.75} sx={{ mt: 2.5 }}>
@@ -157,7 +159,7 @@ export default function ProjectCard({
             },
           }}
         >
-          {languageType === "de" ? "Mehr erfahren" : "Learn more"}
+          {language.projects.main.learnMore}
         </Button>
       </Box>
     </Paper>

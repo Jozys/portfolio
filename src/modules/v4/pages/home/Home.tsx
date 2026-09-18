@@ -13,9 +13,7 @@ import Status from "./components/Status";
 
 export default function Home() {
   const theme = useTheme();
-  const isDark = theme.palette.mode === "dark";
   const { language } = useLanguage();
-  const statusInformations = getAllStatusInformations();
 
   const historyRef = useRef<HTMLDivElement>(null);
 
@@ -83,8 +81,7 @@ export default function Home() {
 
               <ActionBar
                 onNavigateToProjects={() => {
-                  //navigate("/projects")
-                  console.log("Navigate to projects");
+                  navigate("/projects");
                 }}
               />
             </Box>

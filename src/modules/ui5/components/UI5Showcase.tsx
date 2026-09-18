@@ -22,6 +22,7 @@ import "@ui5/webcomponents/dist/generated/json-imports/Themes.js";
 import "@ui5/webcomponents-theming/dist/generated/json-imports/Themes.js";
 import { useLanguage } from "../../../language/hooks";
 import {
+  formatProjectYears,
   getAllProjects,
   getProjectTitle,
   getProjectDescription,
@@ -144,7 +145,7 @@ export function UI5Showcase() {
                   header={
                     <CardHeader
                       titleText={getProjectTitle(project, language)}
-                      subtitleText={project.years}
+                      subtitleText={formatProjectYears(project.years)}
                     />
                   }
                 >

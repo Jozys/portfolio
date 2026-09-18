@@ -45,7 +45,7 @@ export const projects: Record<string, Project> = {
   teckboard: {
     name: "projects.main.teckboard.title",
     description: "projects.main.teckboard.description",
-    years: "2019 - 2022",
+    years: { start: 2019, end: 2022 },
     image: TECKboardApp,
     technologies: [
       getTechnology("react")!,
@@ -70,7 +70,7 @@ export const projects: Record<string, Project> = {
   devlight: {
     name: "projects.main.devlight.title",
     description: "projects.main.devlight.description",
-    years: "2020 - 2021",
+    years: { start: 2020, end: 2021 },
     image: DevLightsApp,
     technologies: [
       getTechnology("cpp")!,
@@ -84,7 +84,6 @@ export const projects: Record<string, Project> = {
         label: "GitHub",
         icon: <GitHubIcon />,
       },
-
       documentation: {
         url: `/devlights.pdf`,
         label: "projects.main.devlight.readDoc",
@@ -100,7 +99,7 @@ export const projects: Record<string, Project> = {
   simpleQ: {
     name: "projects.main.simpleQ.title",
     description: "projects.main.simpleQ.description",
-    years: "2023",
+    years: { start: 2023 },
     image: SimpleQ,
     technologies: [
       getTechnology("react")!,
@@ -129,7 +128,7 @@ export const projects: Record<string, Project> = {
   dbDelay: {
     name: "projects.main.dbDelay.title",
     description: "projects.main.dbDelay.description",
-    years: "2024 - Now",
+    years: { start: 2024, end: 9999 },
     image: DBDelay,
     technologies: [
       getTechnology("react")!,
@@ -157,8 +156,8 @@ export const projects: Record<string, Project> = {
     name: "projects.main.concertHistory.title",
     description: "projects.main.concertHistory.description",
     image: ConcertHistory,
-    years: "2024",
-    technologies: [getTechnology("jetpackCompose"), getTechnology("kotlin")!],
+    years: { start: 2024 },
+    technologies: [getTechnology("jetpackCompose")!, getTechnology("kotlin")!],
     links: {
       github: {
         url: "https://github.com/ScreepCode/ConcertHistory",
@@ -177,9 +176,9 @@ export const projects: Record<string, Project> = {
   moveTopia: {
     name: "projects.main.moveTopia.title",
     description: "projects.main.moveTopia.description",
-    years: "2024 - 2025",
+    years: { start: 2024, end: 2025 },
     image: MoveTopiaApp,
-    technologies: [getTechnology("flutter"), getTechnology("dart")!],
+    technologies: [getTechnology("flutter")!, getTechnology("dart")!],
     links: {
       github: {
         url: "https://github.com/ScreepCode/MoveTopia",
@@ -209,7 +208,7 @@ export const projects: Record<string, Project> = {
     name: "projects.main.sensoration.title",
     description: "projects.main.sensoration.description",
     image: Sensoration,
-    years: "2025",
+    years: { start: 2025 },
     technologies: [getTechnology("kotlin")!, getTechnology("jetpackCompose")!],
     links: {
       github: {
@@ -234,7 +233,7 @@ export const projects: Record<string, Project> = {
  */
 export const getProjectDescription = (
   project: Project,
-  language: Language
+  language: Language,
 ): string | React.ReactNode => {
   if (project.description) {
     return (
@@ -253,7 +252,7 @@ export const getProjectDescription = (
  */
 export const getProjectTitle = (
   project: Project,
-  language: Language
+  language: Language,
 ): string => {
   if (project.name) {
     return getNestedValue(language, project.name) || project.name;
@@ -273,9 +272,46 @@ export const getProjectById = (id: string): Project | undefined => {
 };
 
 /**
- * Returns an array of all projects defined in the projects object.
- * @returns An array of all projects.
+ * Formats a project's years range into a readable string (e.g., "2024 - Now", "2023").
+ */
+export const formatProjectYears = (
+  years?: { start: number; end?: number },
+  nowLabel: string = "Now",
+): string => {
+  if (!years) return "";
+  if (!years.end || years.end === years.start) {
+    return `${years.start}`;
+  }
+  if (years.end >= 9999) {
+    return `${years.start} - ${nowLabel}`;
+  }
+  return `${years.start} - ${years.end}`;
+};
+
+/**
+ * Sorts an array of projects from newest to oldest.
+ * Primary: start year descending (newest start first)
+ * Secondary: end year descending (most active/recent end first)
+ */
+export const sortProjects = (projectList: Project[]): Project[] => {
+  return [...projectList].sort((a, b) => {
+    const startA = a.years?.start ?? 0;
+    const endA = a.years?.end ?? startA;
+
+    const startB = b.years?.start ?? 0;
+    const endB = b.years?.end ?? startB;
+
+    if (startB !== startA) {
+      return startB - startA;
+    }
+    return endB - endA;
+  });
+};
+
+/**
+ * Returns a sorted array of all projects defined in the projects object.
+ * @returns An array of all projects sorted from newest to oldest.
  */
 export const getAllProjects = (): Project[] => {
-  return Object.values(projects);
+  return sortProjects(Object.values(projects));
 };
