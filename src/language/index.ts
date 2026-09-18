@@ -99,6 +99,11 @@ export type V4Language = {
       caseStudy: string;
     };
     backToLive: string;
+    tabs: {
+      home: string;
+      projects: string;
+      me: string;
+    };
   };
   home: {
     action: {

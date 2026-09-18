@@ -198,6 +198,11 @@ export const language: Language = {
         caseStudy: "Case Study",
       },
       backToLive: "Back to live site",
+      tabs: {
+        home: "Home",
+        projects: "Projects",
+        me: "About me",
+      },
     },
     home: {
       action: {

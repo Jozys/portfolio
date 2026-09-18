@@ -192,6 +192,11 @@ export const language: Language = {
         caseStudy: "Detailansicht",
       },
       backToLive: "Zurück zum Portfolio",
+      tabs: {
+        home: "Home",
+        projects: "Projekte",
+        me: "Über mich",
+      },
     },
     home: {
       action: {

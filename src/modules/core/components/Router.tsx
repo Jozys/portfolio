@@ -1,4 +1,3 @@
-import React from "react";
 import {
   BrowserRouter,
   Navigate,
@@ -6,15 +5,17 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
-import DevLights from "../../devlights/components/DevLights";
-import Home from "../../home/components/Home";
-import Projects from "../../projects/components/Projects";
-import TECKboard from "../../teckdigital/components/TECKboard";
-import V4Footer from "../../v4/core/Footer";
-import Header from "../../v4/core/Header";
 import Footer from "../components/Footer";
+import Projects from "../../projects/components/Projects";
 import EmptyPage from "../design-system/EmptyPage";
 import Menu from "./Menu";
+import Home from "../../home/components/Home";
+import DevLights from "../../devlights/components/DevLights";
+import TECKboard from "../../teckdigital/components/TECKboard";
+import PrototypeShowcase from "../../prototype/PrototypeShowcase";
+import React from "react";
+import Header from "../../v4/core/Header";
+import V4Footer from "../../v4/core/Footer";
 // Temporary imports for v4 routes
 import HomeV4 from "../../v4/pages/home/Home";
 import ProjectsV4 from "../../v4/pages/projects/Projects";
@@ -49,16 +50,32 @@ function AppShell() {
   const isUI5 = pathname === UI5_PATH;
   const isPrototype = pathname === PROTOTYPE_PATH;
 
+  const getCurrentTabFromPathname = (
+    pathname: string,
+  ): "home" | "projects" | "me" => {
+    switch (pathname) {
+      case "/v4/home":
+        return "home";
+      case "/v4/projects":
+      case "/v4/projects/home":
+        return "projects";
+      case "/v4/me":
+        return "me";
+      default:
+        return "home";
+    }
+  };
+
   return (
     <>
       {!isUI5 &&
         !isPrototype &&
         (pathname.includes("v4") ? (
           <Header
-            tab="home"
-            onChange={(selectedTab) => {
-              console.log(selectedTab);
-            }}
+            currentTab={
+              getCurrentTabFromPathname(pathname) as "home" | "projects" | "me"
+            }
+            tabs={["home", "projects", "me"]}
           />
         ) : (
           <Menu />
