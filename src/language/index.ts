@@ -85,6 +85,52 @@ export type Language = {
     backToPortfolio: string;
     tagline: string;
   };
+  v4: V4Language;
+};
+
+export type V4Language = {
+  header: {
+    themeToggleLight: string;
+    themeToggleDark: string;
+    languageToggle: string;
+    nav: {
+      home: string;
+      projects: string;
+      caseStudy: string;
+    };
+    backToLive: string;
+    tabs: {
+      home: string;
+      projects: string;
+      me: string;
+    };
+  };
+  home: {
+    action: {
+      explore: string;
+      contact: string;
+    };
+    portrait: {
+      statusTitle: string;
+      statusDescription: string;
+    };
+    history: {
+      subtitle: string;
+      title: string;
+      description: string;
+      dhbwTags: string[];
+      teckdigitalTags: string[];
+      lifeTags: string[];
+    };
+    status: {
+      title: string;
+      description: string;
+    };
+  };
+  footer: {
+    subtitle: string;
+    socialTitle: string;
+  };
 };
 
 export type Info = {
