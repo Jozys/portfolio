@@ -187,5 +187,50 @@ export const language: Language = {
     backToPortfolio: "Back to portfolio",
     tagline: "Built with Open UI5 — secret mode 🛠️",
   },
+  v4: {
+    header: {
+      themeToggleLight: "Switch to light mode",
+      themeToggleDark: "Switch to dark mode",
+      languageToggle: "Zu Deutsch wechseln",
+      nav: {
+        home: "Home",
+        projects: "Projects",
+        caseStudy: "Case Study",
+      },
+      backToLive: "Back to live site",
+    },
+    home: {
+      action: {
+        explore: "Explore selected work",
+        contact: "Start a conversation",
+      },
+      portrait: {
+        statusTitle: "Software Engineer @ SAP",
+        statusDescription: "Walldorf • Full Stack & AI",
+      },
+      history: {
+        subtitle: "Background & Journey",
+        title: "Experience, Studies & Life",
+        description:
+          "Key milestones from my dual study at SAP, early initiatives with TECKdigital, to personal passions.",
+        dhbwTags: ["Dual Study", "SAP", "DHBW"],
+        teckdigitalTags: [
+          "Mobile Apps",
+          "Software Development",
+          "Web Development",
+        ],
+        lifeTags: ["Outdoor", "Black Forest", "Travel"],
+      },
+      status: {
+        title: "Current status",
+        description: "Location, current role, and engineering focuses.",
+      },
+    },
+    footer: {
+      subtitle:
+        "Software Engineer at SAP in Walldorf • Focused on Full Stack & Artificial Intelligence.",
+      socialTitle: "Connect & Socials",
+    },
+  },
 };
 export default language;

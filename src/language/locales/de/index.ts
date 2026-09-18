@@ -8,7 +8,7 @@ export const language: Language = {
   },
   home: {
     greeting: "Hallo",
-    name: "Ich bin Joshua Slaar!",
+    name: "Ich bin Joshua!",
     subtitle: `Entwickler - ${getAge()} Jahre alt - Deutschland`,
     me: {
       title: "Wer bin ich",
@@ -180,6 +180,51 @@ export const language: Language = {
   ui5: {
     backToPortfolio: "Zurück zum Portfolio",
     tagline: "Gebaut mit Open UI5 — Secret Mode 🛠️",
+  },
+  v4: {
+    header: {
+      themeToggleLight: "Zum Light Mode wechseln",
+      themeToggleDark: "Zum Dark Mode wechseln",
+      languageToggle: "Switch to English",
+      nav: {
+        home: "Home",
+        projects: "Projekte",
+        caseStudy: "Detailansicht",
+      },
+      backToLive: "Zurück zum Portfolio",
+    },
+    home: {
+      action: {
+        explore: "Arbeiten entdecken",
+        contact: "Kontakt aufnehmen",
+      },
+      portrait: {
+        statusTitle: "Software Engineer @ SAP",
+        statusDescription: "Walldorf • Full Stack & AI",
+      },
+      history: {
+        subtitle: "Werdegang & Stationen",
+        title: "Erfahrung, Studium & Leben",
+        description:
+          "Einblicke in meinen Weg vom dualen Studium bei der SAP über die Schülerfirma bis hin zu persönlichen Interessen.",
+        dhbwTags: ["Duales Studium", "SAP", "DHBW"],
+        teckdigitalTags: [
+          "Mobile Apps",
+          "Softwareentwicklung",
+          "Webentwicklung",
+        ],
+        lifeTags: ["Outdoor", "Schwarzwald", "Reisen"],
+      },
+      status: {
+        title: "Aktueller Status",
+        description: "Standort, Tätigkeit und technische Schwerpunkte.",
+      },
+    },
+    footer: {
+      subtitle:
+        "Software Engineer bei SAP in Walldorf • Fokus auf Full Stack & Künstliche Intelligenz.",
+      socialTitle: "Social & Kontakt",
+    },
   },
 };
 export default language;
