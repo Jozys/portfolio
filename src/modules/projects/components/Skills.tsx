@@ -166,7 +166,7 @@ export default function Skills(): React.ReactElement {
 
               <Grid container spacing={1}>
                 {technologies.map((tech) => (
-                  <Grid item key={tech.name}>
+                  <Grid key={tech.name}>
                     <Chip
                       avatar={
                         <img

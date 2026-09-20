@@ -1,4 +1,4 @@
-import { WorkOutline } from "@mui/icons-material";
+import { WorkOutlined } from "@mui/icons-material";
 import { Box, Paper, Typography, useTheme } from "@mui/material";
 import React from "react";
 import {
@@ -32,7 +32,7 @@ export default function StatusItem({
   const resolvedDescription =
     description ??
     (item ? getStatusInformationDescription(item, language) : "");
-  const resolvedIcon = icon ?? item?.icon ?? <WorkOutline fontSize="small" />;
+  const resolvedIcon = icon ?? item?.icon ?? <WorkOutlined fontSize="small" />;
 
   return (
     <Paper

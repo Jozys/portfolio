@@ -3,6 +3,29 @@ import "@fontsource/bungee";
 import "@fontsource/titillium-web";
 import "@fontsource/open-sans";
 
+declare module "@mui/material/styles" {
+  interface Theme {
+    gradients: {
+      background: {
+        default: string;
+      };
+      footer: {
+        default: string;
+      };
+    };
+  }
+  interface ThemeOptions {
+    gradients?: {
+      background?: {
+        default?: string;
+      };
+      footer?: {
+        default?: string;
+      };
+    };
+  }
+}
+
 const theme = (dark: boolean) => {
   return createTheme({
     palette: {
