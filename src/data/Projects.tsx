@@ -1,23 +1,27 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Article } from "@mui/icons-material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ConcertHistoryLogo from "../assets/projects/concertHistory/ConcertHistory.svg";
 import ConcertHistoryApp from "../assets/projects/concertHistory/ConcertHistory_Mockup.png";
+import DB_Delays_Light from "../assets/projects/dbDelay/db_delays_light.webp";
+import DB_Journey_Light from "../assets/projects/dbDelay/db_journeys_light.webp";
+import DB_Record_Light from "../assets/projects/dbDelay/db_record_light.webp";
+import DB_Statistics_Light from "../assets/projects/dbDelay/db_statistics_light.webp";
 import DBDelay from "../assets/projects/dbDelay/dbDelay.ico";
-import DBDelayWebsite from "../assets/projects/dbDelay/DB_Delay_Mockup.png";
-import DevLights from "../assets/projects/devlights/devlights.svg";
 import DevLightsApp from "../assets/projects/devlights/devlights.png";
-import MoveTopia from "../assets/projects/moveTopia/MT_ICON.png";
+import DevLights from "../assets/projects/devlights/devlights.svg";
 import MoveTopiaApp from "../assets/projects/moveTopia/MoveTopia_Mockup.png";
+import MoveTopia from "../assets/projects/moveTopia/MT_ICON.png";
 import SensorationLogo from "../assets/projects/sensoration/Sensoration_Logo.png";
 import SensorationApp from "../assets/projects/sensoration/Sensoration_Mockup.png";
 import SimpleQLogo from "../assets/projects/simpleQ/simpleQ.ico";
 import SimpleQWebsite from "../assets/projects/simpleQ/SimpleQ_Mockup.png";
+import FirstTECKboard from "../assets/projects/teckboard/firstTECKboard.png";
 import TECKboard from "../assets/projects/teckboard/Logo_TB.svg";
+import SecondTECKboard from "../assets/projects/teckboard/newBoard.png";
 import TECKboardApp from "../assets/projects/teckboard/teckboard_app.png";
 import AppleAppStore from "../assets/technologies/AppleAppStore.png";
 import GooglePlayIcon from "../assets/technologies/GooglePlay.png";
-import { Language } from "../language";
+import { Language, V4ProjectDetail } from "../language";
 import { getNestedValue } from "../utils/utils";
 import { getTechnology } from "./Technologies";
 import { Project } from "./types/Project";
@@ -52,7 +56,11 @@ export const projects: Record<string, Project> = {
     route: "teckboard",
     years: { start: 2019, end: 2022 },
     image: TECKboard,
-    detailImages: [TECKboardApp],
+    detailImages: [
+      TECKboardApp,
+      <img key="first" src={FirstTECKboard} alt="First TECKboard" />,
+      <img key="second" src={SecondTECKboard} alt="Second TECKboard" />,
+    ],
     technologies: [
       getTechnology("react")!,
       getTechnology("javaScript")!,
@@ -131,7 +139,12 @@ export const projects: Record<string, Project> = {
     description: "projects.main.dbDelay.description",
     years: { start: 2024, end: 2026 },
     image: DBDelay,
-    detailImages: [DBDelayWebsite],
+    detailImages: [
+      <img key="light" src={DB_Delays_Light} alt="DB Delays" />,
+      <img key="journey" src={DB_Journey_Light} alt="DB Journey" />,
+      <img key="record" src={DB_Record_Light} alt="DB Record" />,
+      <img key="statistics" src={DB_Statistics_Light} alt="DB Statistics" />,
+    ],
     technologies: [
       getTechnology("react")!,
       getTechnology("typescript")!,
@@ -286,6 +299,23 @@ export const getLabel = (label: string, language: Language): string => {
 
 export const getProjectById = (id: string): Project | undefined => {
   return projects[id];
+};
+
+/**
+ * Returns the rich detail data for a project from the i18n v4 structure.
+ */
+export const getProjectDetails = (
+  project: Project,
+  language: Language,
+): V4ProjectDetail | undefined => {
+  const detailsMap = language.v4?.projects?.details;
+  if (!detailsMap) return undefined;
+  if (detailsMap[project.route]) return detailsMap[project.route];
+  const lower = project.route.toLowerCase();
+  for (const [key, value] of Object.entries(detailsMap)) {
+    if (key.toLowerCase() === lower) return value;
+  }
+  return undefined;
 };
 
 /**
