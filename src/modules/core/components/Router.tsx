@@ -18,6 +18,7 @@ import Menu from "./Menu";
 // Temporary imports for v4 routes
 import HomeV4 from "../../v4/pages/home/Home";
 import ProjectsV4 from "../../v4/pages/projects/Projects";
+import ProjectDetails from "../../v4/pages/projectDetails/ProjectDetails";
 
 // Secret UI5 showcase — lazily loaded so the (heavy) SAP UI5 bundle only ships
 // to visitors who discover the hidden "/ui5" route.
@@ -92,6 +93,7 @@ function AppShell() {
         <Route path="/v4/home" element={<HomeV4 />} />
 
         <Route path="/v4/projects" element={<ProjectsV4 />} />
+        <Route path="/v4/projects/:id" element={<ProjectDetails />} />
 
         <Route
           path={UI5_PATH}
