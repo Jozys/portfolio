@@ -1,20 +1,16 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import useProjects from "../../hooks/projects/useProjects";
-import { Box, Button, Container, useTheme } from "@mui/material";
-import { useLanguage } from "../../../../language/hooks";
 import { ArrowBack } from "@mui/icons-material";
-import ProjectDetailHeader from "./components/ProjectDetailHeader";
+import { Box, Button, Container, useTheme } from "@mui/material";
+import { useParams } from "react-router-dom";
 import EmptyPage from "../../../core/design-system/EmptyPage";
-import ProjectDetailVisual from "./components/ProjectDetailVisual";
+import useProjects from "../../hooks/projects/useProjects";
 import ProjectDetailContent from "./components/ProjectDetailContent";
+import ProjectDetailHeader from "./components/ProjectDetailHeader";
+import ProjectDetailVisual from "./components/ProjectDetailVisual";
 
 export default function ProjectDetails() {
   const route = useParams<{ id: string }>();
   const project = useProjects().getProjectById(route.id || "");
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { language } = useLanguage();
   const theme = useTheme();
 
   return (

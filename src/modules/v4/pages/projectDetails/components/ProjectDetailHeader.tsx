@@ -1,12 +1,7 @@
-import { Box, Stack, Typography, useTheme } from "@mui/material";
-import {
-  formatProjectYears,
-  getProjectDescription,
-  getProjectTitle,
-} from "../../../../../data/Projects";
+import { Box, Typography, useTheme } from "@mui/material";
+import { getProjectTitle } from "../../../../../data/Projects";
 import { Project } from "../../../../../data/types/Project";
 import { useLanguage } from "../../../../../language/hooks";
-import TechnologyButton from "../../../core/Technology";
 
 export interface ProjectDetailHeaderProps {
   project: Project;
@@ -16,6 +11,7 @@ export default function ProjectDetailHeader(props: ProjectDetailHeaderProps) {
   const { project } = props;
   const theme = useTheme();
   const { language } = useLanguage();
+
   return (
     <Box
       sx={{
@@ -27,18 +23,6 @@ export default function ProjectDetailHeader(props: ProjectDetailHeaderProps) {
       }}
     >
       <Box>
-        <Typography
-          sx={{
-            color: theme.palette.primary.main,
-            fontWeight: 800,
-            fontSize: 13,
-            letterSpacing: ".14em",
-            textTransform: "uppercase",
-            fontFamily: "Titillium Web, sans-serif",
-          }}
-        >
-          {project.years ? `• ${formatProjectYears(project.years)}` : ""}
-        </Typography>
         <Typography
           component="h1"
           sx={{
@@ -53,27 +37,7 @@ export default function ProjectDetailHeader(props: ProjectDetailHeaderProps) {
         >
           {getProjectTitle(project, language)}
         </Typography>
-        <Typography
-          sx={{
-            color: theme.palette.text.secondary,
-            fontSize: { xs: 17, md: 19 },
-            lineHeight: 1.6,
-            mt: 2.5,
-            maxWidth: 600,
-          }}
-        >
-          {getProjectDescription(project, language)}
-        </Typography>
       </Box>
-      <Stack sx={{ display: "grid", gridTemplateColumns: "1fr 1fr" }} gap={2}>
-        {project.technologies.map((technology) => (
-          <TechnologyButton
-            key={technology.name}
-            technology={technology}
-            showName
-          />
-        ))}
-      </Stack>
     </Box>
   );
 }
