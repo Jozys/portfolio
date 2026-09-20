@@ -1,10 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Container, Stack, Typography, useTheme } from "@mui/material";
 import { useMemo, useState } from "react";
 import { useLanguage } from "../../../../language/hooks";
 import useProjects from "../../hooks/projects/useProjects";
 import ProjectCard from "./components/ProjectCard";
 import ProjectFilter from "./components/ProjectFilter";
+import { useNavigate } from "react-router-dom";
 
 export default function Projects() {
   const theme = useTheme();
@@ -12,6 +12,7 @@ export default function Projects() {
   const { getProjects } = useProjects();
   const projects = getProjects();
   const [filter, setFilter] = useState<string>("all");
+  const navigate = useNavigate();
 
   const filteredProjects = useMemo(() => {
     if (filter === "all") return projects;
@@ -62,7 +63,7 @@ export default function Projects() {
               key={project.name}
               project={project}
               onOpen={() => {
-                console.log("open", project.name);
+                navigate(`/v4/projects/${project.route}`);
               }}
             />
           ))}

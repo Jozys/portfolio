@@ -23,7 +23,12 @@ export default function ProjectsProvider({
   };
 
   const getProjectById = (id: string): Project | undefined => {
-    return projects[id];
+    return (
+      projects[id] ||
+      projects[
+        Object.keys(projects).find((key) => projects[key].route === id) || ""
+      ]
+    );
   };
 
   const sortedProjects = React.useMemo(() => {

@@ -31,10 +31,12 @@ import React from "react";
 export interface Project {
   name: string;
   description: string | React.ReactNode;
+  route: string; // Route for the project details page, e.g., "/projects/example-project"
   image: React.ReactNode;
+  detailImages?: React.ReactNode[]; // Optional detailed images for the project
   technologies: Technology[];
   years?: { start: number; end?: number }; // Optional years of the project, e.g., "2021-2022"
-  links: {
+  links?: {
     [key: string]: Link;
     // Allow additional links
   };

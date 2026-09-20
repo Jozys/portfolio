@@ -2,12 +2,19 @@
 import { Article } from "@mui/icons-material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ConcertHistoryLogo from "../assets/projects/concertHistory/ConcertHistory.svg";
+import ConcertHistoryApp from "../assets/projects/concertHistory/ConcertHistory_Mockup.png";
 import DBDelay from "../assets/projects/dbDelay/dbDelay.ico";
+import DBDelayWebsite from "../assets/projects/dbDelay/DB_Delay_Mockup.png";
 import DevLights from "../assets/projects/devlights/devlights.svg";
+import DevLightsApp from "../assets/projects/devlights/devlights.png";
 import MoveTopia from "../assets/projects/moveTopia/MT_ICON.png";
+import MoveTopiaApp from "../assets/projects/moveTopia/MoveTopia_Mockup.png";
 import SensorationLogo from "../assets/projects/sensoration/Sensoration_Logo.png";
+import SensorationApp from "../assets/projects/sensoration/Sensoration_Mockup.png";
 import SimpleQLogo from "../assets/projects/simpleQ/simpleQ.ico";
+import SimpleQWebsite from "../assets/projects/simpleQ/SimpleQ_Mockup.png";
 import TECKboard from "../assets/projects/teckboard/Logo_TB.svg";
+import TECKboardApp from "../assets/projects/teckboard/teckboard_app.png";
 import AppleAppStore from "../assets/technologies/AppleAppStore.png";
 import GooglePlayIcon from "../assets/technologies/GooglePlay.png";
 import { Language } from "../language";
@@ -42,8 +49,10 @@ export const projects: Record<string, Project> = {
   teckboard: {
     name: "projects.main.teckboard.title",
     description: "projects.main.teckboard.description",
+    route: "teckboard",
     years: { start: 2019, end: 2022 },
     image: TECKboard,
+    detailImages: [TECKboardApp],
     technologies: [
       getTechnology("react")!,
       getTechnology("javaScript")!,
@@ -57,18 +66,15 @@ export const projects: Record<string, Project> = {
         label: "Demo",
         icon: <img src={TECKboard} height="24px" />,
       },
-      furtherInformation: {
-        url: "/projects/teckboard",
-        label: "projects.main.readMore",
-        disableOpenInNewTab: true,
-      },
     },
   },
   devlight: {
     name: "projects.main.devlight.title",
+    route: "devlight",
     description: "projects.main.devlight.description",
     years: { start: 2020, end: 2021 },
     image: DevLights,
+    detailImages: [DevLightsApp],
     technologies: [
       getTechnology("cpp")!,
       getTechnology("typescript")!,
@@ -86,18 +92,15 @@ export const projects: Record<string, Project> = {
         label: "projects.main.devlight.readDoc",
         icon: <img height={"24px"} src={DevLights} alt="DevLights Icon" />,
       },
-      furtherInformation: {
-        url: "/projects/devlights",
-        label: "projects.main.readMore",
-        disableOpenInNewTab: true,
-      },
     },
   },
   simpleQ: {
+    route: "simpleq",
     name: "projects.main.simpleQ.title",
     description: "projects.main.simpleQ.description",
     years: { start: 2023 },
     image: SimpleQLogo,
+    detailImages: [SimpleQWebsite],
     technologies: [
       getTechnology("react")!,
       getTechnology("typescript")!,
@@ -123,10 +126,12 @@ export const projects: Record<string, Project> = {
     },
   },
   dbDelay: {
+    route: "dbdelay",
     name: "projects.main.dbDelay.title",
     description: "projects.main.dbDelay.description",
-    years: { start: 2024, end: 9999 },
+    years: { start: 2024, end: 2026 },
     image: DBDelay,
+    detailImages: [DBDelayWebsite],
     technologies: [
       getTechnology("react")!,
       getTechnology("typescript")!,
@@ -150,8 +155,10 @@ export const projects: Record<string, Project> = {
     },
   },
   concertHistory: {
+    route: "concerthistory",
     name: "projects.main.concertHistory.title",
     description: "projects.main.concertHistory.description",
+    detailImages: [ConcertHistoryApp],
     image: ConcertHistoryLogo,
     years: { start: 2024 },
     technologies: [getTechnology("jetpackCompose")!, getTechnology("kotlin")!],
@@ -171,10 +178,12 @@ export const projects: Record<string, Project> = {
     },
   },
   moveTopia: {
+    route: "movetopia",
     name: "projects.main.moveTopia.title",
     description: "projects.main.moveTopia.description",
     years: { start: 2024, end: 2025 },
     image: MoveTopia,
+    detailImages: [MoveTopiaApp],
     technologies: [getTechnology("flutter")!, getTechnology("dart")!],
     links: {
       github: {
@@ -202,9 +211,11 @@ export const projects: Record<string, Project> = {
     },
   },
   sensoration: {
+    route: "sensoration",
     name: "projects.main.sensoration.title",
     description: "projects.main.sensoration.description",
     image: SensorationLogo,
+    detailImages: [SensorationApp],
     years: { start: 2025 },
     technologies: [getTechnology("kotlin")!, getTechnology("jetpackCompose")!],
     links: {
@@ -219,6 +230,15 @@ export const projects: Record<string, Project> = {
         icon: SensorationLogo,
       },
     },
+  },
+  shakeIT: {
+    route: "shakeit",
+    name: "projects.main.shakeIT.title",
+    description: "projects.main.shakeIT.description",
+    years: { start: 2026 },
+    image: "ShakeIT",
+    detailImages: ["ShakeITApp"],
+    technologies: [getTechnology("react")!, getTechnology("typescript")!],
   },
 };
 

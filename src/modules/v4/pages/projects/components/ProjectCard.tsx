@@ -16,6 +16,7 @@ import { Project } from "../../../../../data/types/Project";
 import { useLanguage } from "../../../../../language/hooks";
 import ProjectVisualHeader from "./ProjectVisualHeader";
 import { ArrowOutward } from "@mui/icons-material";
+import TechnologyButton from "../../../core/Technology";
 
 export default function ProjectCard({
   project,
@@ -120,26 +121,11 @@ export default function ProjectCard({
 
           <Stack direction="row" flexWrap="wrap" gap={0.75} sx={{ mt: 2.5 }}>
             {project.technologies.slice(0, 4).map((technology) => (
-              <Chip
-                key={technology.name}
-                label={technology.name}
+              <TechnologyButton
                 size="small"
-                sx={{
-                  borderRadius: 1,
-                  fontWeight: 600,
-                  fontSize: 11,
-                  background: isDark
-                    ? "rgba(34, 193, 195, 0.12)"
-                    : "rgba(18, 138, 142, 0.08)",
-                  color: isDark
-                    ? "rgba(34, 193, 195, 1)"
-                    : "rgba(18, 138, 142, 1)",
-                  border: `1px solid ${
-                    isDark
-                      ? "rgba(34, 193, 195, 0.25)"
-                      : "rgba(18, 138, 142, 0.2)"
-                  }`,
-                }}
+                key={technology.name}
+                technology={technology}
+                showName
               />
             ))}
           </Stack>
