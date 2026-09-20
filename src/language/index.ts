@@ -29,6 +29,10 @@ export type Language = {
   projects: {
     main: {
       title: string;
+      description: string;
+      filter: {
+        all: string;
+      };
       readMore: string;
       teckboard: Info;
       devlight: Info & { readDoc: string };

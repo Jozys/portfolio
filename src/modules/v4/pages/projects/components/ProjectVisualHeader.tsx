@@ -31,34 +31,47 @@ export default function ProjectVisualHeader({
         p: compact ? 2 : 4,
       }}
     >
-      {typeof image === "string" ? (
-        <Box
-          component="img"
-          src={image}
-          alt={name}
-          sx={{
+      <Box
+        sx={{
+          width: compact ? 104 : 180,
+          height: compact ? 104 : 180,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          transition: "transform 0.35s ease",
+          filter: isDark
+            ? "drop-shadow(0 10px 20px rgba(0,0,0,0.5))"
+            : "drop-shadow(0 8px 16px rgba(0,0,0,0.12))",
+          "&:hover": {
+            transform: "scale(1.06)",
+          },
+          "& > img, & > svg": {
+            width: "100%",
+            height: "100%",
             maxWidth: "100%",
-            maxHeight: compact ? 160 : 380,
+            maxHeight: "100%",
             objectFit: "contain",
-            transition: "transform 0.35s ease",
-            filter: isDark
-              ? "drop-shadow(0 10px 20px rgba(0,0,0,0.5))"
-              : "drop-shadow(0 8px 16px rgba(0,0,0,0.12))",
-          }}
-        />
-      ) : (
-        <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            transform: compact ? "scale(0.85)" : "scale(1.1)",
-            transition: "transform 0.35s ease",
-          }}
-        >
-          {image}
-        </Box>
-      )}
+          },
+        }}
+      >
+        {typeof image === "string" ? (
+          <Box
+            component="img"
+            src={image}
+            alt={name}
+            sx={{
+              width: "100%",
+              height: "100%",
+              maxWidth: "100%",
+              maxHeight: "100%",
+              borderRadius: 2,
+              objectFit: "contain",
+            }}
+          />
+        ) : (
+          image
+        )}
+      </Box>
     </Box>
   );
 }

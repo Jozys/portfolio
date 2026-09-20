@@ -49,6 +49,11 @@ export const language: Language = {
   projects: {
     main: {
       title: "Ich habe entwickelt...",
+      filter: {
+        all: "Alle Projekte",
+      },
+      description:
+        "Eine Auswahl der Projekte, die ich entwickelt habe, um meine Fähigkeiten zu verbessern.",
       readMore: "Mehr lesen",
       teckboard: {
         title: "TECKboards",

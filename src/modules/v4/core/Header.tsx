@@ -61,7 +61,9 @@ export default function Header(props: HeaderProps) {
           spacing={1.5}
           alignItems="center"
           sx={{ cursor: "pointer" }}
-          onClick={() => onChange?.("home")}
+          onClick={() => {
+            navigate("/v4");
+          }}
         >
           <Logo />
           <Box>

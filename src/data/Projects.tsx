@@ -1,16 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Article } from "@mui/icons-material";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import ConcertHistory from "../assets/projects/concertHistory/ConcertHistory_Mockup.png";
-import DBDelay from "../assets/projects/dbDelay/DB_Delay_Mockup.png";
-import DevLightsApp from "../assets/projects/devlights/devlights.png";
+import ConcertHistoryLogo from "../assets/projects/concertHistory/ConcertHistory.svg";
+import DBDelay from "../assets/projects/dbDelay/dbDelay.ico";
 import DevLights from "../assets/projects/devlights/devlights.svg";
-import MoveTopiaApp from "../assets/projects/moveTopia/MoveTopia_Mockup.png";
+import MoveTopia from "../assets/projects/moveTopia/MT_ICON.png";
 import SensorationLogo from "../assets/projects/sensoration/Sensoration_Logo.png";
-import Sensoration from "../assets/projects/sensoration/Sensoration_Mockup.png";
 import SimpleQLogo from "../assets/projects/simpleQ/simpleQ.ico";
-import SimpleQ from "../assets/projects/simpleQ/SimpleQ_Mockup.png";
 import TECKboard from "../assets/projects/teckboard/Logo_TB.svg";
-import TECKboardApp from "../assets/projects/teckboard/teckboard_app.png";
 import AppleAppStore from "../assets/technologies/AppleAppStore.png";
 import GooglePlayIcon from "../assets/technologies/GooglePlay.png";
 import { Language } from "../language";
@@ -46,7 +43,7 @@ export const projects: Record<string, Project> = {
     name: "projects.main.teckboard.title",
     description: "projects.main.teckboard.description",
     years: { start: 2019, end: 2022 },
-    image: TECKboardApp,
+    image: TECKboard,
     technologies: [
       getTechnology("react")!,
       getTechnology("javaScript")!,
@@ -71,7 +68,7 @@ export const projects: Record<string, Project> = {
     name: "projects.main.devlight.title",
     description: "projects.main.devlight.description",
     years: { start: 2020, end: 2021 },
-    image: DevLightsApp,
+    image: DevLights,
     technologies: [
       getTechnology("cpp")!,
       getTechnology("typescript")!,
@@ -100,7 +97,7 @@ export const projects: Record<string, Project> = {
     name: "projects.main.simpleQ.title",
     description: "projects.main.simpleQ.description",
     years: { start: 2023 },
-    image: SimpleQ,
+    image: SimpleQLogo,
     technologies: [
       getTechnology("react")!,
       getTechnology("typescript")!,
@@ -155,7 +152,7 @@ export const projects: Record<string, Project> = {
   concertHistory: {
     name: "projects.main.concertHistory.title",
     description: "projects.main.concertHistory.description",
-    image: ConcertHistory,
+    image: ConcertHistoryLogo,
     years: { start: 2024 },
     technologies: [getTechnology("jetpackCompose")!, getTechnology("kotlin")!],
     links: {
@@ -177,7 +174,7 @@ export const projects: Record<string, Project> = {
     name: "projects.main.moveTopia.title",
     description: "projects.main.moveTopia.description",
     years: { start: 2024, end: 2025 },
-    image: MoveTopiaApp,
+    image: MoveTopia,
     technologies: [getTechnology("flutter")!, getTechnology("dart")!],
     links: {
       github: {
@@ -207,7 +204,7 @@ export const projects: Record<string, Project> = {
   sensoration: {
     name: "projects.main.sensoration.title",
     description: "projects.main.sensoration.description",
-    image: Sensoration,
+    image: SensorationLogo,
     years: { start: 2025 },
     technologies: [getTechnology("kotlin")!, getTechnology("jetpackCompose")!],
     links: {

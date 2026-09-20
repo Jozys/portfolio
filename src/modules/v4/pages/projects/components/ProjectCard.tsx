@@ -65,9 +65,12 @@ export default function ProjectCard({
         />
         <Box sx={{ p: 3 }}>
           <Stack
-            direction="row"
-            justifyContent="space-between"
-            alignItems="start"
+            sx={{
+              flexDirection: { xs: "column", sm: "row" },
+              alignItems: { xs: "flex-start", sm: "center" },
+              justifyContent: "space-between",
+              gap: 1.5,
+            }}
             gap={2}
           >
             <Typography
