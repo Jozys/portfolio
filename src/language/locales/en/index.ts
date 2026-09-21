@@ -53,6 +53,7 @@ export const language: Language = {
     main: {
       title: "I developed...",
       description: "A selection of projects I developed to improve my skills.",
+      documentation: "Documentation",
       filter: {
         all: "All projects",
       },
@@ -91,6 +92,8 @@ export const language: Language = {
         title: "MoveTopia",
         description:
           "MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress. I developed the app together with Niklas Buse as part of a project at DHBW Karlsruhe. It offers a user-friendly interface to record training data and visualize progress.",
+        playStore: "Play Store",
+        appStore: "App Store",
       },
       sensoration: {
         title: "Sensoration",
@@ -199,9 +202,8 @@ export const language: Language = {
       nav: {
         home: "Home",
         projects: "Projects",
-        caseStudy: "Case Study",
+        about: "About me",
       },
-      backToLive: "Back to live site",
       tabs: {
         home: "Home",
         projects: "Projects",
@@ -239,6 +241,25 @@ export const language: Language = {
       subtitle:
         "Software Engineer at SAP in Walldorf • Focused on Full Stack & Artificial Intelligence.",
       socialTitle: "Connect & Socials",
+    },
+    projects: {
+      projectData: "Project Data",
+      timeline: "Timeline",
+      links: "Links & Resources",
+      gallerySection: "Gallery",
+      galleryTitle: "Insights & Screenshots",
+      projectDescription: "Project Description",
+      category: "Category",
+      technologies: {
+        title: "Technologies",
+        frontend: "Frontend",
+        backend: "Backend",
+        mobile: "Mobile",
+        database: "Database",
+        hardware: "Hardware",
+        devops: "DevOps",
+        other: "Other",
+      },
     },
   },
 };

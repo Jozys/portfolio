@@ -13,20 +13,13 @@ export interface HistoryProps {
   children?: React.ReactNode;
 }
 
-export default function History({
-  title,
-  subTitle,
-  description,
-  children,
-}: HistoryProps) {
+export default function History({ title, subTitle, children }: HistoryProps) {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
   const { language } = useLanguage();
 
   const sectionSubtitle = subTitle ?? language.v4.home.history.subtitle;
   const sectionTitle = title ?? language.v4.home.history.title;
-  const sectionDescription =
-    description ?? language.v4.home.history.description;
 
   return (
     <Box
@@ -75,16 +68,6 @@ export default function History({
               {sectionTitle}
             </Typography>
           </Box>
-          <Typography
-            sx={{
-              color: theme.palette.text.secondary,
-              maxWidth: 420,
-              fontSize: 15,
-              lineHeight: 1.6,
-            }}
-          >
-            {sectionDescription}
-          </Typography>
         </Stack>
 
         <Box
@@ -98,7 +81,6 @@ export default function History({
             children
           ) : (
             <>
-              {/* Station 1: DHBW / SAP */}
               <HistoryCard
                 image={DHBW}
                 imageAlt="DHBW Karlsruhe"
@@ -109,7 +91,6 @@ export default function History({
                 tags={language.v4.home.history.dhbwTags}
               />
 
-              {/* Station 2: TECKdigital */}
               <HistoryCard
                 image={Teckdigital}
                 imageAlt="TECKdigital"
@@ -119,7 +100,6 @@ export default function History({
                 tags={language.v4.home.history.teckdigitalTags}
               />
 
-              {/* Station 3: Leben & Ausgleich */}
               <HistoryCard
                 image={Schwarzwald}
                 imageAlt="Schwarzwald"

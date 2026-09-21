@@ -54,6 +54,7 @@ export const language: Language = {
       },
       description:
         "Eine Auswahl der Projekte, die ich entwickelt habe, um meine Fähigkeiten zu verbessern.",
+      documentation: "Dokumentation",
       readMore: "Mehr lesen",
       teckboard: {
         title: "TECKboards",
@@ -87,6 +88,8 @@ export const language: Language = {
         title: "MoveTopia",
         description:
           "MoveTopia ist eine innovative Fitness-Tracking-App, die Nutzern hilft, ihre Trainingsfortschritte effektiv zu verfolgen und zu dokumentieren. Die App habe ich zusammen mit Niklas Buse im Rahmen unserer Studienarbeit an der DHBW Karlsruhe entwickelt. Sie bietet eine benutzerfreundliche Oberfläche, um Trainingsdaten zu erfassen und Fortschritte zu visualisieren.",
+        playStore: "Play Store",
+        appStore: "App Store",
       },
       sensoration: {
         title: "Sensoration",
@@ -194,9 +197,8 @@ export const language: Language = {
       nav: {
         home: "Home",
         projects: "Projekte",
-        caseStudy: "Detailansicht",
+        about: "Über mich",
       },
-      backToLive: "Zurück zum Portfolio",
       tabs: {
         home: "Home",
         projects: "Projekte",
@@ -234,6 +236,25 @@ export const language: Language = {
       subtitle:
         "Software Engineer bei SAP in Walldorf • Fokus auf Full Stack & Künstliche Intelligenz.",
       socialTitle: "Social & Kontakt",
+    },
+    projects: {
+      projectData: "Projektdaten",
+      projectDescription: "Projektbeschreibung",
+      timeline: "Zeitraum",
+      links: "Links & Ressourcen",
+      gallerySection: "Galerie",
+      galleryTitle: "Einblicke & Screenshots",
+      category: "Kategorie",
+      technologies: {
+        title: "Architektur & Technologie-Stack",
+        frontend: "Frontend",
+        backend: "Backend",
+        mobile: "Mobile",
+        database: "Datenbank",
+        hardware: "Hardware",
+        devops: "DevOps",
+        other: "Andere",
+      },
     },
   },
 };

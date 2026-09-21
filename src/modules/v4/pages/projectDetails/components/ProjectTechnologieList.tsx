@@ -24,7 +24,7 @@ export default function ProjectTechnologieList(
 ) {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
-  const { languageType } = useLanguage();
+  const { language, languageType } = useLanguage();
   const { project } = props;
 
   const cardBg = isDark
@@ -51,23 +51,31 @@ export default function ProjectTechnologieList(
         technologies: map.get(type)!,
       }));
   }, [project.technologies, languageType]);
+
+  const getGroupLabel = (type: TechnologyType) => {
+    switch (type) {
+      case TechnologyType.Frontend:
+        return language.v4?.projects?.technologies?.frontend;
+      case TechnologyType.Backend:
+        return language.v4?.projects?.technologies?.backend;
+      case TechnologyType.Mobile:
+        return language.v4?.projects?.technologies?.mobile;
+      case TechnologyType.Database:
+        return language.v4?.projects?.technologies?.database;
+      case TechnologyType.Hardware:
+        return language.v4?.projects?.technologies?.hardware;
+      case TechnologyType.DevOps:
+        return language.v4?.projects?.technologies?.devops;
+      case TechnologyType.Other:
+        return language.v4?.projects?.technologies?.other;
+    }
+  };
+
   return (
     <div>
       {groupedTechnologies.length > 0 && (
         <Box sx={{ mt: 8 }}>
           <Box sx={{ mb: 3 }}>
-            <Typography
-              sx={{
-                color: theme.palette.text.primary,
-                fontWeight: 800,
-                fontSize: 13,
-                letterSpacing: ".12em",
-                textTransform: "uppercase",
-                fontFamily: "Titillium Web, sans-serif",
-              }}
-            >
-              {"Technology"}
-            </Typography>
             <Typography
               sx={{
                 color: theme.palette.text.primary,
@@ -77,7 +85,7 @@ export default function ProjectTechnologieList(
                 mt: 0.5,
               }}
             >
-              Architecture & Technology Stack
+              {language.v4?.projects?.technologies.title}
             </Typography>
           </Box>
 
@@ -136,7 +144,7 @@ export default function ProjectTechnologieList(
                       fontFamily: "Titillium Web, sans-serif",
                     }}
                   >
-                    {group.label}
+                    {getGroupLabel(group.type) || group.label}
                   </Typography>
                 </Stack>
 

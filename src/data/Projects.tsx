@@ -129,7 +129,7 @@ export const projects: Record<string, Project> = {
       },
       documentation: {
         url: "https://github.com/SE-TINF22B2/SimpleQ/wiki",
-        label: "Documentation",
+        label: "projects.main.documentation",
       },
     },
   },
@@ -206,19 +206,19 @@ export const projects: Record<string, Project> = {
       },
       playStore: {
         url: "https://play.google.com/store/apps/details?id=de.buseslaar.movetopia",
-        label: "",
+        label: "projects.main.moveTopia.playStore",
         icon: (
           <img height={"24px"} src={GooglePlayIcon} alt="GooglePlay Icon" />
         ),
       },
       appStore: {
         url: "https://testflight.apple.com/join/1MYANqEt",
-        label: "",
+        label: "projects.main.moveTopia.appStore",
         icon: <img height={"24px"} src={AppleAppStore} alt="App Store Icon" />,
       },
       documentation: {
         url: "https://niklas-buse.de/project/movetopia",
-        label: "Documentation",
+        label: "projects.main.documentation",
         icon: <Article />,
       },
     },
@@ -239,7 +239,7 @@ export const projects: Record<string, Project> = {
       },
       documentation: {
         url: "https://github.com/Jozys/Sensoration/wiki",
-        label: "Documentation",
+        label: "projects.main.documentation",
         icon: SensorationLogo,
       },
     },
@@ -251,7 +251,7 @@ export const projects: Record<string, Project> = {
     years: { start: 2026 },
     image: "ShakeIT",
     detailImages: ["ShakeITApp"],
-    technologies: [getTechnology("react")!, getTechnology("typescript")!],
+    technologies: [getTechnology("react")!, getTechnology("java")!],
   },
 };
 

@@ -20,7 +20,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
   const { project } = props;
   const { language } = useLanguage();
   const details = getProjectDetails(project, language);
-  const t = language.v4?.projects?.caseStudy;
+  const t = language.v4?.projects;
 
   /* const cardBg = isDark
     ? "rgba(255, 255, 255, 0.03)"
@@ -41,7 +41,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
         <Stack spacing={2.5}>
           <Typography
             sx={{
-              color: theme.palette.primary.main,
+              color: theme.palette.text.secondary,
               fontWeight: 800,
               fontSize: 13,
               letterSpacing: ".12em",
@@ -49,7 +49,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
               fontFamily: "Titillium Web, sans-serif",
             }}
           >
-            {t?.factsTitle}
+            {t.projectData}
           </Typography>
 
           {project.years && (
@@ -171,7 +171,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
               fontFamily: "Titillium Web, sans-serif",
             }}
           >
-            {"Project Details"}
+            {t.projectDescription}
           </Typography>
           <Typography
             sx={{

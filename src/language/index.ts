@@ -30,6 +30,7 @@ export type Language = {
     main: {
       title: string;
       description: string;
+      documentation: string;
       filter: {
         all: string;
       };
@@ -39,7 +40,7 @@ export type Language = {
       simpleQ: Info;
       dbDelay: Info;
       concertHistory: Info;
-      moveTopia: Info;
+      moveTopia: Info & { playStore: string; appStore: string };
       sensoration: Info;
       skills: Info;
       learnMore: string;
@@ -92,6 +93,49 @@ export type Language = {
   v4: V4Language;
 };
 
+export type V4ProjectFeature = {
+  title: string;
+  description: string;
+};
+
+export type V4ProjectStat = {
+  label: string;
+  value: string;
+};
+
+export type V4ProjectDetail = {
+  category?: string;
+  role?: string;
+  statusText?: string;
+  features?: V4ProjectFeature[];
+  challenges?: string;
+  learnings?: string;
+  stats?: V4ProjectStat[];
+};
+
+export type V4Projects = {
+  projectData: string;
+  projectDescription: string;
+  timeline: string;
+  links: string;
+  gallerySection: string;
+  galleryTitle: string;
+  category: string;
+  technologies: {
+    title: string;
+    frontend: string;
+    backend: string;
+    mobile: string;
+    database: string;
+    hardware: string;
+    devops: string;
+    other: string;
+  };
+  details?: {
+    [key: string]: V4ProjectDetail;
+  };
+};
+
 export type V4Language = {
   header: {
     themeToggleLight: string;
@@ -100,9 +144,8 @@ export type V4Language = {
     nav: {
       home: string;
       projects: string;
-      caseStudy: string;
+      about: string;
     };
-    backToLive: string;
     tabs: {
       home: string;
       projects: string;
@@ -135,6 +178,7 @@ export type V4Language = {
     subtitle: string;
     socialTitle: string;
   };
+  projects: V4Projects;
 };
 
 export type Info = {
