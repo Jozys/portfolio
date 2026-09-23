@@ -30,6 +30,7 @@ import React from "react";
  */
 export interface Project {
   name: string;
+  shortDescription?: string; // Optional short description for the project
   description: string | React.ReactNode;
   route: string; // Route for the project details page, e.g., "/projects/example-project"
   image: React.ReactNode;

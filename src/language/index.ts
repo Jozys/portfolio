@@ -183,5 +183,6 @@ export type V4Language = {
 
 export type Info = {
   title: string;
+  shortDescription?: string;
   description: string;
 };

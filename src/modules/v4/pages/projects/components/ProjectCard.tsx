@@ -1,3 +1,4 @@
+import { ArrowOutward } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -9,14 +10,13 @@ import {
 } from "@mui/material";
 import {
   formatProjectYears,
-  getProjectDescription,
+  getProjectShortDescription,
   getProjectTitle,
 } from "../../../../../data/Projects";
 import { Project } from "../../../../../data/types/Project";
 import { useLanguage } from "../../../../../language/hooks";
-import ProjectVisualHeader from "./ProjectVisualHeader";
-import { ArrowOutward } from "@mui/icons-material";
 import TechnologyButton from "../../../core/Technology";
+import ProjectVisualHeader from "./ProjectVisualHeader";
 
 export default function ProjectCard({
   project,
@@ -28,7 +28,7 @@ export default function ProjectCard({
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
   const { language, languageType } = useLanguage();
-  const description = getProjectDescription(project, language);
+  const description = getProjectShortDescription(project, language);
 
   return (
     <Paper
@@ -119,7 +119,14 @@ export default function ProjectCard({
             {description}
           </Typography>
 
-          <Stack direction="row" flexWrap="wrap" gap={0.75} sx={{ mt: 2.5 }}>
+          <Stack
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              mt: 2.5,
+            }}
+          >
             {project.technologies.slice(0, 4).map((technology) => (
               <TechnologyButton
                 size="small"

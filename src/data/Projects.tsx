@@ -273,6 +273,24 @@ export const getProjectDescription = (
 };
 
 /**
+ * Get the project short description based on the provided language object.
+ * Falls back to the main description if no short description is available.
+ * @param project - The project object containing the short description.
+ * @param language - The language object containing translations.
+ */
+export const getProjectShortDescription = (
+  project: Project,
+  language: Language,
+): string | React.ReactNode => {
+  if (project.shortDescription) {
+    return (
+      getNestedValue(language, project.shortDescription.toString()) ||
+      project.shortDescription
+    );
+  }
+  return getProjectDescription(project, language);
+};
+/**
  * Get the project title based on the provided language object.
  * @param project - The project object containing the name.
  * @param language - The language object containing translations.
