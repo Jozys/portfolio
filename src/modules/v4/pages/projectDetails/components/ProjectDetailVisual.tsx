@@ -12,6 +12,7 @@ export default function ProjectDetailVisual({ project }: { project: Project }) {
         mt: 5,
         borderRadius: 3,
         overflow: "hidden",
+        backgroundColor: theme.palette.background.default,
         border: `1px solid ${
           isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)"
         }`,

@@ -16,14 +16,14 @@ export default function ProjectFilter(props: ProjectFilterProps) {
       direction="row"
       flexWrap="wrap"
       alignItems="center"
-      gap={1}
+      spacing={1}
       sx={{ mt: 5, mb: 4 }}
     >
       <Chip
         icon={<FilterList fontSize="small" />}
         label={props.label}
         clickable
-        color={props.filter === "all" ? "primary" : "default"}
+        color={props.filter === "all" ? "secondary" : "default"}
         variant={props.filter === "all" ? "filled" : "outlined"}
         onClick={() => props.setFilter("all")}
         sx={{ fontWeight: 700 }}
@@ -38,7 +38,7 @@ export default function ProjectFilter(props: ProjectFilterProps) {
           key={type}
           label={type.charAt(0).toUpperCase() + type.slice(1)}
           clickable
-          color={props.filter === type ? "primary" : "default"}
+          color={props.filter === type ? "secondary" : "default"}
           variant={props.filter === type ? "filled" : "outlined"}
           onClick={() => props.setFilter(type)}
           sx={{

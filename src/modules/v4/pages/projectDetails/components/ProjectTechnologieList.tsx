@@ -1,5 +1,5 @@
 import { Box, Paper, Stack, Typography, useTheme } from "@mui/material";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { useLanguage } from "../../../../../language/hooks";
 import { Project, TechnologyType } from "../../../../../data/types/Project";
 import TechnologyButton from "../../../core/Technology";
