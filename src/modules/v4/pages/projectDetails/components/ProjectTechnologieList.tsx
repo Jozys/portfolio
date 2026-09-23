@@ -154,7 +154,6 @@ export default function ProjectTechnologieList(
                       key={tech.name}
                       technology={tech}
                       showName
-                      variant="text"
                     />
                   ))}
                 </Stack>
