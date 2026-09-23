@@ -6,17 +6,17 @@ import DB_Delays_Light from "../assets/projects/dbDelay/db_delays_light.webp";
 import DB_Journey_Light from "../assets/projects/dbDelay/db_journeys_light.webp";
 import DB_Record_Light from "../assets/projects/dbDelay/db_record_light.webp";
 import DB_Statistics_Light from "../assets/projects/dbDelay/db_statistics_light.webp";
-import DBDelay from "../assets/projects/dbDelay/dbDelay.ico";
+import DBDelay from "../assets/projects/dbDelay/dbDelay.svg";
 import DevLightsApp from "../assets/projects/devlights/devlights.png";
 import DevLights from "../assets/projects/devlights/devlights.svg";
 import MoveTopiaApp from "../assets/projects/moveTopia/MoveTopia_Mockup.png";
 import MoveTopia from "../assets/projects/moveTopia/MT_ICON.png";
 import SensorationLogo from "../assets/projects/sensoration/Sensoration_Logo.png";
 import SensorationApp from "../assets/projects/sensoration/Sensoration_Mockup.png";
-import SimpleQLogo from "../assets/projects/simpleQ/simpleQ.ico";
+import SimpleQLogo from "../assets/projects/simpleQ/simpleq_logo.png";
 import SimpleQWebsite from "../assets/projects/simpleQ/SimpleQ_Mockup.png";
 import FirstTECKboard from "../assets/projects/teckboard/firstTECKboard.png";
-import TECKboard from "../assets/projects/teckboard/Logo_TB.svg";
+import TECKboard from "../assets/projects/teckboard/teckboard-logo-orange.svg";
 import SecondTECKboard from "../assets/projects/teckboard/newBoard.png";
 import TECKboardApp from "../assets/projects/teckboard/teckboard_app.png";
 import AppleAppStore from "../assets/technologies/AppleAppStore.png";
@@ -252,6 +252,7 @@ export const projects: Record<string, Project> = {
     image: "ShakeIT",
     detailImages: ["ShakeITApp"],
     technologies: [getTechnology("react")!, getTechnology("java")!],
+    disable: true,
   },
 };
 
@@ -341,18 +342,20 @@ export const formatProjectYears = (
  * Secondary: end year descending (most active/recent end first)
  */
 export const sortProjects = (projectList: Project[]): Project[] => {
-  return [...projectList].sort((a, b) => {
-    const startA = a.years?.start ?? 0;
-    const endA = a.years?.end ?? startA;
+  return [...projectList]
+    .filter((project) => !project.disable)
+    .sort((a, b) => {
+      const startA = a.years?.start ?? 0;
+      const endA = a.years?.end ?? startA;
 
-    const startB = b.years?.start ?? 0;
-    const endB = b.years?.end ?? startB;
+      const startB = b.years?.start ?? 0;
+      const endB = b.years?.end ?? startB;
 
-    if (startB !== startA) {
-      return startB - startA;
-    }
-    return endB - endA;
-  });
+      if (startB !== startA) {
+        return startB - startA;
+      }
+      return endB - endA;
+    });
 };
 
 /**

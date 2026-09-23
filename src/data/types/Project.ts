@@ -40,6 +40,7 @@ export interface Project {
     [key: string]: Link;
     // Allow additional links
   };
+  disable?: boolean; // Optional flag to enable or disable the project
 }
 
 export interface Link {

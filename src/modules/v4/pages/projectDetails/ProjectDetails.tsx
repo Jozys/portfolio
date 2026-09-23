@@ -6,12 +6,18 @@ import useProjects from "../../hooks/projects/useProjects";
 import ProjectDetailContent from "./components/ProjectDetailContent";
 import ProjectDetailHeader from "./components/ProjectDetailHeader";
 import ProjectDetailVisual from "./components/ProjectDetailVisual";
+import React from "react";
 
 export default function ProjectDetails() {
   const route = useParams<{ id: string }>();
   const project = useProjects().getProjectById(route.id || "");
 
   const theme = useTheme();
+
+  React.useEffect(() => {
+    // Scroll to top when the project changes
+    window.scrollTo(0, 0);
+  }, [route.id]);
 
   return (
     <Box sx={{ minHeight: "calc(100vh - 70px)", py: { xs: 6, md: 10 } }}>
@@ -25,7 +31,7 @@ export default function ProjectDetails() {
               textTransform: "none",
               px: 0,
               fontWeight: 700,
-              "&:hover": { color: theme.palette.primary.main },
+              "&:hover": { color: theme.palette.secondary.main },
             }}
           >
             Go Back
