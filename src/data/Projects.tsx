@@ -181,12 +181,9 @@ export const projects: Record<string, Project> = {
         label: "GitHub",
         icon: <GitHubIcon />,
       },
-      playStore: {
+      betaTest: {
         url: "https://groups.google.com/g/concert-history-beta",
-        label: "",
-        icon: (
-          <img height={"24px"} src={GooglePlayIcon} alt="GooglePlay Icon" />
-        ),
+        label: "projects.main.concertHistory.betaTest",
       },
     },
   },

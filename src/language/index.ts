@@ -39,7 +39,7 @@ export type Language = {
       devlight: Info & { readDoc: string };
       simpleQ: Info;
       dbDelay: Info;
-      concertHistory: Info;
+      concertHistory: Info & { betaTest: string };
       moveTopia: Info & { playStore: string; appStore: string };
       sensoration: Info;
       skills: Info;

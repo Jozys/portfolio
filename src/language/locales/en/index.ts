@@ -87,6 +87,7 @@ export const language: Language = {
         title: "Concert History",
         description:
           'ConcertHistory is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices. I developed the app as part of the module "Design of mobile applications" at the DHBW Karlsruhe together with Niklas Buse.',
+        betaTest: "Beta Test",
       },
       moveTopia: {
         title: "MoveTopia",
