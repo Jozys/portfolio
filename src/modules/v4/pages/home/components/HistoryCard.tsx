@@ -169,6 +169,10 @@ export default function HistoryCard({
               borderTop: `1px solid ${
                 isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"
               }`,
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              gap: 1,
             }}
           >
             {tags?.map((tag, index) => (

@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { OpenInNew } from "@mui/icons-material";
-import { Box, Button, Paper, Stack, Typography, useTheme } from "@mui/material";
+import ZoomInIcon from "@mui/icons-material/ZoomIn";
+import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
 import {
   formatProjectYears,
   getLabel,
@@ -8,6 +10,7 @@ import {
 } from "../../../../../data/Projects";
 import { Project } from "../../../../../data/types/Project";
 import { useLanguage } from "../../../../../language/hooks";
+import ProjectImageLightbox from "./ProjectImageLightbox";
 import ProjectTechnologieList from "./ProjectTechnologieList";
 
 export interface ProjectDetailContentProps {
@@ -21,10 +24,10 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
   const { language } = useLanguage();
   const details = getProjectDetails(project, language);
   const t = language.v4?.projects;
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+    null,
+  );
 
-  /* const cardBg = isDark
-    ? "rgba(255, 255, 255, 0.03)"
-    : "rgba(255, 255, 255, 0.85)"; */
   const cardBorder = isDark
     ? "1px solid rgba(255, 255, 255, 0.08)"
     : "1px solid rgba(0, 0, 0, 0.06)";
@@ -55,7 +58,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
           {project.years && (
             <Box
               sx={{
-                borderTop: `2px solid ${theme.palette.primary.main}`,
+                borderTop: `2px solid ${theme.palette.background.default}`,
                 pt: 1.5,
               }}
             >
@@ -228,14 +231,15 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
             }}
           >
             {project.detailImages.map((imgNode, idx) => (
-              <Paper
+              <Box
                 key={idx}
-                elevation={isDark ? 4 : 1}
+                onClick={() => setSelectedImageIndex(idx)}
                 sx={{
+                  position: "relative",
                   borderRadius: 3,
                   overflow: "hidden",
                   border: cardBorder,
-                  background: isDark
+                  bgcolor: isDark
                     ? "rgba(0,0,0,0.3)"
                     : "rgba(240,244,248,0.6)",
                   display: "flex",
@@ -243,9 +247,20 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
                   justifyContent: "center",
                   p: 2,
                   minHeight: 280,
-                  transition: "transform 0.3s ease",
+                  cursor: "pointer",
+                  boxShadow: isDark ? 4 : 1,
+                  transition:
+                    "transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease",
                   "&:hover": {
-                    transform: "scale(1.01)",
+                    transform: "scale(1.015)",
+                    borderColor: theme.palette.primary.main,
+                    boxShadow: isDark
+                      ? `0 12px 28px -6px ${theme.palette.primary.main}30`
+                      : `0 10px 24px -6px ${theme.palette.primary.main}25`,
+                    "& .zoom-indicator": {
+                      opacity: 1,
+                      transform: "scale(1)",
+                    },
                   },
                   "& img": {
                     maxWidth: "100%",
@@ -258,14 +273,50 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
                   },
                 }}
               >
+                <Box
+                  className="zoom-indicator"
+                  sx={{
+                    position: "absolute",
+                    top: 14,
+                    right: 14,
+                    opacity: 0,
+                    transform: "scale(0.85)",
+                    transition: "all 0.25s ease",
+                    bgcolor: isDark
+                      ? "rgba(15,20,30,0.75)"
+                      : "rgba(255,255,255,0.85)",
+                    backdropFilter: "blur(8px)",
+                    borderRadius: "50%",
+                    p: 0.8,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: theme.palette.primary.main,
+                    boxShadow: 2,
+                    zIndex: 2,
+                    border: `1px solid ${
+                      isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.08)"
+                    }`,
+                  }}
+                >
+                  <ZoomInIcon fontSize="small" />
+                </Box>
+
                 {typeof imgNode === "string" ? (
                   <img src={imgNode} alt={`Project detail ${idx + 1}`} />
                 ) : (
                   imgNode
                 )}
-              </Paper>
+              </Box>
             ))}
           </Box>
+
+          <ProjectImageLightbox
+            open={selectedImageIndex !== null}
+            initialIndex={selectedImageIndex ?? 0}
+            images={project.detailImages}
+            onClose={() => setSelectedImageIndex(null)}
+          />
         </Box>
       )}
     </Box>
