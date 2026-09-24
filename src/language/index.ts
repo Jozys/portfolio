@@ -29,13 +29,18 @@ export type Language = {
   projects: {
     main: {
       title: string;
+      description: string;
+      documentation: string;
+      filter: {
+        all: string;
+      };
       readMore: string;
       teckboard: Info;
       devlight: Info & { readDoc: string };
       simpleQ: Info;
       dbDelay: Info;
-      concertHistory: Info;
-      moveTopia: Info;
+      concertHistory: Info & { betaTest: string };
+      moveTopia: Info & { playStore: string; appStore: string };
       sensoration: Info;
       skills: Info;
       learnMore: string;
@@ -85,9 +90,99 @@ export type Language = {
     backToPortfolio: string;
     tagline: string;
   };
+  v4: V4Language;
+};
+
+export type V4ProjectFeature = {
+  title: string;
+  description: string;
+};
+
+export type V4ProjectStat = {
+  label: string;
+  value: string;
+};
+
+export type V4ProjectDetail = {
+  category?: string;
+  role?: string;
+  statusText?: string;
+  features?: V4ProjectFeature[];
+  challenges?: string;
+  learnings?: string;
+  stats?: V4ProjectStat[];
+};
+
+export type V4Projects = {
+  projectData: string;
+  projectDescription: string;
+  timeline: string;
+  links: string;
+  gallerySection: string;
+  galleryTitle: string;
+  category: string;
+  technologies: {
+    title: string;
+    frontend: string;
+    backend: string;
+    mobile: string;
+    database: string;
+    hardware: string;
+    devops: string;
+    other: string;
+  };
+  details?: {
+    [key: string]: V4ProjectDetail;
+  };
+};
+
+export type V4Language = {
+  header: {
+    themeToggleLight: string;
+    themeToggleDark: string;
+    languageToggle: string;
+    nav: {
+      home: string;
+      projects: string;
+      about: string;
+    };
+    tabs: {
+      home: string;
+      projects: string;
+      me: string;
+    };
+  };
+  home: {
+    action: {
+      explore: string;
+      contact: string;
+    };
+    portrait: {
+      statusTitle: string;
+      statusDescription: string;
+    };
+    history: {
+      subtitle: string;
+      title: string;
+      description: string;
+      dhbwTags: string[];
+      teckdigitalTags: string[];
+      lifeTags: string[];
+    };
+    status: {
+      title: string;
+      description: string;
+    };
+  };
+  footer: {
+    subtitle: string;
+    socialTitle: string;
+  };
+  projects: V4Projects;
 };
 
 export type Info = {
   title: string;
+  shortDescription?: string;
   description: string;
 };

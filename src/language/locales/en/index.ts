@@ -52,6 +52,11 @@ export const language: Language = {
   projects: {
     main: {
       title: "I developed...",
+      description: "A selection of projects I developed to improve my skills.",
+      documentation: "Documentation",
+      filter: {
+        all: "All projects",
+      },
       readMore: "Read more",
       teckboard: {
         title: "TECKboards",
@@ -82,11 +87,14 @@ export const language: Language = {
         title: "Concert History",
         description:
           'ConcertHistory is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices. I developed the app as part of the module "Design of mobile applications" at the DHBW Karlsruhe together with Niklas Buse.',
+        betaTest: "Beta Test",
       },
       moveTopia: {
         title: "MoveTopia",
         description:
           "MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress. I developed the app together with Niklas Buse as part of a project at DHBW Karlsruhe. It offers a user-friendly interface to record training data and visualize progress.",
+        playStore: "Play Store",
+        appStore: "App Store",
       },
       sensoration: {
         title: "Sensoration",
@@ -186,6 +194,74 @@ export const language: Language = {
   ui5: {
     backToPortfolio: "Back to portfolio",
     tagline: "Built with Open UI5 — secret mode 🛠️",
+  },
+  v4: {
+    header: {
+      themeToggleLight: "Switch to light mode",
+      themeToggleDark: "Switch to dark mode",
+      languageToggle: "Zu Deutsch wechseln",
+      nav: {
+        home: "Home",
+        projects: "Projects",
+        about: "About me",
+      },
+      tabs: {
+        home: "Home",
+        projects: "Projects",
+        me: "About me",
+      },
+    },
+    home: {
+      action: {
+        explore: "Explore selected work",
+        contact: "Start a conversation",
+      },
+      portrait: {
+        statusTitle: "Software Engineer @ SAP",
+        statusDescription: "Walldorf • Full Stack & AI",
+      },
+      history: {
+        subtitle: "Background & Journey",
+        title: "Experience, Studies & Life",
+        description:
+          "Key milestones from my dual study at SAP, early initiatives with TECKdigital, to personal passions.",
+        dhbwTags: ["Dual Study", "SAP", "DHBW"],
+        teckdigitalTags: [
+          "Mobile Apps",
+          "Software Development",
+          "Web Development",
+        ],
+        lifeTags: ["Outdoor", "Black Forest", "Travel"],
+      },
+      status: {
+        title: "Current status",
+        description: "Location, current role, and engineering focuses.",
+      },
+    },
+    footer: {
+      subtitle:
+        "Software Engineer at SAP in Walldorf • Focused on Full Stack & Artificial Intelligence.",
+      socialTitle: "Connect & Socials",
+    },
+    projects: {
+      projectData: "Project Data",
+      timeline: "Timeline",
+      links: "Links & Resources",
+      gallerySection: "Gallery",
+      galleryTitle: "Insights & Screenshots",
+      projectDescription: "Project Description",
+      category: "Category",
+      technologies: {
+        title: "Technologies",
+        frontend: "Frontend",
+        backend: "Backend",
+        mobile: "Mobile",
+        database: "Database",
+        hardware: "Hardware",
+        devops: "DevOps",
+        other: "Other",
+      },
+    },
   },
 };
 export default language;

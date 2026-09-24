@@ -8,7 +8,7 @@ export const language: Language = {
   },
   home: {
     greeting: "Hallo",
-    name: "Ich bin Joshua Slaar!",
+    name: "Ich bin Joshua!",
     subtitle: `Entwickler - ${getAge()} Jahre alt - Deutschland`,
     me: {
       title: "Wer bin ich",
@@ -49,6 +49,12 @@ export const language: Language = {
   projects: {
     main: {
       title: "Ich habe entwickelt...",
+      filter: {
+        all: "Alle Projekte",
+      },
+      description:
+        "Eine Auswahl der Projekte, die ich entwickelt habe, um meine Fähigkeiten zu verbessern.",
+      documentation: "Dokumentation",
       readMore: "Mehr lesen",
       teckboard: {
         title: "TECKboards",
@@ -77,11 +83,14 @@ export const language: Language = {
         title: "Concert History",
         description:
           'ConcertHistory ist eine native Android-App, die es Konzertgängern ermöglicht, ihre besuchten Konzerte zu dokumentieren und jederzeit mobil darauf zuzugreifen. Die App habe ich Rahmen des Modules "Entwurf mobiler Applikationen" an der DHBW Karlsruhe zusammen mit Niklas Buse entwickelt.',
+        betaTest: "Beta Testen",
       },
       moveTopia: {
         title: "MoveTopia",
         description:
           "MoveTopia ist eine innovative Fitness-Tracking-App, die Nutzern hilft, ihre Trainingsfortschritte effektiv zu verfolgen und zu dokumentieren. Die App habe ich zusammen mit Niklas Buse im Rahmen unserer Studienarbeit an der DHBW Karlsruhe entwickelt. Sie bietet eine benutzerfreundliche Oberfläche, um Trainingsdaten zu erfassen und Fortschritte zu visualisieren.",
+        playStore: "Play Store",
+        appStore: "App Store",
       },
       sensoration: {
         title: "Sensoration",
@@ -180,6 +189,74 @@ export const language: Language = {
   ui5: {
     backToPortfolio: "Zurück zum Portfolio",
     tagline: "Gebaut mit Open UI5 — Secret Mode 🛠️",
+  },
+  v4: {
+    header: {
+      themeToggleLight: "Zum Light Mode wechseln",
+      themeToggleDark: "Zum Dark Mode wechseln",
+      languageToggle: "Switch to English",
+      nav: {
+        home: "Home",
+        projects: "Projekte",
+        about: "Über mich",
+      },
+      tabs: {
+        home: "Home",
+        projects: "Projekte",
+        me: "Über mich",
+      },
+    },
+    home: {
+      action: {
+        explore: "Arbeiten entdecken",
+        contact: "Kontakt aufnehmen",
+      },
+      portrait: {
+        statusTitle: "Software Engineer @ SAP",
+        statusDescription: "Walldorf • Full Stack & AI",
+      },
+      history: {
+        subtitle: "Werdegang & Stationen",
+        title: "Erfahrung, Studium & Leben",
+        description:
+          "Einblicke in meinen Weg vom dualen Studium bei der SAP über die Schülerfirma bis hin zu persönlichen Interessen.",
+        dhbwTags: ["Duales Studium", "SAP", "DHBW"],
+        teckdigitalTags: [
+          "Mobile Apps",
+          "Softwareentwicklung",
+          "Webentwicklung",
+        ],
+        lifeTags: ["Outdoor", "Schwarzwald", "Reisen"],
+      },
+      status: {
+        title: "Aktueller Status",
+        description: "Standort, Tätigkeit und technische Schwerpunkte.",
+      },
+    },
+    footer: {
+      subtitle:
+        "Software Engineer bei SAP in Walldorf • Fokus auf Full Stack & Künstliche Intelligenz.",
+      socialTitle: "Social & Kontakt",
+    },
+    projects: {
+      projectData: "Projektdaten",
+      projectDescription: "Projektbeschreibung",
+      timeline: "Zeitraum",
+      links: "Links & Ressourcen",
+      gallerySection: "Galerie",
+      galleryTitle: "Einblicke & Screenshots",
+      category: "Kategorie",
+      technologies: {
+        title: "Architektur & Technologie-Stack",
+        frontend: "Frontend",
+        backend: "Backend",
+        mobile: "Mobile",
+        database: "Datenbank",
+        hardware: "Hardware",
+        devops: "DevOps",
+        other: "Andere",
+      },
+    },
   },
 };
 export default language;

@@ -30,14 +30,18 @@ import React from "react";
  */
 export interface Project {
   name: string;
+  shortDescription?: string; // Optional short description for the project
   description: string | React.ReactNode;
+  route: string; // Route for the project details page, e.g., "/projects/example-project"
   image: React.ReactNode;
+  detailImages?: React.ReactNode[]; // Optional detailed images for the project
   technologies: Technology[];
-  years?: string; // Optional years of the project, e.g., "2021-2022"
-  links: {
+  years?: { start: number; end?: number }; // Optional years of the project, e.g., "2021-2022"
+  links?: {
     [key: string]: Link;
     // Allow additional links
   };
+  disable?: boolean; // Optional flag to enable or disable the project
 }
 
 export interface Link {

@@ -3,16 +3,18 @@ import "./App.css";
 import LanguageProvider from "./language/hooks/LanguageProvider";
 import Router from "./modules/core/components/Router";
 import ThemeProvider from "./theme/hooks";
+import ProjectsProvider from "./modules/v4/hooks/projects/ProjectsProvider";
 
 function App() {
   return (
     <StyledEngineProvider injectFirst>
-        <LanguageProvider>
-          <ThemeProvider>
+      <LanguageProvider>
+        <ThemeProvider>
+          <ProjectsProvider>
             <Router />
-          </ThemeProvider>
-        </LanguageProvider>
-    
+          </ProjectsProvider>
+        </ThemeProvider>
+      </LanguageProvider>
     </StyledEngineProvider>
   );
 }
