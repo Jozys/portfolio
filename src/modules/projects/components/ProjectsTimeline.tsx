@@ -6,6 +6,7 @@ import TimelineButton from "../design-system/TimelineButton";
 
 import React from "react";
 import {
+  formatProjectYears,
   getAllProjects,
   getLabel,
   getProjectDescription,
@@ -32,7 +33,7 @@ export default function ProjectsTimeline() {
           dotContent={
             project.years ? (
               <Typography padding={2} fontWeight={"bold"} textAlign={"center"}>
-                {project.years}
+                {formatProjectYears(project.years)}
               </Typography>
             ) : undefined
           }
@@ -51,7 +52,9 @@ export default function ProjectsTimeline() {
                 justifyContent: "center",
               }}
             >
-              <Typography fontWeight={"bold"}>{project.years}</Typography>
+              <Typography fontWeight={"bold"}>
+                {formatProjectYears(project.years)}
+              </Typography>
             </Box>
           )}
         </CustomTimelineItem>
@@ -74,7 +77,7 @@ function AdditionalProjectInformation(props: { project: Project }) {
           onClick={() => {
             window.open(
               link.url,
-              link.disableOpenInNewTab ? "_self" : "_blank"
+              link.disableOpenInNewTab ? "_self" : "_blank",
             );
           }}
           title={getLabel(link.label, language)}

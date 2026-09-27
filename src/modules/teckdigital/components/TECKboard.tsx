@@ -177,7 +177,7 @@ export default function TECKboard() {
   // Evolution der TECKboard-Sektion
   const evolutionSection = (
     <Grid container spacing={4}>
-      <Grid item xs={12} md={6}>
+      <Grid size={{ xs: 12, md: 6 }}>
         <Paper elevation={0} className={classes.singleImage}>
           <Typography variant="h6" className={classes.imageTitle}>
             First Version (2019)
@@ -211,7 +211,7 @@ export default function TECKboard() {
         </Paper>
       </Grid>
 
-      <Grid item xs={12} md={6}>
+      <Grid size={{ xs: 12, md: 6 }}>
         <Paper elevation={0} className={classes.singleImage}>
           <Typography variant="h6" className={classes.imageTitle}>
             Current Version (2020)
@@ -251,7 +251,7 @@ export default function TECKboard() {
   // Mobile App Evolution-Sektion
   const mobileAppSection = (
     <Grid container spacing={4}>
-      <Grid item xs={12} md={6}>
+      <Grid size={{ xs: 12, md: 6 }}>
         <Paper elevation={0} className={classes.singleImage}>
           <Typography variant="h6" className={classes.imageTitle}>
             Prototype Version
@@ -286,7 +286,7 @@ export default function TECKboard() {
         </Paper>
       </Grid>
 
-      <Grid item xs={12} md={6}>
+      <Grid size={{ xs: 12, md: 6 }}>
         <Paper elevation={0} className={classes.singleImage}>
           <Typography variant="h6" className={classes.imageTitle}>
             Released Version (v.1.1.8)
