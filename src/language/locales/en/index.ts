@@ -253,6 +253,8 @@ Outside of programming, I enjoy spending time outdoors — cycling in the Black 
       themeToggleLight: "Switch to light mode",
       themeToggleDark: "Switch to dark mode",
       languageToggle: "Zu Deutsch wechseln",
+      openMenu: "Open navigation menu",
+      closeMenu: "Close navigation menu",
       nav: {
         home: "Home",
         projects: "Projects",

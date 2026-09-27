@@ -18,6 +18,7 @@ import Menu from "./Menu";
 // Temporary imports for v4 routes
 import HomeV4 from "../../v4/pages/home/Home";
 import ProjectsV4 from "../../v4/pages/projects/Projects";
+import About from "../../v4/pages/about/About";
 import ProjectDetails from "../../v4/pages/projectDetails/ProjectDetails";
 
 // Secret UI5 showcase — lazily loaded so the (heavy) SAP UI5 bundle only ships
@@ -51,17 +52,13 @@ function AppShell() {
   const getCurrentTabFromPathname = (
     pathname: string,
   ): "home" | "projects" | "me" => {
-    switch (pathname) {
-      case "/v4/home":
-        return "home";
-      case "/v4/projects":
-      case "/v4/projects/home":
-        return "projects";
-      case "/v4/me":
-        return "me";
-      default:
-        return "home";
+    if (pathname.startsWith("/v4/projects")) {
+      return "projects";
     }
+    if (pathname.startsWith("/v4/me")) {
+      return "me";
+    }
+    return "home";
   };
 
   return (
@@ -94,6 +91,8 @@ function AppShell() {
 
         <Route path="/v4/projects" element={<ProjectsV4 />} />
         <Route path="/v4/projects/:id" element={<ProjectDetails />} />
+
+        <Route path="/v4/me" element={<About />} />
 
         <Route
           path={UI5_PATH}

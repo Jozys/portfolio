@@ -162,6 +162,8 @@ export type V4Language = {
     themeToggleLight: string;
     themeToggleDark: string;
     languageToggle: string;
+    openMenu: string;
+    closeMenu: string;
     nav: {
       home: string;
       projects: string;

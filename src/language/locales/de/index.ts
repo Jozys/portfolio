@@ -249,6 +249,8 @@ Neben dem Entwickeln schätze ich den aktiven Ausgleich in der Natur — beim Ra
       themeToggleLight: "Zum Light Mode wechseln",
       themeToggleDark: "Zum Dark Mode wechseln",
       languageToggle: "Switch to English",
+      openMenu: "Navigation öffnen",
+      closeMenu: "Navigation schließen",
       nav: {
         home: "Home",
         projects: "Projekte",
