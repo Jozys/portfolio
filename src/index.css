@@ -1,5 +1,20 @@
+:root {
+  background-color: #281547;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    background-color: #f8fafc;
+  }
+}
+
+html,
 body {
   margin: 0;
+  min-height: 100%;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
