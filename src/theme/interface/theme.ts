@@ -5,6 +5,10 @@ import "@fontsource/open-sans";
 
 declare module "@mui/material/styles" {
   interface Theme {
+    background: {
+      card: string;
+      border: string;
+    };
     gradients: {
       background: {
         default: string;
@@ -15,6 +19,10 @@ declare module "@mui/material/styles" {
     };
   }
   interface ThemeOptions {
+    background?: {
+      card?: string;
+      border?: string;
+    };
     gradients?: {
       background?: {
         default?: string;
@@ -46,6 +54,10 @@ const theme = (dark: boolean) => {
       },
 
       mode: dark ? "dark" : "light",
+    },
+    background: {
+      card: dark ? "rgba(20, 10, 35, 0.4)" : "rgba(255, 255, 255, 0.6)",
+      border: dark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.08)",
     },
     gradients: {
       background: {

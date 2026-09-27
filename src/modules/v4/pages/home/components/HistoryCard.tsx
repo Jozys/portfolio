@@ -37,9 +37,7 @@ export default function HistoryCard({
           ? "rgba(35, 18, 65, 0.7)"
           : "rgba(255, 255, 255, 0.9)",
         backdropFilter: "blur(12px)",
-        border: `1px solid ${
-          isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.08)"
-        }`,
+        border: `1px solid ${theme.background.border}`,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",

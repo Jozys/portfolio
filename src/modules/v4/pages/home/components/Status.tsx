@@ -35,9 +35,7 @@ export default function Status({
         borderTop: `1px solid ${
           isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"
         }`,
-        background: isDark
-          ? "rgba(20, 10, 35, 0.4)"
-          : "rgba(255, 255, 255, 0.6)",
+        background: theme.background.card,
         backdropFilter: "blur(12px)",
       }}
     >
