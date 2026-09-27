@@ -59,12 +59,16 @@ export const language: Language = {
       readMore: "Read more",
       teckboard: {
         title: "TECKboards",
-        description: `TECKboard is a digital real time information system that two friends of mine,Timo Peters and Yannik Hahn", developed. I spend really much hours developing a smartphone application for this system. By using the principe learning by doing, I learned much about planing, developing and communicating with the two developers of this system.`,
+        shortDescription:
+          "TECKboard is a digital real time information system, that two friends of mine developed. I developed a smartphone application for this system.",
+        description: `TECKboard is a digital real time information system that two friends of mine, [Timo Peters](https://tipela.de) and [Yannik Hahn](https://h4hn.de), developed. I spend really much hours developing a smartphone application for this system. By using the principe learning by doing, I learned much about planing, developing and communicating with the two developers of this system.`,
       },
       devlight: {
         title: "DevLights",
+        shortDescription:
+          "DevLights are the smart home LED Stripes for Developers, which I developed together with two friends of mine.",
         description: `DevLights are the smart home LED Stripes for Developers. Together
-                with two friends of mine, Jaan Springer and Timo Peters, we
+                with two friends of mine, Jaan Springer and [Timo Peters](https://tipela.de), we
                 developed these lights during our project course informatic at
                 Graf-Adolf-Gymnasium. From begin we learned new programming
                 languages like C++ and worked at Hard and Software. `,
@@ -72,31 +76,41 @@ export const language: Language = {
       },
       simpleQ: {
         title: "SimpleQ",
+        shortDescription:
+          "SimpleQ is a web application developed as part of a project at DHBW Karlsruhe, which allows asking and answering questions.",
         description: `SimpleQ is a web application developed as part of a project at DHBW Karlsruhe, which allows asking and answering questions. 
         In the Software Engineering course, the entire process of product development was worked through. 
         This project made it possible to gain valuable experiences in collaboration and task coordination with people with whom I had previously worked little.`,
       },
       dbDelay: {
         title: "DB Delay",
+        shortDescription:
+          "DB Delay is an application to collect personal statistics about travels using railways, especially using the German state-owned Deutsche Bahn.",
         description: `DB Delay is an application that I developed privately to collect personal statistics about travels using railways, especially using the German state-owned Deutsche Bahn. 
         Timetable data from the Deutsche Bahn is stored and evaluated in a database together with manually entered data. The application was developed in TypeScript with NestJS and React. 
         It has nothing to do with the Deutsche Bahn itself but is purely a private application.`,
       },
       concertHistory: {
         title: "Concert History",
+        shortDescription:
+          "Concert History is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices.",
         description:
-          'ConcertHistory is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices. I developed the app as part of the module "Design of mobile applications" at the DHBW Karlsruhe together with Niklas Buse.',
+          'ConcertHistory is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices. I developed the app as part of the module "Design of mobile applications" at the DHBW Karlsruhe together with [Niklas Buse](https://niklas-buse.de).',
         betaTest: "Beta Test",
       },
       moveTopia: {
         title: "MoveTopia",
+        shortDescription:
+          "MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress.",
         description:
-          "MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress. I developed the app together with Niklas Buse as part of a project at DHBW Karlsruhe. It offers a user-friendly interface to record training data and visualize progress.",
+          "MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress. I developed the app together with [Niklas Buse](https://niklas-buse.de) as part of a project at DHBW Karlsruhe. It offers a user-friendly interface to record training data and visualize progress.",
         playStore: "Play Store",
         appStore: "App Store",
       },
       sensoration: {
         title: "Sensoration",
+        shortDescription:
+          "Sensoration is an Android app that enables the collection and visualization of sensor data from distributed Android devices.",
         description: `Sensoration is an Android app that was developed by me together with Tom Schütt as part of the "Distributed Systems" module at DHBW. It enables the collection and visualization of sensor data from distributed Android devices. 
           The app was developed in Kotlin with Jetpack Compose and offers a modern user interface.`,
       },
@@ -185,7 +199,9 @@ export const language: Language = {
   about: {
     me: {
       title: "About me",
-      description: "",
+      description: `I am Joshua Slaar, a **{{age}}-year-old** software engineer based in Germany. My passion for technology sparked in high school through self-driven projects and co-founding the junior venture **TECKdigital**. Following my dual studies in computer science at SAP and DHBW Karlsruhe, I now build software as an engineer at **SAP SE in Walldorf**.
+
+Outside of programming, I enjoy spending time outdoors — cycling in the Black Forest, discovering Europe by train, and connecting with friends and family back home in Brochterbeck.`,
       shortDescription:
         "Software Engineer at SAP in Walldorf passionate about modern web technologies, artificial intelligence, and thoughtful software architecture.",
     },
@@ -199,7 +215,7 @@ export const language: Language = {
       heading: "TBD",
       education: {
         label: "Education",
-        title: "B.Sc. Informatik",
+        title: "B.Sc. Computer Science",
         description: "DHBW Karlsruhe, Germany (2022 - 2025)",
       },
       work: {

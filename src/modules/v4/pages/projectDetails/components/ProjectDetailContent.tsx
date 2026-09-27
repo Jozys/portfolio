@@ -12,6 +12,7 @@ import { Project } from "../../../../../data/types/Project";
 import { useLanguage } from "../../../../../language/hooks";
 import ProjectImageLightbox from "./ProjectImageLightbox";
 import ProjectTechnologieList from "./ProjectTechnologieList";
+import FormattedText from "../../../../../components/FormattedText";
 
 export interface ProjectDetailContentProps {
   project: Project;
@@ -176,16 +177,15 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
           >
             {t.projectDescription}
           </Typography>
-          <Typography
-            sx={{
+          <FormattedText
+            paragraphSx={{
               color: theme.palette.text.secondary,
               fontSize: 16,
               lineHeight: 1.8,
               mt: 2,
             }}
-          >
-            {getProjectDescription(project, language)}
-          </Typography>
+            content={getProjectDescription(project, language)}
+          />
         </Box>
       </Box>
 
@@ -239,9 +239,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
                   borderRadius: 3,
                   overflow: "hidden",
                   border: cardBorder,
-                  bgcolor: isDark
-                    ? "rgba(0,0,0,0.3)"
-                    : "rgba(240,244,248,0.6)",
+                  bgcolor: isDark ? "rgba(0,0,0,0.3)" : "rgba(240,244,248,0.6)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",

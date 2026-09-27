@@ -52,6 +52,7 @@ import { Project } from "./types/Project";
 export const projects: Record<string, Project> = {
   teckboard: {
     name: "projects.main.teckboard.title",
+    shortDescription: "projects.main.teckboard.shortDescription",
     description: "projects.main.teckboard.description",
     route: "teckboard",
     years: { start: 2019, end: 2022 },
@@ -79,6 +80,7 @@ export const projects: Record<string, Project> = {
   devlight: {
     name: "projects.main.devlight.title",
     route: "devlight",
+    shortDescription: "projects.main.devlight.shortDescription",
     description: "projects.main.devlight.description",
     years: { start: 2020, end: 2021 },
     image: DevLights,
@@ -105,6 +107,7 @@ export const projects: Record<string, Project> = {
   simpleQ: {
     route: "simpleq",
     name: "projects.main.simpleQ.title",
+    shortDescription: "projects.main.simpleQ.shortDescription",
     description: "projects.main.simpleQ.description",
     years: { start: 2023 },
     image: SimpleQLogo,
@@ -136,6 +139,7 @@ export const projects: Record<string, Project> = {
   dbDelay: {
     route: "dbdelay",
     name: "projects.main.dbDelay.title",
+    shortDescription: "projects.main.dbDelay.shortDescription",
     description: "projects.main.dbDelay.description",
     years: { start: 2024, end: 2026 },
     image: DBDelay,
@@ -164,6 +168,7 @@ export const projects: Record<string, Project> = {
   concertHistory: {
     route: "concerthistory",
     name: "projects.main.concertHistory.title",
+    shortDescription: "projects.main.concertHistory.shortDescription",
     description: "projects.main.concertHistory.description",
     detailImages: [ConcertHistoryApp],
     image: ConcertHistoryLogo,
@@ -184,6 +189,7 @@ export const projects: Record<string, Project> = {
   moveTopia: {
     route: "movetopia",
     name: "projects.main.moveTopia.title",
+    shortDescription: "projects.main.moveTopia.shortDescription",
     description: "projects.main.moveTopia.description",
     years: { start: 2024, end: 2025 },
     image: MoveTopia,
@@ -217,6 +223,7 @@ export const projects: Record<string, Project> = {
   sensoration: {
     route: "sensoration",
     name: "projects.main.sensoration.title",
+    shortDescription: "projects.main.sensoration.shortDescription",
     description: "projects.main.sensoration.description",
     image: SensorationLogo,
     detailImages: [SensorationApp],
@@ -238,6 +245,7 @@ export const projects: Record<string, Project> = {
   shakeIT: {
     route: "shakeit",
     name: "projects.main.shakeIT.title",
+    shortDescription: "projects.main.shakeIT.shortDescription",
     description: "projects.main.shakeIT.description",
     years: { start: 2026 },
     image: "ShakeIT",
@@ -251,12 +259,12 @@ export const projects: Record<string, Project> = {
  * Get the project description based on the provided language object.
  * @param project - The project object containing the description.
  * @param language - The language object containing translations.
- * @return The project description as a string or React node.
+ * @return The project description as a string.
  */
 export const getProjectDescription = (
   project: Project,
   language: Language,
-): string | React.ReactNode => {
+): string => {
   if (project.description) {
     return (
       getNestedValue(language, project.description.toString()) ||
@@ -275,7 +283,7 @@ export const getProjectDescription = (
 export const getProjectShortDescription = (
   project: Project,
   language: Language,
-): string | React.ReactNode => {
+): string => {
   if (project.shortDescription) {
     return (
       getNestedValue(language, project.shortDescription.toString()) ||

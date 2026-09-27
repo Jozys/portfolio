@@ -1,6 +1,8 @@
-import { Box, Paper, Typography, useTheme } from "@mui/material";
+import { Box, Paper, useTheme } from "@mui/material";
 import { getAllQuickFacts } from "../../../../../data/QuickFact";
 import { useLanguage } from "../../../../../language/hooks";
+import { getAge } from "../../../../../utils/utils";
+import FormattedText from "../../../../../components/FormattedText";
 import QuickFactCard from "./QuickFactCard";
 
 export default function QuickFacts() {
@@ -21,15 +23,10 @@ export default function QuickFacts() {
           mb: 3,
         }}
       >
-        <Typography
-          sx={{
-            fontSize: { xs: 15, sm: 16 },
-            lineHeight: 1.75,
-            color: theme.palette.text.secondary,
-          }}
-        >
-          {language.about.quickFacts.heading}
-        </Typography>
+        <FormattedText
+          content={language.about.me.description}
+          values={{ age: getAge() }}
+        />
       </Paper>
 
       <Box
