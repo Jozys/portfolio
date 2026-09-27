@@ -6,7 +6,6 @@ export const language: Language = {
     de: "🇩🇪 German",
     en: "🇬🇧 English",
   },
-
   home: {
     greeting: "Hello",
     name: "My name is Joshua Slaar!",
@@ -181,6 +180,19 @@ export const language: Language = {
                 we choose`,
         end: `, a multiplatform app developement framework.`,
       },
+    },
+  },
+  about: {
+    me: {
+      title: "",
+      description: "",
+      shortDescription: "",
+    },
+    skills: {
+      title: "Skills & Knowledge",
+      subtitle: "Technologies & Tools",
+      description:
+        "An overview of programming languages, frameworks, databases, and development tools I work with.",
     },
   },
   footer: {

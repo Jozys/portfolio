@@ -102,10 +102,7 @@ const StatusItem = styled(Box)(({ theme }) => ({
       transform: "translateY(-50%)",
       width: "1px",
       height: "60%",
-      background:
-        theme.palette.mode === "dark"
-          ? "rgba(255, 255, 255, 0.1)"
-          : "rgba(0, 0, 0, 0.08)",
+      background: theme.background.border,
     },
   },
   "&:hover": {

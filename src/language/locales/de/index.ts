@@ -178,6 +178,19 @@ export const language: Language = {
       },
     },
   },
+  about: {
+    me: {
+      title: "",
+      description: "",
+      shortDescription: "",
+    },
+    skills: {
+      title: "Skills & Expertise",
+      subtitle: "Technologien & Werkzeuge",
+      description:
+        "Eine Übersicht über Programmiersprachen, Frameworks, Datenbanken und Entwicklungswerkzeuge, mit denen ich bisher gearbeitet habe.",
+    },
+  },
   footer: {
     contact: "Kontakt",
     others: "Andere",

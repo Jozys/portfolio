@@ -42,7 +42,7 @@ export type Language = {
       concertHistory: Info & { betaTest: string };
       moveTopia: Info & { playStore: string; appStore: string };
       sensoration: Info;
-      skills: Info;
+      skills: Info; // To be removed for v4
       learnMore: string;
     };
     devlight: {
@@ -76,6 +76,14 @@ export type Language = {
         start: string;
         end: string;
       };
+    };
+  };
+  about: {
+    me: Info;
+    skills: {
+      title: string;
+      subtitle: string;
+      description: string;
     };
   };
   footer: {
