@@ -85,6 +85,13 @@ export type Language = {
       subtitle: string;
       description: string;
     };
+    quickFacts: {
+      heading: string;
+      education: V4QuickFact;
+      work: V4QuickFact;
+      location: V4QuickFact;
+      interests: V4QuickFact;
+    };
   };
   footer: {
     contact: string;
@@ -99,6 +106,12 @@ export type Language = {
     tagline: string;
   };
   v4: V4Language;
+};
+
+export type V4QuickFact = {
+  title: string;
+  description: string;
+  label: string;
 };
 
 export type V4ProjectFeature = {

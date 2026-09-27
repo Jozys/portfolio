@@ -157,13 +157,7 @@ export const projects: Record<string, Project> = {
       demo: {
         url: "https://bahn.joshua.slaar.de",
         label: "Demo",
-        icon: (
-          <img
-            src="https://bahn.joshua.slaar.de/favicon.ico"
-            alt="DB Delay Demo"
-            height={"24px"}
-          />
-        ),
+        icon: <img src={DBDelay} alt="DB Delay Demo" height={"24px"} />,
       },
     },
   },

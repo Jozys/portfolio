@@ -184,15 +184,40 @@ export const language: Language = {
   },
   about: {
     me: {
-      title: "",
+      title: "About me",
       description: "",
-      shortDescription: "",
+      shortDescription:
+        "Software Engineer at SAP in Walldorf passionate about modern web technologies, artificial intelligence, and thoughtful software architecture.",
     },
     skills: {
       title: "Skills & Knowledge",
       subtitle: "Technologies & Tools",
       description:
         "An overview of programming languages, frameworks, databases, and development tools I work with.",
+    },
+    quickFacts: {
+      heading: "TBD",
+      education: {
+        label: "Education",
+        title: "B.Sc. Informatik",
+        description: "DHBW Karlsruhe, Germany (2022 - 2025)",
+      },
+      work: {
+        label: "Work",
+        title: "Software Engineer",
+        description: "SAP, Walldorf, Germany (2025 - present)",
+      },
+      location: {
+        label: "Location & Origin",
+        title: "Wiesloch & Brochterbeck",
+        description: "Baden-Württemberg & North Rhine-Westphalia, Germany",
+      },
+      interests: {
+        label: "Interests",
+        title: "Sport, Travel & Technology",
+        description:
+          "Sport activities, travel through Germany and Europe, and technological developments and innovations.",
+      },
     },
   },
   footer: {
