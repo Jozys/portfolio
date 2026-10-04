@@ -24,7 +24,6 @@ export default function StatusItem({
   children,
 }: StatusItemProps) {
   const theme = useTheme();
-  const isDark = theme.palette.mode === "dark";
   const { language } = useLanguage();
 
   const resolvedTitle =
@@ -40,19 +39,13 @@ export default function StatusItem({
       sx={{
         p: 2.5,
         borderRadius: 2,
-        background: isDark
-          ? "rgba(255, 255, 255, 0.04)"
-          : "rgba(255, 255, 255, 0.8)",
-        border: `1px solid ${
-          isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.06)"
-        }`,
-        borderTop: `3px solid ${theme.palette.primary.main}`,
+        background: theme.surfaces.cardSubtle,
+        border: `1px solid ${theme.borders.subtle}`,
+        borderTop: `3px solid ${theme.palette.secondary.main}`,
         transition: "transform 0.2s ease, box-shadow 0.2s ease",
         "&:hover": {
           transform: "translateY(-3px)",
-          boxShadow: isDark
-            ? "0 8px 24px rgba(0,0,0,0.3)"
-            : "0 8px 20px rgba(0,0,0,0.06)",
+          boxShadow: theme.shadowsGlow.card,
         },
       }}
     >

@@ -16,6 +16,7 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
+  alpha,
 } from "@mui/material";
 import { useThemeSwitch } from "../../theme/hooks";
 import { useLanguage } from "../../language/hooks";
@@ -108,10 +109,8 @@ export default function Header(props: HeaderProps) {
   return (
     <Box
       sx={{
-        borderBottom: `1px solid ${theme.background.border}`,
-        background: isDark
-          ? "rgba(40, 21, 71, 0.75)"
-          : "rgba(255, 255, 255, 0.85)",
+        borderBottom: `1px solid ${theme.borders.subtle}`,
+        background: theme.surfaces.glassStrong,
         position: "sticky",
         top: 0,
         zIndex: 20,
@@ -207,9 +206,7 @@ export default function Header(props: HeaderProps) {
               size="small"
               onClick={toggleTheme}
               sx={{
-                border: `1px solid ${
-                  isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.1)"
-                }`,
+                border: `1px solid ${theme.borders.subtle}`,
                 color: theme.palette.text.primary,
               }}
             >
@@ -230,9 +227,7 @@ export default function Header(props: HeaderProps) {
               }
               sx={{
                 color: theme.palette.text.primary,
-                border: `1px solid ${
-                  isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.1)"
-                }`,
+                border: `1px solid ${theme.borders.subtle}`,
                 fontWeight: 700,
                 fontSize: 12,
                 px: 1.2,
@@ -256,9 +251,7 @@ export default function Header(props: HeaderProps) {
             aria-controls="mobile-nav-drawer"
             sx={{
               display: { xs: "inline-flex", md: "none" },
-              border: `1px solid ${
-                isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.1)"
-              }`,
+              border: `1px solid ${theme.borders.subtle}`,
               color: theme.palette.text.primary,
             }}
           >
@@ -285,11 +278,9 @@ export default function Header(props: HeaderProps) {
             sx: {
               width: { xs: "85vw", sm: 320 },
               maxWidth: 340,
-              background: isDark
-                ? "rgba(25, 12, 45, 0.96)"
-                : "rgba(255, 255, 255, 0.96)",
+              background: theme.surfaces.glassStrong,
               backdropFilter: "blur(20px)",
-              borderLeft: `1px solid ${theme.background.border}`,
+              borderLeft: `1px solid ${theme.borders.subtle}`,
               boxShadow: isDark
                 ? "-4px 0 24px rgba(0, 0, 0, 0.5)"
                 : "-4px 0 24px rgba(0, 0, 0, 0.08)",
@@ -309,7 +300,7 @@ export default function Header(props: HeaderProps) {
               justifyContent: "space-between",
               pb: 2,
               mb: 1.5,
-              borderBottom: `1px solid ${theme.background.border}`,
+              borderBottom: `1px solid ${theme.borders.subtle}`,
             }}
           >
             <Stack
@@ -340,9 +331,7 @@ export default function Header(props: HeaderProps) {
               onClick={() => setMobileOpen(false)}
               aria-label={language.header.closeMenu}
               sx={{
-                border: `1px solid ${
-                  isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.1)"
-                }`,
+                border: `1px solid ${theme.borders.subtle}`,
                 color: theme.palette.text.primary,
               }}
             >
@@ -373,15 +362,11 @@ export default function Header(props: HeaderProps) {
                       py: 1.25,
                       px: 2,
                       background: isSelected
-                        ? isDark
-                          ? "rgba(34, 193, 195, 0.16)"
-                          : "rgba(18, 138, 142, 0.12)"
+                        ? alpha(theme.palette.secondary.main, isDark ? 0.16 : 0.12)
                         : "transparent",
                       border: `1px solid ${
                         isSelected
-                          ? isDark
-                            ? "rgba(34, 193, 195, 0.4)"
-                            : "rgba(18, 138, 142, 0.35)"
+                          ? alpha(theme.palette.secondary.main, isDark ? 0.4 : 0.35)
                           : "transparent"
                       }`,
                       color: isSelected
@@ -389,9 +374,7 @@ export default function Header(props: HeaderProps) {
                         : theme.palette.text.primary,
                       transition: "all 0.2s ease-in-out",
                       "&:hover": {
-                        background: isDark
-                          ? "rgba(255, 255, 255, 0.08)"
-                          : "rgba(0, 0, 0, 0.05)",
+                        background: theme.surfaces.hover,
                       },
                     }}
                   >

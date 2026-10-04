@@ -11,7 +11,6 @@ import {
 export default function QuickFactCard(props: QuickFact) {
   const { icon, label } = props;
   const theme = useTheme();
-  const isDark = theme.palette.mode === "dark";
   const { language } = useLanguage();
   return (
     <Paper
@@ -25,9 +24,7 @@ export default function QuickFactCard(props: QuickFact) {
         transition: "transform 0.2s ease, box-shadow 0.2s ease",
         "&:hover": {
           transform: "translateY(-3px)",
-          boxShadow: isDark
-            ? "0 8px 24px rgba(0,0,0,0.3)"
-            : "0 8px 20px rgba(0,0,0,0.06)",
+          boxShadow: theme.shadowsGlow.card,
         },
       }}
     >

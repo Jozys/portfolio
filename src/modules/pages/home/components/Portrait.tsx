@@ -80,18 +80,10 @@ export default function Portrait(props: PortraitProps) {
           maxWidth: isAbout ? undefined : 380,
           borderRadius: 3.5,
           overflow: "hidden",
-          background: isDark
-            ? isAbout
-              ? "rgba(35, 18, 65, 0.85)"
-              : "rgba(35, 18, 65, 0.9)"
-            : "rgba(255, 255, 255, 0.95)",
+          background: theme.surfaces.glassStrong,
           backdropFilter: "blur(20px)",
-          border: `1px solid ${
-            isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.08)"
-          }`,
-          boxShadow: isDark
-            ? "0 20px 50px rgba(0,0,0,0.6)"
-            : "0 16px 40px rgba(18,138,142,0.14)",
+          border: `1px solid ${theme.borders.subtle}`,
+          boxShadow: theme.shadowsGlow.cardHover,
         }}
       >
         <Box
@@ -113,12 +105,8 @@ export default function Portrait(props: PortraitProps) {
             isAbout
               ? {
                   p: 2.5,
-                  borderTop: `1px solid ${
-                    isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.08)"
-                  }`,
-                  background: isDark
-                    ? "rgba(20, 10, 35, 0.75)"
-                    : "rgba(255, 255, 255, 0.85)",
+                  borderTop: `1px solid ${theme.borders.subtle}`,
+                  background: theme.surfaces.glass,
                 }
               : {
                   position: "absolute",
@@ -127,13 +115,9 @@ export default function Portrait(props: PortraitProps) {
                   right: 16,
                   p: 2,
                   borderRadius: 2,
-                  background: isDark
-                    ? "rgba(20, 10, 35, 0.88)"
-                    : "rgba(255, 255, 255, 0.92)",
+                  background: theme.surfaces.glassStrong,
                   backdropFilter: "blur(16px)",
-                  border: `1px solid ${
-                    isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.08)"
-                  }`,
+                  border: `1px solid ${theme.borders.subtle}`,
                   boxShadow: isDark
                     ? "0 8px 24px rgba(0,0,0,0.5)"
                     : "0 8px 24px rgba(0,0,0,0.08)",
@@ -146,8 +130,8 @@ export default function Portrait(props: PortraitProps) {
                 width: 10,
                 height: 10,
                 borderRadius: "50%",
-                background: "#10b981",
-                boxShadow: "0 0 10px #10b981",
+                background: theme.palette.success.main,
+                boxShadow: `0 0 10px ${theme.palette.success.main}`,
                 flexShrink: 0,
               }}
             />

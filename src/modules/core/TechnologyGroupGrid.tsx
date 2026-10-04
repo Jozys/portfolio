@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import {
+  alpha,
   Box,
   Paper,
   Stack,
@@ -85,15 +86,11 @@ export function TechnologyCategoryCard({
   const isDark = theme.palette.mode === "dark";
   const { language } = useLanguage();
 
-  const cardBg = isDark
-    ? "rgba(255, 255, 255, 0.03)"
-    : "rgba(255, 255, 255, 0.85)";
-  const cardBorder = isDark
-    ? "1px solid rgba(255, 255, 255, 0.08)"
-    : "1px solid rgba(0, 0, 0, 0.06)";
-
   const displayTitle = title || getTechnologyTypeLabel(type, language);
   const displayIcon = icon ?? getCategoryIcon(type);
+  const iconColor = isDark
+    ? theme.palette.secondary.main
+    : theme.palette.primary.main;
 
   return (
     <Paper
@@ -101,19 +98,15 @@ export function TechnologyCategoryCard({
       sx={{
         p: 3,
         borderRadius: 3,
-        background: cardBg,
-        border: cardBorder,
+        background: theme.surfaces.cardSubtle,
+        border: `1px solid ${theme.borders.subtle}`,
         backdropFilter: "blur(12px)",
         transition:
           "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
         "&:hover": {
           transform: "translateY(-4px)",
-          boxShadow: isDark
-            ? "0 12px 28px rgba(0, 0, 0, 0.35)"
-            : "0 10px 24px rgba(18, 138, 142, 0.1)",
-          borderColor: isDark
-            ? "rgba(34, 193, 195, 0.35)"
-            : "rgba(18, 138, 142, 0.3)",
+          boxShadow: theme.shadowsGlow.cardHover,
+          borderColor: theme.borders.glow,
         },
         ...sx,
       }}
@@ -131,10 +124,8 @@ export function TechnologyCategoryCard({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: isDark
-              ? "rgba(34, 193, 195, 0.15)"
-              : "rgba(18, 138, 142, 0.1)",
-            color: isDark ? "rgba(34, 193, 195, 1)" : "rgba(18, 138, 142, 1)",
+            background: alpha(iconColor, isDark ? 0.15 : 0.1),
+            color: iconColor,
           }}
         >
           {displayIcon}

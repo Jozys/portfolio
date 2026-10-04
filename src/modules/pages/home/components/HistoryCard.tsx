@@ -34,20 +34,16 @@ export default function HistoryCard({
       sx={{
         borderRadius: 2.5,
         overflow: "hidden",
-        background: isDark
-          ? "rgba(35, 18, 65, 0.7)"
-          : "rgba(255, 255, 255, 0.9)",
+        background: theme.surfaces.card,
         backdropFilter: "blur(12px)",
-        border: `1px solid ${theme.background.border}`,
+        border: `1px solid ${theme.borders.subtle}`,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
         transition: "transform 0.25s ease, box-shadow 0.25s ease",
         "&:hover": {
           transform: "translateY(-4px)",
-          boxShadow: isDark
-            ? "0 12px 30px rgba(0,0,0,0.4)"
-            : "0 12px 28px rgba(18,138,142,0.12)",
+          boxShadow: theme.shadowsGlow.card,
         },
       }}
     >
@@ -100,9 +96,7 @@ export default function HistoryCard({
                     borderRadius: 1,
                     fontSize: 11,
                     fontWeight: 600,
-                    background: isDark
-                      ? "rgba(255,255,255,0.08)"
-                      : "rgba(0,0,0,0.05)",
+                    background: theme.surfaces.chip,
                   }}
                 />
               )}
@@ -118,9 +112,7 @@ export default function HistoryCard({
                   borderRadius: 1,
                   fontSize: 11,
                   fontWeight: 600,
-                  background: isDark
-                    ? "rgba(255,255,255,0.08)"
-                    : "rgba(0,0,0,0.05)",
+                  background: theme.surfaces.chip,
                 }}
               />
             </Box>
@@ -164,9 +156,7 @@ export default function HistoryCard({
           <Box
             sx={{
               pt: 2,
-              borderTop: `1px solid ${
-                isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"
-              }`,
+              borderTop: `1px solid ${theme.borders.subtle}`,
               display: "flex",
               flexDirection: "row",
               flexWrap: "wrap",

@@ -10,7 +10,6 @@ export interface ProjectFilterProps {
 
 export default function ProjectFilter(props: ProjectFilterProps) {
   const theme = useTheme();
-  const isDark = theme.palette.mode === "dark";
   return (
     <Stack
       direction="row"
@@ -60,7 +59,7 @@ export default function ProjectFilter(props: ProjectFilterProps) {
           sx={{
             fontWeight: 600,
             textTransform: "capitalize",
-            borderColor: isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.12)",
+            borderColor: theme.borders.subtle,
           }}
         />
       ))}

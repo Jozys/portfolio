@@ -26,7 +26,6 @@ export default function ProjectCard({
   onOpen: () => void;
 }) {
   const theme = useTheme();
-  const isDark = theme.palette.mode === "dark";
   const { language, languageType } = useLanguage();
   const description = getProjectShortDescription(project, language);
 
@@ -37,23 +36,17 @@ export default function ProjectCard({
       sx={{
         borderRadius: 2.5,
         overflow: "hidden",
-        background: isDark
-          ? "rgba(35, 18, 65, 0.7)"
-          : "rgba(255, 255, 255, 0.9)",
+        background: theme.surfaces.card,
         backdropFilter: "blur(12px)",
-        border: `1px solid ${theme.background.border}`,
-        transition: "transform 0.25s ease, box-shadow 0.25s ease",
+        border: `1px solid ${theme.borders.subtle}`,
+        transition: "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
         "&:hover": {
           transform: "translateY(-6px)",
-          boxShadow: isDark
-            ? "0 16px 36px rgba(0, 0, 0, 0.5)"
-            : "0 14px 32px rgba(18, 138, 142, 0.14)",
-          borderColor: isDark
-            ? "rgba(34, 193, 195, 0.4)"
-            : "rgba(18, 138, 142, 0.35)",
+          boxShadow: theme.shadowsGlow.cardHover,
+          borderColor: theme.borders.glow,
           cursor: "pointer",
         },
       }}
@@ -94,9 +87,7 @@ export default function ProjectCard({
                   fontSize: 11,
                   fontWeight: 600,
                   borderRadius: 1,
-                  background: isDark
-                    ? "rgba(255,255,255,0.08)"
-                    : "rgba(0,0,0,0.05)",
+                  background: theme.surfaces.chip,
                   color: theme.palette.text.secondary,
                 }}
               />

@@ -1,4 +1,4 @@
-import { Box, Chip, Paper, Stack, Typography, useTheme } from "@mui/material";
+import { alpha, Box, Chip, Paper, Stack, Typography, useTheme } from "@mui/material";
 import { Milestone } from "../../../../data/types/Milestone";
 import { formatProjectYears } from "../../../../utils/utils";
 import { useLanguage } from "../../../../language/hooks";
@@ -26,13 +26,11 @@ export default function MilestoneItem(props: MilestoneItemProps) {
           width: 26,
           height: 26,
           borderRadius: "50%",
-          background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+          background: theme.gradients.primary,
           color: "#fff",
           display: "grid",
           placeItems: "center",
-          boxShadow: `0 0 0 4px ${
-            isDark ? "rgba(20, 10, 35, 1)" : "rgba(248, 250, 252, 1)"
-          }, 0 0 12px ${theme.palette.primary.main}88`,
+          boxShadow: `0 0 0 4px ${theme.palette.background.default}, 0 0 12px ${alpha(theme.palette.primary.main, 0.55)}`,
           zIndex: 2,
           padding: 1,
         }}
@@ -44,20 +42,14 @@ export default function MilestoneItem(props: MilestoneItemProps) {
         sx={{
           p: { xs: 3, sm: 3.5 },
           borderRadius: 2.5,
-          background: isDark
-            ? "rgba(35, 18, 65, 0.7)"
-            : "rgba(255, 255, 255, 0.9)",
+          background: theme.surfaces.card,
           backdropFilter: "blur(12px)",
-          border: `1px solid ${theme.background.border}`,
-          transition: "transform 0.25s ease, box-shadow 0.25s ease",
+          border: `1px solid ${theme.borders.subtle}`,
+          transition: "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
           "&:hover": {
             transform: "translateY(-4px)",
-            boxShadow: isDark
-              ? "0 12px 30px rgba(0,0,0,0.4)"
-              : "0 12px 28px rgba(18,138,142,0.12)",
-            borderColor: isDark
-              ? "rgba(34, 193, 195, 0.4)"
-              : "rgba(18, 138, 142, 0.35)",
+            boxShadow: theme.shadowsGlow.cardHover,
+            borderColor: theme.borders.glow,
           },
         }}
       >
@@ -78,9 +70,7 @@ export default function MilestoneItem(props: MilestoneItemProps) {
               fontWeight: 800,
               fontSize: 12,
               borderRadius: 1,
-              background: isDark
-                ? "rgba(34, 193, 195, 0.18)"
-                : "rgba(18, 138, 142, 0.12)",
+              background: alpha(theme.palette.secondary.main, isDark ? 0.18 : 0.12),
               color: theme.palette.secondary.main,
             }}
           />
@@ -92,9 +82,7 @@ export default function MilestoneItem(props: MilestoneItemProps) {
                 borderRadius: 1,
                 fontSize: 11,
                 fontWeight: 700,
-                background: isDark
-                  ? "rgba(255,255,255,0.08)"
-                  : "rgba(0,0,0,0.05)",
+                background: theme.surfaces.chip,
                 color: theme.palette.text.primary,
               }}
             />

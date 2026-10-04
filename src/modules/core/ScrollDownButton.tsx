@@ -1,5 +1,5 @@
 import { ArrowDownward } from "@mui/icons-material";
-import { Box, Fade, IconButton, useTheme } from "@mui/material";
+import { alpha, Box, Fade, IconButton, useTheme } from "@mui/material";
 
 export interface ScrollDownProps {
   componentRef: React.RefObject<HTMLDivElement | null>;
@@ -27,8 +27,8 @@ export function ScrollDownButton(props: ScrollDownProps) {
             },
             transition: "transform 0.25s ease-in-out, background-color 0.25s",
             boxShadow: isDark
-              ? "0px 4px 16px rgba(192, 132, 252, 0.35)"
-              : "0px 4px 12px rgba(18, 138, 142, 0.3)",
+              ? `0px 4px 16px ${alpha(theme.palette.secondary.main, 0.35)}`
+              : `0px 4px 12px ${alpha(theme.palette.primary.main, 0.3)}`,
             height: "48px",
             width: "48px",
           }}

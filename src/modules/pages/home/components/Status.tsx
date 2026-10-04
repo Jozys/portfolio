@@ -19,7 +19,6 @@ export default function Status({
   children,
 }: StatusProps) {
   const theme = useTheme();
-  const isDark = theme.palette.mode === "dark";
   const { language } = useLanguage();
 
   const sectionTitle = title ?? language.home.status.title;
@@ -32,10 +31,8 @@ export default function Status({
       component="section"
       sx={{
         py: { xs: 6, md: 8 },
-        borderTop: `1px solid ${
-          isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"
-        }`,
-        background: theme.background.card,
+        borderTop: `1px solid ${theme.borders.subtle}`,
+        background: theme.surfaces.glass,
         backdropFilter: "blur(12px)",
       }}
     >
@@ -51,7 +48,7 @@ export default function Status({
           <Box>
             <Typography
               sx={{
-                color: theme.palette.primary.main,
+                color: theme.palette.text.primary,
                 fontWeight: 800,
                 fontSize: 13,
                 letterSpacing: ".14em",

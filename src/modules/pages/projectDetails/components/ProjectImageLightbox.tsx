@@ -125,11 +125,9 @@ export default function ProjectImageLightbox({
   };
 
   const controlStyle = {
-    bgcolor: isDark ? "rgba(18, 22, 32, 0.8)" : "rgba(255, 255, 255, 0.85)",
+    bgcolor: theme.surfaces.glassStrong,
     backdropFilter: "blur(12px)",
-    border: `1px solid ${
-      isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(0, 0, 0, 0.1)"
-    }`,
+    border: `1px solid ${theme.borders.subtle}`,
     color: theme.palette.text.primary,
     boxShadow: 3,
     zIndex: 1400,
@@ -287,13 +285,9 @@ export default function ProjectImageLightbox({
           maxHeight: hasMultiple ? "72vh" : "80vh",
           p: { xs: 1, sm: 2 },
           borderRadius: 3,
-          bgcolor: isDark
-            ? "rgba(18, 22, 32, 0.6)"
-            : "rgba(255, 255, 255, 0.75)",
+          bgcolor: theme.surfaces.glass,
           backdropFilter: "blur(12px)",
-          border: `1px solid ${
-            isDark ? "rgba(255, 255, 255, 0.12)" : "rgba(0, 0, 0, 0.08)"
-          }`,
+          border: `1px solid ${theme.borders.subtle}`,
           boxShadow: isDark
             ? "0 20px 50px rgba(0,0,0,0.8)"
             : "0 15px 40px rgba(0,0,0,0.12)",

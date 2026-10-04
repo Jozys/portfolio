@@ -13,9 +13,7 @@ export default function ProjectDetailVisual({ project }: { project: Project }) {
         borderRadius: 3,
         overflow: "hidden",
         backgroundColor: theme.palette.background.default,
-        border: `1px solid ${
-          isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)"
-        }`,
+        border: `1px solid ${theme.borders.subtle}`,
       }}
     >
       <Box
@@ -27,12 +25,8 @@ export default function ProjectDetailVisual({ project }: { project: Project }) {
           justifyContent: "center",
           overflow: "hidden",
           position: "relative",
-          background: isDark
-            ? "radial-gradient(circle, rgba(255,255,255,0.06) 0%, rgba(20,10,35,0.6) 100%)"
-            : "radial-gradient(circle, rgba(18,138,142,0.06) 0%, rgba(240,244,248,0.85) 100%)",
-          borderBottom: `1px solid ${
-            isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"
-          }`,
+          background: theme.gradients.visualHeader,
+          borderBottom: `1px solid ${theme.borders.subtle}`,
           p: 2,
         }}
       >

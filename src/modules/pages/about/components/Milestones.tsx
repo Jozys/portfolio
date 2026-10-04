@@ -1,4 +1,4 @@
-import { Box, Stack, useTheme } from "@mui/material";
+import { alpha, Box, Stack, useTheme } from "@mui/material";
 import { getMilestones } from "../../../../data/Milestone";
 import MilestoneItem from "./MilestoneItem";
 
@@ -14,7 +14,7 @@ export default function Milestones() {
           bottom: 24,
           left: { xs: 11, md: 15 },
           width: 2,
-          background: `linear-gradient(180deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 80%, rgba(18,138,142,0.1) 100%)`,
+          background: `linear-gradient(180deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 80%, ${alpha(theme.palette.primary.main, 0.1)} 100%)`,
           borderRadius: 1,
         }}
       />

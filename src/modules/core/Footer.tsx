@@ -7,6 +7,7 @@ import {
   Tooltip,
   Typography,
   useTheme,
+  alpha,
 } from "@mui/material";
 import { useLanguage } from "../../language/hooks";
 import Logo from "./Logo";
@@ -41,12 +42,8 @@ export default function Footer() {
     <Box
       component="footer"
       sx={{
-        borderTop: `1px solid ${
-          isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"
-        }`,
-        background: isDark
-          ? "rgba(20, 10, 35, 0.65)"
-          : "rgba(255, 255, 255, 0.75)",
+        borderTop: `1px solid ${theme.borders.subtle}`,
+        background: theme.surfaces.glass,
         backdropFilter: "blur(16px)",
         py: { xs: 5, md: 7 },
         mt: 8,
@@ -130,20 +127,17 @@ export default function Footer() {
                     size="medium"
                     sx={{
                       color: theme.palette.text.primary,
-                      border: `1px solid ${
-                        isDark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.08)"
-                      }`,
-                      background: isDark
-                        ? "rgba(255,255,255,0.04)"
-                        : "rgba(255,255,255,0.6)",
+                      border: `1px solid ${theme.borders.subtle}`,
+                      background: theme.surfaces.cardSubtle,
                       transition: "all 0.2s ease",
                       "&:hover": {
-                        borderColor: theme.palette.primary.main,
-                        color: theme.palette.primary.main,
+                        borderColor: theme.palette.secondary.main,
+                        color: theme.palette.secondary.main,
                         transform: "translateY(-2px)",
-                        background: isDark
-                          ? "rgba(34,193,195,0.12)"
-                          : "rgba(18,138,142,0.08)",
+                        background: alpha(
+                          theme.palette.secondary.main,
+                          isDark ? 0.16 : 0.1,
+                        ),
                       },
                     }}
                   >

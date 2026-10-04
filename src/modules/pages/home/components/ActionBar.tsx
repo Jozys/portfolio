@@ -15,7 +15,6 @@ export interface ActionBarProps {
 
 export default function ActionBar(props: ActionBarProps) {
   const theme = useTheme();
-  const isDark = theme.palette.mode === "dark";
   const { language } = useLanguage();
 
   const githubUrl =
@@ -37,7 +36,7 @@ export default function ActionBar(props: ActionBarProps) {
           onClick={props.onNavigateToProjects}
           endIcon={<ArrowForward />}
           sx={{
-            background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+            background: theme.gradients.primary,
             color: "#fff",
             px: 3,
             py: 1.4,
@@ -45,15 +44,11 @@ export default function ActionBar(props: ActionBarProps) {
             textTransform: "none",
             fontWeight: 700,
             fontSize: 15,
-            boxShadow: `0 8px 24px ${
-              isDark ? "rgba(0,0,0,0.4)" : "rgba(18,138,142,0.25)"
-            }`,
+            boxShadow: theme.shadowsGlow.buttonGlow,
             transition: "transform 0.2s ease, box-shadow 0.2s ease",
             "&:hover": {
               transform: "translateY(-2px)",
-              boxShadow: `0 12px 28px ${
-                isDark ? "rgba(0,0,0,0.5)" : "rgba(18,138,142,0.35)"
-              }`,
+              boxShadow: theme.shadowsGlow.buttonHoverGlow,
             },
           }}
         >
@@ -63,7 +58,7 @@ export default function ActionBar(props: ActionBarProps) {
           variant="outlined"
           href={mailUrl}
           sx={{
-            borderColor: isDark ? "rgba(255,255,255,0.25)" : "rgba(0,0,0,0.2)",
+            borderColor: theme.borders.strong,
             color: theme.palette.text.primary,
             px: 3,
             py: 1.4,
@@ -74,9 +69,7 @@ export default function ActionBar(props: ActionBarProps) {
             transition: "border-color 0.2s ease, background 0.2s ease",
             "&:hover": {
               borderColor: theme.palette.primary.main,
-              background: isDark
-                ? "rgba(255,255,255,0.04)"
-                : "rgba(0,0,0,0.03)",
+              background: theme.surfaces.hover,
             },
           }}
         >
@@ -95,15 +88,13 @@ export default function ActionBar(props: ActionBarProps) {
               rel="noopener noreferrer"
               size="small"
               sx={{
-                border: `1px solid ${
-                  isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.1)"
-                }`,
+                border: `1px solid ${theme.borders.subtle}`,
                 color: theme.palette.text.primary,
                 p: 1.1,
                 transition: "all 0.2s ease",
                 "&:hover": {
-                  color: theme.palette.primary.main,
-                  borderColor: theme.palette.primary.main,
+                  color: theme.palette.secondary.main,
+                  borderColor: theme.palette.secondary.main,
                   transform: "translateY(-2px)",
                 },
               }}
@@ -118,15 +109,13 @@ export default function ActionBar(props: ActionBarProps) {
               rel="noopener noreferrer"
               size="small"
               sx={{
-                border: `1px solid ${
-                  isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.1)"
-                }`,
+                border: `1px solid ${theme.borders.subtle}`,
                 color: theme.palette.text.primary,
                 p: 1.1,
                 transition: "all 0.2s ease",
                 "&:hover": {
-                  color: theme.palette.primary.main,
-                  borderColor: theme.palette.primary.main,
+                  color: theme.palette.secondary.main,
+                  borderColor: theme.palette.secondary.main,
                   transform: "translateY(-2px)",
                 },
               }}

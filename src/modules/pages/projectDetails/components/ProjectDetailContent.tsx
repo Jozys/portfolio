@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { OpenInNew } from "@mui/icons-material";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
-import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
+import { alpha, Box, Button, Stack, Typography, useTheme } from "@mui/material";
 import {
   formatProjectYears,
   getLabel,
@@ -29,9 +29,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
     null,
   );
 
-  const cardBorder = isDark
-    ? "1px solid rgba(255, 255, 255, 0.08)"
-    : "1px solid rgba(0, 0, 0, 0.06)";
+  const cardBorder = `1px solid ${theme.borders.subtle}`;
 
   return (
     <Box sx={{ mt: 6, pb: 6 }}>
@@ -236,7 +234,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
                   borderRadius: 3,
                   overflow: "hidden",
                   border: cardBorder,
-                  bgcolor: isDark ? "rgba(0,0,0,0.3)" : "rgba(240,244,248,0.6)",
+                  bgcolor: theme.surfaces.cardSubtle,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -249,9 +247,10 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
                   "&:hover": {
                     transform: "scale(1.015)",
                     borderColor: theme.palette.primary.main,
-                    boxShadow: isDark
-                      ? `0 12px 28px -6px ${theme.palette.primary.main}30`
-                      : `0 10px 24px -6px ${theme.palette.primary.main}25`,
+                    boxShadow: `0 12px 28px -6px ${alpha(
+                      theme.palette.primary.main,
+                      isDark ? 0.3 : 0.25,
+                    )}`,
                     "& .zoom-indicator": {
                       opacity: 1,
                       transform: "scale(1)",

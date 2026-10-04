@@ -15,7 +15,6 @@ export interface HistoryProps {
 
 export default function History({ title, subTitle, children }: HistoryProps) {
   const theme = useTheme();
-  const isDark = theme.palette.mode === "dark";
   const { language } = useLanguage();
 
   const sectionSubtitle = subTitle ?? language.home.history.subtitle;
@@ -26,12 +25,8 @@ export default function History({ title, subTitle, children }: HistoryProps) {
       component="section"
       sx={{
         py: { xs: 6, md: 9 },
-        borderTop: `1px solid ${
-          isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"
-        }`,
-        background: isDark
-          ? "rgba(255, 255, 255, 0.02)"
-          : "rgba(255, 255, 255, 0.4)",
+        borderTop: `1px solid ${theme.borders.subtle}`,
+        background: theme.surfaces.cardSubtle,
       }}
     >
       <Container maxWidth="lg">
