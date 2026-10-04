@@ -25,7 +25,7 @@ import SecondTECKboard from "../assets/projects/teckboard/newBoard.png";
 import TECKboardApp from "../assets/projects/teckboard/teckboard_app.png";
 import AppleAppStore from "../assets/technologies/AppleAppStore.png";
 import GooglePlayIcon from "../assets/technologies/GooglePlay.png";
-import { Language, V4ProjectDetail } from "../language";
+import { Language, ProjectDetailLocale } from "../language";
 import { getNestedValue } from "../utils/utils";
 import { getTechnology } from "./Technologies";
 import { Project } from "./types/Project";
@@ -335,7 +335,7 @@ export const getProjectById = (id: string): Project | undefined => {
 export const getProjectDetails = (
   project: Project,
   language: Language,
-): V4ProjectDetail | undefined => {
+): ProjectDetailLocale | undefined => {
   const detailsMap = language.projects?.details;
   if (!detailsMap) return undefined;
   if (detailsMap[project.route]) return detailsMap[project.route];

@@ -1,5 +1,6 @@
 import { Box, Chip, Paper, Stack, Typography, useTheme } from "@mui/material";
 import React from "react";
+import FormattedText from "../../../../components/FormattedText";
 
 export interface HistoryCardProps {
   title: string | React.ReactNode;
@@ -141,16 +142,15 @@ export default function HistoryCard({
           )}
 
           {typeof description === "string" ? (
-            <Typography
-              sx={{
+            <FormattedText
+              content={description}
+              paragraphSx={{
                 color: theme.palette.text.secondary,
                 fontSize: 14,
                 lineHeight: 1.65,
                 mt: 1.5,
               }}
-            >
-              {description}
-            </Typography>
+            />
           ) : (
             description
           )}

@@ -6,11 +6,6 @@ export type HeaderLocale = {
   languageToggle: string;
   openMenu: string;
   closeMenu: string;
-  nav: {
-    home: string;
-    projects: string;
-    about: string;
-  };
   tabs: {
     home: string;
     projects: string;
@@ -36,7 +31,6 @@ export type HomePortraitLocale = {
 export type HomeHistoryLocale = {
   subtitle: string;
   title: string;
-  description: string;
   dhbwTags: string[];
   teckdigitalTags: string[];
   lifeTags: string[];
@@ -53,14 +47,7 @@ export type HomeLocale = {
   subtitle: string;
   me: Info;
   life: Info;
-  teckdigital: {
-    title: string;
-    description: {
-      start: string;
-      middle: string;
-      end: string;
-    };
-  };
+  teckdigital: Info;
   dhbw: Info;
   action: HomeActionLocale;
   portrait: HomePortraitLocale;
@@ -97,12 +84,10 @@ export type ProjectDetailLocale = {
 export type ProjectsLocale = {
   main: {
     title: string;
-    description: string;
     documentation: string;
     filter: {
       all: string;
     };
-    readMore: string;
     teckboard: Info;
     devlight: Info & { readDoc: string };
     simpleQ: Info;
@@ -142,7 +127,6 @@ export type AboutLocale = {
     description: string;
   };
   quickFacts: {
-    heading: string;
     education: QuickFactLocale;
     work: QuickFactLocale;
     location: QuickFactLocale;
@@ -173,10 +157,6 @@ export type Info = {
 };
 
 export type Language = {
-  languageInfo: {
-    de: string;
-    en: string;
-  };
   header: HeaderLocale;
   footer: FooterLocale;
   home: HomeLocale;
@@ -196,8 +176,3 @@ export type Language = {
     tagline: string;
   };
 };
-
-// Aliases for seamless migration
-export type V4ProjectDetail = ProjectDetailLocale;
-export type V4QuickFact = QuickFactLocale;
-export type V4Projects = ProjectsLocale;

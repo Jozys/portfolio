@@ -2,21 +2,12 @@ import { getAge } from "../../utils/getAge";
 import { Language } from "../../index";
 
 export const language: Language = {
-  languageInfo: {
-    de: "🇩🇪 German",
-    en: "🇬🇧 English",
-  },
   header: {
     themeToggleLight: "Switch to light mode",
     themeToggleDark: "Switch to dark mode",
     languageToggle: "Zu Deutsch wechseln",
     openMenu: "Open navigation menu",
     closeMenu: "Close navigation menu",
-    nav: {
-      home: "Home",
-      projects: "Projects",
-      about: "About me",
-    },
     tabs: {
       home: "Home",
       projects: "Projects",
@@ -42,13 +33,8 @@ export const language: Language = {
     },
     teckdigital: {
       title: "TECKdigital",
-      description: {
-        start: `Since December 2019 I am a member of student company `,
-        middle: `This company was founed in the beginning of 2019 and I joined them
-                a few months after that. At TECKdigital I worked on the `,
-        end: `. By working there I got more knowledge about working in a team
-                and informatic in general.`,
-      },
+      description:
+        "Since December 2019 I am a member of the student company **[TECKdigital](https://teckdigital.de)**, which was founded in early 2019. At TECKdigital I worked on the **TECKboards**. Working there gave me extensive practical experience in software development and teamwork.",
     },
     dhbw: {
       title: "Student@DHBW",
@@ -66,8 +52,6 @@ export const language: Language = {
     history: {
       subtitle: "Background & Journey",
       title: "Experience, Studies & Life",
-      description:
-        "Key milestones from my dual study at SAP, early initiatives with TECKdigital, to personal passions.",
       dhbwTags: ["Dual Study", "SAP", "DHBW"],
       teckdigitalTags: [
         "Mobile Apps",
@@ -98,12 +82,10 @@ export const language: Language = {
   projects: {
     main: {
       title: "I developed...",
-      description: "A selection of projects I developed to improve my skills.",
       documentation: "Documentation",
       filter: {
         all: "All projects",
       },
-      readMore: "Read more",
       teckboard: {
         title: "TECKboards",
         shortDescription:
@@ -229,7 +211,6 @@ Outside of programming, I enjoy spending time outdoors — cycling in the Black 
         "An overview of programming languages, frameworks, databases, and development tools I work with.",
     },
     quickFacts: {
-      heading: "TBD",
       education: {
         label: "Education",
         title: "B.Sc. Computer Science",

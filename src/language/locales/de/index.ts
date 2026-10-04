@@ -2,21 +2,12 @@ import { getAge } from "../../utils/getAge";
 import { Language } from "../../index";
 
 export const language: Language = {
-  languageInfo: {
-    de: "🇩🇪 Deutsch",
-    en: "🇬🇧 Englisch",
-  },
   header: {
     themeToggleLight: "Zum Light Mode wechseln",
     themeToggleDark: "Zum Dark Mode wechseln",
     languageToggle: "Switch to English",
     openMenu: "Navigation öffnen",
     closeMenu: "Navigation schließen",
-    nav: {
-      home: "Home",
-      projects: "Projekte",
-      about: "Über mich",
-    },
     tabs: {
       home: "Home",
       projects: "Projekte",
@@ -43,11 +34,8 @@ export const language: Language = {
     },
     teckdigital: {
       title: "TECKdigital",
-      description: {
-        start: `Seit Dezember 2019 bin ich Teil der Schülerfirma `,
-        middle: `Diese Schülerfirma wurde im Frühjahr 2019 gegründet, und ich trat einige Monate später bei. Bei TECKdigital arbeite ich an den `,
-        end: `. Durch das Arbeiten dort lernte ich mehr über Informatik und das Arbeiten im Team.`,
-      },
+      description:
+        "Seit Dezember 2019 bin ich Teil der Schülerfirma **[TECKdigital](https://teckdigital.de)**. Diese Schülerfirma wurde im Frühjahr 2019 gegründet, und ich trat einige Monate später bei. Bei TECKdigital arbeite ich an den **TECKboards**. Durch das Arbeiten dort lernte ich mehr über Informatik und das Arbeiten im Team.",
     },
     dhbw: {
       title: "Student@DHBW",
@@ -64,8 +52,6 @@ export const language: Language = {
     history: {
       subtitle: "Werdegang & Stationen",
       title: "Erfahrung, Studium & Leben",
-      description:
-        "Einblicke in meinen Weg vom dualen Studium bei der SAP über die Schülerfirma bis hin zu persönlichen Interessen.",
       dhbwTags: ["Duales Studium", "SAP", "DHBW"],
       teckdigitalTags: [
         "Mobile Apps",
@@ -99,10 +85,7 @@ export const language: Language = {
       filter: {
         all: "Alle Projekte",
       },
-      description:
-        "Eine Auswahl der Projekte, die ich entwickelt habe, um meine Fähigkeiten zu verbessern.",
       documentation: "Dokumentation",
-      readMore: "Mehr lesen",
       teckboard: {
         title: "TECKboards",
         shortDescription:
@@ -226,7 +209,6 @@ Neben dem Entwickeln schätze ich den aktiven Ausgleich in der Natur — beim Ra
         "Eine Übersicht über Programmiersprachen, Frameworks, Datenbanken und Entwicklungswerkzeuge, mit denen ich bisher gearbeitet habe.",
     },
     quickFacts: {
-      heading: "TBD",
       education: {
         label: "Bildung",
         title: "B.Sc. Informatik",

@@ -36,11 +36,13 @@ export default function History({ title, subTitle, children }: HistoryProps) {
     >
       <Container maxWidth="lg">
         <Stack
-          direction={{ xs: "column", md: "row" }}
-          justifyContent="space-between"
-          alignItems={{ md: "flex-end" }}
-          gap={2}
-          sx={{ mb: 4.5 }}
+          sx={{
+            mb: 4.5,
+            flexDirection: { xs: "column", md: "row" },
+            justifyContent: "space-between",
+            alignItems: { md: "flex-end" },
+            gap: 2,
+          }}
         >
           <Box>
             <Typography
@@ -96,7 +98,7 @@ export default function History({ title, subTitle, children }: HistoryProps) {
                 imageAlt="TECKdigital"
                 badge="2019 - 2022"
                 title={language.home.teckdigital.title}
-                description={`${language.home.teckdigital.description.start}TECKdigital. ${language.home.teckdigital.description.middle}TECKboards${language.home.teckdigital.description.end}`}
+                description={language.home.teckdigital.description}
                 tags={language.home.history.teckdigitalTags}
               />
 
