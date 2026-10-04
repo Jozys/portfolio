@@ -2,11 +2,23 @@ import { getAge } from "../../utils/getAge";
 import { Language } from "../../index";
 
 export const language: Language = {
-  languageInfo: {
-    de: "🇩🇪 German",
-    en: "🇬🇧 English",
+  header: {
+    themeToggleLight: "Switch to light mode",
+    themeToggleDark: "Switch to dark mode",
+    languageToggle: "Zu Deutsch wechseln",
+    openMenu: "Open navigation menu",
+    closeMenu: "Close navigation menu",
+    tabs: {
+      home: "Home",
+      projects: "Projects",
+      me: "About me",
+    },
   },
-
+  footer: {
+    subtitle:
+      "Software Engineer at SAP in Walldorf • Focused on Full Stack & Artificial Intelligence.",
+    socialTitle: "Connect & Socials",
+  },
   home: {
     greeting: "Hello",
     name: "My name is Joshua Slaar!",
@@ -21,18 +33,36 @@ export const language: Language = {
     },
     teckdigital: {
       title: "TECKdigital",
-      description: {
-        start: `Since December 2019 I am a member of student company `,
-        middle: `This company was founed in the beginning of 2019 and I joined them
-                a few months after that. At TECKdigital I worked on the `,
-        end: `. By working there I got more knowledge about working in a team
-                and informatic in general.`,
-      },
+      description:
+        "Since December 2019 I am a member of the student company **[TECKdigital](https://teckdigital.de)**, which was founded in early 2019. At TECKdigital I worked on the **TECKboards**. Working there gave me extensive practical experience in software development and teamwork.",
     },
     dhbw: {
       title: "Student@DHBW",
       description: `From September 2022 until the end of September 2025 I was a Vocational Training Student of Applied Computer Science at SAP in Walldorf.
             Therefore I work there at SAP and study at the Baden-Wuerttemberg Cooperative State University Karlsruhe (DHBW Karlsruhe).`,
+    },
+    action: {
+      explore: "Explore selected work",
+      contact: "Start a conversation",
+    },
+    portrait: {
+      statusTitle: "Software Engineer @ SAP",
+      statusDescription: "Walldorf • Full Stack & AI",
+    },
+    history: {
+      subtitle: "Background & Journey",
+      title: "Experience, Studies & Life",
+      dhbwTags: ["Dual Study", "SAP", "DHBW"],
+      teckdigitalTags: [
+        "Mobile Apps",
+        "Software Development",
+        "Web Development",
+      ],
+      lifeTags: ["Outdoor", "Black Forest", "Travel"],
+    },
+    status: {
+      title: "Current status",
+      description: "Location, current role, and engineering focuses.",
     },
   },
   status: {
@@ -52,15 +82,22 @@ export const language: Language = {
   projects: {
     main: {
       title: "I developed...",
-      readMore: "Read more",
+      documentation: "Documentation",
+      filter: {
+        all: "All projects",
+      },
       teckboard: {
         title: "TECKboards",
-        description: `TECKboard is a digital real time information system that two friends of mine,Timo Peters and Yannik Hahn", developed. I spend really much hours developing a smartphone application for this system. By using the principe learning by doing, I learned much about planing, developing and communicating with the two developers of this system.`,
+        shortDescription:
+          "TECKboard is a digital real time information system, that two friends of mine developed. I developed a smartphone application for this system.",
+        description: `TECKboard is a digital real time information system that two friends of mine, [Timo Peters](https://tipela.de) and [Yannik Hahn](https://h4hn.de), developed. I spend really much hours developing a smartphone application for this system. By using the principe learning by doing, I learned much about planing, developing and communicating with the two developers of this system.`,
       },
       devlight: {
         title: "DevLights",
+        shortDescription:
+          "DevLights are the smart home LED Stripes for Developers, which I developed together with two friends of mine.",
         description: `DevLights are the smart home LED Stripes for Developers. Together
-                with two friends of mine, Jaan Springer and Timo Peters, we
+                with two friends of mine, Jaan Springer and [Timo Peters](https://tipela.de), we
                 developed these lights during our project course informatic at
                 Graf-Adolf-Gymnasium. From begin we learned new programming
                 languages like C++ and worked at Hard and Software. `,
@@ -68,117 +105,134 @@ export const language: Language = {
       },
       simpleQ: {
         title: "SimpleQ",
+        shortDescription:
+          "SimpleQ is a web application developed as part of a project at DHBW Karlsruhe, which allows asking and answering questions.",
         description: `SimpleQ is a web application developed as part of a project at DHBW Karlsruhe, which allows asking and answering questions. 
         In the Software Engineering course, the entire process of product development was worked through. 
         This project made it possible to gain valuable experiences in collaboration and task coordination with people with whom I had previously worked little.`,
       },
       dbDelay: {
         title: "DB Delay",
+        shortDescription:
+          "DB Delay is an application to collect personal statistics about travels using railways, especially using the German state-owned Deutsche Bahn.",
         description: `DB Delay is an application that I developed privately to collect personal statistics about travels using railways, especially using the German state-owned Deutsche Bahn. 
         Timetable data from the Deutsche Bahn is stored and evaluated in a database together with manually entered data. The application was developed in TypeScript with NestJS and React. 
         It has nothing to do with the Deutsche Bahn itself but is purely a private application.`,
       },
       concertHistory: {
         title: "Concert History",
+        shortDescription:
+          "Concert History is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices.",
         description:
-          'ConcertHistory is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices. I developed the app as part of the module "Design of mobile applications" at the DHBW Karlsruhe together with Niklas Buse.',
+          'ConcertHistory is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices. I developed the app as part of the module "Design of mobile applications" at the DHBW Karlsruhe together with [Niklas Buse](https://niklas-buse.de).',
+        betaTest: "Beta Test",
       },
       moveTopia: {
         title: "MoveTopia",
+        shortDescription:
+          "MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress.",
         description:
-          "MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress. I developed the app together with Niklas Buse as part of a project at DHBW Karlsruhe. It offers a user-friendly interface to record training data and visualize progress.",
+          "MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress. I developed the app together with [Niklas Buse](https://niklas-buse.de) as part of a project at DHBW Karlsruhe. It offers a user-friendly interface to record training data and visualize progress.",
+        playStore: "Play Store",
+        appStore: "App Store",
       },
       sensoration: {
         title: "Sensoration",
+        shortDescription:
+          "Sensoration is an Android app that enables the collection and visualization of sensor data from distributed Android devices.",
         description: `Sensoration is an Android app that was developed by me together with Tom Schütt as part of the "Distributed Systems" module at DHBW. It enables the collection and visualization of sensor data from distributed Android devices. 
           The app was developed in Kotlin with Jetpack Compose and offers a modern user interface.`,
       },
-      skills: {
-        title: "My skills",
-        description: `This overview shows all programming languages and frameworks with which I am well or reasonably familiar.
-                      My main experience has expanded from Java and JavaScript or TypeScript to frameworks for frontend development such as React and for backend development such as NestJS.
-                      I have also gained experience in app development with React Native, Jetpack Compose, and Flutter.
-                      I also have some knowledge in hardware development with C++ and the ESP8266 microcontroller.
-                      My knowledge of databases ranges from MongoDB, MySQL to PostgreSQL.
-                      My knowledge of programming languages and frameworks does not stand still, but I always try to keep learning.`,
-      },
       learnMore: "Learn more",
     },
-    devlight: {
-      title: "DevLights",
-      subtitle: "The smart home LED stripes for developers",
-      ledstrip: {
-        color: "Type color here",
-        validity: "Only valid HEX or RGB colors supported",
-        restart: "Restart random color",
-      },
-      github: "Visit Project Devlights on GitHub",
-      summary: `DevLights are self-programmed smart home led stripes using the WS2812B chip for controlling the stripes. ${"\n\n"}
-            There is a backend server developed with NestJS and MongoDB, a smartphone and desktop application for the management.`,
-      evolution: {
-        title: "The evolution of DevLights",
-        description:
-          "The evolution of DevLights began in 2020 when I started the project together with two friends of mine, Jaan Springer and Timo Peters. We started developing on that project in our project course at Graf-Adolf-Gymnasium in Tecklenburg, North-Rhine-Westphalia, Germany. Through one year of development, we learned a lot about programming, hardware, and software development.",
-      },
-      openSourceNotice:
-        "The project is open source. It can be viewed on GitHub.",
-      projectTimelineTitle: "Project timeline",
-      projectTimeline: [
-        `In the year 2020 two friends of mine and me together decided to
-                take a part of a project class that was offered by our school.
-                After some ideas, brainstorming and discarding ideas which
-                wouldn't fit the requirements, we decided to build a project that
-                would be able to control LED stripes. The only requirements given
-                by our school was that the project needed to include
-                microcontrollers, so it cannot just be a simple website for
-                example.`,
-        ` In the first weeks we decided which hardware and software we would
-                use at developing our project. We decided to use a BTF Lightning
-                LED strip together with a ESP8266 Wifi Module as the hardware. For
-                the server, which is running in the middle of hardware and user
-                (software) connection, we decided to use a Raspberry Pi as
-                hardware. The API should be written with NestJS in TypeScript and the ESP8266 with C++.`,
-      ],
-      last: `All in all developing this project over a year in school was a quite
-            good expercience.
-            The project is still on GitHub and theoretically everyone can use this system at theirs home.
-            If you want to learn more, you can look at my term paper, which is only available in German.`,
+    projectData: "Project Data",
+    timeline: "Timeline",
+    links: "Links & Resources",
+    gallerySection: "Gallery",
+    galleryTitle: "Insights & Screenshots",
+    projectDescription: "Project Description",
+    category: "Category",
+    technologies: {
+      title: "Technologies",
+      frontend: "Frontend",
+      backend: "Backend",
+      mobile: "Mobile",
+      database: "Database",
+      hardware: "Hardware",
+      devops: "DevOps",
+      other: "Other",
     },
-    teckboard: {
-      title: "TECKboard",
-      evolution: "The evolution of the TECKboard",
-      mobileEvolution: "The evolution of the TECKboard mobile app",
-      content:
-        "TECKboard is a real time digital information system. It gives the ability to create individual boards for specific groups, so that everyone just gets the information they need and are allowed to see. In the background there is a secure user and invite system for convenient user management",
-      projectDescription: {
-        title: "How TECKboards have been developed",
-        description: `The first idea for the TECKboards came from the student council of
-                my school, the Graf-Adolf-Gymnasium, to replace the old analog
-                information system of our school. The first version of the
-                TECKboards was created in 2019. In the last two years the system has
-                been developed further and further. At the end of 2019 I started
-                developing a mobile application for our system. The mobile
-                application was released in 2021 and could have been downloaded until 2023 in the known
-                app stores of Apple and Google.`,
+  },
+  milestones: {
+    work_sap: {
+      title: "Software Engineer",
+      description:
+        "Software Engineer at SAP SE in Walldorf, Germany. Focused on Full Stack Development and Artificial Intelligence.",
+      location: "SAP SE, Walldorf, Germany",
+      badge: "Current Role",
+    },
+    study: {
+      title: "Duales Studium Informatik (B.Sc.)",
+      description:
+        "Dual studies in computer science in cooperation with SAP SE at the Dual University of Baden-Württemberg (DHBW) Karlsruhe. Insights into various theoretical aspects of computer science and practical application through different development teams.",
+      location: "DHBW Karlsruhe, Karlsruhe, Germany",
+      badge: "Bachelor of Science",
+    },
+    school: {
+      company: {
+        title: "TECKdigital",
+        description:
+          "Through my involvement in the student company TECKdigital, I gained extensive practical experience in software development. I worked on various projects, including the development of digital information boards, TECKboards, for schools. These projects helped me improve my skills in software development and expand my knowledge in this field.",
+        location: "Tecklenburg, NRW, Germany",
+        badge: "Student Company",
       },
-      imageInfo: [],
-      appDescription: [
-        `  After publishing the app, it was
-            used by the students and the teachers of our school, the
-            Graf-Adolf-Gymnasium in Tecklenburg, North-Rhine-Westphalia.`,
-      ],
-      reactNative: {
-        start: `The App was first developed with Android studio in Java. In March
-                2020 we decided to develope directly for Android and iOS. For this
-                we choose`,
-        end: `, a multiplatform app developement framework.`,
+      abitur: {
+        title: "Abitur",
+        description:
+          "With the advanced courses in Mathematics and Computer Science, I successfully completed high school. At that time, I had already gained a lot of practical experience through the student company and private projects, which I could use for my studies.",
+        location: "Graf-Adolf-Gymnasium, Tecklenburg, NRW",
+        badge: "Abitur",
       },
     },
   },
-  footer: {
-    contact: "Contact",
-    others: "Others",
-    projects: "Projects",
+  about: {
+    me: {
+      title: "About me",
+      description: `I am Joshua Slaar, a **{{age}}-year-old** software engineer based in Germany. My passion for technology sparked in high school through self-driven projects and co-founding the junior venture **TECKdigital**. Following my dual studies in computer science at SAP and DHBW Karlsruhe, I now build software as an engineer at **SAP SE in Walldorf**.
+
+Outside of programming, I enjoy spending time outdoors — cycling in the Black Forest, discovering Europe by train, and connecting with friends and family back home in Brochterbeck.`,
+      shortDescription:
+        "Software Engineer at SAP in Walldorf passionate about modern web technologies, artificial intelligence, and thoughtful software architecture.",
+    },
+    skills: {
+      title: "Skills & Knowledge",
+      subtitle: "Technologies & Tools",
+      description:
+        "An overview of programming languages, frameworks, databases, and development tools I work with.",
+    },
+    quickFacts: {
+      education: {
+        label: "Education",
+        title: "B.Sc. Computer Science",
+        description: "DHBW Karlsruhe, Germany (2022 - 2025)",
+      },
+      work: {
+        label: "Work",
+        title: "Software Engineer",
+        description: "SAP, Walldorf, Germany (2025 - present)",
+      },
+      location: {
+        label: "Location & Origin",
+        title: "Wiesloch & Brochterbeck",
+        description: "Baden-Württemberg & North Rhine-Westphalia, Germany",
+      },
+      interests: {
+        label: "Interests",
+        title: "Sport, Travel & Technology",
+        description:
+          "Sport activities, travel through Germany and Europe, and technological developments and innovations.",
+      },
+    },
   },
   notFound: {
     title: "This content was not found",
