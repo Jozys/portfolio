@@ -336,22 +336,7 @@ export const getProjectDetails = (
   return undefined;
 };
 
-/**
- * Formats a project's years range into a readable string (e.g., "2024 - Now", "2023").
- */
-export const formatProjectYears = (
-  years?: { start: number; end?: number },
-  nowLabel: string = "Now",
-): string => {
-  if (!years) return "";
-  if (!years.end || years.end === years.start) {
-    return `${years.start}`;
-  }
-  if (years.end >= 9999) {
-    return `${years.start} - ${nowLabel}`;
-  }
-  return `${years.start} - ${years.end}`;
-};
+export { formatProjectYears } from "../utils/utils";
 
 /**
  * Sorts an array of projects from newest to oldest.

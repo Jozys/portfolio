@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import React from "react";
 import Portrait from "../../home/components/Portrait";
 import Me from "../../../../../assets/life/me.jpg";
 import QuickFacts from "./QuickFacts";

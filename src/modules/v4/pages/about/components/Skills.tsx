@@ -34,6 +34,7 @@ export default function Skills() {
       <Paper
         elevation={0}
         sx={{
+          mt: 6,
           p: { xs: 3, sm: 5 },
           borderRadius: 3,
           background: theme.background.card,

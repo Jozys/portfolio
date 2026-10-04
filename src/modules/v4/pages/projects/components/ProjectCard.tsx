@@ -9,7 +9,6 @@ import {
   useTheme,
 } from "@mui/material";
 import {
-  formatProjectYears,
   getProjectShortDescription,
   getProjectTitle,
 } from "../../../../../data/Projects";
@@ -17,6 +16,7 @@ import { Project } from "../../../../../data/types/Project";
 import { useLanguage } from "../../../../../language/hooks";
 import TechnologyButton from "../../../core/Technology";
 import ProjectVisualHeader from "./ProjectVisualHeader";
+import { formatProjectYears } from "../../../../../utils/utils";
 
 export default function ProjectCard({
   project,
@@ -70,7 +70,6 @@ export default function ProjectCard({
               justifyContent: "space-between",
               gap: 1.5,
             }}
-            gap={2}
           >
             <Typography
               sx={{
