@@ -1,6 +1,13 @@
 import { Box, Chip, Paper, Stack, Typography, useTheme } from "@mui/material";
 import { Milestone } from "../../../../../data/types/Milestone";
 import { formatProjectYears } from "../../../../../utils/utils";
+import { useLanguage } from "../../../../../language/hooks";
+import {
+  getMilestoneBadge,
+  getMilestoneDescription,
+  getMilestoneLocation,
+  getMilestoneTitle,
+} from "../../../../../data/Milestone";
 
 export interface MilestoneItemProps {
   milestone: Milestone;
@@ -8,6 +15,7 @@ export interface MilestoneItemProps {
 export default function MilestoneItem(props: MilestoneItemProps) {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
+  const { language } = useLanguage();
   return (
     <Box sx={{ position: "relative", pl: { xs: 3, md: 4 } }}>
       <Box
@@ -78,7 +86,7 @@ export default function MilestoneItem(props: MilestoneItemProps) {
           />
           {props.milestone.badge && (
             <Chip
-              label={props.milestone.badge}
+              label={getMilestoneBadge(props.milestone, language)}
               size="small"
               sx={{
                 borderRadius: 1,
@@ -101,7 +109,7 @@ export default function MilestoneItem(props: MilestoneItemProps) {
             fontFamily: "Titillium Web, sans-serif",
           }}
         >
-          {props.milestone.title}
+          {getMilestoneTitle(props.milestone, language)}
         </Typography>
         <Typography
           sx={{
@@ -110,7 +118,7 @@ export default function MilestoneItem(props: MilestoneItemProps) {
             fontSize: { xs: 14, sm: 16 },
           }}
         >
-          {props.milestone.location}
+          {getMilestoneLocation(props.milestone, language)}
         </Typography>
         <Typography
           sx={{
@@ -120,7 +128,7 @@ export default function MilestoneItem(props: MilestoneItemProps) {
             mt: 1.5,
           }}
         >
-          {props.milestone.description}
+          {getMilestoneDescription(props.milestone, language)}
         </Typography>
       </Paper>
     </Box>

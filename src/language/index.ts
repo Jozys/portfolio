@@ -78,6 +78,14 @@ export type Language = {
       };
     };
   };
+  milestones: {
+    work_sap: Milestone;
+    study: Milestone;
+    school: {
+      company: Milestone;
+      abitur: Milestone;
+    };
+  };
   about: {
     me: Info;
     skills: {
@@ -202,6 +210,13 @@ export type V4Language = {
     socialTitle: string;
   };
   projects: V4Projects;
+};
+
+export type Milestone = {
+  title: string;
+  description: string;
+  location: string;
+  badge?: string;
 };
 
 export type Info = {

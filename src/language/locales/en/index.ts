@@ -196,6 +196,38 @@ export const language: Language = {
       },
     },
   },
+  milestones: {
+    work_sap: {
+      title: "Software Engineer",
+      description:
+        "Software Engineer at SAP SE in Walldorf, Germany. Focused on Full Stack Development and Artificial Intelligence.",
+      location: "SAP SE, Walldorf, Germany",
+      badge: "Current Role",
+    },
+    study: {
+      title: "Duales Studium Informatik (B.Sc.)",
+      description:
+        "Dual studies in computer science in cooperation with SAP SE at the Dual University of Baden-Württemberg (DHBW) Karlsruhe. Insights into various theoretical aspects of computer science and practical application through different development teams.",
+      location: "DHBW Karlsruhe, Karlsruhe, Germany",
+      badge: "Bachelor of Science",
+    },
+    school: {
+      company: {
+        title: "TECKdigital",
+        description:
+          "Through my involvement in the student company TECKdigital, I gained extensive practical experience in software development. I worked on various projects, including the development of digital information boards, TECKboards, for schools. These projects helped me improve my skills in software development and expand my knowledge in this field.",
+        location: "Tecklenburg, NRW, Germany",
+        badge: "Student Company",
+      },
+      abitur: {
+        title: "Abitur",
+        description:
+          "With the advanced courses in Mathematics and Computer Science, I successfully completed high school. At that time, I had already gained a lot of practical experience through the student company and private projects, which I could use for my studies.",
+        location: "Graf-Adolf-Gymnasium, Tecklenburg, NRW",
+        badge: "Abitur",
+      },
+    },
+  },
   about: {
     me: {
       title: "About me",

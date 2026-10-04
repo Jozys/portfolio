@@ -192,6 +192,38 @@ export const language: Language = {
       },
     },
   },
+  milestones: {
+    work_sap: {
+      title: "Software Engineer",
+      description:
+        "Software Engineer bei der SAP in Walldorf. Dabei liegt mein Fokus auf der Entwicklung moderner Webanwendungen und Künstlicher Intelligenz.",
+      location: "SAP SE, Walldorf, Deutschland",
+      badge: "Aktuelle Rolle",
+    },
+    study: {
+      title: "Duales Studium Informatik (B.Sc.)",
+      description:
+        "Duales Studium der Informatik in Kooperation mit der SAP SE an der Dualen Hochschule Baden-Württemberg (DHBW) Karlsruhe. Einblicke in verschiedene theoretische Inhalte der Informatik und praxisnahe Verknüpfung durch verschiedene Entwicklungsteams.",
+      location: "DHBW Karlsruhe, Karlsruhe, Deutschland",
+      badge: "Bachelor of Science",
+    },
+    school: {
+      company: {
+        title: "TECKdigital",
+        description:
+          "Durch meine Mitarbeit in der Schülerfirma TECKdigital konnte ich viele praktische Erfahrungen in der Softwareentwicklung sammeln. Ich habe an verschiedenen Projekten gearbeitet, darunter die Entwicklung der digitalen Infotafeln, TECKboards, für Schulen. Diese Projekte haben mir geholfen, meine Fähigkeiten in der Softwareentwicklung zu verbessern und mein Wissen in diesem Bereich zu erweitern.",
+        location: "Tecklenburg, NRW, Deutschland",
+        badge: "Schülerfirma",
+      },
+      abitur: {
+        title: "Abitur",
+        description:
+          "Mit den Leistungskursen Mathematik und Informatik habe ich erfolgreich die Schule abgeschlossen. Zu dem Zeitpunk hab ich bereits durch die Schülerfirma und private Projekte viel praxisnahes gelernt, was ich für mein Studium nutzen konnte.",
+        location: "Graf-Adolf-Gymnasium, Tecklenburg, NRW",
+        badge: "Abitur",
+      },
+    },
+  },
   about: {
     me: {
       title: "Über mich",

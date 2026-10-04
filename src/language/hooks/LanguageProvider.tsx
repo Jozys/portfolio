@@ -68,6 +68,10 @@ export default function LanguageProvider(props: LanguageProviderProps) {
     }
   }, []);
 
+  React.useEffect(() => {
+    document.documentElement.lang = languageType;
+  }, [languageType]);
+
   const changeLanguage = (newLanguageType: Language) => {
     localStorage.setItem("language", newLanguageType);
     setLanguageType(newLanguageType);
