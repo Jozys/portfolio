@@ -330,13 +330,13 @@ export const getProjectById = (id: string): Project | undefined => {
 };
 
 /**
- * Returns the rich detail data for a project from the i18n v4 structure.
+ * Returns the rich detail data for a project from the i18n structure.
  */
 export const getProjectDetails = (
   project: Project,
   language: Language,
 ): V4ProjectDetail | undefined => {
-  const detailsMap = language.v4?.projects?.details;
+  const detailsMap = language.projects?.details;
   if (!detailsMap) return undefined;
   if (detailsMap[project.route]) return detailsMap[project.route];
   const lower = project.route.toLowerCase();

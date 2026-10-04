@@ -1,110 +1,117 @@
 import { StatusInformationLocale } from "../data/types/StatusInformation";
 
-export type Language = {
-  languageInfo: {
-    de: string;
-    en: string;
+export type HeaderLocale = {
+  themeToggleLight: string;
+  themeToggleDark: string;
+  languageToggle: string;
+  openMenu: string;
+  closeMenu: string;
+  nav: {
+    home: string;
+    projects: string;
+    about: string;
   };
-  home: {
-    greeting: string;
-    name: string;
-    subtitle: string;
-    me: Info;
-    life: Info;
-    teckdigital: {
-      title: string;
-      description: {
-        start: string;
-        middle: string;
-        end: string;
-      };
-    };
-    dhbw: Info;
+  tabs: {
+    home: string;
+    projects: string;
+    me: string;
   };
-  status: {
-    currentWork: StatusInformationLocale;
-    currentFocus: StatusInformationLocale;
-    location: StatusInformationLocale;
-  };
-  projects: {
-    main: {
-      title: string;
-      description: string;
-      documentation: string;
-      filter: {
-        all: string;
-      };
-      readMore: string;
-      teckboard: Info;
-      devlight: Info & { readDoc: string };
-      simpleQ: Info;
-      dbDelay: Info;
-      concertHistory: Info & { betaTest: string };
-      moveTopia: Info & { playStore: string; appStore: string };
-      sensoration: Info;
-      learnMore: string;
-    };
-  };
-  milestones: {
-    work_sap: Milestone;
-    study: Milestone;
-    school: {
-      company: Milestone;
-      abitur: Milestone;
-    };
-  };
-  about: {
-    me: Info;
-    skills: {
-      title: string;
-      subtitle: string;
-      description: string;
-    };
-    quickFacts: {
-      heading: string;
-      education: V4QuickFact;
-      work: V4QuickFact;
-      location: V4QuickFact;
-      interests: V4QuickFact;
-    };
-  };
-  notFound: {
-    title: string;
-  };
-  ui5: {
-    backToPortfolio: string;
-    tagline: string;
-  };
-  v4: V4Language;
 };
 
-export type V4QuickFact = {
+export type FooterLocale = {
+  subtitle: string;
+  socialTitle: string;
+};
+
+export type HomeActionLocale = {
+  explore: string;
+  contact: string;
+};
+
+export type HomePortraitLocale = {
+  statusTitle: string;
+  statusDescription: string;
+};
+
+export type HomeHistoryLocale = {
+  subtitle: string;
+  title: string;
+  description: string;
+  dhbwTags: string[];
+  teckdigitalTags: string[];
+  lifeTags: string[];
+};
+
+export type HomeStatusLocale = {
+  title: string;
+  description: string;
+};
+
+export type HomeLocale = {
+  greeting: string;
+  name: string;
+  subtitle: string;
+  me: Info;
+  life: Info;
+  teckdigital: {
+    title: string;
+    description: {
+      start: string;
+      middle: string;
+      end: string;
+    };
+  };
+  dhbw: Info;
+  action: HomeActionLocale;
+  portrait: HomePortraitLocale;
+  history: HomeHistoryLocale;
+  status: HomeStatusLocale;
+};
+
+export type QuickFactLocale = {
   title: string;
   description: string;
   label: string;
 };
 
-export type V4ProjectFeature = {
+export type ProjectFeatureLocale = {
   title: string;
   description: string;
 };
 
-export type V4ProjectStat = {
+export type ProjectStatLocale = {
   label: string;
   value: string;
 };
 
-export type V4ProjectDetail = {
+export type ProjectDetailLocale = {
   category?: string;
   role?: string;
   statusText?: string;
-  features?: V4ProjectFeature[];
+  features?: ProjectFeatureLocale[];
   challenges?: string;
   learnings?: string;
-  stats?: V4ProjectStat[];
+  stats?: ProjectStatLocale[];
 };
 
-export type V4Projects = {
+export type ProjectsLocale = {
+  main: {
+    title: string;
+    description: string;
+    documentation: string;
+    filter: {
+      all: string;
+    };
+    readMore: string;
+    teckboard: Info;
+    devlight: Info & { readDoc: string };
+    simpleQ: Info;
+    dbDelay: Info;
+    concertHistory: Info & { betaTest: string };
+    moveTopia: Info & { playStore: string; appStore: string };
+    sensoration: Info;
+    learnMore: string;
+  };
   projectData: string;
   projectDescription: string;
   timeline: string;
@@ -123,55 +130,33 @@ export type V4Projects = {
     other: string;
   };
   details?: {
-    [key: string]: V4ProjectDetail;
+    [key: string]: ProjectDetailLocale;
   };
 };
 
-export type V4Language = {
-  header: {
-    themeToggleLight: string;
-    themeToggleDark: string;
-    languageToggle: string;
-    openMenu: string;
-    closeMenu: string;
-    nav: {
-      home: string;
-      projects: string;
-      about: string;
-    };
-    tabs: {
-      home: string;
-      projects: string;
-      me: string;
-    };
-  };
-  home: {
-    action: {
-      explore: string;
-      contact: string;
-    };
-    portrait: {
-      statusTitle: string;
-      statusDescription: string;
-    };
-    history: {
-      subtitle: string;
-      title: string;
-      description: string;
-      dhbwTags: string[];
-      teckdigitalTags: string[];
-      lifeTags: string[];
-    };
-    status: {
-      title: string;
-      description: string;
-    };
-  };
-  footer: {
+export type AboutLocale = {
+  me: Info;
+  skills: {
+    title: string;
     subtitle: string;
-    socialTitle: string;
+    description: string;
   };
-  projects: V4Projects;
+  quickFacts: {
+    heading: string;
+    education: QuickFactLocale;
+    work: QuickFactLocale;
+    location: QuickFactLocale;
+    interests: QuickFactLocale;
+  };
+};
+
+export type MilestonesLocale = {
+  work_sap: Milestone;
+  study: Milestone;
+  school: {
+    company: Milestone;
+    abitur: Milestone;
+  };
 };
 
 export type Milestone = {
@@ -186,3 +171,33 @@ export type Info = {
   shortDescription?: string;
   description: string;
 };
+
+export type Language = {
+  languageInfo: {
+    de: string;
+    en: string;
+  };
+  header: HeaderLocale;
+  footer: FooterLocale;
+  home: HomeLocale;
+  status: {
+    currentWork: StatusInformationLocale;
+    currentFocus: StatusInformationLocale;
+    location: StatusInformationLocale;
+  };
+  projects: ProjectsLocale;
+  milestones: MilestonesLocale;
+  about: AboutLocale;
+  notFound: {
+    title: string;
+  };
+  ui5: {
+    backToPortfolio: string;
+    tagline: string;
+  };
+};
+
+// Aliases for seamless migration
+export type V4ProjectDetail = ProjectDetailLocale;
+export type V4QuickFact = QuickFactLocale;
+export type V4Projects = ProjectsLocale;

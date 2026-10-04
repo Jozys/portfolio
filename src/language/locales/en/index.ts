@@ -6,6 +6,28 @@ export const language: Language = {
     de: "🇩🇪 German",
     en: "🇬🇧 English",
   },
+  header: {
+    themeToggleLight: "Switch to light mode",
+    themeToggleDark: "Switch to dark mode",
+    languageToggle: "Zu Deutsch wechseln",
+    openMenu: "Open navigation menu",
+    closeMenu: "Close navigation menu",
+    nav: {
+      home: "Home",
+      projects: "Projects",
+      about: "About me",
+    },
+    tabs: {
+      home: "Home",
+      projects: "Projects",
+      me: "About me",
+    },
+  },
+  footer: {
+    subtitle:
+      "Software Engineer at SAP in Walldorf • Focused on Full Stack & Artificial Intelligence.",
+    socialTitle: "Connect & Socials",
+  },
   home: {
     greeting: "Hello",
     name: "My name is Joshua Slaar!",
@@ -32,6 +54,31 @@ export const language: Language = {
       title: "Student@DHBW",
       description: `From September 2022 until the end of September 2025 I was a Vocational Training Student of Applied Computer Science at SAP in Walldorf.
             Therefore I work there at SAP and study at the Baden-Wuerttemberg Cooperative State University Karlsruhe (DHBW Karlsruhe).`,
+    },
+    action: {
+      explore: "Explore selected work",
+      contact: "Start a conversation",
+    },
+    portrait: {
+      statusTitle: "Software Engineer @ SAP",
+      statusDescription: "Walldorf • Full Stack & AI",
+    },
+    history: {
+      subtitle: "Background & Journey",
+      title: "Experience, Studies & Life",
+      description:
+        "Key milestones from my dual study at SAP, early initiatives with TECKdigital, to personal passions.",
+      dhbwTags: ["Dual Study", "SAP", "DHBW"],
+      teckdigitalTags: [
+        "Mobile Apps",
+        "Software Development",
+        "Web Development",
+      ],
+      lifeTags: ["Outdoor", "Black Forest", "Travel"],
+    },
+    status: {
+      title: "Current status",
+      description: "Location, current role, and engineering focuses.",
     },
   },
   status: {
@@ -116,6 +163,23 @@ export const language: Language = {
       },
       learnMore: "Learn more",
     },
+    projectData: "Project Data",
+    timeline: "Timeline",
+    links: "Links & Resources",
+    gallerySection: "Gallery",
+    galleryTitle: "Insights & Screenshots",
+    projectDescription: "Project Description",
+    category: "Category",
+    technologies: {
+      title: "Technologies",
+      frontend: "Frontend",
+      backend: "Backend",
+      mobile: "Mobile",
+      database: "Database",
+      hardware: "Hardware",
+      devops: "DevOps",
+      other: "Other",
+    },
   },
   milestones: {
     work_sap: {
@@ -195,76 +259,6 @@ Outside of programming, I enjoy spending time outdoors — cycling in the Black 
   ui5: {
     backToPortfolio: "Back to portfolio",
     tagline: "Built with Open UI5 — secret mode 🛠️",
-  },
-  v4: {
-    header: {
-      themeToggleLight: "Switch to light mode",
-      themeToggleDark: "Switch to dark mode",
-      languageToggle: "Zu Deutsch wechseln",
-      openMenu: "Open navigation menu",
-      closeMenu: "Close navigation menu",
-      nav: {
-        home: "Home",
-        projects: "Projects",
-        about: "About me",
-      },
-      tabs: {
-        home: "Home",
-        projects: "Projects",
-        me: "About me",
-      },
-    },
-    home: {
-      action: {
-        explore: "Explore selected work",
-        contact: "Start a conversation",
-      },
-      portrait: {
-        statusTitle: "Software Engineer @ SAP",
-        statusDescription: "Walldorf • Full Stack & AI",
-      },
-      history: {
-        subtitle: "Background & Journey",
-        title: "Experience, Studies & Life",
-        description:
-          "Key milestones from my dual study at SAP, early initiatives with TECKdigital, to personal passions.",
-        dhbwTags: ["Dual Study", "SAP", "DHBW"],
-        teckdigitalTags: [
-          "Mobile Apps",
-          "Software Development",
-          "Web Development",
-        ],
-        lifeTags: ["Outdoor", "Black Forest", "Travel"],
-      },
-      status: {
-        title: "Current status",
-        description: "Location, current role, and engineering focuses.",
-      },
-    },
-    footer: {
-      subtitle:
-        "Software Engineer at SAP in Walldorf • Focused on Full Stack & Artificial Intelligence.",
-      socialTitle: "Connect & Socials",
-    },
-    projects: {
-      projectData: "Project Data",
-      timeline: "Timeline",
-      links: "Links & Resources",
-      gallerySection: "Gallery",
-      galleryTitle: "Insights & Screenshots",
-      projectDescription: "Project Description",
-      category: "Category",
-      technologies: {
-        title: "Technologies",
-        frontend: "Frontend",
-        backend: "Backend",
-        mobile: "Mobile",
-        database: "Database",
-        hardware: "Hardware",
-        devops: "DevOps",
-        other: "Other",
-      },
-    },
   },
 };
 export default language;
