@@ -1,5 +1,5 @@
-import { Box, Fade, IconButton, useTheme } from "@mui/material";
 import { ArrowDownward } from "@mui/icons-material";
+import { Box, Fade, IconButton, useTheme } from "@mui/material";
 
 export interface ScrollDownProps {
   componentRef: React.RefObject<HTMLDivElement | null>;
@@ -7,6 +7,8 @@ export interface ScrollDownProps {
 
 export function ScrollDownButton(props: ScrollDownProps) {
   const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
+
   const scrollToComponent = () => {
     props.componentRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -15,43 +17,32 @@ export function ScrollDownButton(props: ScrollDownProps) {
     <Fade in={true} timeout={1500}>
       <Box>
         <IconButton
-          aria-label="scroll down"
           onClick={scrollToComponent}
           sx={{
             backgroundColor: theme.palette.primary.main,
             color: theme.palette.primary.contrastText,
             "&:hover": {
               backgroundColor: theme.palette.primary.dark,
-              transform: "translateY(5px)",
+              transform: "translateY(3px)",
             },
-            transition: "transform 0.3s ease-in-out, background-color 0.3s",
-            animation: "bounce 2s infinite",
-            "@keyframes bounce": {
-              "0%, 20%, 50%, 80%, 100%": {
-                transform: "translateY(0)",
-              },
-              "40%": {
-                transform: "translateY(-10px)",
-              },
-              "60%": {
-                transform: "translateY(-5px)",
-              },
-            },
-            boxShadow: "0px 4px 10px rgba(0,0,0,0.2)",
+            transition: "transform 0.25s ease-in-out, background-color 0.25s",
+            boxShadow: isDark
+              ? "0px 4px 16px rgba(192, 132, 252, 0.35)"
+              : "0px 4px 12px rgba(18, 138, 142, 0.3)",
             height: "48px",
             width: "48px",
           }}
         >
-          <ArrowDownward fontSize="large" />
+          <ArrowDownward fontSize="medium" />
         </IconButton>
         <Box
           component="span"
           sx={{
             display: "block",
             mt: 1,
-            color: theme.palette.text.primary,
-            fontSize: "0.8rem",
-            fontWeight: "medium",
+            color: theme.palette.text.secondary,
+            fontSize: "0.75rem",
+            fontWeight: 700,
             textTransform: "uppercase",
             letterSpacing: "1px",
           }}

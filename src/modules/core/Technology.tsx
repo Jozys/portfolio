@@ -71,7 +71,8 @@ export default function TechnologyButton({
         showName ? (
           <img
             src={technology.icon}
-            alt={technology.name}
+            alt=""
+            aria-hidden="true"
             height={isSmall ? 16 : 18}
             width="auto"
             style={{

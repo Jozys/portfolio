@@ -33,6 +33,7 @@ export default function ProjectCard({
   return (
     <Paper
       elevation={0}
+      onClick={onOpen}
       sx={{
         borderRadius: 2.5,
         overflow: "hidden",
@@ -53,6 +54,7 @@ export default function ProjectCard({
           borderColor: isDark
             ? "rgba(34, 193, 195, 0.4)"
             : "rgba(18, 138, 142, 0.35)",
+          cursor: "pointer",
         },
       }}
     >

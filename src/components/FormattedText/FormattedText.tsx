@@ -110,7 +110,10 @@ export const FormattedText: React.FC<FormattedTextProps> = ({
           rel="noopener noreferrer"
           {...props}
           sx={{
-            color: theme.palette.secondary.main,
+            color:
+              theme.palette.mode === "dark"
+                ? theme.palette.secondary.main
+                : theme.palette.primary.main,
             textDecoration: "none",
             fontWeight: 600,
             "&:hover": {

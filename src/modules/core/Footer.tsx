@@ -62,7 +62,7 @@ export default function Footer() {
           }}
         >
           <Box>
-            <Stack direction="row" spacing={1.5} alignItems="center">
+            <Stack direction="row" spacing={1.5} sx={{ alignItems: "center" }}>
               <Logo />
               <Typography
                 sx={{
@@ -116,8 +116,10 @@ export default function Footer() {
             <Stack
               direction="row"
               spacing={1}
-              flexWrap="wrap"
-              justifyContent={{ sm: "flex-end" }}
+              sx={{
+                flexWrap: "wrap",
+                justifyContent: { sm: "flex-end" },
+              }}
             >
               {socialLinks.map((item) => (
                 <Tooltip key={item.label} title={item.label}>

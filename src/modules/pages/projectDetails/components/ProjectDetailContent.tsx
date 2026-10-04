@@ -59,7 +59,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
           {project.years && (
             <Box
               sx={{
-                borderTop: `2px solid ${theme.palette.background.default}`,
+                borderTop: `1px solid ${theme.palette.divider}`,
                 pt: 1.5,
               }}
             >
@@ -83,9 +83,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
           {details?.category && (
             <Box
               sx={{
-                borderTop: `1px solid ${
-                  isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)"
-                }`,
+                borderTop: `1px solid ${theme.palette.divider}`,
                 pt: 1.5,
               }}
             >
@@ -121,7 +119,6 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
                 {t?.links}
               </Typography>
               <Stack
-                gap={1}
                 sx={{
                   mt: 1,
                   display: "grid",

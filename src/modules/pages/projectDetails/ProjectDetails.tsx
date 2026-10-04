@@ -35,7 +35,7 @@ export default function ProjectDetails() {
               textTransform: "none",
               px: 0,
               fontWeight: 700,
-              "&:hover": { color: theme.palette.secondary.main },
+              "&:hover": { color: theme.palette.primary.main },
             }}
           >
             {languageType === "de"

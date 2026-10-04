@@ -1,6 +1,6 @@
-import { FilterList } from "@mui/icons-material";
-import { Chip, Stack, useTheme } from "@mui/material";
+import { Box, Chip, Stack, useTheme } from "@mui/material";
 import { TechnologyType } from "../../../../data/types/Project";
+import { getCategoryIcon } from "../../../core/TechnologyGroupGrid";
 
 export interface ProjectFilterProps {
   filter: string;
@@ -14,13 +14,15 @@ export default function ProjectFilter(props: ProjectFilterProps) {
   return (
     <Stack
       direction="row"
-      flexWrap="wrap"
-      alignItems="center"
       spacing={1}
-      sx={{ mt: 5, mb: 4 }}
+      sx={{
+        flexWrap: "wrap",
+        alignItems: "center",
+        mt: 5,
+        mb: 4,
+      }}
     >
       <Chip
-        icon={<FilterList fontSize="small" />}
         label={props.label}
         clickable
         color={props.filter === "all" ? "secondary" : "default"}
@@ -40,6 +42,20 @@ export default function ProjectFilter(props: ProjectFilterProps) {
           clickable
           color={props.filter === type ? "secondary" : "default"}
           variant={props.filter === type ? "filled" : "outlined"}
+          icon={
+            <Box
+              sx={{
+                width: 32,
+                height: 32,
+                borderRadius: 1.5,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {getCategoryIcon(type)}
+            </Box>
+          }
           onClick={() => props.setFilter(type)}
           sx={{
             fontWeight: 600,

@@ -1,15 +1,22 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Box, Container, keyframes, Typography, useTheme } from "@mui/material";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Me from "../../../assets/life/me.jpg";
-import { getAllStatusInformations } from "../../../data/StatusInformation";
 import { useLanguage } from "../../../language/hooks";
 import { ScrollDownButton } from "../../core/ScrollDownButton";
 import ActionBar from "./components/ActionBar";
 import History from "./components/History";
 import Portrait from "./components/Portrait";
 import Status from "./components/Status";
+
+const float = keyframes`
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+`;
 
 export default function Home() {
   const theme = useTheme();
@@ -18,15 +25,6 @@ export default function Home() {
   const historyRef = useRef<HTMLDivElement>(null);
 
   const navigate = useNavigate();
-
-  const float = keyframes`
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-15px);
-    }
-  `;
 
   return (
     <Box sx={{ flex: 1 }}>
@@ -54,7 +52,7 @@ export default function Home() {
                 {language.home.greeting} 👋 • {language.home.subtitle}
               </Typography>
               <Typography
-                component="h3"
+                component="h1"
                 sx={{
                   color: theme.palette.text.primary,
                   fontSize: { xs: "1.75rem", sm: "3rem", md: "4rem" },
@@ -88,6 +86,7 @@ export default function Home() {
 
             <Portrait
               image={Me}
+              alt={language.home.name}
               statusTitle={language.home.portrait.statusTitle}
               statusDescription={language.home.portrait.statusDescription}
             />

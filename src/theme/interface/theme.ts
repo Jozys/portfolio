@@ -38,19 +38,21 @@ const theme = (dark: boolean) => {
   return createTheme({
     palette: {
       primary: {
-        main: dark ? "rgba(50, 0, 83, 1)" : "rgba(18, 138, 142, 1)",
+        main: dark ? "rgba(50, 0, 83, 1)" : "#0f766e",
+        contrastText: "#ffffff",
       },
       secondary: {
-        main: dark ? "rgba(34,193,195,1)" : "rgba(50, 0, 83, 1)",
+        main: dark ? "rgba(34, 193, 195, 1)" : "#581c87",
+        contrastText: dark ? "#180828" : "#ffffff",
       },
       background: {
-        paper: dark ? "#5CCCCC" : "#ffffff",
+        paper: dark ? "#1e1138" : "#ffffff",
         default: dark ? "#281547" : "#f8fafc",
       },
       text: {
-        primary: dark ? "#fff" : "#111827",
-        secondary: dark ? "#fdfdfd" : "#4b5563",
-        disabled: dark ? "#b0b0b0" : "#9ca3af",
+        primary: dark ? "#ffffff" : "#111827",
+        secondary: dark ? "#cbd5e1" : "#374151",
+        disabled: dark ? "#64748b" : "#9ca3af",
       },
 
       mode: dark ? "dark" : "light",
@@ -68,7 +70,7 @@ const theme = (dark: boolean) => {
       footer: {
         default: dark
           ? "linear-gradient(0deg, rgba(75,155,155,0.8) 0%, rgba(135,195,175,0.7) 100%)"
-          : "linear-gradient(90deg, rgba(18, 138, 142, 0.9) 0%, rgba(50, 0, 83, 0.9) 100%)",
+          : "linear-gradient(90deg, rgba(15, 118, 110, 0.9) 0%, rgba(88, 28, 135, 0.9) 100%)",
       },
     },
     typography: {
@@ -76,7 +78,6 @@ const theme = (dark: boolean) => {
       allVariants: {
         fontFamily: "Titillium Web",
         fontWeight: "normal",
-        color: dark ? "#fff" : "#000",
       },
     },
   });

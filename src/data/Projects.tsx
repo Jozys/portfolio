@@ -1,4 +1,4 @@
-import { Article } from "@mui/icons-material";
+import { Android, Article, PhoneIphone } from "@mui/icons-material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ConcertHistoryLogo from "../assets/projects/concertHistory/ConcertHistory.svg";
 import ConcertHistoryApp from "../assets/projects/concertHistory/ConcertHistory_Mockup.png";
@@ -20,11 +20,9 @@ import SensorationApp from "../assets/projects/sensoration/Sensoration_Mockup.pn
 import SimpleQLogo from "../assets/projects/simpleQ/simpleq_logo.png";
 import SimpleQWebsite from "../assets/projects/simpleQ/SimpleQ_Mockup.png";
 import FirstTECKboard from "../assets/projects/teckboard/firstTECKboard.png";
-import TECKboard from "../assets/projects/teckboard/teckboard-logo-orange.svg";
 import SecondTECKboard from "../assets/projects/teckboard/newBoard.png";
+import TECKboard from "../assets/projects/teckboard/teckboard-logo-orange.svg";
 import TECKboardApp from "../assets/projects/teckboard/teckboard_app.png";
-import AppleAppStore from "../assets/technologies/AppleAppStore.png";
-import GooglePlayIcon from "../assets/technologies/GooglePlay.png";
 import { Language, ProjectDetailLocale } from "../language";
 import { getNestedValue } from "../utils/utils";
 import { getTechnology } from "./Technologies";
@@ -214,14 +212,12 @@ export const projects: Record<string, Project> = {
       playStore: {
         url: "https://play.google.com/store/apps/details?id=de.buseslaar.movetopia",
         label: "projects.main.moveTopia.playStore",
-        icon: (
-          <img height={"24px"} src={GooglePlayIcon} alt="GooglePlay Icon" />
-        ),
+        icon: <Android />,
       },
       appStore: {
         url: "https://testflight.apple.com/join/1MYANqEt",
         label: "projects.main.moveTopia.appStore",
-        icon: <img height={"24px"} src={AppleAppStore} alt="App Store Icon" />,
+        icon: <PhoneIphone />,
       },
       documentation: {
         url: "https://niklas-buse.de/project/movetopia",

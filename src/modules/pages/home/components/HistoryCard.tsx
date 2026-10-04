@@ -21,7 +21,7 @@ export default function HistoryCard({
   badge,
   image,
   imageAlt = "",
-  imageVariant = "logo",
+  imageVariant = "banner",
   invertImageOnDark = false,
   children,
 }: HistoryCardProps) {

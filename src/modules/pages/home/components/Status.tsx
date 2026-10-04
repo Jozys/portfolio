@@ -51,7 +51,7 @@ export default function Status({
           <Box>
             <Typography
               sx={{
-                color: theme.palette.secondary.main,
+                color: theme.palette.primary.main,
                 fontWeight: 800,
                 fontSize: 13,
                 letterSpacing: ".14em",

@@ -30,7 +30,7 @@ export default function ActionBar(props: ActionBarProps) {
       <Stack
         direction={{ xs: "column", sm: "row" }}
         spacing={2}
-        alignItems={{ sm: "center" }}
+        sx={{ alignItems: { sm: "center" } }}
       >
         <Button
           variant="contained"
