@@ -42,40 +42,7 @@ export type Language = {
       concertHistory: Info & { betaTest: string };
       moveTopia: Info & { playStore: string; appStore: string };
       sensoration: Info;
-      skills: Info; // To be removed for v4
       learnMore: string;
-    };
-    devlight: {
-      title: string;
-      subtitle: string;
-      ledstrip: {
-        color: string;
-        validity: string;
-        restart: string;
-      };
-      summary: string;
-      evolution: {
-        title: string;
-        description: string;
-      };
-      openSourceNotice: string;
-      github: string;
-      projectTimelineTitle: string;
-      projectTimeline: string[];
-      last: string;
-    };
-    teckboard: {
-      title: string;
-      content: string;
-      projectDescription: Info;
-      evolution: string;
-      mobileEvolution: string;
-      imageInfo: string[];
-      appDescription: string[];
-      reactNative: {
-        start: string;
-        end: string;
-      };
     };
   };
   milestones: {
@@ -100,11 +67,6 @@ export type Language = {
       location: V4QuickFact;
       interests: V4QuickFact;
     };
-  };
-  footer: {
-    contact: string;
-    others: string;
-    projects: string;
   };
   notFound: {
     title: string;

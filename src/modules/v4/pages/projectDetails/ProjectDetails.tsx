@@ -1,16 +1,20 @@
 import { ArrowBack } from "@mui/icons-material";
 import { Box, Button, Container, useTheme } from "@mui/material";
-import { useParams } from "react-router-dom";
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useLanguage } from "../../../../language/hooks";
 import EmptyPage from "../../../core/design-system/EmptyPage";
 import useProjects from "../../hooks/projects/useProjects";
 import ProjectDetailContent from "./components/ProjectDetailContent";
 import ProjectDetailHeader from "./components/ProjectDetailHeader";
 import ProjectDetailVisual from "./components/ProjectDetailVisual";
-import React from "react";
 
 export default function ProjectDetails() {
   const route = useParams<{ id: string }>();
-  const project = useProjects().getProjectById(route.id || "");
+  const navigate = useNavigate();
+  const { languageType } = useLanguage();
+  const { getProjectById } = useProjects();
+  const project = getProjectById(route.id || "");
 
   const theme = useTheme();
 
@@ -25,7 +29,7 @@ export default function ProjectDetails() {
         <Container maxWidth="lg">
           <Button
             startIcon={<ArrowBack />}
-            onClick={() => window.history.back()}
+            onClick={() => navigate("/projects")}
             sx={{
               color: theme.palette.text.secondary,
               textTransform: "none",
@@ -34,7 +38,9 @@ export default function ProjectDetails() {
               "&:hover": { color: theme.palette.secondary.main },
             }}
           >
-            Go Back
+            {languageType === "de"
+              ? "Zurück zu allen Projekten"
+              : "Back to all projects"}
           </Button>
           <ProjectDetailHeader project={project} />
           <ProjectDetailVisual project={project} />

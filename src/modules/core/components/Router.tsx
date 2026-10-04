@@ -6,18 +6,11 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
-import DevLights from "../../devlights/components/DevLights";
-import Home from "../../home/components/Home";
-import Projects from "../../projects/components/Projects";
-import TECKboard from "../../teckdigital/components/TECKboard";
-import V4Footer from "../../v4/core/Footer";
+import Footer from "../../v4/core/Footer";
 import Header from "../../v4/core/Header";
-import Footer from "../components/Footer";
 import EmptyPage from "../design-system/EmptyPage";
-import Menu from "./Menu";
-// Temporary imports for v4 routes
-import HomeV4 from "../../v4/pages/home/Home";
-import ProjectsV4 from "../../v4/pages/projects/Projects";
+import Home from "../../v4/pages/home/Home";
+import Projects from "../../v4/pages/projects/Projects";
 import About from "../../v4/pages/about/About";
 import ProjectDetails from "../../v4/pages/projectDetails/ProjectDetails";
 
@@ -52,10 +45,10 @@ function AppShell() {
   const getCurrentTabFromPathname = (
     pathname: string,
   ): "home" | "projects" | "me" => {
-    if (pathname.startsWith("/v4/projects")) {
+    if (pathname.startsWith("/projects")) {
       return "projects";
     }
-    if (pathname.startsWith("/v4/me")) {
+    if (pathname.startsWith("/me") || pathname.startsWith("/about")) {
       return "me";
     }
     return "home";
@@ -63,36 +56,25 @@ function AppShell() {
 
   return (
     <>
-      {!isUI5 &&
-        (pathname.includes("v4") ? (
-          <Header
-            currentTab={
-              getCurrentTabFromPathname(pathname) as "home" | "projects" | "me"
-            }
-            tabs={["home", "projects", "me"]}
-          />
-        ) : (
-          <Menu />
-        ))}
+      {!isUI5 && (
+        <Header
+          currentTab={getCurrentTabFromPathname(pathname)}
+          tabs={["home", "projects", "me"]}
+        />
+      )}
       <Routes>
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Home />} />
-        <Route
-          path="/projects"
-          element={<Navigate to="/projects/home" replace />}
-        />
-        <Route path="/projects/home" element={<Projects />} />
-        <Route path="/projects/teckboard" element={<TECKboard />} />
-        <Route path="/projects/devlights" element={<DevLights />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/:id" element={<ProjectDetails />} />
+        <Route path="/me" element={<About />} />
+        <Route path="/about" element={<Navigate to="/me" replace />} />
 
-        {/** Starting a v4 version of this project */}
-        <Route path="/v4" element={<Navigate to="/v4/home" replace />} />
-        <Route path="/v4/home" element={<HomeV4 />} />
-
-        <Route path="/v4/projects" element={<ProjectsV4 />} />
-        <Route path="/v4/projects/:id" element={<ProjectDetails />} />
-
-        <Route path="/v4/me" element={<About />} />
+        {/* Backwards compatibility redirects */}
+        <Route path="/v4" element={<Navigate to="/home" replace />} />
+        <Route path="/v4/home" element={<Navigate to="/home" replace />} />
+        <Route path="/v4/projects" element={<Navigate to="/projects" replace />} />
+        <Route path="/v4/me" element={<Navigate to="/me" replace />} />
 
         <Route
           path={UI5_PATH}
@@ -105,7 +87,7 @@ function AppShell() {
 
         <Route path="*" element={<EmptyPage />} />
       </Routes>
-      {!isUI5 && (pathname.includes("v4") ? <V4Footer /> : <Footer />)}
+      {!isUI5 && <Footer />}
     </>
   );
 }

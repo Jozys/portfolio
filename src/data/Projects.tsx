@@ -9,6 +9,10 @@ import DB_Statistics_Light from "../assets/projects/dbDelay/db_statistics_light.
 import DBDelay from "../assets/projects/dbDelay/dbDelay.svg";
 import DevLightsApp from "../assets/projects/devlights/devlights.png";
 import DevLights from "../assets/projects/devlights/devlights.svg";
+import DevLightsDesktop from "../assets/projects/devlights/devlights_desktop_1.jpg";
+import ESPBreadboard from "../assets/projects/devlights/esp_breadboard.jpeg";
+import DevLightsImage1 from "../assets/projects/devlights/images/image1.jpg";
+import DevLightsImage3 from "../assets/projects/devlights/images/image3.jpg";
 import MoveTopiaApp from "../assets/projects/moveTopia/MoveTopia_Mockup.png";
 import MoveTopia from "../assets/projects/moveTopia/MT_ICON.png";
 import SensorationLogo from "../assets/projects/sensoration/Sensoration_Logo.png";
@@ -84,7 +88,13 @@ export const projects: Record<string, Project> = {
     description: "projects.main.devlight.description",
     years: { start: 2020, end: 2021 },
     image: DevLights,
-    detailImages: [DevLightsApp],
+    detailImages: [
+      DevLightsApp,
+      DevLightsImage1,
+      ESPBreadboard,
+      DevLightsImage3,
+      DevLightsDesktop,
+    ],
     technologies: [
       getTechnology("cpp")!,
       getTechnology("typescript")!,

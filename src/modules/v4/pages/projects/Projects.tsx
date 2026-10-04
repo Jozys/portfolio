@@ -63,7 +63,7 @@ export default function Projects() {
               key={project.name}
               project={project}
               onOpen={() => {
-                navigate(`/v4/projects/${project.route}`);
+                navigate(`/projects/${project.route}`);
               }}
             />
           ))}

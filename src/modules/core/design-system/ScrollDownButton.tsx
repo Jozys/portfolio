@@ -1,5 +1,4 @@
 import { Box, Fade, IconButton, useTheme } from "@mui/material";
-import getContrastTextColor from "../utils/textContrast";
 import { ArrowDownward } from "@mui/icons-material";
 
 export interface ScrollDownProps {
@@ -20,7 +19,7 @@ export function ScrollDownButton(props: ScrollDownProps) {
           onClick={scrollToComponent}
           sx={{
             backgroundColor: theme.palette.primary.main,
-            color: getContrastTextColor(theme.palette.primary.main),
+            color: theme.palette.primary.contrastText,
             "&:hover": {
               backgroundColor: theme.palette.primary.dark,
               transform: "translateY(5px)",

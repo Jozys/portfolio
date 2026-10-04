@@ -72,16 +72,36 @@ export default function Header(props: HeaderProps) {
     setMobileOpen((prev) => !prev);
   };
 
+  const SECRET_CLICK_THRESHOLD = 5;
+  const SECRET_CLICK_WINDOW_MS = 800;
+  const clickCount = React.useRef(0);
+  const lastClick = React.useRef(0);
+
   const handleTabClick = (tab: Tabs) => {
-    navigate(`/v4/${tab}`);
+    navigate(`/${tab}`);
     if (onChange) {
       onChange(tab);
     }
     setMobileOpen(false);
   };
 
-  const handleLogoClick = () => {
-    navigate("/v4");
+  const handleLogoClick = (event: React.MouseEvent) => {
+    const now = Date.now();
+    clickCount.current =
+      now - lastClick.current < SECRET_CLICK_WINDOW_MS
+        ? clickCount.current + 1
+        : 1;
+    lastClick.current = now;
+
+    if (clickCount.current >= SECRET_CLICK_THRESHOLD) {
+      event.preventDefault();
+      clickCount.current = 0;
+      navigate("/ui5");
+      setMobileOpen(false);
+      return;
+    }
+
+    navigate("/home");
     setMobileOpen(false);
   };
 
@@ -160,7 +180,7 @@ export default function Header(props: HeaderProps) {
           {tabs.map((tab) => (
             <Tab
               onClick={() => {
-                navigate(`/v4/${tab}`);
+                handleTabClick(tab);
               }}
               key={tab}
               value={tab}

@@ -104,6 +104,7 @@ export default function Home() {
         >
           <Box
             sx={{
+              mt: 8,
               display: "inline-block",
               animation: `${float} 3s ease-in-out infinite`,
             }}

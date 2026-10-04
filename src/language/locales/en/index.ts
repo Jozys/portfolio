@@ -114,86 +114,7 @@ export const language: Language = {
         description: `Sensoration is an Android app that was developed by me together with Tom Schütt as part of the "Distributed Systems" module at DHBW. It enables the collection and visualization of sensor data from distributed Android devices. 
           The app was developed in Kotlin with Jetpack Compose and offers a modern user interface.`,
       },
-      skills: {
-        title: "My skills",
-        description: `This overview shows all programming languages and frameworks with which I am well or reasonably familiar.
-                      My main experience has expanded from Java and JavaScript or TypeScript to frameworks for frontend development such as React and for backend development such as NestJS.
-                      I have also gained experience in app development with React Native, Jetpack Compose, and Flutter.
-                      I also have some knowledge in hardware development with C++ and the ESP8266 microcontroller.
-                      My knowledge of databases ranges from MongoDB, MySQL to PostgreSQL.
-                      My knowledge of programming languages and frameworks does not stand still, but I always try to keep learning.`,
-      },
       learnMore: "Learn more",
-    },
-    devlight: {
-      title: "DevLights",
-      subtitle: "The smart home LED stripes for developers",
-      ledstrip: {
-        color: "Type color here",
-        validity: "Only valid HEX or RGB colors supported",
-        restart: "Restart random color",
-      },
-      github: "Visit Project Devlights on GitHub",
-      summary: `DevLights are self-programmed smart home led stripes using the WS2812B chip for controlling the stripes. ${"\n\n"}
-            There is a backend server developed with NestJS and MongoDB, a smartphone and desktop application for the management.`,
-      evolution: {
-        title: "The evolution of DevLights",
-        description:
-          "The evolution of DevLights began in 2020 when I started the project together with two friends of mine, Jaan Springer and Timo Peters. We started developing on that project in our project course at Graf-Adolf-Gymnasium in Tecklenburg, North-Rhine-Westphalia, Germany. Through one year of development, we learned a lot about programming, hardware, and software development.",
-      },
-      openSourceNotice:
-        "The project is open source. It can be viewed on GitHub.",
-      projectTimelineTitle: "Project timeline",
-      projectTimeline: [
-        `In the year 2020 two friends of mine and me together decided to
-                take a part of a project class that was offered by our school.
-                After some ideas, brainstorming and discarding ideas which
-                wouldn't fit the requirements, we decided to build a project that
-                would be able to control LED stripes. The only requirements given
-                by our school was that the project needed to include
-                microcontrollers, so it cannot just be a simple website for
-                example.`,
-        ` In the first weeks we decided which hardware and software we would
-                use at developing our project. We decided to use a BTF Lightning
-                LED strip together with a ESP8266 Wifi Module as the hardware. For
-                the server, which is running in the middle of hardware and user
-                (software) connection, we decided to use a Raspberry Pi as
-                hardware. The API should be written with NestJS in TypeScript and the ESP8266 with C++.`,
-      ],
-      last: `All in all developing this project over a year in school was a quite
-            good expercience.
-            The project is still on GitHub and theoretically everyone can use this system at theirs home.
-            If you want to learn more, you can look at my term paper, which is only available in German.`,
-    },
-    teckboard: {
-      title: "TECKboard",
-      evolution: "The evolution of the TECKboard",
-      mobileEvolution: "The evolution of the TECKboard mobile app",
-      content:
-        "TECKboard is a real time digital information system. It gives the ability to create individual boards for specific groups, so that everyone just gets the information they need and are allowed to see. In the background there is a secure user and invite system for convenient user management",
-      projectDescription: {
-        title: "How TECKboards have been developed",
-        description: `The first idea for the TECKboards came from the student council of
-                my school, the Graf-Adolf-Gymnasium, to replace the old analog
-                information system of our school. The first version of the
-                TECKboards was created in 2019. In the last two years the system has
-                been developed further and further. At the end of 2019 I started
-                developing a mobile application for our system. The mobile
-                application was released in 2021 and could have been downloaded until 2023 in the known
-                app stores of Apple and Google.`,
-      },
-      imageInfo: [],
-      appDescription: [
-        `  After publishing the app, it was
-            used by the students and the teachers of our school, the
-            Graf-Adolf-Gymnasium in Tecklenburg, North-Rhine-Westphalia.`,
-      ],
-      reactNative: {
-        start: `The App was first developed with Android studio in Java. In March
-                2020 we decided to develope directly for Android and iOS. For this
-                we choose`,
-        end: `, a multiplatform app developement framework.`,
-      },
     },
   },
   milestones: {
@@ -267,11 +188,6 @@ Outside of programming, I enjoy spending time outdoors — cycling in the Black 
           "Sport activities, travel through Germany and Europe, and technological developments and innovations.",
       },
     },
-  },
-  footer: {
-    contact: "Contact",
-    others: "Others",
-    projects: "Projects",
   },
   notFound: {
     title: "This content was not found",
