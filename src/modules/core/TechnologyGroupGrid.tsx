@@ -101,13 +101,6 @@ export function TechnologyCategoryCard({
         background: theme.surfaces.cardSubtle,
         border: `1px solid ${theme.borders.subtle}`,
         backdropFilter: "blur(12px)",
-        transition:
-          "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
-        "&:hover": {
-          transform: "translateY(-4px)",
-          boxShadow: theme.shadowsGlow.cardHover,
-          borderColor: theme.borders.glow,
-        },
         ...sx,
       }}
     >

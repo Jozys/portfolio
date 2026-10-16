@@ -5,11 +5,13 @@ import { Technology } from "../../data/types/Project";
 export interface TechnologyProps extends Omit<ButtonProps, "color"> {
   technology: Technology;
   showName?: boolean;
+  disableLink?: boolean;
 }
 
 export default function TechnologyButton({
   technology,
   showName = false,
+  disableLink = false,
   size = "small",
   sx,
   onClick,
@@ -23,9 +25,11 @@ export default function TechnologyButton({
     (isDark ? theme.palette.secondary.main : theme.palette.primary.main);
 
   const isSmall = size === "small";
+  const isInteractive =
+    (!disableLink && Boolean(technology.link)) || Boolean(onClick);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (technology.link) {
+    if (!disableLink && technology.link) {
       e.stopPropagation();
       window.open(technology.link, "_blank", "noopener,noreferrer");
     }
@@ -39,7 +43,9 @@ export default function TechnologyButton({
       key={`tech-${technology.name}`}
       title={technology.name}
       size={size}
-      onClick={handleClick}
+      disableRipple={!isInteractive}
+      tabIndex={isInteractive ? undefined : -1}
+      onClick={isInteractive ? handleClick : undefined}
       sx={{
         m: 0.5,
         textTransform: "none",
@@ -54,16 +60,25 @@ export default function TechnologyButton({
         px: showName ? (isSmall ? 1.25 : 1.6) : isSmall ? 0.9 : 1.1,
         py: isSmall ? 0.4 : 0.6,
         minWidth: "unset",
+        cursor: isInteractive ? "pointer" : "inherit",
         transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
-        "&:hover": {
-          backgroundColor: alpha(brandColor, isDark ? 0.22 : 0.16),
-          borderColor: brandColor,
-          boxShadow: `0 0 10px ${alpha(brandColor, isDark ? 0.35 : 0.2)}`,
-          transform: "translateY(-1px)",
-        },
-        "&:active": {
-          transform: "translateY(0)",
-        },
+        ...(isInteractive
+          ? {
+              "&:hover": {
+                backgroundColor: alpha(brandColor, isDark ? 0.22 : 0.16),
+                borderColor: brandColor,
+                boxShadow: `0 0 10px ${alpha(brandColor, isDark ? 0.35 : 0.2)}`,
+                transform: "translateY(-1px)",
+              },
+              "&:active": {
+                transform: "translateY(0)",
+              },
+            }
+          : {
+              "&:hover": {
+                backgroundColor: alpha(brandColor, isDark ? 0.12 : 0.08),
+              },
+            }),
         ...sx,
       }}
       style={style}

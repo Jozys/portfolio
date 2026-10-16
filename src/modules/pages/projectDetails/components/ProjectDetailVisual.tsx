@@ -39,7 +39,6 @@ export default function ProjectDetailVisual({ project }: { project: Project }) {
               maxWidth: "100%",
               maxHeight: 160,
               objectFit: "contain",
-              transition: "transform 0.35s ease",
               filter: isDark
                 ? "drop-shadow(0 10px 20px rgba(0,0,0,0.5))"
                 : "drop-shadow(0 8px 16px rgba(0,0,0,0.12))",
@@ -52,7 +51,6 @@ export default function ProjectDetailVisual({ project }: { project: Project }) {
               alignItems: "center",
               justifyContent: "center",
               transform: "scale(1.1)",
-              transition: "transform 0.35s ease",
             }}
           >
             {project.image}

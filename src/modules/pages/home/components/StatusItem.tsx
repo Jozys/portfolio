@@ -42,11 +42,6 @@ export default function StatusItem({
         background: theme.surfaces.cardSubtle,
         border: `1px solid ${theme.borders.subtle}`,
         borderTop: `3px solid ${theme.palette.secondary.main}`,
-        transition: "transform 0.2s ease, box-shadow 0.2s ease",
-        "&:hover": {
-          transform: "translateY(-3px)",
-          boxShadow: theme.shadowsGlow.card,
-        },
       }}
     >
       <Box

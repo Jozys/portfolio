@@ -45,12 +45,6 @@ export default function MilestoneItem(props: MilestoneItemProps) {
           background: theme.surfaces.card,
           backdropFilter: "blur(12px)",
           border: `1px solid ${theme.borders.subtle}`,
-          transition: "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
-          "&:hover": {
-            transform: "translateY(-4px)",
-            boxShadow: theme.shadowsGlow.cardHover,
-            borderColor: theme.borders.glow,
-          },
         }}
       >
         <Stack

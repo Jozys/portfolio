@@ -21,11 +21,6 @@ export default function QuickFactCard(props: QuickFact) {
         background: theme.background.card,
         border: `1px solid ${theme.background.border}`,
         borderLeft: `3px solid ${theme.palette.secondary.main}`,
-        transition: "transform 0.2s ease, box-shadow 0.2s ease",
-        "&:hover": {
-          transform: "translateY(-3px)",
-          boxShadow: theme.shadowsGlow.card,
-        },
       }}
     >
       <Stack

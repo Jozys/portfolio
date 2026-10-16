@@ -43,11 +43,17 @@ export default function ProjectCard({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        cursor: "pointer",
         "&:hover": {
           transform: "translateY(-6px)",
           boxShadow: theme.shadowsGlow.cardHover,
           borderColor: theme.borders.glow,
-          cursor: "pointer",
+          "& .project-visual-logo": {
+            transform: "scale(1.06)",
+          },
+          "& .project-learn-more": {
+            color: theme.palette.secondary.main,
+          },
         },
       }}
     >
@@ -123,6 +129,7 @@ export default function ProjectCard({
                 key={technology.name}
                 technology={technology}
                 showName
+                disableLink
               />
             ))}
           </Stack>
@@ -131,7 +138,7 @@ export default function ProjectCard({
 
       <Box sx={{ px: 3, pb: 2.5, pt: 0 }}>
         <Button
-          onClick={onOpen}
+          className="project-learn-more"
           endIcon={<ArrowOutward />}
           sx={{
             px: 0,
@@ -139,6 +146,7 @@ export default function ProjectCard({
             textTransform: "none",
             fontWeight: 800,
             fontSize: 14,
+            transition: "color 0.25s ease",
             "&:hover": {
               background: "transparent",
               color: theme.palette.secondary.main,

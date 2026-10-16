@@ -28,6 +28,7 @@ export default function ProjectVisualHeader({
       }}
     >
       <Box
+        className="project-visual-logo"
         sx={{
           width: compact ? 104 : 180,
           height: compact ? 104 : 180,
@@ -38,9 +39,6 @@ export default function ProjectVisualHeader({
           filter: isDark
             ? "drop-shadow(0 10px 20px rgba(0,0,0,0.5))"
             : "drop-shadow(0 8px 16px rgba(0,0,0,0.12))",
-          "&:hover": {
-            transform: "scale(1.06)",
-          },
           "& > img, & > svg": {
             width: "100%",
             height: "100%",

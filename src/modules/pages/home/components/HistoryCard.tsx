@@ -40,11 +40,6 @@ export default function HistoryCard({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        transition: "transform 0.25s ease, box-shadow 0.25s ease",
-        "&:hover": {
-          transform: "translateY(-4px)",
-          boxShadow: theme.shadowsGlow.card,
-        },
       }}
     >
       <Box>
