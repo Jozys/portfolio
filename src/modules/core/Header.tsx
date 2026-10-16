@@ -208,6 +208,15 @@ export default function Header(props: HeaderProps) {
               sx={{
                 border: `1px solid ${theme.borders.subtle}`,
                 color: theme.palette.text.primary,
+                transition: "all 0.2s ease",
+                "&:hover": {
+                  borderColor: theme.palette.secondary.main,
+                  color: theme.palette.secondary.main,
+                  background: alpha(
+                    theme.palette.secondary.main,
+                    isDark ? 0.16 : 0.1,
+                  ),
+                },
               }}
             >
               {isThemeDark ? (
@@ -233,6 +242,15 @@ export default function Header(props: HeaderProps) {
                 px: 1.2,
                 minWidth: "auto",
                 textTransform: "uppercase",
+                transition: "all 0.2s ease",
+                "&:hover": {
+                  borderColor: theme.palette.secondary.main,
+                  color: theme.palette.secondary.main,
+                  background: alpha(
+                    theme.palette.secondary.main,
+                    isDark ? 0.16 : 0.1,
+                  ),
+                },
               }}
             >
               {languageType}
@@ -253,6 +271,15 @@ export default function Header(props: HeaderProps) {
               display: { xs: "inline-flex", md: "none" },
               border: `1px solid ${theme.borders.subtle}`,
               color: theme.palette.text.primary,
+              transition: "all 0.2s ease",
+              "&:hover": {
+                borderColor: theme.palette.secondary.main,
+                color: theme.palette.secondary.main,
+                background: alpha(
+                  theme.palette.secondary.main,
+                  isDark ? 0.16 : 0.1,
+                ),
+              },
             }}
           >
             {mobileOpen ? (
@@ -333,6 +360,15 @@ export default function Header(props: HeaderProps) {
               sx={{
                 border: `1px solid ${theme.borders.subtle}`,
                 color: theme.palette.text.primary,
+                transition: "all 0.2s ease",
+                "&:hover": {
+                  borderColor: theme.palette.secondary.main,
+                  color: theme.palette.secondary.main,
+                  background: alpha(
+                    theme.palette.secondary.main,
+                    isDark ? 0.16 : 0.1,
+                  ),
+                },
               }}
             >
               <CloseRounded fontSize="small" />

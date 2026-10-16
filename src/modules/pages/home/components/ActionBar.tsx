@@ -1,5 +1,6 @@
 import { ArrowForward, GitHub, LinkedIn } from "@mui/icons-material";
 import {
+  alpha,
   Box,
   Button,
   IconButton,
@@ -15,6 +16,7 @@ export interface ActionBarProps {
 
 export default function ActionBar(props: ActionBarProps) {
   const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
   const { language } = useLanguage();
 
   const githubUrl =
@@ -66,10 +68,12 @@ export default function ActionBar(props: ActionBarProps) {
             textTransform: "none",
             fontWeight: 700,
             fontSize: 15,
-            transition: "border-color 0.2s ease, background 0.2s ease",
+            transition:
+              "border-color 0.2s ease, background 0.2s ease, transform 0.2s ease",
             "&:hover": {
-              borderColor: theme.palette.primary.main,
+              borderColor: theme.palette.secondary.main,
               background: theme.surfaces.hover,
+              transform: "translateY(-2px)",
             },
           }}
         >
@@ -89,6 +93,7 @@ export default function ActionBar(props: ActionBarProps) {
               size="small"
               sx={{
                 border: `1px solid ${theme.borders.subtle}`,
+                background: theme.surfaces.cardSubtle,
                 color: theme.palette.text.primary,
                 p: 1.1,
                 transition: "all 0.2s ease",
@@ -96,6 +101,10 @@ export default function ActionBar(props: ActionBarProps) {
                   color: theme.palette.secondary.main,
                   borderColor: theme.palette.secondary.main,
                   transform: "translateY(-2px)",
+                  background: alpha(
+                    theme.palette.secondary.main,
+                    isDark ? 0.16 : 0.1,
+                  ),
                 },
               }}
             >
@@ -110,6 +119,7 @@ export default function ActionBar(props: ActionBarProps) {
               size="small"
               sx={{
                 border: `1px solid ${theme.borders.subtle}`,
+                background: theme.surfaces.cardSubtle,
                 color: theme.palette.text.primary,
                 p: 1.1,
                 transition: "all 0.2s ease",
@@ -117,6 +127,10 @@ export default function ActionBar(props: ActionBarProps) {
                   color: theme.palette.secondary.main,
                   borderColor: theme.palette.secondary.main,
                   transform: "translateY(-2px)",
+                  background: alpha(
+                    theme.palette.secondary.main,
+                    isDark ? 0.16 : 0.1,
+                  ),
                 },
               }}
             >

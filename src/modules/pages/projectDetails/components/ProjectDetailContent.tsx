@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { OpenInNew } from "@mui/icons-material";
 import ZoomInIcon from "@mui/icons-material/ZoomIn";
-import { alpha, Box, Button, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
 import {
   formatProjectYears,
   getLabel,
@@ -150,7 +150,15 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
                       fontWeight: 600,
                       fontSize: 12,
                       color: theme.palette.text.primary,
+                      borderColor: theme.borders.strong,
                       borderRadius: 1.5,
+                      transition:
+                        "border-color 0.2s ease, background 0.2s ease, transform 0.2s ease",
+                      "&:hover": {
+                        borderColor: theme.palette.secondary.main,
+                        background: theme.surfaces.hover,
+                        transform: "translateY(-2px)",
+                      },
                     }}
                   >
                     {getLabel(link.label, language) || key}
@@ -243,17 +251,17 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
                   cursor: "pointer",
                   boxShadow: isDark ? 4 : 1,
                   transition:
-                    "transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease",
+                    "transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease",
                   "&:hover": {
-                    transform: "scale(1.015)",
-                    borderColor: theme.palette.primary.main,
-                    boxShadow: `0 12px 28px -6px ${alpha(
-                      theme.palette.primary.main,
-                      isDark ? 0.3 : 0.25,
-                    )}`,
+                    transform: "translateY(-4px)",
+                    borderColor: theme.borders.glow,
+                    boxShadow: theme.shadowsGlow.cardHover,
                     "& .zoom-indicator": {
                       opacity: 1,
                       transform: "scale(1)",
+                    },
+                    "& img": {
+                      transform: "scale(1.03)",
                     },
                   },
                   "& img": {
@@ -261,6 +269,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
                     maxHeight: 380,
                     objectFit: "contain",
                     borderRadius: 2,
+                    transition: "transform 0.35s ease",
                     filter: isDark
                       ? "drop-shadow(0 8px 16px rgba(0,0,0,0.6))"
                       : "drop-shadow(0 6px 12px rgba(0,0,0,0.1))",
@@ -285,7 +294,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: theme.palette.primary.main,
+                    color: theme.palette.secondary.main,
                     boxShadow: 2,
                     zIndex: 2,
                     border: `1px solid ${
