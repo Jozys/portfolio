@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter,
   Navigate,
@@ -6,17 +6,28 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
+import Home from "../pages/home/Home";
+import EmptyPage from "./EmptyPage";
 import Footer from "./Footer";
 import Header from "./Header";
-import EmptyPage from "./EmptyPage";
-import Home from "../pages/home/Home";
-import Projects from "../pages/projects/Projects";
-import About from "../pages/about/About";
-import ProjectDetails from "../pages/projectDetails/ProjectDetails";
+
+const Projects = React.lazy(() => import("../pages/projects/Projects"));
+const About = React.lazy(() => import("../pages/about/About"));
+const ProjectDetails = React.lazy(
+  () => import("../pages/projectDetails/ProjectDetails"),
+);
 
 // Secret UI5 showcase — lazily loaded so the (heavy) SAP UI5 bundle only ships
 // to visitors who discover the hidden "/ui5" route.
 const UI5Showcase = React.lazy(() => import("../ui5/components/UI5Showcase"));
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 const UI5_PATH = "/ui5";
 function UI5LoadingFallback() {
@@ -54,6 +65,7 @@ function AppShell() {
 
   return (
     <>
+      <ScrollToTop />
       {!isUI5 && (
         <Header
           currentTab={getCurrentTabFromPathname(pathname)}
@@ -67,14 +79,6 @@ function AppShell() {
         <Route path="/projects/:id" element={<ProjectDetails />} />
         <Route path="/me" element={<About />} />
         <Route path="/about" element={<Navigate to="/me" replace />} />
-
-        <Route path="/v4" element={<Navigate to="/home" replace />} />
-        <Route path="/v4/home" element={<Navigate to="/home" replace />} />
-        <Route
-          path="/v4/projects"
-          element={<Navigate to="/projects" replace />}
-        />
-        <Route path="/v4/me" element={<Navigate to="/me" replace />} />
 
         <Route
           path={UI5_PATH}

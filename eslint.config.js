@@ -4,6 +4,9 @@ import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 
 export default tseslint.config([
+  {
+    ignores: ["build/**", "dist/**", "node_modules/**"],
+  },
   tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {

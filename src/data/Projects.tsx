@@ -7,7 +7,7 @@ import DB_Journey_Light from "../assets/projects/dbDelay/db_journeys_light.webp"
 import DB_Record_Light from "../assets/projects/dbDelay/db_record_light.webp";
 import DB_Statistics_Light from "../assets/projects/dbDelay/db_statistics_light.webp";
 import DBDelay from "../assets/projects/dbDelay/dbDelay.svg";
-import DevLightsApp from "../assets/projects/devlights/devlights.png";
+import DevLightsApp from "../assets/projects/devlights/devlights.webp";
 import DevLights from "../assets/projects/devlights/devlights.svg";
 import DevLightsDesktop from "../assets/projects/devlights/devlights_desktop_1.jpg";
 import ESPBreadboard from "../assets/projects/devlights/esp_breadboard.jpeg";
@@ -22,7 +22,7 @@ import SimpleQWebsite from "../assets/projects/simpleQ/SimpleQ_Mockup.png";
 import FirstTECKboard from "../assets/projects/teckboard/firstTECKboard.png";
 import SecondTECKboard from "../assets/projects/teckboard/newBoard.png";
 import TECKboard from "../assets/projects/teckboard/teckboard-logo-orange.svg";
-import TECKboardApp from "../assets/projects/teckboard/teckboard_app.png";
+import TECKboardApp from "../assets/projects/teckboard/teckboard_app.webp";
 import { Language, ProjectDetailLocale } from "../language";
 import { getNestedValue } from "../utils/utils";
 import { getTechnology } from "./Technologies";

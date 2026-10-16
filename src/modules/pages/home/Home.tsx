@@ -1,7 +1,7 @@
 import { Box, Container, keyframes, Typography, useTheme } from "@mui/material";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import Me from "../../../assets/life/me.jpg";
+import Me from "../../../assets/life/me.webp";
 import { useLanguage } from "../../../language/hooks";
 import { ScrollDownButton } from "../../core/ScrollDownButton";
 import ActionBar from "./components/ActionBar";

@@ -1,7 +1,7 @@
 import { Box, Container, Stack, Typography, useTheme } from "@mui/material";
 import React from "react";
 import DHBW from "../../../../assets/life/DHBW_Logo.svg";
-import Schwarzwald from "../../../../assets/life/schwarzwald.jpg";
+import Schwarzwald from "../../../../assets/life/schwarzwald.webp";
 import Teckdigital from "../../../../assets/teckdigital/teckdigital.webp";
 import { useLanguage } from "../../../../language/hooks";
 import HistoryCard from "./HistoryCard";

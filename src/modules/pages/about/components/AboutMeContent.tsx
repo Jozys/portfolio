@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import Portrait from "../../home/components/Portrait";
-import Me from "../../../../assets/life/me.jpg";
+import Me from "../../../../assets/life/me.webp";
 import QuickFacts from "./QuickFacts";
 
 export default function AboutMeContent() {
