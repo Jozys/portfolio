@@ -1,7 +1,10 @@
 export const getAge = (): number => {
   const birthDate = new Date(
-    import.meta.env.VITE_USER_BIRTHDATE ?? "1970-01-01",
+    import.meta.env.VITE_USER_BIRTHDATE || "1970-01-01",
   );
+  if (Number.isNaN(birthDate.getTime())) {
+    return 0;
+  }
   const currentDate = new Date();
   let age = currentDate.getFullYear() - birthDate.getFullYear();
   // 05 - 06 => negative, age calculated before is not reached
