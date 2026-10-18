@@ -1,7 +1,10 @@
 import React from "react";
 import { ProjectsContext, ProjectsContextType } from "./ProjectsContext";
 
-export default function useProjects() {
+export default function useProjects(): ProjectsContextType {
   const context = React.useContext(ProjectsContext);
-  return context as ProjectsContextType;
+  if (!context) {
+    throw new Error("useProjects must be used within a ProjectsProvider");
+  }
+  return context;
 }

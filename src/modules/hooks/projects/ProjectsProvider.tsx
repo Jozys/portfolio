@@ -14,22 +14,20 @@ export default function ProjectsProvider({
   const [projects, setProjects] =
     React.useState<Record<string, Project>>(initialProjects);
 
-  React.useEffect(() => {
-    fetchProjects();
-  }, []);
-
-  const fetchProjects = async () => {
-    setProjects(initialProjects);
-  };
-
-  const getProjectById = (id: string): Project | undefined => {
-    return (
-      projects[id] ||
-      projects[
-        Object.keys(projects).find((key) => projects[key].route === id) || ""
-      ]
-    );
-  };
+  const getProjectById = React.useCallback(
+    (id: string): Project | undefined => {
+      const found =
+        projects[id] ||
+        projects[
+          Object.keys(projects).find((key) => projects[key].route === id) || ""
+        ];
+      if (!found || found.disable) {
+        return undefined;
+      }
+      return found;
+    },
+    [projects],
+  );
 
   const sortedProjects = React.useMemo(() => {
     return sortProjects(Object.values(projects));
@@ -41,7 +39,7 @@ export default function ProjectsProvider({
 
   return (
     <ProjectsContext.Provider
-      value={{ projects, setProjects: () => {}, getProjectById, getProjects }}
+      value={{ projects, setProjects, getProjectById, getProjects }}
     >
       {children}
     </ProjectsContext.Provider>

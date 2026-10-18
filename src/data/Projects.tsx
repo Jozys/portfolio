@@ -75,7 +75,7 @@ export const projects: Record<string, Project> = {
       demo: {
         url: "https://teckboard.teckdigital.de",
         label: "Demo",
-        icon: <img src={TECKboard} height="24px" />,
+        icon: <img src={TECKboard} height="24px" alt="TECKboard" />,
       },
     },
   },
