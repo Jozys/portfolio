@@ -27,21 +27,32 @@ export default function ThemeProvider(props: ThemeProviderProps) {
       ? localStorage.getItem("isDark") === "true"
         ? true
         : false
-      : getUserDefaultTheme()
+      : getUserDefaultTheme(),
   );
   const [theme, setTheme] = React.useState<Theme>(myTheme(isDark));
 
   React.useEffect(() => {
-    document.body.style.background = theme.gradients.background.default;
-  }, [theme.gradients.background.default]);
+    const bg = theme.gradients.background.default;
+    const bgColor = theme.palette.background.default;
+
+    // Apply the gradient (background-image) first, then set backgroundColor as a solid underlay
+    // for semi-transparent gradient stops, fallback rendering, and rubber-band overscroll canvas.
+    document.documentElement.style.background = bg;
+    document.documentElement.style.backgroundColor = bgColor;
+    document.body.style.background = bg;
+    document.body.style.backgroundColor = bgColor;
+
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute("content", bgColor);
+    }
+  }, [theme]);
 
   const toggleTheme = () => {
-    localStorage.setItem("isDark", JSON.stringify(!isDark));
-
-    const newTheme = myTheme(!isDark);
-    setTheme(newTheme);
-    setIsDark(!isDark);
-    document.body.style.backgroundColor = newTheme.palette.background.default;
+    const nextIsDark = !isDark;
+    localStorage.setItem("isDark", JSON.stringify(nextIsDark));
+    setIsDark(nextIsDark);
+    setTheme(myTheme(nextIsDark));
   };
   return (
     <ThemeSwitchContext.Provider value={{ isThemeDark: isDark, toggleTheme }}>

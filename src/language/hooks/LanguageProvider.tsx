@@ -28,7 +28,8 @@ export default function LanguageProvider(props: LanguageProviderProps) {
 
   // default/fallback language
   const getUserDefaultLanguage = (): Language => {
-    const language = window.navigator.language.split("-")[0] as Language;
+    if (typeof window === "undefined") return "en";
+    const language = window.navigator?.language?.split("-")[0] as Language;
     if (languages.includes(language)) {
       return language;
     }
@@ -36,13 +37,8 @@ export default function LanguageProvider(props: LanguageProviderProps) {
     return "en"; // default to English if no match found
   };
 
-  const [languageType, setLanguageType] = React.useState<Language>(
-    getUserDefaultLanguage()
-  );
-  const [language, setLanguage] = React.useState<LanguageObjType>(en);
-
-  const getLanguage = (languageType: Language) => {
-    switch (languageType) {
+  const getLanguage = (type: Language): LanguageObjType => {
+    switch (type) {
       case "de":
         return de;
       case "en":
@@ -52,31 +48,37 @@ export default function LanguageProvider(props: LanguageProviderProps) {
     }
   };
 
-  React.useEffect(() => {
-    const language = localStorage.getItem("language");
-    if (!language?.length) {
-      const defaultLanguage = (getUserDefaultLanguage() as Language) ?? "en";
-      localStorage.setItem(
-        "language",
-        (getUserDefaultLanguage() as Language) ?? "en"
-      );
-      setLanguageType(defaultLanguage);
-      setLanguage(getLanguage(defaultLanguage));
-    } else {
-      setLanguage(getLanguage(language as Language));
-      setLanguageType(language as Language);
+  const [languageType, setLanguageType] = React.useState<Language>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("language") as Language;
+      if (saved && languages.includes(saved)) {
+        return saved;
+      }
     }
-  }, []);
+    return getUserDefaultLanguage();
+  });
 
-  const changeLanguage = (newLanguageType: Language) => {
+  const language = React.useMemo(
+    () => getLanguage(languageType),
+    [languageType],
+  );
+
+  React.useEffect(() => {
+    document.documentElement.lang = languageType;
+  }, [languageType]);
+
+  const changeLanguage = React.useCallback((newLanguageType: Language) => {
     localStorage.setItem("language", newLanguageType);
     setLanguageType(newLanguageType);
-    setLanguage(getLanguage(newLanguageType));
-  };
+  }, []);
+
+  const contextValue = React.useMemo(
+    () => ({ changeLanguage, language, languageType, languages }),
+    [changeLanguage, language, languageType],
+  );
+
   return (
-    <LanguageContext.Provider
-      value={{ changeLanguage, language, languageType, languages }}
-    >
+    <LanguageContext.Provider value={contextValue}>
       {children}
     </LanguageContext.Provider>
   );

@@ -1,7 +1,10 @@
 export const getAge = (): number => {
   const birthDate = new Date(
-    import.meta.env.VITE_USER_BIRTHDATE ?? "1970-01-01"
+    import.meta.env.VITE_USER_BIRTHDATE || "1970-01-01",
   );
+  if (Number.isNaN(birthDate.getTime())) {
+    return 0;
+  }
   const currentDate = new Date();
   let age = currentDate.getFullYear() - birthDate.getFullYear();
   // 05 - 06 => negative, age calculated before is not reached
@@ -32,3 +35,20 @@ export function getNestedValue(obj: unknown, path: string): string {
     return "";
   }, obj) as string;
 }
+
+/**
+ * Formats a project's years range into a readable string (e.g., "2024 - Now", "2023").
+ */
+export const formatProjectYears = (
+  years?: { start: number; end?: number },
+  nowLabel: string = "Now",
+): string => {
+  if (!years) return "";
+  if (!years.end || years.end === years.start) {
+    return `${years.start}`;
+  }
+  if (years.end >= 9999) {
+    return `${years.start} - ${nowLabel}`;
+  }
+  return `${years.start} - ${years.end}`;
+};

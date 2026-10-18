@@ -1,0 +1,51 @@
+import { ArrowBack } from "@mui/icons-material";
+import { Box, Button, Container, useTheme } from "@mui/material";
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useLanguage } from "../../../language/hooks";
+import EmptyPage from "../../core/EmptyPage";
+import useProjects from "../../hooks/projects/useProjects";
+import ProjectDetailContent from "./components/ProjectDetailContent";
+import ProjectDetailHeader from "./components/ProjectDetailHeader";
+import ProjectDetailVisual from "./components/ProjectDetailVisual";
+
+export default function ProjectDetails() {
+  const route = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const { language } = useLanguage();
+  const { getProjectById } = useProjects();
+  const project = getProjectById(route.id || "");
+
+  const theme = useTheme();
+
+  return (
+    <Box sx={{ minHeight: "calc(100vh - 70px)", py: { xs: 6, md: 10 } }}>
+      {project ? (
+        <Container maxWidth="lg">
+          <Button
+            startIcon={<ArrowBack />}
+            onClick={() => navigate("/projects")}
+            sx={{
+              color: theme.palette.text.secondary,
+              textTransform: "none",
+              px: 0,
+              fontWeight: 700,
+              transition: "color 0.2s ease",
+              "&:hover": {
+                background: "transparent",
+                color: theme.palette.secondary.main,
+              },
+            }}
+          >
+            {language.projects.backToProjects}
+          </Button>
+          <ProjectDetailHeader project={project} />
+          <ProjectDetailVisual project={project} />
+          <ProjectDetailContent project={project} />
+        </Container>
+      ) : (
+        <EmptyPage />
+      )}
+    </Box>
+  );
+}

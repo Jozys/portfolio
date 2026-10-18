@@ -3,6 +3,7 @@ import CSS from "../assets/technologies/CSS.png";
 import Dart from "../assets/technologies/Dart_Logo.svg";
 import Docker from "../assets/technologies/docker.ico";
 import Flutter from "../assets/technologies/flutter.svg";
+import HTML from "../assets/technologies/html.png";
 import Java from "../assets/technologies/java.ico";
 import JavaScript from "../assets/technologies/javascript.svg";
 import Jenkins from "../assets/technologies/jenkins.ico";
@@ -46,7 +47,7 @@ const technologies: Record<string, Technology> = {
   },
   html: {
     name: "HTML",
-    icon: "https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png",
+    icon: HTML,
     link: "https://developer.mozilla.org/de/docs/Web/HTML",
     color: "#E34F26",
     type: TechnologyType.Frontend,
