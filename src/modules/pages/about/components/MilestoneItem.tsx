@@ -21,7 +21,7 @@ export default function MilestoneItem(props: MilestoneItemProps) {
       <Box
         sx={{
           position: "absolute",
-          left: { xs: -32, md: -36 },
+          left: { xs: -25, md: -29 },
           top: 18,
           width: 26,
           height: 26,
@@ -32,7 +32,7 @@ export default function MilestoneItem(props: MilestoneItemProps) {
           placeItems: "center",
           boxShadow: `0 0 0 4px ${theme.palette.background.default}, 0 0 12px ${alpha(theme.palette.primary.main, 0.55)}`,
           zIndex: 2,
-          padding: 1,
+          p: 0.5,
         }}
       >
         {props.milestone.icon}
@@ -58,7 +58,10 @@ export default function MilestoneItem(props: MilestoneItemProps) {
           }}
         >
           <Chip
-            label={formatProjectYears(props.milestone.period)}
+            label={formatProjectYears(
+              props.milestone.period,
+              language.projects.now,
+            )}
             size="small"
             sx={{
               fontWeight: 800,

@@ -9,17 +9,16 @@ import {
 } from "../../../../data/QuickFact";
 
 export default function QuickFactCard(props: QuickFact) {
-  const { icon, label } = props;
+  const { icon } = props;
   const theme = useTheme();
   const { language } = useLanguage();
   return (
     <Paper
-      key={label}
       sx={{
         p: 2.5,
         borderRadius: 2,
-        background: theme.background.card,
-        border: `1px solid ${theme.background.border}`,
+        background: theme.surfaces.card,
+        border: `1px solid ${theme.borders.subtle}`,
         borderLeft: `3px solid ${theme.palette.secondary.main}`,
       }}
     >

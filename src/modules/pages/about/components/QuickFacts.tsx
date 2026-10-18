@@ -17,9 +17,9 @@ export default function QuickFacts() {
         sx={{
           p: { xs: 3, sm: 4 },
           borderRadius: 2.5,
-          background: theme.background.card,
+          background: theme.surfaces.card,
           backdropFilter: "blur(12px)",
-          border: `1px solid ${theme.background.border}`,
+          border: `1px solid ${theme.borders.subtle}`,
           mb: 3,
         }}
       >
@@ -36,8 +36,8 @@ export default function QuickFacts() {
           gap: 2,
         }}
       >
-        {quickFacts.map((fact, index) => (
-          <QuickFactCard key={index} {...fact} />
+        {quickFacts.map((fact) => (
+          <QuickFactCard key={fact.label} {...fact} />
         ))}
       </Box>
     </Box>

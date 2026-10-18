@@ -10,6 +10,7 @@ export interface HistoryCardProps {
   image?: string;
   imageAlt?: string;
   imageVariant?: "logo" | "banner";
+  imageFit?: "cover" | "contain";
   invertImageOnDark?: boolean;
   children?: React.ReactNode;
 }
@@ -22,6 +23,7 @@ export default function HistoryCard({
   image,
   imageAlt = "",
   imageVariant = "banner",
+  imageFit = "cover",
   invertImageOnDark = false,
   children,
 }: HistoryCardProps) {
@@ -48,11 +50,19 @@ export default function HistoryCard({
             component="img"
             src={image}
             alt={imageAlt}
+            loading="lazy"
+            decoding="async"
             sx={{
               width: "100%",
               height: 130,
-              objectFit: "cover",
+              objectFit: imageFit,
+              p: imageFit === "contain" ? 3 : 0,
+              boxSizing: "border-box",
               display: "block",
+              filter:
+                isDark && invertImageOnDark
+                  ? "brightness(0) invert(1)"
+                  : "none",
             }}
           />
         )}
@@ -70,6 +80,8 @@ export default function HistoryCard({
                   component="img"
                   src={image}
                   alt={imageAlt}
+                  loading="lazy"
+                  decoding="async"
                   sx={{
                     height: 36,
                     maxWidth: 140,
@@ -158,9 +170,9 @@ export default function HistoryCard({
               gap: 1,
             }}
           >
-            {tags?.map((tag, index) => (
+            {tags?.map((tag) => (
               <Chip
-                key={index}
+                key={tag}
                 label={tag}
                 size="small"
                 sx={{
@@ -168,7 +180,7 @@ export default function HistoryCard({
                   fontSize: 12,
                   fontWeight: 700,
                 }}
-              ></Chip>
+              />
             ))}
           </Box>
         </Box>

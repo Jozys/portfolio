@@ -9,12 +9,12 @@ import HistoryCard from "./HistoryCard";
 export interface HistoryProps {
   title?: string;
   subTitle?: string;
-  description?: string;
   children?: React.ReactNode;
 }
 
 export default function History({ title, subTitle, children }: HistoryProps) {
   const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
   const { language } = useLanguage();
 
   const sectionSubtitle = subTitle ?? language.home.history.subtitle;
@@ -42,7 +42,9 @@ export default function History({ title, subTitle, children }: HistoryProps) {
           <Box>
             <Typography
               sx={{
-                color: theme.palette.primary.main,
+                color: isDark
+                  ? theme.palette.secondary.main
+                  : theme.palette.primary.main,
                 fontWeight: 800,
                 fontSize: 13,
                 letterSpacing: ".14em",
@@ -81,6 +83,7 @@ export default function History({ title, subTitle, children }: HistoryProps) {
               <HistoryCard
                 image={DHBW}
                 imageAlt="DHBW Karlsruhe"
+                imageFit="contain"
                 badge="2022 - 2025"
                 invertImageOnDark
                 title={language.home.dhbw.title}

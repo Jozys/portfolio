@@ -24,6 +24,7 @@ export default function StatusItem({
   children,
 }: StatusItemProps) {
   const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
   const { language } = useLanguage();
 
   const resolvedTitle =
@@ -49,7 +50,9 @@ export default function StatusItem({
           display: "flex",
           alignItems: "center",
           gap: 1,
-          color: theme.palette.primary.main,
+          color: isDark
+            ? theme.palette.secondary.main
+            : theme.palette.primary.main,
         }}
       >
         {resolvedIcon}

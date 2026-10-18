@@ -19,8 +19,8 @@ export default function Milestones() {
         }}
       />
       <Stack spacing={4}>
-        {milestones.map((milestone, index) => (
-          <MilestoneItem key={index} milestone={milestone} />
+        {milestones.map((milestone) => (
+          <MilestoneItem key={milestone.title} milestone={milestone} />
         ))}
       </Stack>
     </Box>
