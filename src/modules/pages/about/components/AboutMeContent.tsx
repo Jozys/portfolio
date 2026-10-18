@@ -1,9 +1,11 @@
 import { Box } from "@mui/material";
 import Portrait from "../../home/components/Portrait";
 import Me from "../../../../assets/life/me.webp";
+import { useLanguage } from "../../../../language/hooks";
 import QuickFacts from "./QuickFacts";
 
 export default function AboutMeContent() {
+  const { language } = useLanguage();
   return (
     <Box sx={{ mb: { xs: 8, md: 12 } }}>
       <Box
@@ -16,9 +18,10 @@ export default function AboutMeContent() {
       >
         <Portrait
           image={Me}
+          alt={language.home.name}
           mode="about"
-          statusDescription="Walldorf • Full Stack & AI"
-          statusTitle="Software Engineer @ SAP"
+          statusDescription={language.home.portrait.statusDescription}
+          statusTitle={language.home.portrait.statusTitle}
         />
         <QuickFacts />
       </Box>

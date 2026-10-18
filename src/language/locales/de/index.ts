@@ -1,4 +1,4 @@
-import { getAge } from "../../utils/getAge";
+import { getAge } from "../../../utils/utils";
 import { Language } from "../../index";
 
 export const language: Language = {
@@ -122,7 +122,7 @@ export const language: Language = {
         shortDescription:
           "Concert History ist eine native Android-App zur Dokumentation von besuchten Konzerten, um jederzeit mobil darauf zuzugreifen.",
         description:
-          'ConcertHistory ist eine native Android-App, die es Konzertgängern ermöglicht, ihre besuchten Konzerte zu dokumentieren und jederzeit mobil darauf zuzugreifen. Die App habe ich Rahmen des Modules "Entwurf mobiler Applikationen" an der DHBW Karlsruhe zusammen mit [Niklas Buse](https://niklas-buse.de) entwickelt.',
+          'Concert History ist eine native Android-App, die es Konzertgängern ermöglicht, ihre besuchten Konzerte zu dokumentieren und jederzeit mobil darauf zuzugreifen. Die App habe ich im Rahmen des Moduls "Entwurf mobiler Applikationen" an der DHBW Karlsruhe zusammen mit [Niklas Buse](https://niklas-buse.de) entwickelt.',
         betaTest: "Beta Testen",
       },
       moveTopia: {
@@ -143,12 +143,19 @@ export const language: Language = {
       },
       learnMore: "Erfahre mehr",
     },
+    backToProjects: "Zurück zu allen Projekten",
+    now: "Heute",
     projectData: "Projektdaten",
     projectDescription: "Projektbeschreibung",
     timeline: "Zeitraum",
     links: "Links & Ressourcen",
     gallerySection: "Galerie",
     galleryTitle: "Einblicke & Screenshots",
+    galleryEnlargeImage: "Bild vergrößern",
+    lightboxClose: "Detailansicht schließen",
+    lightboxPrev: "Vorheriges Bild",
+    lightboxNext: "Nächstes Bild",
+    lightboxSelectImage: "Bild auswählen",
     category: "Kategorie",
     technologies: {
       title: "Architektur & Technologie-Stack",
@@ -187,7 +194,7 @@ export const language: Language = {
       abitur: {
         title: "Abitur",
         description:
-          "Mit den Leistungskursen Mathematik und Informatik habe ich erfolgreich die Schule abgeschlossen. Zu dem Zeitpunk hab ich bereits durch die Schülerfirma und private Projekte viel praxisnahes gelernt, was ich für mein Studium nutzen konnte.",
+          "Mit den Leistungskursen Mathematik und Informatik habe ich erfolgreich die Schule abgeschlossen. Zu dem Zeitpunkt habe ich bereits durch die Schülerfirma und private Projekte viel Praxisnahes gelernt, was ich für mein Studium nutzen konnte.",
         location: "Graf-Adolf-Gymnasium, Tecklenburg, NRW",
         badge: "Abitur",
       },

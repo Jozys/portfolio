@@ -1,4 +1,4 @@
-import { getAge } from "../../utils/getAge";
+import { getAge } from "../../../utils/utils";
 import { Language } from "../../index";
 
 export const language: Language = {
@@ -21,7 +21,7 @@ export const language: Language = {
   },
   home: {
     greeting: "Hello",
-    name: "My name is Joshua Slaar!",
+    name: "My name is Joshua!",
     subtitle: `Developer - ${getAge()} years old - Germany`,
     me: {
       title: "Who am I",
@@ -29,7 +29,7 @@ export const language: Language = {
     },
     life: {
       title: "My Life",
-      description: ` I like to go outside to walk around the Karlsruhe area or towards the Black Forest. I also enjoy cycling through the regions. Additionally, I love meeting friends to spend time with them. Furthermore, I enjoy traveling by train through Germany and Europe. I also regularly visit my hometown Brochterbeck in North Rhine-Westphalia.`,
+      description: `I like to go outside to walk around the Karlsruhe area or towards the Black Forest. I also enjoy cycling through the regions. Additionally, I love meeting friends to spend time with them. Furthermore, I enjoy traveling by train through Germany and Europe. I also regularly visit my hometown Brochterbeck in North Rhine-Westphalia.`,
     },
     teckdigital: {
       title: "TECKdigital",
@@ -38,8 +38,7 @@ export const language: Language = {
     },
     dhbw: {
       title: "Student@DHBW",
-      description: `From September 2022 until the end of September 2025 I was a Vocational Training Student of Applied Computer Science at SAP in Walldorf.
-            Therefore I work there at SAP and study at the Baden-Wuerttemberg Cooperative State University Karlsruhe (DHBW Karlsruhe).`,
+      description: `From September 2022 until the end of September 2025 I was a Dual Student of Computer Science at SAP in Walldorf and at the Baden-Wuerttemberg Cooperative State University Karlsruhe (DHBW Karlsruhe).`,
     },
     action: {
       explore: "Explore selected work",
@@ -72,7 +71,7 @@ export const language: Language = {
     },
     currentFocus: {
       name: "Current Focus",
-      description: "Artificial Intelligence and Full Stack Development",
+      description: "Artificial Intelligence and Full Stack Development.",
     },
     location: {
       name: "Location",
@@ -89,18 +88,14 @@ export const language: Language = {
       teckboard: {
         title: "TECKboards",
         shortDescription:
-          "TECKboard is a digital real time information system, that two friends of mine developed. I developed a smartphone application for this system.",
-        description: `TECKboard is a digital real time information system that two friends of mine, [Timo Peters](https://tipela.de) and [Yannik Hahn](https://h4hn.de), developed. I spend really much hours developing a smartphone application for this system. By using the principe learning by doing, I learned much about planing, developing and communicating with the two developers of this system.`,
+          "TECKboard is a digital real-time information system that two friends of mine developed. I developed a smartphone application for this system.",
+        description: `TECKboard is a digital real-time information system that two friends of mine, [Timo Peters](https://tipela.de) and [Yannik Hahn](https://h4hn.de), developed. I spent many hours developing a smartphone application for this system. Following the principle of learning by doing, I learned a lot about planning, development, and collaborating with other developers.`,
       },
       devlight: {
         title: "DevLights",
         shortDescription:
-          "DevLights are the smart home LED Stripes for Developers, which I developed together with two friends of mine.",
-        description: `DevLights are the smart home LED Stripes for Developers. Together
-                with two friends of mine, Jaan Springer and [Timo Peters](https://tipela.de), we
-                developed these lights during our project course informatic at
-                Graf-Adolf-Gymnasium. From begin we learned new programming
-                languages like C++ and worked at Hard and Software. `,
+          "DevLights are smart home LED strips for developers, which I developed together with two friends of mine.",
+        description: `DevLights are smart home LED strips for developers. Together with two friends of mine, Jaan Springer and [Timo Peters](https://tipela.de), we developed these lights during our computer science project course at Graf-Adolf-Gymnasium. From the beginning, we learned new programming languages like C++ and worked on both hardware and software.`,
         readDoc: "READ PAPER",
       },
       simpleQ: {
@@ -124,7 +119,7 @@ export const language: Language = {
         shortDescription:
           "Concert History is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices.",
         description:
-          'ConcertHistory is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices. I developed the app as part of the module "Design of mobile applications" at the DHBW Karlsruhe together with [Niklas Buse](https://niklas-buse.de).',
+          'Concert History is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices. I developed the app as part of the module "Design of mobile applications" at the DHBW Karlsruhe together with [Niklas Buse](https://niklas-buse.de).',
         betaTest: "Beta Test",
       },
       moveTopia: {
@@ -145,15 +140,22 @@ export const language: Language = {
       },
       learnMore: "Learn more",
     },
+    backToProjects: "Back to all projects",
+    now: "Now",
     projectData: "Project Data",
     timeline: "Timeline",
     links: "Links & Resources",
     gallerySection: "Gallery",
     galleryTitle: "Insights & Screenshots",
+    galleryEnlargeImage: "Enlarge image",
+    lightboxClose: "Close detail view",
+    lightboxPrev: "Previous image",
+    lightboxNext: "Next image",
+    lightboxSelectImage: "Select image",
     projectDescription: "Project Description",
     category: "Category",
     technologies: {
-      title: "Technologies",
+      title: "Architecture & Technology Stack",
       frontend: "Frontend",
       backend: "Backend",
       mobile: "Mobile",
@@ -172,7 +174,7 @@ export const language: Language = {
       badge: "Current Role",
     },
     study: {
-      title: "Duales Studium Informatik (B.Sc.)",
+      title: "Dual Study Program in Computer Science (B.Sc.)",
       description:
         "Dual studies in computer science in cooperation with SAP SE at the Dual University of Baden-Württemberg (DHBW) Karlsruhe. Insights into various theoretical aspects of computer science and practical application through different development teams.",
       location: "DHBW Karlsruhe, Karlsruhe, Germany",
@@ -198,7 +200,7 @@ export const language: Language = {
   about: {
     me: {
       title: "About me",
-      description: `I am Joshua Slaar, a **{{age}}-year-old** software engineer based in Germany. My passion for technology sparked in high school through self-driven projects and co-founding the junior venture **TECKdigital**. Following my dual studies in computer science at SAP and DHBW Karlsruhe, I now build software as an engineer at **SAP SE in Walldorf**.
+      description: `I am Joshua Slaar, a **{{age}}-year-old** software engineer based in Germany. My passion for technology sparked in high school through self-driven projects and co-founding the junior venture **[TECKdigital](https://teckdigital.de)**. Following my dual studies in computer science at SAP and DHBW Karlsruhe, I now build software as an engineer at **SAP SE in Walldorf**.
 
 Outside of programming, I enjoy spending time outdoors — cycling in the Black Forest, discovering Europe by train, and connecting with friends and family back home in Brochterbeck.`,
       shortDescription:

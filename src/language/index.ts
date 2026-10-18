@@ -97,12 +97,19 @@ export type ProjectsLocale = {
     sensoration: Info;
     learnMore: string;
   };
+  backToProjects: string;
+  now: string;
   projectData: string;
   projectDescription: string;
   timeline: string;
   links: string;
   gallerySection: string;
   galleryTitle: string;
+  galleryEnlargeImage: string;
+  lightboxClose: string;
+  lightboxPrev: string;
+  lightboxNext: string;
+  lightboxSelectImage: string;
   category: string;
   technologies: {
     title: string;
