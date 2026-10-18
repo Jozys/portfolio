@@ -86,7 +86,7 @@ export default function Header(props: HeaderProps) {
     setMobileOpen(false);
   };
 
-  const handleLogoClick = (event: React.MouseEvent) => {
+  const handleLogoClick = (event: React.MouseEvent | React.KeyboardEvent) => {
     const now = Date.now();
     clickCount.current =
       now - lastClick.current < SECRET_CLICK_WINDOW_MS
@@ -102,8 +102,17 @@ export default function Header(props: HeaderProps) {
       return;
     }
 
-    navigate("/home");
+    if (location.pathname !== "/home") {
+      navigate("/home");
+    }
     setMobileOpen(false);
+  };
+
+  const handleLogoKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      handleLogoClick(event);
+    }
   };
 
   return (
@@ -127,6 +136,9 @@ export default function Header(props: HeaderProps) {
         }}
       >
         <Stack
+          role="button"
+          tabIndex={0}
+          aria-label="Joshua Slaar - Home"
           sx={{
             cursor: "pointer",
             flexDirection: "row",
@@ -134,6 +146,7 @@ export default function Header(props: HeaderProps) {
             alignItems: "center",
           }}
           onClick={handleLogoClick}
+          onKeyDown={handleLogoKeyDown}
         >
           <Logo />
           <Box>
@@ -153,12 +166,7 @@ export default function Header(props: HeaderProps) {
         </Stack>
 
         <Tabs
-          value={currentTab}
-          onChange={(_, next) => {
-            if (onChange) {
-              onChange(next);
-            }
-          }}
+          value={currentTab ?? false}
           textColor="primary"
           indicatorColor="primary"
           sx={{
@@ -205,6 +213,11 @@ export default function Header(props: HeaderProps) {
             <IconButton
               size="small"
               onClick={toggleTheme}
+              aria-label={
+                isThemeDark
+                  ? language.header.themeToggleLight
+                  : language.header.themeToggleDark
+              }
               sx={{
                 border: `1px solid ${theme.borders.subtle}`,
                 color: theme.palette.text.primary,
@@ -230,6 +243,7 @@ export default function Header(props: HeaderProps) {
           <Tooltip title={language.header.languageToggle}>
             <Button
               size="small"
+              aria-label={language.header.languageToggle}
               startIcon={<Language fontSize="small" />}
               onClick={() =>
                 changeLanguage(languageType === "de" ? "en" : "de")

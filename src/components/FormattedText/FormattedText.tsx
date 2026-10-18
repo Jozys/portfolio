@@ -102,29 +102,32 @@ export const FormattedText: React.FC<FormattedTextProps> = ({
         href,
         className: aClassName,
         ...props
-      }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-        <Link
-          href={href}
-          className={aClassName}
-          target="_blank"
-          rel="noopener noreferrer"
-          {...props}
-          sx={{
-            color:
-              theme.palette.mode === "dark"
-                ? theme.palette.secondary.main
-                : theme.palette.primary.main,
-            textDecoration: "none",
-            fontWeight: 600,
-            "&:hover": {
-              textDecoration: "underline",
-            },
-            ...linkSx,
-          }}
-        >
-          {children}
-        </Link>
-      ),
+      }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+        const isExternal = Boolean(href && /^https?:\/\//i.test(href));
+        return (
+          <Link
+            href={href}
+            className={aClassName}
+            target={isExternal ? "_blank" : undefined}
+            rel={isExternal ? "noopener noreferrer" : undefined}
+            {...props}
+            sx={{
+              color:
+                theme.palette.mode === "dark"
+                  ? theme.palette.secondary.main
+                  : theme.palette.primary.main,
+              textDecoration: "none",
+              fontWeight: 600,
+              "&:hover": {
+                textDecoration: "underline",
+              },
+              ...linkSx,
+            }}
+          >
+            {children}
+          </Link>
+        );
+      },
     },
   };
 

@@ -168,8 +168,6 @@ export default function TechnologyGroupGrid({
   columns,
   gridSx,
 }: TechnologyGroupGridProps) {
-  const { languageType } = useLanguage();
-
   const groupedTechnologies = useMemo(() => {
     const map = new Map<TechnologyType, Technology[]>();
     technologies.forEach((tech) => {
@@ -185,7 +183,7 @@ export default function TechnologyGroupGrid({
         type,
         technologies: map.get(type)!,
       }));
-  }, [technologies, languageType]);
+  }, [technologies]);
 
   if (groupedTechnologies.length === 0) {
     return null;

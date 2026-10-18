@@ -17,6 +17,7 @@ export function ScrollDownButton(props: ScrollDownProps) {
     <Fade in={true} timeout={1500}>
       <Box>
         <IconButton
+          aria-label="Scroll down"
           onClick={scrollToComponent}
           sx={{
             backgroundColor: theme.palette.primary.main,

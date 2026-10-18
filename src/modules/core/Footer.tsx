@@ -121,6 +121,7 @@ export default function Footer() {
               {socialLinks.map((item) => (
                 <Tooltip key={item.label} title={item.label}>
                   <IconButton
+                    aria-label={item.label}
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
