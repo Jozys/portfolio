@@ -26,25 +26,35 @@ export default function ProjectCard({
   onOpen: () => void;
 }) {
   const theme = useTheme();
-  const { language, languageType } = useLanguage();
+  const { language } = useLanguage();
   const description = getProjectShortDescription(project, language);
 
   return (
     <Paper
       elevation={0}
+      role="link"
+      tabIndex={0}
       onClick={onOpen}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onOpen();
+        }
+      }}
       sx={{
         borderRadius: 2.5,
         overflow: "hidden",
         background: theme.surfaces.card,
         backdropFilter: "blur(12px)",
         border: `1px solid ${theme.borders.subtle}`,
-        transition: "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
+        transition:
+          "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
         cursor: "pointer",
-        "&:hover": {
+        "&:hover, &:focus-visible": {
+          outline: "none",
           transform: "translateY(-6px)",
           boxShadow: theme.shadowsGlow.cardHover,
           borderColor: theme.borders.glow,
@@ -84,10 +94,7 @@ export default function ProjectCard({
             </Typography>
             {project.years && (
               <Chip
-                label={formatProjectYears(
-                  project.years,
-                  languageType === "de" ? "Heute" : "Now",
-                )}
+                label={formatProjectYears(project.years, language.projects.now)}
                 size="small"
                 sx={{
                   fontSize: 11,

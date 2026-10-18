@@ -11,7 +11,7 @@ import {
 import { Project } from "../../../../data/types/Project";
 import { useLanguage } from "../../../../language/hooks";
 import ProjectImageLightbox from "./ProjectImageLightbox";
-import ProjectTechnologieList from "./ProjectTechnologieList";
+import ProjectTechnologyList from "./ProjectTechnologyList";
 import FormattedText from "../../../../components/FormattedText";
 
 export interface ProjectDetailContentProps {
@@ -57,7 +57,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
           {project.years && (
             <Box
               sx={{
-                borderTop: `1px solid ${theme.palette.divider}`,
+                borderTop: `1px solid ${theme.borders.subtle}`,
                 pt: 1.5,
               }}
             >
@@ -73,7 +73,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
                   mt: 0.5,
                 }}
               >
-                {formatProjectYears(project.years)}
+                {formatProjectYears(project.years, t.now)}
               </Typography>
             </Box>
           )}
@@ -81,7 +81,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
           {details?.category && (
             <Box
               sx={{
-                borderTop: `1px solid ${theme.palette.divider}`,
+                borderTop: `1px solid ${theme.borders.subtle}`,
                 pt: 1.5,
               }}
             >
@@ -105,9 +105,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
           {project.links && Object.keys(project.links).length > 0 && (
             <Box
               sx={{
-                borderTop: `1px solid ${
-                  isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)"
-                }`,
+                borderTop: `1px solid ${theme.borders.subtle}`,
                 pt: 1.5,
               }}
             >
@@ -192,14 +190,16 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
         </Box>
       </Box>
 
-      <ProjectTechnologieList project={project} />
+      <ProjectTechnologyList project={project} />
 
       {project.detailImages && project.detailImages.length > 0 && (
         <Box sx={{ mt: 8 }}>
           <Box sx={{ mb: 3 }}>
             <Typography
               sx={{
-                color: theme.palette.primary.main,
+                color: isDark
+                  ? theme.palette.secondary.main
+                  : theme.palette.primary.main,
                 fontWeight: 800,
                 fontSize: 13,
                 letterSpacing: ".12em",
@@ -236,7 +236,16 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
             {project.detailImages.map((imgNode, idx) => (
               <Box
                 key={idx}
+                role="button"
+                tabIndex={0}
+                aria-label={`${t.galleryEnlargeImage} ${idx + 1}`}
                 onClick={() => setSelectedImageIndex(idx)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setSelectedImageIndex(idx);
+                  }
+                }}
                 sx={{
                   position: "relative",
                   borderRadius: 3,
@@ -252,7 +261,8 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
                   boxShadow: isDark ? 4 : 1,
                   transition:
                     "transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease",
-                  "&:hover": {
+                  "&:hover, &:focus-visible": {
+                    outline: "none",
                     transform: "translateY(-4px)",
                     borderColor: theme.borders.glow,
                     boxShadow: theme.shadowsGlow.cardHover,
@@ -285,9 +295,7 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
                     opacity: 0,
                     transform: "scale(0.85)",
                     transition: "all 0.25s ease",
-                    bgcolor: isDark
-                      ? "rgba(15,20,30,0.75)"
-                      : "rgba(255,255,255,0.85)",
+                    bgcolor: theme.surfaces.glassStrong,
                     backdropFilter: "blur(8px)",
                     borderRadius: "50%",
                     p: 0.8,
@@ -297,16 +305,19 @@ export default function ProjectDetailContent(props: ProjectDetailContentProps) {
                     color: theme.palette.secondary.main,
                     boxShadow: 2,
                     zIndex: 2,
-                    border: `1px solid ${
-                      isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.08)"
-                    }`,
+                    border: `1px solid ${theme.borders.subtle}`,
                   }}
                 >
                   <ZoomInIcon fontSize="small" />
                 </Box>
 
                 {typeof imgNode === "string" ? (
-                  <img src={imgNode} alt={`Project detail ${idx + 1}`} />
+                  <img
+                    src={imgNode}
+                    alt={`Project detail ${idx + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 ) : (
                   imgNode
                 )}

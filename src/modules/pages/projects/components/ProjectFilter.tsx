@@ -1,6 +1,10 @@
 import { Box, Chip, Stack, useTheme } from "@mui/material";
 import { TechnologyType } from "../../../../data/types/Project";
-import { getCategoryIcon } from "../../../core/TechnologyGroupGrid";
+import { useLanguage } from "../../../../language/hooks";
+import {
+  getCategoryIcon,
+  getTechnologyTypeLabel,
+} from "../../../core/TechnologyGroupGrid";
 
 export interface ProjectFilterProps {
   filter: string;
@@ -10,10 +14,12 @@ export interface ProjectFilterProps {
 
 export default function ProjectFilter(props: ProjectFilterProps) {
   const theme = useTheme();
+  const { language } = useLanguage();
   return (
     <Stack
       direction="row"
       spacing={1}
+      useFlexGap
       sx={{
         flexWrap: "wrap",
         alignItems: "center",
@@ -37,7 +43,7 @@ export default function ProjectFilter(props: ProjectFilterProps) {
       ].map((type) => (
         <Chip
           key={type}
-          label={type.charAt(0).toUpperCase() + type.slice(1)}
+          label={getTechnologyTypeLabel(type, language)}
           clickable
           color={props.filter === type ? "secondary" : "default"}
           variant={props.filter === type ? "filled" : "outlined"}

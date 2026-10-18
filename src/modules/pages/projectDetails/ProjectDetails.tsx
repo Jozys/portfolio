@@ -12,16 +12,11 @@ import ProjectDetailVisual from "./components/ProjectDetailVisual";
 export default function ProjectDetails() {
   const route = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { languageType } = useLanguage();
+  const { language } = useLanguage();
   const { getProjectById } = useProjects();
   const project = getProjectById(route.id || "");
 
   const theme = useTheme();
-
-  React.useEffect(() => {
-    // Scroll to top when the project changes
-    window.scrollTo(0, 0);
-  }, [route.id]);
 
   return (
     <Box sx={{ minHeight: "calc(100vh - 70px)", py: { xs: 6, md: 10 } }}>
@@ -42,9 +37,7 @@ export default function ProjectDetails() {
               },
             }}
           >
-            {languageType === "de"
-              ? "Zurück zu allen Projekten"
-              : "Back to all projects"}
+            {language.projects.backToProjects}
           </Button>
           <ProjectDetailHeader project={project} />
           <ProjectDetailVisual project={project} />

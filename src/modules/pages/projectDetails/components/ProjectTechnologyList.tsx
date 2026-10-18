@@ -3,12 +3,12 @@ import { useLanguage } from "../../../../language/hooks";
 import { Project } from "../../../../data/types/Project";
 import TechnologyGroupGrid from "../../../core/TechnologyGroupGrid";
 
-export interface ProjectTechnologieListProps {
+export interface ProjectTechnologyListProps {
   project: Project;
 }
 
-export default function ProjectTechnologieList(
-  props: ProjectTechnologieListProps,
+export default function ProjectTechnologyList(
+  props: ProjectTechnologyListProps,
 ) {
   const theme = useTheme();
   const { language } = useLanguage();
@@ -38,3 +38,4 @@ export default function ProjectTechnologieList(
     </Box>
   );
 }
+

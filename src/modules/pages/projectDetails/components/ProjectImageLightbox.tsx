@@ -11,6 +11,7 @@ import {
   useTheme,
 } from "@mui/material";
 import React, { useEffect, useMemo, useState } from "react";
+import { useLanguage } from "../../../../language/hooks";
 
 export interface ParsedImage {
   src: string;
@@ -80,7 +81,12 @@ export default function ProjectImageLightbox({
 }: ProjectImageLightboxProps) {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
-  const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const { language } = useLanguage();
+  const clampIndex = (idx: number) =>
+    images.length > 0 ? Math.max(0, Math.min(idx, images.length - 1)) : 0;
+  const [currentIndex, setCurrentIndex] = useState(() =>
+    clampIndex(initialIndex),
+  );
 
   const parsedImages = useMemo(() => {
     return images.map((img, idx) => parseDetailImage(img, idx));
@@ -88,31 +94,33 @@ export default function ProjectImageLightbox({
 
   useEffect(() => {
     if (open) {
-      setCurrentIndex(initialIndex);
+      setCurrentIndex(clampIndex(initialIndex));
     }
-  }, [open, initialIndex]);
+  }, [open, initialIndex, images.length]);
 
   useEffect(() => {
-    if (!open) return;
+    if (!open || images.length <= 1) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") {
         setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
       } else if (e.key === "ArrowRight") {
         setCurrentIndex((prev) => (prev + 1) % images.length);
-      } else if (e.key === "Escape") {
-        onClose();
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [open, images.length, onClose]);
+  }, [open, images.length]);
 
   if (!images || images.length === 0) return null;
 
-  const currentImage = parsedImages[currentIndex] || parsedImages[0];
+  const safeIndex = clampIndex(currentIndex);
+  const currentImage = parsedImages[safeIndex] || parsedImages[0];
   const hasMultiple = images.length > 1;
+  const accentColor = isDark
+    ? theme.palette.secondary.main
+    : theme.palette.primary.main;
 
   const handlePrev = (e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -206,14 +214,14 @@ export default function ProjectImageLightbox({
               letterSpacing: ".05em",
             }}
           >
-            {currentIndex + 1} / {images.length}
+            {safeIndex + 1} / {images.length}
           </Typography>
         </Box>
       )}
 
       <IconButton
         onClick={onClose}
-        aria-label="Close detail view"
+        aria-label={language.projects.lightboxClose}
         sx={{
           ...controlStyle,
           position: "fixed",
@@ -233,7 +241,7 @@ export default function ProjectImageLightbox({
       {hasMultiple && (
         <IconButton
           onClick={handlePrev}
-          aria-label="Previous image"
+          aria-label={language.projects.lightboxPrev}
           sx={{
             ...controlStyle,
             position: "fixed",
@@ -256,7 +264,7 @@ export default function ProjectImageLightbox({
       {hasMultiple && (
         <IconButton
           onClick={handleNext}
-          aria-label="Next image"
+          aria-label={language.projects.lightboxNext}
           sx={{
             ...controlStyle,
             position: "fixed",
@@ -328,32 +336,28 @@ export default function ProjectImageLightbox({
             px: 2,
             py: 1.2,
             borderRadius: 3,
-            bgcolor: isDark
-              ? "rgba(18, 22, 32, 0.6)"
-              : "rgba(255, 255, 255, 0.75)",
+            bgcolor: theme.surfaces.glass,
             backdropFilter: "blur(12px)",
-            border: `1px solid ${
-              isDark ? "rgba(255, 255, 255, 0.12)" : "rgba(0, 0, 0, 0.08)"
-            }`,
+            border: `1px solid ${theme.borders.subtle}`,
             maxWidth: "92vw",
             overflowX: "auto",
             "&::-webkit-scrollbar": {
               height: 4,
             },
             "&::-webkit-scrollbar-thumb": {
-              bgcolor: isDark ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.2)",
+              bgcolor: theme.borders.strong,
               borderRadius: 2,
             },
           }}
         >
           {parsedImages.map((img, idx) => {
-            const isSelected = idx === currentIndex;
+            const isSelected = idx === safeIndex;
             return (
               <Box
                 key={idx}
                 role="button"
                 tabIndex={0}
-                aria-label={`Select image ${idx + 1}`}
+                aria-label={`${language.projects.lightboxSelectImage} ${idx + 1}`}
                 onClick={() => setCurrentIndex(idx)}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
@@ -368,9 +372,7 @@ export default function ProjectImageLightbox({
                   borderRadius: 2,
                   overflow: "hidden",
                   cursor: "pointer",
-                  border: `2px solid ${
-                    isSelected ? theme.palette.primary.main : "transparent"
-                  }`,
+                  border: `2px solid ${isSelected ? accentColor : "transparent"}`,
                   opacity: isSelected ? 1 : 0.5,
                   transform: isSelected ? "scale(1.05)" : "scale(1)",
                   transition: "all 0.2s ease",
@@ -381,9 +383,7 @@ export default function ProjectImageLightbox({
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  bgcolor: isDark
-                    ? "rgba(255,255,255,0.05)"
-                    : "rgba(0,0,0,0.03)",
+                  bgcolor: theme.surfaces.cardSubtle,
                   "& img": {
                     width: "100%",
                     height: "100%",

@@ -13,15 +13,7 @@ export default function ProjectDetailHeader(props: ProjectDetailHeaderProps) {
   const { language } = useLanguage();
 
   return (
-    <Box
-      sx={{
-        display: "grid",
-        gridTemplateColumns: { xs: "1fr", md: "1.2fr 0.8fr" },
-        gap: { xs: 4, md: 6 },
-        alignItems: "center",
-        mt: 3,
-      }}
-    >
+    <Box sx={{ mt: 3 }}>
       <Box>
         <Typography
           component="h1"
