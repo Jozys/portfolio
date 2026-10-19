@@ -238,6 +238,9 @@ Outside of programming, I enjoy spending time outdoors — cycling in the Black 
   },
   notFound: {
     title: "This content was not found",
+    description:
+      "The requested page does not exist, has been moved, or is unavailable at this address.",
+    code: "Error Code: 404",
   },
   ui5: {
     backToPortfolio: "Back to portfolio",

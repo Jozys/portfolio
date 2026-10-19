@@ -123,6 +123,12 @@ const theme = (dark: boolean) => {
         dark: "#059669",
         contrastText: "#ffffff",
       },
+      error: {
+        main: dark ? "#f87171" : "#dc2626",
+        light: "#f87171",
+        dark: "#dc2626",
+        contrastText: "#ffffff",
+      },
       background: {
         paper: dark ? "#1e1138" : "#ffffff",
         default: dark ? "#281547" : "#f8fafc",

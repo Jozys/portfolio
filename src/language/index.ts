@@ -177,6 +177,8 @@ export type Language = {
   about: AboutLocale;
   notFound: {
     title: string;
+    description: string;
+    code: string;
   };
   ui5: {
     backToPortfolio: string;

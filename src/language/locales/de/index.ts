@@ -241,6 +241,9 @@ Neben dem Entwickeln schätze ich den aktiven Ausgleich in der Natur — beim Ra
   },
   notFound: {
     title: "Dieser Inhalt wurde nicht gefunden",
+    description:
+      "Die aufgerufene Seite existiert nicht, wurde verschoben oder ist unter dieser Adresse nicht verfügbar.",
+    code: "Fehlercode: 404",
   },
   ui5: {
     backToPortfolio: "Zurück zum Portfolio",
