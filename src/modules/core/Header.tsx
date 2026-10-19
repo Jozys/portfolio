@@ -275,9 +275,7 @@ export default function Header(props: HeaderProps) {
             size="small"
             onClick={handleDrawerToggle}
             aria-label={
-              mobileOpen
-                ? language.header.closeMenu
-                : language.header.openMenu
+              mobileOpen ? language.header.closeMenu : language.header.openMenu
             }
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav-drawer"
@@ -352,6 +350,7 @@ export default function Header(props: HeaderProps) {
                 alignItems: "center",
               }}
               onClick={handleLogoClick}
+              onKeyDown={handleLogoKeyDown}
             >
               <Logo />
               <Typography
@@ -412,11 +411,17 @@ export default function Header(props: HeaderProps) {
                       py: 1.25,
                       px: 2,
                       background: isSelected
-                        ? alpha(theme.palette.secondary.main, isDark ? 0.16 : 0.12)
+                        ? alpha(
+                            theme.palette.secondary.main,
+                            isDark ? 0.16 : 0.12,
+                          )
                         : "transparent",
                       border: `1px solid ${
                         isSelected
-                          ? alpha(theme.palette.secondary.main, isDark ? 0.4 : 0.35)
+                          ? alpha(
+                              theme.palette.secondary.main,
+                              isDark ? 0.4 : 0.35,
+                            )
                           : "transparent"
                       }`,
                       color: isSelected
