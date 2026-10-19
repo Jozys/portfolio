@@ -5,10 +5,6 @@ import "@fontsource/open-sans";
 
 declare module "@mui/material/styles" {
   interface Theme {
-    background: {
-      card: string;
-      border: string;
-    };
     surfaces: {
       card: string;
       cardSubtle: string;
@@ -32,18 +28,11 @@ declare module "@mui/material/styles" {
       background: {
         default: string;
       };
-      footer: {
-        default: string;
-      };
       visualHeader: string;
       primary: string;
     };
   }
   interface ThemeOptions {
-    background?: {
-      card?: string;
-      border?: string;
-    };
     surfaces?: {
       card?: string;
       cardSubtle?: string;
@@ -65,9 +54,6 @@ declare module "@mui/material/styles" {
     };
     gradients?: {
       background?: {
-        default?: string;
-      };
-      footer?: {
         default?: string;
       };
       visualHeader?: string;
@@ -113,11 +99,6 @@ const theme = (dark: boolean) => {
         ? "linear-gradient(90deg, rgba(50, 0, 83, 1) 0%, rgba(9, 9, 121, 1) 100%)"
         : "linear-gradient(135deg, rgba(34, 193, 195, 0.14) 0%, rgba(248, 250, 252, 0.95) 50%, rgba(50, 0, 83, 0.08) 100%)",
     },
-    footer: {
-      default: dark
-        ? "linear-gradient(0deg, rgba(75,155,155,0.8) 0%, rgba(135,195,175,0.7) 100%)"
-        : "linear-gradient(90deg, rgba(15, 118, 110, 0.9) 0%, rgba(88, 28, 135, 0.9) 100%)",
-    },
     visualHeader: dark
       ? "radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, rgba(20, 10, 35, 0.6) 100%)"
       : "radial-gradient(circle, rgba(15, 118, 110, 0.06) 0%, rgba(240, 244, 248, 0.85) 100%)",
@@ -153,10 +134,6 @@ const theme = (dark: boolean) => {
       },
 
       mode: dark ? "dark" : "light",
-    },
-    background: {
-      card: surfaces.card,
-      border: borders.subtle,
     },
     surfaces,
     borders,
