@@ -119,7 +119,6 @@ export function UI5Showcase() {
             {language.ui5.tagline}
           </Text>
 
-          <Title level="H2">{language.home.me.title}</Title>
           <Card
             header={
               <CardHeader
@@ -148,6 +147,7 @@ export function UI5Showcase() {
                       subtitleText={formatProjectYears(
                         project.years,
                         language.projects.now,
+                      )}
                     />
                   }
                 >
