@@ -29,7 +29,8 @@
     "build": "vite build",
     "serve": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "optimize:images": "node scripts/optimize-images.mjs"
   },
   "browserslist": {
     "production": [
