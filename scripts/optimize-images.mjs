@@ -115,7 +115,8 @@ for (const imagePath of images) {
 
   try {
     // Run sharp-cli with prefer-offline and withoutEnlargement
-    const cmd = `npx.cmd --prefer-offline sharp-cli -i "${imagePath}" -o "${outputPath}" -f webp -q ${quality} resize ${maxWidth} --withoutEnlargement`;
+    const npxBin = process.platform === "win32" ? "npx.cmd" : "npx";
+    const cmd = `${npxBin} --prefer-offline sharp-cli -i "${imagePath}" -o "${outputPath}" -f webp -q ${quality} resize ${maxWidth} --withoutEnlargement`;
     execSync(cmd, { stdio: "pipe" });
 
     const newSize = fs.statSync(outputPath).size;

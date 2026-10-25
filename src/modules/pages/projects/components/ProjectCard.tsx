@@ -27,6 +27,7 @@ export default function ProjectCard({
 }) {
   const theme = useTheme();
   const { language } = useLanguage();
+  const title = getProjectTitle(project, language);
   const description = getProjectShortDescription(project, language);
 
   return (
@@ -70,7 +71,7 @@ export default function ProjectCard({
       <Box>
         <ProjectVisualHeader
           image={project.image}
-          name={project.name}
+          name={title}
           compact
         />
         <Box sx={{ p: 3 }}>
@@ -90,7 +91,7 @@ export default function ProjectCard({
                 fontFamily: "Titillium Web, sans-serif",
               }}
             >
-              {getProjectTitle(project, language)}
+              {title}
             </Typography>
             {project.years && (
               <Chip

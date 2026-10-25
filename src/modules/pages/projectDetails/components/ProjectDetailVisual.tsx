@@ -1,9 +1,12 @@
 import { Box, Paper, useTheme } from "@mui/material";
+import { getProjectTitle } from "../../../../data/Projects";
 import { Project } from "../../../../data/types/Project";
+import { useLanguage } from "../../../../language/hooks";
 
 export default function ProjectDetailVisual({ project }: { project: Project }) {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
+  const { language } = useLanguage();
 
   return (
     <Paper
@@ -34,7 +37,7 @@ export default function ProjectDetailVisual({ project }: { project: Project }) {
           <Box
             component="img"
             src={project.image}
-            alt={project.name}
+            alt={getProjectTitle(project, language)}
             sx={{
               maxWidth: "100%",
               maxHeight: 160,

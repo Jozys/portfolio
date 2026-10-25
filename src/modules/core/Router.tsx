@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Box } from "@mui/material";
 import {
   BrowserRouter,
   Navigate,
@@ -76,27 +77,34 @@ function AppShell() {
           tabs={["home", "projects", "me"]}
         />
       )}
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" replace />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:id" element={<ProjectDetails />} />
-        <Route path="/me" element={<About />} />
-        <Route path="/about" element={<Navigate to="/me" replace />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/datenschutz" element={<Navigate to="/privacy" replace />} />
+      <React.Suspense
+        fallback={<Box sx={{ minHeight: "calc(100vh - 70px)" }} />}
+      >
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:id" element={<ProjectDetails />} />
+          <Route path="/me" element={<About />} />
+          <Route path="/about" element={<Navigate to="/me" replace />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route
+            path="/datenschutz"
+            element={<Navigate to="/privacy" replace />}
+          />
 
-        <Route
-          path={UI5_PATH}
-          element={
-            <React.Suspense fallback={<UI5LoadingFallback />}>
-              <UI5Showcase />
-            </React.Suspense>
-          }
-        />
+          <Route
+            path={UI5_PATH}
+            element={
+              <React.Suspense fallback={<UI5LoadingFallback />}>
+                <UI5Showcase />
+              </React.Suspense>
+            }
+          />
 
-        <Route path="*" element={<EmptyPage />} />
-      </Routes>
+          <Route path="*" element={<EmptyPage />} />
+        </Routes>
+      </React.Suspense>
       {!isUI5 && <Footer />}
     </>
   );

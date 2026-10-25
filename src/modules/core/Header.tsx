@@ -343,6 +343,9 @@ export default function Header(props: HeaderProps) {
             }}
           >
             <Stack
+              role="button"
+              tabIndex={0}
+              aria-label="Joshua Slaar - Home"
               sx={{
                 cursor: "pointer",
                 flexDirection: "row",

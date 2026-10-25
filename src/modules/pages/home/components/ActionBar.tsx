@@ -87,6 +87,7 @@ export default function ActionBar(props: ActionBarProps) {
         >
           <Tooltip title="GitHub">
             <IconButton
+              aria-label="GitHub"
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -113,6 +114,7 @@ export default function ActionBar(props: ActionBarProps) {
           </Tooltip>
           <Tooltip title="LinkedIn">
             <IconButton
+              aria-label="LinkedIn"
               href={linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"

@@ -1,6 +1,7 @@
 import React from "react";
 import Markdown, { MarkdownToJSX } from "markdown-to-jsx";
 import { Box, Link, SxProps, Theme, Typography, useTheme } from "@mui/material";
+import { Link as RouterLink, useInRouterContext } from "react-router-dom";
 
 export interface FormattedTextProps {
   content: string;
@@ -22,6 +23,7 @@ export const FormattedText: React.FC<FormattedTextProps> = ({
   className,
 }) => {
   const theme = useTheme();
+  const inRouter = useInRouterContext();
 
   // Replace {{token}} placeholders
   let parsedContent = content;
@@ -148,6 +150,40 @@ export const FormattedText: React.FC<FormattedTextProps> = ({
         ...props
       }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
         const isExternal = Boolean(href && /^https?:\/\//i.test(href));
+        const isInternalRoute = Boolean(
+          inRouter &&
+            href &&
+            href.startsWith("/") &&
+            !href.startsWith("//") &&
+            !/\.[a-z0-9]+($|[?#])/i.test(href),
+        );
+        const linkStyles: SxProps<Theme> = {
+          color:
+            theme.palette.mode === "dark"
+              ? theme.palette.secondary.main
+              : theme.palette.primary.main,
+          textDecoration: "none",
+          fontWeight: 600,
+          "&:hover": {
+            textDecoration: "underline",
+          },
+          ...linkSx,
+        };
+
+        if (isInternalRoute && href) {
+          return (
+            <Link
+              component={RouterLink}
+              to={href}
+              className={aClassName}
+              {...props}
+              sx={linkStyles}
+            >
+              {children}
+            </Link>
+          );
+        }
+
         return (
           <Link
             href={href}
@@ -155,18 +191,7 @@ export const FormattedText: React.FC<FormattedTextProps> = ({
             target={isExternal ? "_blank" : undefined}
             rel={isExternal ? "noopener noreferrer" : undefined}
             {...props}
-            sx={{
-              color:
-                theme.palette.mode === "dark"
-                  ? theme.palette.secondary.main
-                  : theme.palette.primary.main,
-              textDecoration: "none",
-              fontWeight: 600,
-              "&:hover": {
-                textDecoration: "underline",
-              },
-              ...linkSx,
-            }}
+            sx={linkStyles}
           >
             {children}
           </Link>

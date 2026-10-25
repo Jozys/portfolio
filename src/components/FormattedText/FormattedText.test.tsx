@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import React from "react";
+import { MemoryRouter } from "react-router-dom";
 import FormattedText from "./FormattedText";
 
 describe("FormattedText", () => {
@@ -41,5 +42,18 @@ describe("FormattedText", () => {
 
     const paragraphs = container.querySelectorAll("p");
     expect(paragraphs.length).toBe(2);
+  });
+
+  it("renders internal routes via RouterLink when inside a router", () => {
+    render(
+      <MemoryRouter>
+        <FormattedText content="Siehe **[TECKboards](/projects/teckboard)**." />
+      </MemoryRouter>,
+    );
+
+    const link = screen.getByRole("link", { name: "TECKboards" });
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute("href", "/projects/teckboard");
+    expect(link).not.toHaveAttribute("target");
   });
 });
