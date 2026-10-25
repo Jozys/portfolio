@@ -253,7 +253,7 @@ Outside of programming, I enjoy spending time outdoors — whether walking and h
   privacy: {
     title: "Privacy Policy",
     subtitle:
-      "Information on the processing of personal data when visiting this website in accordance with Art. 13 GDPR.",
+      "Information on the processing of personal data when visiting this website in accordance with GDPR.",
     lastUpdated: "Last updated: October 2026",
     defaultHostingProvider: "an external hosting provider",
     sections: [

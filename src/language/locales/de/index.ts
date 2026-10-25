@@ -250,7 +250,7 @@ Neben dem Entwickeln bin ich gerne draußen in der Natur unterwegs – sei es be
   privacy: {
     title: "Datenschutzerklärung",
     subtitle:
-      "Informationen zur Verarbeitung personenbezogener Daten beim Besuch dieser Website gemäß Art. 13 DSGVO.",
+      "Informationen zur Verarbeitung personenbezogener Daten beim Besuch dieser Website gemäß DSGVO.",
     lastUpdated: "Stand: Oktober 2026",
     defaultHostingProvider: "einem externen Hosting-Dienstleister",
     sections: [
