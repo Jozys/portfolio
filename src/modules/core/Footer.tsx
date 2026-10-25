@@ -3,12 +3,14 @@ import {
   Box,
   Container,
   IconButton,
+  Link,
   Stack,
   Tooltip,
   Typography,
   useTheme,
   alpha,
 } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 import { useLanguage } from "../../language/hooks";
 import Logo from "./Logo";
 
@@ -83,16 +85,48 @@ export default function Footer() {
             >
               {language.footer.subtitle}
             </Typography>
-            <Typography
-              sx={{
-                color: theme.palette.text.secondary,
-                fontSize: 12,
-                mt: 2,
-                opacity: 0.8,
-              }}
+            <Stack
+              direction="row"
+              spacing={1.5}
+              sx={{ alignItems: "center", mt: 2, flexWrap: "wrap" }}
             >
-              © {new Date().getFullYear()} Joshua Slaar
-            </Typography>
+              <Typography
+                sx={{
+                  color: theme.palette.text.secondary,
+                  fontSize: 12,
+                  opacity: 0.8,
+                }}
+              >
+                © {new Date().getFullYear()} Joshua Slaar
+              </Typography>
+              <Typography
+                sx={{
+                  color: theme.palette.text.secondary,
+                  fontSize: 12,
+                  opacity: 0.5,
+                }}
+              >
+                •
+              </Typography>
+              <Link
+                component={RouterLink}
+                to="/privacy"
+                sx={{
+                  color: theme.palette.text.secondary,
+                  fontSize: 12,
+                  opacity: 0.8,
+                  textDecoration: "none",
+                  transition: "color 0.2s ease, opacity 0.2s ease",
+                  "&:hover": {
+                    color: theme.palette.secondary.main,
+                    opacity: 1,
+                    textDecoration: "underline",
+                  },
+                }}
+              >
+                {language.footer.privacyPolicy}
+              </Link>
+            </Stack>
           </Box>
 
           <Box sx={{ justifySelf: { sm: "end" } }}>

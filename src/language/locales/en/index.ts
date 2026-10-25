@@ -18,6 +18,7 @@ export const language: Language = {
     subtitle:
       "Software Engineer at SAP in Walldorf • Focused on Full Stack & Artificial Intelligence.",
     socialTitle: "Connect & Socials",
+    privacyPolicy: "Privacy Policy",
   },
   home: {
     greeting: "Hello",
@@ -248,6 +249,53 @@ Outside of programming, I enjoy spending time outdoors — whether walking and h
   ui5: {
     backToPortfolio: "Back to portfolio",
     tagline: "Built with OpenUI5 — Secret Mode 🛠️",
+  },
+  privacy: {
+    title: "Privacy Policy",
+    subtitle:
+      "Information on the processing of personal data when visiting this website in accordance with Art. 13 GDPR.",
+    lastUpdated: "Last updated: October 2026",
+    defaultHostingProvider: "an external hosting provider",
+    sections: [
+      {
+        title: "1. Controller",
+        content: `The controller responsible for data processing on this website within the meaning of the General Data Protection Regulation (GDPR) is:
+
+**Joshua Slaar**  
+Email: [{{email}}]({{mailHref}})`,
+      },
+      {
+        title: "2. Hosting (VPS) & DNS Resolution (Cloudflare)",
+        content: `**Hosting and Server Log Files:** This website is operated on a self-managed virtual private server (VPS) provided by **{{hostingProvider}}** with a server location in **Germany (EU)** (under a data processing agreement pursuant to Art. 28 GDPR). When you visit or interact with this website, your browser connects directly to this web server. In doing so, technically required connection data (such as IP address, date and time of the request, requested URL, HTTP status code, and browser/operating system information) is processed to deliver the website and ensure system security. Server log files are stored for a maximum of 7 days and then automatically deleted.
+
+**DNS-Only Management via Cloudflare:** Exclusively for domain name resolution (translating the domain name into the server's IP address), I use the authoritative nameservers of **Cloudflare, Inc.** in **"DNS Only"** mode. **No HTTP/HTTPS website traffic** is routed through Cloudflare, and no requests are sent to Cloudflare when you interact with the website. Only during the initial DNS lookup (which is typically performed by your internet service provider's DNS resolver) does Cloudflare process technical DNS query data (requested domain name, timestamp, DNS record type, and the IP address of the querying DNS resolver) and evaluate it statistically in **Cloudflare DNS Analytics** ([Cloudflare's Privacy Policy](https://www.cloudflare.com/privacypolicy/)).
+
+**Purpose and Legal Basis:** This processing is carried out for the technical provision of the website, IT security, and reliable domain availability based on my legitimate interest pursuant to **Art. 6(1)(f) GDPR**.`,
+      },
+      {
+        title: "3. Local Storage & Local Fonts",
+        content: `This website does **not use any tracking, analytics, or marketing cookies** and does not use external web analytics services.
+
+To remember your explicitly selected display preferences, this website only uses your browser's **Local Storage**:
+
+- **\`isDark\`**: Stores your preference for the light or dark color theme.
+- **\`language\`**: Stores your selected language preference (\`de\` or \`en\`).
+
+These values remain strictly local in your browser, are never transmitted to any server, and can be cleared at any time via your browser settings. Storage is based on **Sec. 25(2) No. 2 TDDDG** and **Art. 6(1)(f) GDPR** to provide a user-friendly website experience.
+
+All fonts and icons used on this website are bundled locally; visiting this website does not establish any connection to external font servers (such as Google Fonts).`,
+      },
+      {
+        title: "4. Contact via Email & External Links",
+        content: `**Contact via Email:** When you contact me by email, the information you provide (in particular your email address, name, and message content) will be processed solely for the purpose of handling your inquiry (legal basis: **Art. 6(1)(f) GDPR** or **Art. 6(1)(b) GDPR** for pre-contractual inquiries). The data will be deleted as soon as your inquiry has been fully processed and provided no statutory retention obligations apply.
+
+**External Links:** This website contains links to external third-party websites (e.g., GitHub, LinkedIn, Instagram, or project links). A connection to the respective destination server is only established when you actively click on an external link; the privacy policies of the respective operator apply there.`,
+      },
+      {
+        title: "5. Your Rights as a Data Subject",
+        content: `Insofar as personal data is processed during your visit or when contacting me, you have the right to **access** (Art. 15), **rectification** (Art. 16), **erasure** (Art. 17), **restriction of processing** (Art. 18), **data portability** (Art. 20), and **objection** (Art. 21 GDPR) in accordance with statutory provisions (in particular taking into account **Art. 11 GDPR** where identifying you solely from technical connection data is not possible). You also have the **right to lodge a complaint** with a data protection supervisory authority (Art. 77 GDPR).`,
+      },
+    ],
   },
 };
 export default language;

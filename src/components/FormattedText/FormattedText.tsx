@@ -96,6 +96,50 @@ export const FormattedText: React.FC<FormattedTextProps> = ({
         </Typography>
       ),
     },
+    ul: {
+      component: ({
+        children,
+        className: ulClassName,
+        ...props
+      }: React.HTMLAttributes<HTMLUListElement>) => (
+        <Box
+          component="ul"
+          className={ulClassName}
+          {...props}
+          sx={{
+            pl: 3,
+            mt: 0,
+            mb: 2,
+            color: theme.palette.text.secondary,
+            "&:last-child": { mb: 0 },
+          }}
+        >
+          {children}
+        </Box>
+      ),
+    },
+    li: {
+      component: ({
+        children,
+        className: liClassName,
+        ...props
+      }: React.LiHTMLAttributes<HTMLLIElement>) => (
+        <Typography
+          component="li"
+          className={liClassName}
+          {...props}
+          sx={{
+            fontSize: { xs: 15, sm: 16 },
+            lineHeight: 1.75,
+            color: theme.palette.text.secondary,
+            mb: 0.5,
+            ...paragraphSx,
+          }}
+        >
+          {children}
+        </Typography>
+      ),
+    },
     a: {
       component: ({
         children,

@@ -15,4 +15,7 @@ interface ImportMetaEnv {
   readonly VITE_DEVLIGHTS_LINK: string;
   readonly VITE_SIMPLEQ_LINK: string;
   readonly VITE_DB_DELAY_LINK: string;
+
+  // Hosting / Legal
+  readonly VITE_HOSTING_PROVIDER?: string;
 }

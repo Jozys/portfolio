@@ -16,6 +16,20 @@ export type HeaderLocale = {
 export type FooterLocale = {
   subtitle: string;
   socialTitle: string;
+  privacyPolicy: string;
+};
+
+export type PrivacySectionLocale = {
+  title: string;
+  content: string;
+};
+
+export type PrivacyLocale = {
+  title: string;
+  subtitle: string;
+  lastUpdated: string;
+  defaultHostingProvider: string;
+  sections: PrivacySectionLocale[];
 };
 
 export type HomeActionLocale = {
@@ -184,4 +198,5 @@ export type Language = {
     backToPortfolio: string;
     tagline: string;
   };
+  privacy: PrivacyLocale;
 };

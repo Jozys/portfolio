@@ -18,6 +18,7 @@ export const language: Language = {
     subtitle:
       "Software Engineer bei SAP in Walldorf • Fokus auf Full Stack & Künstliche Intelligenz.",
     socialTitle: "Social & Kontakt",
+    privacyPolicy: "Datenschutzerklärung",
   },
   home: {
     greeting: "Hallo",
@@ -245,6 +246,53 @@ Neben dem Entwickeln bin ich gerne draußen in der Natur unterwegs – sei es be
   ui5: {
     backToPortfolio: "Zurück zum Portfolio",
     tagline: "Gebaut mit OpenUI5 — Secret Mode 🛠️",
+  },
+  privacy: {
+    title: "Datenschutzerklärung",
+    subtitle:
+      "Informationen zur Verarbeitung personenbezogener Daten beim Besuch dieser Website gemäß Art. 13 DSGVO.",
+    lastUpdated: "Stand: Oktober 2026",
+    defaultHostingProvider: "einem externen Hosting-Dienstleister",
+    sections: [
+      {
+        title: "1. Verantwortlicher",
+        content: `Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
+
+**Joshua Slaar**  
+E-Mail: [{{email}}]({{mailHref}})`,
+      },
+      {
+        title: "2. Hosting (VPS) & DNS-Namensauflösung (Cloudflare)",
+        content: `**Hosting und Server-Logfiles:** Diese Website wird auf einem selbst verwalteten virtuellen Server (VPS) bei **{{hostingProvider}}** mit Serverstandort in **Deutschland (EU)** betrieben (auf Grundlage eines Auftragsverarbeitungsvertrags gemäß Art. 28 DSGVO). Wenn Sie diese Website aufrufen oder mit ihr interagieren, stellt Ihr Browser eine direkte Verbindung zu diesem Webserver her. Dabei werden technisch notwendige Verbindungsdaten (z. B. IP-Adresse, Datum und Uhrzeit des Abrufs, aufgerufene URL, HTTP-Statuscode sowie Browsertyp und Betriebssystem) zur Auslieferung der Website sowie zur Gewährleistung der Systemsicherheit verarbeitet. Die Server-Logfiles werden für maximal 7 Tage gespeichert und anschließend automatisch gelöscht.
+
+**Reine DNS-Verwaltung über Cloudflare (DNS Only):** Für die reine Namensauflösung der Domain (Übersetzung des Domainnamens in die IP-Adresse des Servers) nutze ich die autoritativen Nameserver der **Cloudflare, Inc.** im Modus **„DNS Only“**. Es wird **kein HTTP-/HTTPS-Datenverkehr** Ihrer Website-Besuche über Cloudflare geleitet; bei der Interaktion mit der Website werden keinerlei Anfragen an Cloudflare gesendet. Lediglich bei der initialen DNS-Abfrage (die in der Regel über den DNS-Resolver Ihres Internetanbieters erfolgt) werden technisch bedingte DNS-Anfragedaten (angefragter Domainname, Anfragezeitpunkt, DNS-Record-Typ sowie die IP-Adresse des anfragenden DNS-Resolvers) verarbeitet und in **Cloudflare DNS Analytics** statistisch ausgewertet ([Datenschutzerklärung von Cloudflare](https://www.cloudflare.com/de-de/privacypolicy/)).
+
+**Zweck und Rechtsgrundlage:** Die Verarbeitung erfolgt zur technischen Bereitstellung der Website, zur IT-Sicherheit und zur zuverlässigen Erreichbarkeit der Domain auf Grundlage meines berechtigten Interesses gemäß **Art. 6 Abs. 1 lit. f DSGVO**.`,
+      },
+      {
+        title: "3. Lokale Speicherung (Local Storage) & lokale Schriftarten",
+        content: `Diese Website verwendet **keine Tracking-, Analyse- oder Marketing-Cookies** und setzt keine externen Web-Analytics-Dienste ein.
+
+Lediglich zur Speicherung Ihrer ausdrücklich gewählten Darstellungseinstellungen nutzt die Website den lokalen Speicher (**Local Storage**) Ihres Browsers:
+
+- **\`isDark\`**: Speichert Ihre Auswahl für das helle oder dunkle Farbschema (Light / Dark Mode).
+- **\`language\`**: Speichert Ihre gewählte Spracheinstellung (\`de\` oder \`en\`).
+
+Diese Werte verbleiben ausschließlich lokal in Ihrem Browser, werden nicht an Server übertragen und können jederzeit über die Browser-Einstellungen gelöscht werden. Die Speicherung erfolgt auf Grundlage von **§ 25 Abs. 2 Nr. 2 TDDDG** bzw. **Art. 6 Abs. 1 lit. f DSGVO** zur nutzerfreundlichen Bereitstellung der Website.
+
+Alle verwendeten Schriftarten und Icons sind lokal in die Website eingebunden; beim Seitenaufruf findet keine Verbindung zu externen Schriftarten-Diensten (wie etwa Google Fonts) statt.`,
+      },
+      {
+        title: "4. Kontaktaufnahme & externe Links",
+        content: `**Kontaktaufnahme per E-Mail:** Wenn Sie mich per E-Mail kontaktieren, werden Ihre übermittelten Angaben (insbesondere Ihre E-Mail-Adresse, Ihr Name und der Inhalt Ihrer Nachricht) ausschließlich zum Zweck der Bearbeitung Ihrer Anfrage verarbeitet (Rechtsgrundlage: **Art. 6 Abs. 1 lit. f DSGVO** bzw. bei vorvertraglichen Anfragen **Art. 6 Abs. 1 lit. b DSGVO**). Die Daten werden gelöscht, sobald Ihre Anfrage abschließend bearbeitet wurde und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+
+**Externe Links:** Diese Website enthält Links zu externen Websites Dritter (z. B. GitHub, LinkedIn, Instagram oder Projektseiten). Erst wenn Sie aktiv auf einen solchen externen Link klicken, wird eine Verbindung zum jeweiligen Zielserver hergestellt; für die dortige Datenverarbeitung gelten die Datenschutzbestimmungen des jeweiligen Betreibers.`,
+      },
+      {
+        title: "5. Ihre Rechte als betroffene Person",
+        content: `Soweit im Rahmen Ihres Besuchs oder einer Kontaktaufnahme personenbezogene Daten verarbeitet werden, stehen Ihnen nach Maßgabe der gesetzlichen Bestimmungen (insbesondere unter Berücksichtigung von **Art. 11 DSGVO**, sofern eine Identifizierung Ihrer Person anhand rein technischer Verbindungsdaten nicht möglich ist) die Rechte auf **Auskunft** (Art. 15), **Berichtigung** (Art. 16), **Löschung** (Art. 17), **Einschränkung der Verarbeitung** (Art. 18), **Datenübertragbarkeit** (Art. 20) sowie **Widerspruch** (Art. 21 DSGVO) zu. Zudem besteht ein **Beschwerderecht** bei einer Datenschutz-Aufsichtsbehörde (Art. 77 DSGVO).`,
+      },
+    ],
   },
 };
 export default language;

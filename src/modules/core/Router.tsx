@@ -16,6 +16,7 @@ const About = React.lazy(() => import("../pages/about/About"));
 const ProjectDetails = React.lazy(
   () => import("../pages/projectDetails/ProjectDetails"),
 );
+const Privacy = React.lazy(() => import("../pages/privacy/Privacy"));
 
 // Secret UI5 showcase — lazily loaded so the (heavy) SAP UI5 bundle only ships
 // to visitors who discover the hidden "/ui5" route.
@@ -53,14 +54,17 @@ function AppShell() {
 
   const getCurrentTabFromPathname = (
     pathname: string,
-  ): "home" | "projects" | "me" => {
+  ): "home" | "projects" | "me" | undefined => {
     if (pathname.startsWith("/projects")) {
       return "projects";
     }
     if (pathname.startsWith("/me") || pathname.startsWith("/about")) {
       return "me";
     }
-    return "home";
+    if (pathname === "/" || pathname.startsWith("/home")) {
+      return "home";
+    }
+    return undefined;
   };
 
   return (
@@ -79,6 +83,8 @@ function AppShell() {
         <Route path="/projects/:id" element={<ProjectDetails />} />
         <Route path="/me" element={<About />} />
         <Route path="/about" element={<Navigate to="/me" replace />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/datenschutz" element={<Navigate to="/privacy" replace />} />
 
         <Route
           path={UI5_PATH}
