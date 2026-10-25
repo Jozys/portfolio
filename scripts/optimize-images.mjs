@@ -8,6 +8,7 @@ import { execSync } from "node:child_process";
 const args = process.argv.slice(2);
 const helpFlag = args.includes("--help") || args.includes("-h");
 const deleteOriginal = args.includes("--delete-original") || args.includes("-d");
+const forceKeepLarger = args.includes("--force");
 
 function getArgValue(flag, defaultValue) {
   const index = args.indexOf(flag);
@@ -32,7 +33,8 @@ Usage:
 Options:
   --max-width <number>   Max width for resizing (default: 1200)
   --quality <number>     WebP quality 1-100 (default: 82)
-  --delete-original, -d  Delete original PNG/JPG after successful conversion
+  --delete-original, -d  Delete original PNG/JPG after successful smaller conversion
+  --force                Keep WebP even if it is larger than original
   --help, -h             Show this help message
 
 Examples:
@@ -101,6 +103,7 @@ console.log(`Found ${images.length} image(s) to process.\n`);
 let totalOriginalBytes = 0;
 let totalWebpBytes = 0;
 let convertedCount = 0;
+let skippedCount = 0;
 
 for (const imagePath of images) {
   const relPath = path.relative(process.cwd(), imagePath);
@@ -109,14 +112,25 @@ for (const imagePath of images) {
   const relOutputPath = path.relative(process.cwd(), outputPath);
 
   const originalSize = fs.statSync(imagePath).size;
-  totalOriginalBytes += originalSize;
 
   try {
-    // Run sharp-cli via npx to resize and convert to webp
-    const cmd = `npx.cmd -y sharp-cli -i "${imagePath}" -o "${outputPath}" -f webp -q ${quality} resize ${maxWidth}`;
+    // Run sharp-cli with prefer-offline and withoutEnlargement
+    const cmd = `npx.cmd --prefer-offline sharp-cli -i "${imagePath}" -o "${outputPath}" -f webp -q ${quality} resize ${maxWidth} --withoutEnlargement`;
     execSync(cmd, { stdio: "pipe" });
 
     const newSize = fs.statSync(outputPath).size;
+
+    if (newSize >= originalSize && !forceKeepLarger) {
+      // Discard larger WebP
+      fs.unlinkSync(outputPath);
+      skippedCount++;
+      console.log(
+        `⏭️  ${relPath} (${formatBytes(originalSize)}): WebP would be larger (${formatBytes(newSize)}) -> skipped & kept original PNG/JPG`
+      );
+      continue;
+    }
+
+    totalOriginalBytes += originalSize;
     totalWebpBytes += newSize;
     convertedCount++;
 
@@ -134,19 +148,20 @@ for (const imagePath of images) {
   }
 }
 
-const totalSavingsPercent = (
-  (1 - totalWebpBytes / totalOriginalBytes) *
-  100
-).toFixed(1);
-
 console.log("\n==========================================");
-console.log(`🎉 Processed: ${convertedCount} image(s)`);
-console.log(
-  `📦 Original:   ${formatBytes(totalOriginalBytes)}`
-);
-console.log(`⚡ WebP:       ${formatBytes(totalWebpBytes)}`);
-console.log(
-  `💾 Total saved: ${formatBytes(totalOriginalBytes - totalWebpBytes)} (-${totalSavingsPercent}%)`
-);
+console.log(`🎉 Converted: ${convertedCount} image(s)`);
+if (skippedCount > 0) {
+  console.log(`⏭️  Skipped:   ${skippedCount} image(s) (WebP was larger than original)`);
+}
+if (totalOriginalBytes > 0) {
+  const totalSavingsPercent = (
+    (1 - totalWebpBytes / totalOriginalBytes) *
+    100
+  ).toFixed(1);
+  console.log(`📦 Original:   ${formatBytes(totalOriginalBytes)}`);
+  console.log(`⚡ WebP:       ${formatBytes(totalWebpBytes)}`);
+  console.log(
+    `💾 Total saved: ${formatBytes(totalOriginalBytes - totalWebpBytes)} (-${totalSavingsPercent}%)`
+  );
+}
 console.log("==========================================\n");
-
