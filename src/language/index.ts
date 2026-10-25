@@ -1,93 +1,202 @@
 import { StatusInformationLocale } from "../data/types/StatusInformation";
 
-export type Language = {
-  languageInfo: {
-    de: string;
-    en: string;
+export type HeaderLocale = {
+  themeToggleLight: string;
+  themeToggleDark: string;
+  languageToggle: string;
+  openMenu: string;
+  closeMenu: string;
+  tabs: {
+    home: string;
+    projects: string;
+    me: string;
   };
-  home: {
-    greeting: string;
-    name: string;
-    subtitle: string;
-    me: Info;
-    life: Info;
-    teckdigital: {
-      title: string;
-      description: {
-        start: string;
-        middle: string;
-        end: string;
-      };
+};
+
+export type FooterLocale = {
+  subtitle: string;
+  socialTitle: string;
+  privacyPolicy: string;
+};
+
+export type PrivacySectionLocale = {
+  title: string;
+  content: string;
+};
+
+export type PrivacyLocale = {
+  title: string;
+  subtitle: string;
+  lastUpdated: string;
+  defaultHostingProvider: string;
+  sections: PrivacySectionLocale[];
+};
+
+export type HomeActionLocale = {
+  explore: string;
+  contact: string;
+};
+
+export type HomePortraitLocale = {
+  statusTitle: string;
+  statusDescription: string;
+};
+
+export type HomeHistoryLocale = {
+  subtitle: string;
+  title: string;
+  sapTags: string[];
+  dhbwTags: string[];
+  teckdigitalTags: string[];
+};
+
+export type HomeStatusLocale = {
+  title: string;
+  description: string;
+};
+
+export type HomeLocale = {
+  greeting: string;
+  name: string;
+  subtitle: string;
+  me: Info;
+  sap: Info;
+  teckdigital: Info;
+  dhbw: Info;
+  action: HomeActionLocale;
+  portrait: HomePortraitLocale;
+  history: HomeHistoryLocale;
+  status: HomeStatusLocale;
+};
+
+export type QuickFactLocale = {
+  title: string;
+  description: string;
+  label: string;
+};
+
+export type ProjectFeatureLocale = {
+  title: string;
+  description: string;
+};
+
+export type ProjectStatLocale = {
+  label: string;
+  value: string;
+};
+
+export type ProjectDetailLocale = {
+  category?: string;
+  role?: string;
+  statusText?: string;
+  features?: ProjectFeatureLocale[];
+  challenges?: string;
+  learnings?: string;
+  stats?: ProjectStatLocale[];
+};
+
+export type ProjectsLocale = {
+  main: {
+    title: string;
+    documentation: string;
+    filter: {
+      all: string;
     };
-    dhbw: Info;
+    teckboard: Info;
+    devlight: Info & { readDoc: string };
+    simpleQ: Info;
+    dbDelay: Info;
+    concertHistory: Info & { betaTest: string };
+    moveTopia: Info & { playStore: string; appStore: string };
+    sensoration: Info;
+    learnMore: string;
   };
+  backToProjects: string;
+  now: string;
+  projectData: string;
+  projectDescription: string;
+  timeline: string;
+  links: string;
+  gallerySection: string;
+  galleryTitle: string;
+  galleryEnlargeImage: string;
+  lightboxClose: string;
+  lightboxPrev: string;
+  lightboxNext: string;
+  lightboxSelectImage: string;
+  category: string;
+  technologies: {
+    title: string;
+    frontend: string;
+    backend: string;
+    mobile: string;
+    database: string;
+    hardware: string;
+    devops: string;
+    other: string;
+  };
+  details?: {
+    [key: string]: ProjectDetailLocale;
+  };
+};
+
+export type AboutLocale = {
+  me: Info;
+  skills: {
+    title: string;
+    subtitle: string;
+    description: string;
+  };
+  quickFacts: {
+    education: QuickFactLocale;
+    work: QuickFactLocale;
+    location: QuickFactLocale;
+    interests: QuickFactLocale;
+  };
+};
+
+export type MilestonesLocale = {
+  work_sap: Milestone;
+  study: Milestone;
+  school: {
+    company: Milestone;
+    abitur: Milestone;
+  };
+};
+
+export type Milestone = {
+  title: string;
+  description: string;
+  location: string;
+  badge?: string;
+};
+
+export type Info = {
+  title: string;
+  shortDescription?: string;
+  description: string;
+};
+
+export type Language = {
+  header: HeaderLocale;
+  footer: FooterLocale;
+  home: HomeLocale;
   status: {
     currentWork: StatusInformationLocale;
     currentFocus: StatusInformationLocale;
     location: StatusInformationLocale;
   };
-  projects: {
-    main: {
-      title: string;
-      readMore: string;
-      teckboard: Info;
-      devlight: Info & { readDoc: string };
-      simpleQ: Info;
-      dbDelay: Info;
-      concertHistory: Info;
-      moveTopia: Info;
-      sensoration: Info;
-      skills: Info;
-      learnMore: string;
-    };
-    devlight: {
-      title: string;
-      subtitle: string;
-      ledstrip: {
-        color: string;
-        validity: string;
-        restart: string;
-      };
-      summary: string;
-      evolution: {
-        title: string;
-        description: string;
-      };
-      openSourceNotice: string;
-      github: string;
-      projectTimelineTitle: string;
-      projectTimeline: string[];
-      last: string;
-    };
-    teckboard: {
-      title: string;
-      content: string;
-      projectDescription: Info;
-      evolution: string;
-      mobileEvolution: string;
-      imageInfo: string[];
-      appDescription: string[];
-      reactNative: {
-        start: string;
-        end: string;
-      };
-    };
-  };
-  footer: {
-    contact: string;
-    others: string;
-    projects: string;
-  };
+  projects: ProjectsLocale;
+  milestones: MilestonesLocale;
+  about: AboutLocale;
   notFound: {
     title: string;
+    description: string;
+    code: string;
   };
   ui5: {
     backToPortfolio: string;
     tagline: string;
   };
-};
-
-export type Info = {
-  title: string;
-  description: string;
+  privacy: PrivacyLocale;
 };

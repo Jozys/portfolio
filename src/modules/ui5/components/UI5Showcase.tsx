@@ -16,15 +16,22 @@ import {
   Link,
   Bar,
 } from "@ui5/webcomponents-react";
+import { setDefaultFontLoading } from "@ui5/webcomponents-base/dist/config/Fonts.js";
 import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme.js";
+import "./ui5Fonts.css";
 import "@ui5/webcomponents-icons/dist/nav-back.js";
 import "@ui5/webcomponents/dist/generated/json-imports/Themes.js";
 import "@ui5/webcomponents-theming/dist/generated/json-imports/Themes.js";
+
+// Disable automatic font fetching from cdn.jsdelivr.net; local SAP "72" font
+// faces are bundled via ./ui5Fonts.css instead.
+setDefaultFontLoading(false);
 import { useLanguage } from "../../../language/hooks";
 import {
+  formatProjectYears,
   getAllProjects,
   getProjectTitle,
-  getProjectDescription,
+  getProjectShortDescription,
   getLabel,
 } from "../../../data/Projects";
 import { Technology, TechnologyType } from "../../../data/types/Project";
@@ -61,8 +68,8 @@ export default function UI5ShowcaseRoot() {
  */
 export function UI5Showcase() {
   const navigate = useNavigate();
-  const { language } = useLanguage();
   const { isThemeDark } = useThemeSwitch();
+  const { language } = useLanguage();
 
   const applyUI5Theme = (isDark: boolean) => {
     setTheme(isDark ? "sap_horizon_dark" : "sap_horizon");
@@ -118,7 +125,6 @@ export function UI5Showcase() {
             {language.ui5.tagline}
           </Text>
 
-          <Title level="H2">{language.home.me.title}</Title>
           <Card
             header={
               <CardHeader
@@ -135,16 +141,19 @@ export function UI5Showcase() {
 
           <Title level="H2">{language.projects.main.title}</Title>
           <FlexBox wrap={FlexBoxWrap.Wrap} style={{ gap: "1rem" }}>
-            {projects.map((project, index) => {
-              const description = getProjectDescription(project, language);
+            {projects.map((project) => {
+              const description = getProjectShortDescription(project, language);
               return (
                 <Card
-                  key={index}
+                  key={project.route || project.name}
                   style={{ width: "22rem", maxWidth: "100%" }}
                   header={
                     <CardHeader
                       titleText={getProjectTitle(project, language)}
-                      subtitleText={project.years}
+                      subtitleText={formatProjectYears(
+                        project.years,
+                        language.projects.now,
+                      )}
                     />
                   }
                 >
@@ -159,7 +168,7 @@ export function UI5Showcase() {
                     <FlexBox wrap={FlexBoxWrap.Wrap} style={{ gap: "0.5rem" }}>
                       {project.technologies
                         .filter((tech): tech is Technology => Boolean(tech))
-                        .map((tech, techIndex) => (
+                        .map((tech) => (
                           <Tag
                             onClick={() => {
                               if (!tech.link) return;
@@ -170,8 +179,10 @@ export function UI5Showcase() {
                               );
                               if (w) w.opener = null;
                             }}
-                            key={techIndex}
-                            style={{ cursor: "pointer" }}
+                            key={tech.name}
+                            style={{
+                              cursor: tech.link ? "pointer" : "default",
+                            }}
                             colorScheme={getTagColorScheme(tech.type)}
                             design="Set1"
                           >
@@ -180,19 +191,26 @@ export function UI5Showcase() {
                         ))}
                     </FlexBox>
 
-                    <FlexBox wrap={FlexBoxWrap.Wrap} style={{ gap: "1rem" }}>
-                      {Object.entries(project.links).map(([key, link]) => (
-                        <Link
-                          key={key}
-                          href={link.url}
-                          target={
-                            link.disableOpenInNewTab ? undefined : "_blank"
-                          }
-                        >
-                          {getLabel(link.label, language) || key}
-                        </Link>
-                      ))}
-                    </FlexBox>
+                    {project.links && (
+                      <FlexBox wrap={FlexBoxWrap.Wrap} style={{ gap: "1rem" }}>
+                        {Object.entries(project.links).map(([key, link]) => (
+                          <Link
+                            key={key}
+                            href={link.url}
+                            target={
+                              link.disableOpenInNewTab ? undefined : "_blank"
+                            }
+                            rel={
+                              link.disableOpenInNewTab
+                                ? undefined
+                                : "noopener noreferrer"
+                            }
+                          >
+                            {getLabel(link.label, language) || key}
+                          </Link>
+                        ))}
+                      </FlexBox>
+                    )}
                   </FlexBox>
                 </Card>
               );

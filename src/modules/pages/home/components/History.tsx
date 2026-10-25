@@ -1,0 +1,120 @@
+import { Box, Container, Stack, Typography, useTheme } from "@mui/material";
+import React from "react";
+import DHBW from "../../../../assets/life/DHBW_Logo.svg";
+import SAP from "../../../../assets/sap/sap_logo.svg";
+import Teckdigital from "../../../../assets/teckdigital/teckdigital.webp";
+import { useLanguage } from "../../../../language/hooks";
+import HistoryCard from "./HistoryCard";
+
+export interface HistoryProps {
+  title?: string;
+  subTitle?: string;
+  children?: React.ReactNode;
+}
+
+export default function History({ title, subTitle, children }: HistoryProps) {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
+  const { language } = useLanguage();
+
+  const sectionSubtitle = subTitle ?? language.home.history.subtitle;
+  const sectionTitle = title ?? language.home.history.title;
+
+  return (
+    <Box
+      component="section"
+      sx={{
+        py: { xs: 6, md: 9 },
+        borderTop: `1px solid ${theme.borders.subtle}`,
+        background: theme.surfaces.cardSubtle,
+      }}
+    >
+      <Container maxWidth="lg">
+        <Stack
+          sx={{
+            mb: 4.5,
+            flexDirection: { xs: "column", md: "row" },
+            justifyContent: "space-between",
+            alignItems: { md: "flex-end" },
+            gap: 2,
+          }}
+        >
+          <Box>
+            <Typography
+              sx={{
+                color: isDark
+                  ? theme.palette.secondary.main
+                  : theme.palette.primary.main,
+                fontWeight: 800,
+                fontSize: 13,
+                letterSpacing: ".14em",
+                textTransform: "uppercase",
+                fontFamily: "Titillium Web, sans-serif",
+              }}
+            >
+              {sectionSubtitle}
+            </Typography>
+            <Typography
+              component="h2"
+              sx={{
+                color: theme.palette.text.primary,
+                fontSize: { xs: "2rem", md: "2.6rem" },
+                fontWeight: 800,
+                fontFamily: "Titillium Web, sans-serif",
+                mt: 0.5,
+              }}
+            >
+              {sectionTitle}
+            </Typography>
+          </Box>
+        </Stack>
+
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
+            gap: 3.5,
+          }}
+        >
+          {children ? (
+            children
+          ) : (
+            <>
+              <HistoryCard
+                image={SAP}
+                imageAlt="SAP SE"
+                imageFit="contain"
+                badge={`2025 - ${language.projects.now}`}
+                title={language.home.sap.title}
+                description={language.home.sap.description}
+                tags={language.home.history.sapTags}
+              />
+
+              <HistoryCard
+                image={DHBW}
+                imageAlt="DHBW Karlsruhe"
+                imageFit="contain"
+                badge="2022 - 2025"
+                invertImageOnDark
+                title={language.home.dhbw.title}
+                description={language.home.dhbw.description}
+                tags={language.home.history.dhbwTags}
+              />
+
+              <HistoryCard
+                image={Teckdigital}
+                imageAlt="TECKdigital"
+                badge="2019 - 2022"
+                title={language.home.teckdigital.title}
+                description={language.home.teckdigital.description}
+                tags={language.home.history.teckdigitalTags}
+              />
+            </>
+          )}
+        </Box>
+      </Container>
+    </Box>
+  );
+}
+
+export { HistoryCard };

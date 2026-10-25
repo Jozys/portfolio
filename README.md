@@ -1,23 +1,29 @@
-# My Website ![Build status](https://github.com/Jozys/portfolio/actions/workflows/deploy.yml/badge.svg)
+# My Portfolio ![Build status](https://github.com/Jozys/portfolio/actions/workflows/deploy.yml/badge.svg)
 
-<span class="overview">
-  <img src="./assets/Overview.png" alt="Overview image" width="100%" height="auto" style="border-radius: 12px" />
-</span>
+This repository contains my personal portfolio at [joshua.slaar.de](https://joshua.slaar.de). It brings together selected software projects, technical skills, professional experience, and experiments I achieved over the years. The portfolio is built with React, TypeScript, and Material UI.
 
-Welcome to the repository of my personal website, available at [https://joshua.slaar.de](https://joshua.slaar.de). This website serves as my online portfolio and is a showcase of my projects and skills.
+<p align="center">
+	<img src="./assets/Overview.png" alt="Portfolio overview" width="100%" />
+</p>
 
 ## Built With
 
-The website is built using the following technologies:
-
-- [Create React App](https://create-react-app.dev/)
+- [React 19](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Material UI](https://material-ui.com/)
+- [Vite](https://vite.dev/)
+- [Material UI](https://mui.com/)
+- [React Router](https://reactrouter.com/)
+- [Yarn](https://yarnpkg.com/)
 
-## Availability
+## Available Routes
 
-As of 25th June 2023, the website is live and accessible under https://joshua.slaar.de.
+- `/` or `/home` — personal introduction, quick facts, and experience highlights
+- `/projects` — project gallery with category filtering
+- `/projects/:id` — deep-dive project details, hardware photos, and tech stack
+- `/me` — about me, milestones timeline, and skills breakdown
+- `/privacy` — privacy policy
+- `/ui5` — secret OpenUI5 showcase easter egg
 
 ## Feedback
 
-I appreciate any feedback or suggestions. If you have something to share, please feel free to send me an [email](mailto:joshu@slaar.de).
+Questions, ideas, and feedback are welcome. You can reach me at [info@joshua.slaar.de](mailto:info@joshua.slaar.de).

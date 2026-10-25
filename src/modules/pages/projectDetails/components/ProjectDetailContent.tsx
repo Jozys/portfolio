@@ -1,0 +1,338 @@
+import { useState } from "react";
+import { OpenInNew } from "@mui/icons-material";
+import ZoomInIcon from "@mui/icons-material/ZoomIn";
+import { Box, Button, Stack, Typography, useTheme } from "@mui/material";
+import {
+  formatProjectYears,
+  getLabel,
+  getProjectDescription,
+  getProjectDetails,
+} from "../../../../data/Projects";
+import { Project } from "../../../../data/types/Project";
+import { useLanguage } from "../../../../language/hooks";
+import ProjectImageLightbox from "./ProjectImageLightbox";
+import ProjectTechnologyList from "./ProjectTechnologyList";
+import FormattedText from "../../../../components/FormattedText";
+
+export interface ProjectDetailContentProps {
+  project: Project;
+}
+
+export default function ProjectDetailContent(props: ProjectDetailContentProps) {
+  const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
+  const { project } = props;
+  const { language } = useLanguage();
+  const details = getProjectDetails(project, language);
+  const t = language.projects;
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+    null,
+  );
+
+  const cardBorder = `1px solid ${theme.borders.subtle}`;
+
+  return (
+    <Box sx={{ mt: 6, pb: 6 }}>
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: { xs: "1fr", md: "1fr 2fr" },
+          gap: 5,
+        }}
+      >
+        <Stack spacing={2.5}>
+          <Typography
+            sx={{
+              color: theme.palette.text.secondary,
+              fontWeight: 800,
+              fontSize: 13,
+              letterSpacing: ".12em",
+              textTransform: "uppercase",
+              fontFamily: "Titillium Web, sans-serif",
+            }}
+          >
+            {t.projectData}
+          </Typography>
+
+          {project.years && (
+            <Box
+              sx={{
+                borderTop: `1px solid ${theme.borders.subtle}`,
+                pt: 1.5,
+              }}
+            >
+              <Typography
+                sx={{ color: theme.palette.text.secondary, fontSize: 12 }}
+              >
+                {t?.timeline}
+              </Typography>
+              <Typography
+                sx={{
+                  color: theme.palette.text.primary,
+                  fontWeight: 700,
+                  mt: 0.5,
+                }}
+              >
+                {formatProjectYears(project.years, t.now)}
+              </Typography>
+            </Box>
+          )}
+
+          {details?.category && (
+            <Box
+              sx={{
+                borderTop: `1px solid ${theme.borders.subtle}`,
+                pt: 1.5,
+              }}
+            >
+              <Typography
+                sx={{ color: theme.palette.text.secondary, fontSize: 12 }}
+              >
+                {t?.category}
+              </Typography>
+              <Typography
+                sx={{
+                  color: theme.palette.text.primary,
+                  fontWeight: 700,
+                  mt: 0.5,
+                }}
+              >
+                {details.category}
+              </Typography>
+            </Box>
+          )}
+
+          {project.links && Object.keys(project.links).length > 0 && (
+            <Box
+              sx={{
+                borderTop: `1px solid ${theme.borders.subtle}`,
+                pt: 1.5,
+              }}
+            >
+              <Typography
+                sx={{ color: theme.palette.text.secondary, fontSize: 12 }}
+              >
+                {t?.links}
+              </Typography>
+              <Stack
+                sx={{
+                  mt: 1,
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: 1,
+                }}
+              >
+                {Object.entries(project.links).map(([key, link]) => (
+                  <Button
+                    key={key}
+                    startIcon={
+                      typeof link.icon === "string" ? (
+                        <img
+                          height={20}
+                          src={link.icon}
+                          alt={getLabel(link.label, language) || key}
+                        />
+                      ) : (
+                        link.icon
+                      )
+                    }
+                    color="secondary"
+                    variant="outlined"
+                    size="small"
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    endIcon={<OpenInNew fontSize="small" />}
+                    sx={{
+                      textTransform: "none",
+                      fontWeight: 600,
+                      fontSize: 12,
+                      color: theme.palette.text.primary,
+                      borderColor: theme.borders.strong,
+                      borderRadius: 1.5,
+                      transition:
+                        "border-color 0.2s ease, background 0.2s ease, transform 0.2s ease",
+                      "&:hover": {
+                        borderColor: theme.palette.secondary.main,
+                        background: theme.surfaces.hover,
+                        transform: "translateY(-2px)",
+                      },
+                    }}
+                  >
+                    {getLabel(link.label, language) || key}
+                  </Button>
+                ))}
+              </Stack>
+            </Box>
+          )}
+        </Stack>
+
+        <Box>
+          <Typography
+            sx={{
+              color: theme.palette.text.primary,
+              fontSize: { xs: 22, md: 28 },
+              fontWeight: 800,
+              fontFamily: "Titillium Web, sans-serif",
+            }}
+          >
+            {t.projectDescription}
+          </Typography>
+          <FormattedText
+            paragraphSx={{
+              color: theme.palette.text.secondary,
+              fontSize: 16,
+              lineHeight: 1.8,
+              mt: 2,
+            }}
+            content={getProjectDescription(project, language)}
+          />
+        </Box>
+      </Box>
+
+      <ProjectTechnologyList project={project} />
+
+      {project.detailImages && project.detailImages.length > 0 && (
+        <Box sx={{ mt: 8 }}>
+          <Box sx={{ mb: 3 }}>
+            <Typography
+              sx={{
+                color: isDark
+                  ? theme.palette.secondary.main
+                  : theme.palette.primary.main,
+                fontWeight: 800,
+                fontSize: 13,
+                letterSpacing: ".12em",
+                textTransform: "uppercase",
+                fontFamily: "Titillium Web, sans-serif",
+              }}
+            >
+              {t?.gallerySection}
+            </Typography>
+            <Typography
+              sx={{
+                color: theme.palette.text.primary,
+                fontSize: { xs: 24, md: 30 },
+                fontWeight: 800,
+                fontFamily: "Titillium Web, sans-serif",
+                mt: 0.5,
+              }}
+            >
+              {t?.galleryTitle}
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                md:
+                  project.detailImages.length === 1 ? "1fr" : "repeat(2, 1fr)",
+              },
+              gap: 3,
+            }}
+          >
+            {project.detailImages.map((imgNode, idx) => (
+              <Box
+                key={idx}
+                role="button"
+                tabIndex={0}
+                aria-label={`${t.galleryEnlargeImage} ${idx + 1}`}
+                onClick={() => setSelectedImageIndex(idx)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setSelectedImageIndex(idx);
+                  }
+                }}
+                sx={{
+                  position: "relative",
+                  borderRadius: 3,
+                  overflow: "hidden",
+                  border: cardBorder,
+                  bgcolor: theme.surfaces.cardSubtle,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  p: 2,
+                  minHeight: 280,
+                  cursor: "pointer",
+                  boxShadow: isDark ? 4 : 1,
+                  transition:
+                    "transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease",
+                  "&:hover, &:focus-visible": {
+                    outline: "none",
+                    transform: "translateY(-4px)",
+                    borderColor: theme.borders.glow,
+                    boxShadow: theme.shadowsGlow.cardHover,
+                    "& .zoom-indicator": {
+                      opacity: 1,
+                      transform: "scale(1)",
+                    },
+                    "& img": {
+                      transform: "scale(1.03)",
+                    },
+                  },
+                  "& img": {
+                    maxWidth: "100%",
+                    maxHeight: 380,
+                    objectFit: "contain",
+                    borderRadius: 2,
+                    transition: "transform 0.35s ease",
+                    filter: isDark
+                      ? "drop-shadow(0 8px 16px rgba(0,0,0,0.6))"
+                      : "drop-shadow(0 6px 12px rgba(0,0,0,0.1))",
+                  },
+                }}
+              >
+                <Box
+                  className="zoom-indicator"
+                  sx={{
+                    position: "absolute",
+                    top: 14,
+                    right: 14,
+                    opacity: 0,
+                    transform: "scale(0.85)",
+                    transition: "all 0.25s ease",
+                    bgcolor: theme.surfaces.glassStrong,
+                    backdropFilter: "blur(8px)",
+                    borderRadius: "50%",
+                    p: 0.8,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: theme.palette.secondary.main,
+                    boxShadow: 2,
+                    zIndex: 2,
+                    border: `1px solid ${theme.borders.subtle}`,
+                  }}
+                >
+                  <ZoomInIcon fontSize="small" />
+                </Box>
+
+                {typeof imgNode === "string" ? (
+                  <img
+                    src={imgNode}
+                    alt={`Project detail ${idx + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  imgNode
+                )}
+              </Box>
+            ))}
+          </Box>
+
+          <ProjectImageLightbox
+            open={selectedImageIndex !== null}
+            initialIndex={selectedImageIndex ?? 0}
+            images={project.detailImages}
+            onClose={() => setSelectedImageIndex(null)}
+          />
+        </Box>
+      )}
+    </Box>
+  );
+}

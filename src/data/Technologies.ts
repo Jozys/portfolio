@@ -1,18 +1,19 @@
 import CPP from "../assets/technologies/cpp.ico";
-import CSS from "../assets/technologies/CSS.png";
+import CSS from "../assets/technologies/CSS.webp";
 import Dart from "../assets/technologies/Dart_Logo.svg";
 import Docker from "../assets/technologies/docker.ico";
 import Flutter from "../assets/technologies/flutter.svg";
-import Java from "../assets/technologies/java.ico";
+import HTML from "../assets/technologies/html.webp";
+import Java from "../assets/technologies/java.svg";
 import JavaScript from "../assets/technologies/javascript.svg";
 import Jenkins from "../assets/technologies/jenkins.ico";
-import JetpackCompose from "../assets/technologies/jetpack-compose.png";
+import JetpackCompose from "../assets/technologies/jetpack-compose.webp";
 import Kotlin from "../assets/technologies/Kotlin_Logo.svg";
 import MongoDB from "../assets/technologies/mongodb.ico";
 import MUI from "../assets/technologies/mui.ico";
-import MySQL from "../assets/technologies/MySQL.png";
+import MySQL from "../assets/technologies/MySQL.webp";
 import NestJS from "../assets/technologies/nestjs.svg";
-import NodeJS from "../assets/technologies/nodejs.png";
+import NodeJS from "../assets/technologies/nodejs.webp";
 import PHP from "../assets/technologies/php.ico";
 import React from "../assets/technologies/react.ico";
 import ReactNative from "../assets/technologies/reactNative.ico";
@@ -46,7 +47,7 @@ const technologies: Record<string, Technology> = {
   },
   html: {
     name: "HTML",
-    icon: "https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png",
+    icon: HTML,
     link: "https://developer.mozilla.org/de/docs/Web/HTML",
     color: "#E34F26",
     type: TechnologyType.Frontend,
