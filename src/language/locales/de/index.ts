@@ -205,7 +205,7 @@ export const language: Language = {
 
 Neben dem Entwickeln bin ich gerne draußen in der Natur unterwegs – sei es bei Spaziergängen und Wanderungen im Raum Karlsruhe und im Schwarzwald oder auf Fahrradtouren durch die Region. Zudem verbringe ich sehr gerne Zeit mit Freunden, reise mit der Bahn durch Deutschland und Europa und besuche regelmäßig meine Heimat Brochterbeck in Nordrhein-Westfalen.`,
       shortDescription:
-        "Software Engineer bei SAP in Walldorf mit Begeisterung für moderne Web-Technologien, Künstliche Intelligenz und durchdachte Software-Architektur.",
+        "Software Engineer bei SAP in Walldorf mit Begeisterung für moderne Web-Technologien und Software-Architektur.",
     },
     skills: {
       title: "Skills & Expertise",

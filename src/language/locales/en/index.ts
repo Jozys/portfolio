@@ -208,7 +208,7 @@ export const language: Language = {
 
 Outside of programming, I enjoy spending time outdoors — whether walking and hiking around the Karlsruhe area and the Black Forest or exploring the region by bike. I also love spending time with friends, traveling by train across Germany and Europe, and regularly visiting my hometown of Brochterbeck in North Rhine-Westphalia.`,
       shortDescription:
-        "Software Engineer at SAP in Walldorf passionate about modern web technologies, artificial intelligence, and thoughtful software architecture.",
+        "Software Engineer at SAP in Walldorf passionate about modern web technologies, artificial intelligence, and software architecture.",
     },
     skills: {
       title: "Skills & Expertise",
