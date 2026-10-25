@@ -16,10 +16,16 @@ import {
   Link,
   Bar,
 } from "@ui5/webcomponents-react";
+import { setDefaultFontLoading } from "@ui5/webcomponents-base/dist/config/Fonts.js";
 import { setTheme } from "@ui5/webcomponents-base/dist/config/Theme.js";
+import "./ui5Fonts.css";
 import "@ui5/webcomponents-icons/dist/nav-back.js";
 import "@ui5/webcomponents/dist/generated/json-imports/Themes.js";
 import "@ui5/webcomponents-theming/dist/generated/json-imports/Themes.js";
+
+// Disable automatic font fetching from cdn.jsdelivr.net; local SAP "72" font
+// faces are bundled via ./ui5Fonts.css instead.
+setDefaultFontLoading(false);
 import { useLanguage } from "../../../language/hooks";
 import {
   formatProjectYears,
