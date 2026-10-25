@@ -24,21 +24,23 @@ export const language: Language = {
     name: "My name is Joshua!",
     subtitle: `Developer - ${getAge()} years old - Germany`,
     me: {
-      title: "Who am I",
-      description: `I am a ${getAge()} year old developer, who likes doing sport, developing, and reading books. Currently I work as a software engineer at SAP in Walldorf, Baden-Württemberg Germany, focusing on artificial intelligence and full stack development.`,
+      title: "Who am I?",
+      description:
+        "I work as a Software Engineer at SAP in Walldorf, focusing on artificial intelligence and modern full-stack development. Outside of coding, I enjoy working out, spending time outdoors in nature, reading books, and traveling across Germany and Europe by train.",
     },
-    life: {
-      title: "My Life",
-      description: `I like to go outside to walk around the Karlsruhe area or towards the Black Forest. I also enjoy cycling through the regions. Additionally, I love meeting friends to spend time with them. Furthermore, I enjoy traveling by train through Germany and Europe. I also regularly visit my hometown Brochterbeck in North Rhine-Westphalia.`,
+    sap: {
+      title: "SAP SE",
+      description:
+        "Since October 2025, I have been working as a Software Engineer at SAP SE in Walldorf. There, I initially worked on the UI5 framework and now focus on developing web applications leveraging Artificial Intelligence.",
     },
     teckdigital: {
       title: "TECKdigital",
       description:
-        "Since December 2019 I am a member of the student company **[TECKdigital](https://teckdigital.de)**, which was founded in early 2019. At TECKdigital I worked on the **TECKboards**. Working there gave me extensive practical experience in software development and teamwork.",
+        "In December 2019, I joined the student company **[TECKdigital](https://teckdigital.de)**, which was founded in early 2019. At TECKdigital, I worked on the **[TECKboards](/projects/teckboard)**, gaining extensive practical experience in software development and teamwork.",
     },
     dhbw: {
       title: "Student@DHBW",
-      description: `From September 2022 until the end of September 2025 I was a Dual Student of Computer Science at SAP in Walldorf and at the Baden-Wuerttemberg Cooperative State University Karlsruhe (DHBW Karlsruhe).`,
+      description: `From September 2022 until the end of September 2025, I was a dual student in Computer Science at SAP in Walldorf and at the Baden-Württemberg Cooperative State University Karlsruhe (DHBW Karlsruhe).`,
     },
     action: {
       explore: "Explore selected work",
@@ -50,18 +52,18 @@ export const language: Language = {
     },
     history: {
       subtitle: "Background & Journey",
-      title: "Experience, Studies & Life",
+      title: "Experience & Studies",
+      sapTags: ["SAP", "Walldorf", "Germany"],
       dhbwTags: ["Dual Study", "SAP", "DHBW"],
       teckdigitalTags: [
         "Mobile Apps",
         "Software Development",
         "Web Development",
       ],
-      lifeTags: ["Outdoor", "Black Forest", "Travel"],
     },
     status: {
       title: "Current status",
-      description: "Location, current role, and engineering focuses.",
+      description: "Location, current role, and engineering focus.",
     },
   },
   status: {
@@ -71,7 +73,7 @@ export const language: Language = {
     },
     currentFocus: {
       name: "Current Focus",
-      description: "Artificial Intelligence and Full Stack Development.",
+      description: "Artificial Intelligence and Full-Stack Development.",
     },
     location: {
       name: "Location",
@@ -88,55 +90,56 @@ export const language: Language = {
       teckboard: {
         title: "TECKboards",
         shortDescription:
-          "TECKboard is a digital real-time information system that two friends of mine developed. I developed a smartphone application for this system.",
-        description: `TECKboard is a digital real-time information system that two friends of mine, [Timo Peters](https://tipela.de) and [Yannik Hahn](https://h4hn.de), developed. I spent many hours developing a smartphone application for this system. Following the principle of learning by doing, I learned a lot about planning, development, and collaborating with other developers.`,
+          "TECKboard is a digital real-time information system by the student company TECKdigital, for which I developed the companion smartphone application.",
+        description: `TECKboard is a digital real-time information system, originally developed by two friends of mine, [Timo Peters](https://tipela.de) and [Yannik Hahn](https://h4hn.de), and realized as part of TECKdigital. I dedicated a lot of time to building a smartphone application for the existing system. Following a learning-by-doing approach, I learned a great deal about project planning, software development, and collaborating in a team.`,
       },
       devlight: {
         title: "DevLights",
         shortDescription:
-          "DevLights are smart home LED strips for developers, which I developed together with two friends of mine.",
-        description: `DevLights are smart home LED strips for developers. Together with two friends of mine, Jaan Springer and [Timo Peters](https://tipela.de), we developed these lights during our computer science project course at Graf-Adolf-Gymnasium. From the beginning, we learned new programming languages like C++ and worked on both hardware and software.`,
+          "DevLights are smart home LED strips for developers, which I built together with two friends.",
+        description: `DevLights are smart home LED strips for developers. Together with my friends Jaan Springer and [Timo Peters](https://tipela.de), I developed these LED strips during our computer science project course at Graf-Adolf-Gymnasium. Along the way, we learned new technologies across both hardware and software development, such as the C++ programming language and designing custom PCBs for the LED controller.`,
         readDoc: "READ PAPER",
       },
       simpleQ: {
         title: "SimpleQ",
         shortDescription:
-          "SimpleQ is a web application developed as part of a project at DHBW Karlsruhe, which allows asking and answering questions.",
-        description: `SimpleQ is a web application developed as part of a project at DHBW Karlsruhe, which allows asking and answering questions. 
-        In the Software Engineering course, the entire process of product development was worked through. 
-        This project made it possible to gain valuable experiences in collaboration and task coordination with people with whom I had previously worked little.`,
+          "SimpleQ is a web application that allows users to ask and answer questions with the support of AI and the community.",
+        description: `SimpleQ is a web application developed as part of a project at DHBW Karlsruhe that enables users to ask and answer questions supported by AI and the community. 
+          In our Software Engineering module, we went through the entire product development lifecycle. Together with four other students, I accompanied the application from the initial idea and conception to its implementation.
+          Through this project, I gained valuable experience in collaboration and task coordination with new team members, working together with [Benjamin](https://benniloidl.de), Tom, Leonard, and Manuel to bring the application to life.`,
       },
       dbDelay: {
         title: "DB Delay",
         shortDescription:
-          "DB Delay is an application to collect personal statistics about travels using railways, especially using the German state-owned Deutsche Bahn.",
-        description: `DB Delay is an application that I developed privately to collect personal statistics about travels using railways, especially using the German state-owned Deutsche Bahn. 
-        Timetable data from the Deutsche Bahn is stored and evaluated in a database together with manually entered data. The application was developed in TypeScript with NestJS and React. 
-        It has nothing to do with the Deutsche Bahn itself but is purely a private application.`,
+          "DB Delay is an application for collecting personal statistics on train journeys, especially with Deutsche Bahn.",
+        description: `DB Delay is a personal application for recording and analyzing travel information with (Deutsche) Bahn. I developed it out of personal interest to document and analyze my own travel experiences. The application makes it possible to track and evaluate delays, travel times, and other relevant data. Built with React, it offers a user-friendly interface for visualizing the collected statistics.
+          The backend is implemented in NestJS and uses a MySQL database to store trip information. For user management, a Keycloak server is used to ensure secure authentication and authorization.`,
       },
       concertHistory: {
         title: "Concert History",
         shortDescription:
-          "Concert History is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices.",
-        description:
-          'Concert History is a native Android app that allows concertgoers to document the concerts they attend and access them at any time on their mobile devices. I developed the app as part of the module "Design of mobile applications" at the DHBW Karlsruhe together with [Niklas Buse](https://niklas-buse.de).',
+          "Concert History is a native Android app that allows concertgoers to document the concerts they attend and access them anytime on the go.",
+        description: `Concert History is a native Android app that allows concertgoers to document the concerts they attend and access them anytime on their mobile devices. I developed the app together with [Niklas Buse](https://niklas-buse.de) as part of the "Design of Mobile Applications" module at DHBW Karlsruhe.
+          Built in Kotlin with Jetpack Compose, it features a modern user interface for viewing attended concerts, as well as searching and favoriting artists and shows. It uses the setlist.fm API to retrieve concert information. Since adding attended concerts is not supported via the public API, the app operates in read-only mode.`,
         betaTest: "Beta Test",
       },
       moveTopia: {
         title: "MoveTopia",
         shortDescription:
           "MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress.",
-        description:
-          "MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress. I developed the app together with [Niklas Buse](https://niklas-buse.de) as part of a project at DHBW Karlsruhe. It offers a user-friendly interface to record training data and visualize progress.",
+        description: `MoveTopia is an innovative fitness tracking app that helps users effectively track and document their training progress. 
+          I developed the app together with [Niklas Buse](https://niklas-buse.de) as part of our research project at DHBW Karlsruhe. 
+          It offers a user-friendly interface to record workouts and visualize progress, combining functional activity tracking with thoughtful gamification elements to boost motivation for regular exercise. MoveTopia turns tracking fitness goals into an enjoyable and structured experience.`,
         playStore: "Play Store",
         appStore: "App Store",
       },
       sensoration: {
         title: "Sensoration",
         shortDescription:
-          "Sensoration is an Android app that enables the collection and visualization of sensor data from distributed Android devices.",
-        description: `Sensoration is an Android app that was developed by me together with Tom Schütt as part of the "Distributed Systems" module at DHBW. It enables the collection and visualization of sensor data from distributed Android devices. 
-          The app was developed in Kotlin with Jetpack Compose and offers a modern user interface.`,
+          "Sensoration is an Android app for the distributed collection and visualization of sensor data.",
+        description: `Sensoration is an Android app that I developed together with Tom Schütt as part of the "Distributed Systems" module at DHBW Karlsruhe. It enables the collection and visualization of sensor data across distributed Android devices. 
+          Built in Kotlin with Jetpack Compose, the app features a modern user interface that allows viewing live sensor data and comparing readings across different devices. 
+          Supported sensors include accelerometer, barometric pressure, gravity, full-scale decibel measurement, and significant pitch detection.`,
       },
       learnMore: "Learn more",
     },
@@ -169,14 +172,14 @@ export const language: Language = {
     work_sap: {
       title: "Software Engineer",
       description:
-        "Software Engineer at SAP SE in Walldorf, Germany. Focused on Full Stack Development and Artificial Intelligence.",
+        "Software Engineer at SAP SE in Walldorf, Germany. Focused on Full-Stack Development with Artificial Intelligence.",
       location: "SAP SE, Walldorf, Germany",
       badge: "Current Role",
     },
     study: {
       title: "Dual Study Program in Computer Science (B.Sc.)",
       description:
-        "Dual studies in computer science in cooperation with SAP SE at the Dual University of Baden-Württemberg (DHBW) Karlsruhe. Insights into various theoretical aspects of computer science and practical application through different development teams.",
+        "Dual study program in Computer Science in cooperation with SAP SE at the Baden-Württemberg Cooperative State University (DHBW) Karlsruhe. Gained a strong foundation in theoretical and practical computer science, combined with rotations across various development teams.",
       location: "DHBW Karlsruhe, Karlsruhe, Germany",
       badge: "Bachelor of Science",
     },
@@ -184,14 +187,14 @@ export const language: Language = {
       company: {
         title: "TECKdigital",
         description:
-          "Through my involvement in the student company TECKdigital, I gained extensive practical experience in software development. I worked on various projects, including the development of digital information boards, TECKboards, for schools. These projects helped me improve my skills in software development and expand my knowledge in this field.",
+          "Through my involvement in the student company TECKdigital, I gained extensive practical experience in software development. I contributed to various projects, including the development of digital information boards (TECKboards) for schools, continuously expanding my practical engineering skills.",
         location: "Tecklenburg, NRW, Germany",
         badge: "Student Company",
       },
       abitur: {
         title: "Abitur",
         description:
-          "With the advanced courses in Mathematics and Computer Science, I successfully completed high school. At that time, I had already gained a lot of practical experience through the student company and private projects, which I could use for my studies.",
+          "Graduated from high school with advanced courses in Mathematics and Computer Science. By that time, I had already gained valuable experience through the student company and personal projects, which provided a strong foundation for my university studies.",
         location: "Graf-Adolf-Gymnasium, Tecklenburg, NRW",
         badge: "Abitur",
       },
@@ -200,17 +203,17 @@ export const language: Language = {
   about: {
     me: {
       title: "About me",
-      description: `I am Joshua Slaar, a **{{age}}-year-old** software engineer based in Germany. My passion for technology sparked in high school through self-driven projects and co-founding the junior venture **[TECKdigital](https://teckdigital.de)**. Following my dual studies in computer science at SAP and DHBW Karlsruhe, I now build software as an engineer at **SAP SE in Walldorf**.
+      description: `I am Joshua Slaar, a **{{age}}-year-old** software engineer based in Germany. My passion for technology sparked in high school through self-driven projects and joining the student company **[TECKdigital](https://teckdigital.de)**. Following my dual studies in computer science at SAP and DHBW Karlsruhe, I now work as a software engineer at **SAP SE in Walldorf**.
 
-Outside of programming, I enjoy spending time outdoors — cycling in the Black Forest, discovering Europe by train, and connecting with friends and family back home in Brochterbeck.`,
+Outside of programming, I enjoy spending time outdoors — whether walking and hiking around the Karlsruhe area and the Black Forest or exploring the region by bike. I also love spending time with friends, traveling by train across Germany and Europe, and regularly visiting my hometown of Brochterbeck in North Rhine-Westphalia.`,
       shortDescription:
         "Software Engineer at SAP in Walldorf passionate about modern web technologies, artificial intelligence, and thoughtful software architecture.",
     },
     skills: {
-      title: "Skills & Knowledge",
+      title: "Skills & Expertise",
       subtitle: "Technologies & Tools",
       description:
-        "An overview of programming languages, frameworks, databases, and development tools I work with.",
+        "An overview of programming languages, frameworks, databases, and development tools I have worked with.",
     },
     quickFacts: {
       education: {
@@ -230,9 +233,9 @@ Outside of programming, I enjoy spending time outdoors — cycling in the Black 
       },
       interests: {
         label: "Interests",
-        title: "Sport, Travel & Technology",
+        title: "Sports, Travel & Technology",
         description:
-          "Sport activities, travel through Germany and Europe, and technological developments and innovations.",
+          "Sports activities, traveling through Germany and Europe, and technological developments and innovations.",
       },
     },
   },
@@ -244,7 +247,7 @@ Outside of programming, I enjoy spending time outdoors — cycling in the Black 
   },
   ui5: {
     backToPortfolio: "Back to portfolio",
-    tagline: "Built with Open UI5 — secret mode 🛠️",
+    tagline: "Built with OpenUI5 — Secret Mode 🛠️",
   },
 };
 export default language;

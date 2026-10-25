@@ -31,9 +31,9 @@ export type HomePortraitLocale = {
 export type HomeHistoryLocale = {
   subtitle: string;
   title: string;
+  sapTags: string[];
   dhbwTags: string[];
   teckdigitalTags: string[];
-  lifeTags: string[];
 };
 
 export type HomeStatusLocale = {
@@ -46,7 +46,7 @@ export type HomeLocale = {
   name: string;
   subtitle: string;
   me: Info;
-  life: Info;
+  sap: Info;
   teckdigital: Info;
   dhbw: Info;
   action: HomeActionLocale;

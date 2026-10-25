@@ -92,10 +92,8 @@ export default function Portrait(props: PortraitProps) {
           alt={alt}
           sx={{
             width: "100%",
-            height: isAbout
-              ? { xs: 340, sm: 420, md: 460 }
-              : { xs: 330, md: 400 },
-            objectFit: "cover",
+            height: "auto",
+            objectFit: "contain",
             display: "block",
           }}
         />

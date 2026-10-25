@@ -1,7 +1,7 @@
 import { Box, Container, Stack, Typography, useTheme } from "@mui/material";
 import React from "react";
 import DHBW from "../../../../assets/life/DHBW_Logo.svg";
-import Schwarzwald from "../../../../assets/life/schwarzwald.webp";
+import SAP from "../../../../assets/sap/sap_logo.svg";
 import Teckdigital from "../../../../assets/teckdigital/teckdigital.webp";
 import { useLanguage } from "../../../../language/hooks";
 import HistoryCard from "./HistoryCard";
@@ -81,6 +81,16 @@ export default function History({ title, subTitle, children }: HistoryProps) {
           ) : (
             <>
               <HistoryCard
+                image={SAP}
+                imageAlt="SAP SE"
+                imageFit="contain"
+                badge={`2025 - ${language.projects.now}`}
+                title={language.home.sap.title}
+                description={language.home.sap.description}
+                tags={language.home.history.sapTags}
+              />
+
+              <HistoryCard
                 image={DHBW}
                 imageAlt="DHBW Karlsruhe"
                 imageFit="contain"
@@ -98,15 +108,6 @@ export default function History({ title, subTitle, children }: HistoryProps) {
                 title={language.home.teckdigital.title}
                 description={language.home.teckdigital.description}
                 tags={language.home.history.teckdigitalTags}
-              />
-
-              <HistoryCard
-                image={Schwarzwald}
-                imageAlt="Schwarzwald"
-                imageVariant="banner"
-                title={language.home.life.title}
-                description={language.home.life.description}
-                tags={language.home.history.lifeTags}
               />
             </>
           )}

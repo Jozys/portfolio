@@ -4,7 +4,7 @@ import Dart from "../assets/technologies/Dart_Logo.svg";
 import Docker from "../assets/technologies/docker.ico";
 import Flutter from "../assets/technologies/flutter.svg";
 import HTML from "../assets/technologies/html.webp";
-import Java from "../assets/technologies/java.ico";
+import Java from "../assets/technologies/java.svg";
 import JavaScript from "../assets/technologies/javascript.svg";
 import Jenkins from "../assets/technologies/jenkins.ico";
 import JetpackCompose from "../assets/technologies/jetpack-compose.webp";

@@ -164,6 +164,7 @@ export const projects: Record<string, Project> = {
       getTechnology("nestJS")!,
       getTechnology("mySQL")!,
       getTechnology("docker")!,
+      getTechnology("jenkins")!,
     ],
     links: {
       demo: {
@@ -220,7 +221,7 @@ export const projects: Record<string, Project> = {
         icon: <PhoneIphone />,
       },
       documentation: {
-        url: "https://niklas-buse.de/project/movetopia",
+        url: "https://niklas-buse.de/projects/movetopia",
         label: "projects.main.documentation",
         icon: <Article />,
       },
