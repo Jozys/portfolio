@@ -191,11 +191,31 @@ export const projects: Record<string, Project> = {
     shortDescription: "projects.main.concertHistory.shortDescription",
     description: "projects.main.concertHistory.description",
     detailImages: [
-      ConcertHistoryApp,
-      ConcertHistoryArtistSearch,
-      ConcertHistoryConcertList,
-      ConcertHistoryConcertDetails,
-      ConcertHistoryFavouriteConcerts,
+      <img
+        key="app"
+        src={ConcertHistoryApp}
+        alt="Concert History App Overview"
+      />,
+      <img
+        key="artist-search"
+        src={ConcertHistoryArtistSearch}
+        alt="Concert History Artist Search"
+      />,
+      <img
+        key="concert-list"
+        src={ConcertHistoryConcertList}
+        alt="Concert History Concert List"
+      />,
+      <img
+        key="concert-details"
+        src={ConcertHistoryConcertDetails}
+        alt="Concert History Concert Details"
+      />,
+      <img
+        key="favourite-concerts"
+        src={ConcertHistoryFavouriteConcerts}
+        alt="Concert History Favourite Concerts"
+      />,
     ],
     image: ConcertHistoryLogo,
     years: { start: 2024 },
@@ -220,11 +240,19 @@ export const projects: Record<string, Project> = {
     years: { start: 2024, end: 2025 },
     image: MoveTopia,
     detailImages: [
-      MoveTopiaApp,
-      MoveTopiaActivities,
-      MoveTopiaActivityDetails,
-      MoveTopiaBadge,
-      MoveTopiaStreak,
+      <img key="app" src={MoveTopiaApp} alt="MoveTopia App Overview" />,
+      <img
+        key="activities"
+        src={MoveTopiaActivities}
+        alt="MoveTopia Activities List"
+      />,
+      <img
+        key="activity-details"
+        src={MoveTopiaActivityDetails}
+        alt="MoveTopia Activity Details"
+      />,
+      <img key="badge" src={MoveTopiaBadge} alt="MoveTopia Achievement Badge" />,
+      <img key="streak" src={MoveTopiaStreak} alt="MoveTopia Workout Streak" />,
     ],
     technologies: [getTechnology("flutter")!, getTechnology("dart")!],
     links: {
@@ -256,7 +284,28 @@ export const projects: Record<string, Project> = {
     shortDescription: "projects.main.sensoration.shortDescription",
     description: "projects.main.sensoration.description",
     image: SensorationLogo,
-    detailImages: [SensorationApp, Sensoration_1, Sensoration_2, Sensoration_3],
+    detailImages: [
+      <img
+        key="app"
+        src={SensorationApp}
+        alt="Sensoration Welcome and Device Role Selection"
+      />,
+      <img
+        key="table"
+        src={Sensoration_1}
+        alt="Sensoration Sound Pressure Data Table"
+      />,
+      <img
+        key="chart"
+        src={Sensoration_2}
+        alt="Sensoration Sound Pressure Data Chart"
+      />,
+      <img
+        key="hub"
+        src={Sensoration_3}
+        alt="Sensoration Main Device Hub Overview"
+      />,
+    ],
     years: { start: 2025 },
     technologies: [getTechnology("kotlin")!, getTechnology("jetpackCompose")!],
     links: {
