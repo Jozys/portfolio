@@ -2,6 +2,10 @@ import { Android, Article, PhoneIphone } from "@mui/icons-material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ConcertHistoryLogo from "../assets/projects/concertHistory/ConcertHistory.svg";
 import ConcertHistoryApp from "../assets/projects/concertHistory/ConcertHistory_Mockup.webp";
+import ConcertHistoryArtistSearch from "../assets/projects/concertHistory/ArtistSearch.webp";
+import ConcertHistoryConcertDetails from "../assets/projects/concertHistory/ConcertDetails.webp";
+import ConcertHistoryConcertList from "../assets/projects/concertHistory/ConcertList.webp";
+import ConcertHistoryFavouriteConcerts from "../assets/projects/concertHistory/FavouriteConcerts.webp";
 import DB_Delays_Light from "../assets/projects/dbDelay/db_delays_light.webp";
 import DB_Journey_Light from "../assets/projects/dbDelay/db_journeys_light.webp";
 import DB_Record_Light from "../assets/projects/dbDelay/db_record_light.webp";
@@ -14,9 +18,16 @@ import ESPBreadboard from "../assets/projects/devlights/esp_breadboard.webp";
 import DevLightsImage1 from "../assets/projects/devlights/images/image1.webp";
 import DevLightsImage3 from "../assets/projects/devlights/images/image3.webp";
 import MoveTopiaApp from "../assets/projects/moveTopia/MoveTopia_Mockup.webp";
+import MoveTopiaActivities from "../assets/projects/moveTopia/Activities.webp";
+import MoveTopiaActivityDetails from "../assets/projects/moveTopia/ActivityDetails.webp";
+import MoveTopiaBadge from "../assets/projects/moveTopia/Badge.webp";
+import MoveTopiaStreak from "../assets/projects/moveTopia/Streak.webp";
 import MoveTopia from "../assets/projects/moveTopia/MT_ICON.webp";
 import SensorationLogo from "../assets/projects/sensoration/Sensoration_Logo.webp";
 import SensorationApp from "../assets/projects/sensoration/Sensoration_Mockup.webp";
+import Sensoration_1 from "../assets/projects/sensoration/Sensoration_Mockup_1.webp";
+import Sensoration_2 from "../assets/projects/sensoration/Sensoration_Mockup_2.webp";
+import Sensoration_3 from "../assets/projects/sensoration/Sensoration_Mockup_3.webp";
 import SimpleQLogo from "../assets/projects/simpleQ/simpleq_logo.webp";
 import SimpleQWebsite from "../assets/projects/simpleQ/SimpleQ_Mockup.webp";
 import FirstTECKboard from "../assets/projects/teckboard/firstTECKboard.webp";
@@ -179,7 +190,33 @@ export const projects: Record<string, Project> = {
     name: "projects.main.concertHistory.title",
     shortDescription: "projects.main.concertHistory.shortDescription",
     description: "projects.main.concertHistory.description",
-    detailImages: [ConcertHistoryApp],
+    detailImages: [
+      <img
+        key="app"
+        src={ConcertHistoryApp}
+        alt="Concert History App Overview"
+      />,
+      <img
+        key="artist-search"
+        src={ConcertHistoryArtistSearch}
+        alt="Concert History Artist Search"
+      />,
+      <img
+        key="concert-list"
+        src={ConcertHistoryConcertList}
+        alt="Concert History Concert List"
+      />,
+      <img
+        key="concert-details"
+        src={ConcertHistoryConcertDetails}
+        alt="Concert History Concert Details"
+      />,
+      <img
+        key="favourite-concerts"
+        src={ConcertHistoryFavouriteConcerts}
+        alt="Concert History Favourite Concerts"
+      />,
+    ],
     image: ConcertHistoryLogo,
     years: { start: 2024 },
     technologies: [getTechnology("jetpackCompose")!, getTechnology("kotlin")!],
@@ -202,7 +239,21 @@ export const projects: Record<string, Project> = {
     description: "projects.main.moveTopia.description",
     years: { start: 2024, end: 2025 },
     image: MoveTopia,
-    detailImages: [MoveTopiaApp],
+    detailImages: [
+      <img key="app" src={MoveTopiaApp} alt="MoveTopia App Overview" />,
+      <img
+        key="activities"
+        src={MoveTopiaActivities}
+        alt="MoveTopia Activities List"
+      />,
+      <img
+        key="activity-details"
+        src={MoveTopiaActivityDetails}
+        alt="MoveTopia Activity Details"
+      />,
+      <img key="badge" src={MoveTopiaBadge} alt="MoveTopia Achievement Badge" />,
+      <img key="streak" src={MoveTopiaStreak} alt="MoveTopia Workout Streak" />,
+    ],
     technologies: [getTechnology("flutter")!, getTechnology("dart")!],
     links: {
       github: {
@@ -233,7 +284,28 @@ export const projects: Record<string, Project> = {
     shortDescription: "projects.main.sensoration.shortDescription",
     description: "projects.main.sensoration.description",
     image: SensorationLogo,
-    detailImages: [SensorationApp],
+    detailImages: [
+      <img
+        key="app"
+        src={SensorationApp}
+        alt="Sensoration Welcome and Device Role Selection"
+      />,
+      <img
+        key="table"
+        src={Sensoration_1}
+        alt="Sensoration Sound Pressure Data Table"
+      />,
+      <img
+        key="chart"
+        src={Sensoration_2}
+        alt="Sensoration Sound Pressure Data Chart"
+      />,
+      <img
+        key="hub"
+        src={Sensoration_3}
+        alt="Sensoration Main Device Hub Overview"
+      />,
+    ],
     years: { start: 2025 },
     technologies: [getTechnology("kotlin")!, getTechnology("jetpackCompose")!],
     links: {
