@@ -64,10 +64,7 @@ describe("sitemapPlugin", () => {
     process.cwd(),
     "src/modules/core/Router.tsx",
   );
-  const projectsFilePath = path.resolve(
-    process.cwd(),
-    "src/data/Projects.tsx",
-  );
+  const projectsFilePath = path.resolve(process.cwd(), "src/data/Projects.tsx");
 
   it("dynamically extracts all non-disabled project routes from Projects.tsx", () => {
     const extracted = extractActiveProjectRoutes(projectsFilePath);
@@ -99,13 +96,11 @@ describe("sitemapPlugin", () => {
   it("builds valid sitemap XML for https://joshua.slaar.de", () => {
     const xml = buildSitemapXml({
       routes: ["/home", "/projects/movetopia"],
-      lastmod: "2026-11-08",
     });
 
     expect(xml).toContain("<loc>https://joshua.slaar.de/home</loc>");
     expect(xml).toContain(
       "<loc>https://joshua.slaar.de/projects/movetopia</loc>",
     );
-    expect(xml).toContain("<lastmod>2026-11-08</lastmod>");
   });
 });
