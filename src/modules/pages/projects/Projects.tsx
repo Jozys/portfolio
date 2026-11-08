@@ -1,6 +1,7 @@
 import { Box, Container, Stack, Typography, useTheme } from "@mui/material";
 import { useMemo, useState } from "react";
 import { useLanguage } from "../../../language/hooks";
+import PageMeta from "../../core/PageMeta";
 import useProjects from "../../hooks/projects/useProjects";
 import ProjectCard from "./components/ProjectCard";
 import ProjectFilter from "./components/ProjectFilter";
@@ -24,12 +25,19 @@ export default function Projects() {
   }, [projects, filter]);
   return (
     <Box sx={{ minHeight: "calc(100vh - 70px)", py: { xs: 6, md: 10 } }}>
+      <PageMeta
+        title={language.header.tabs.projects}
+        description={language.projects.main.title}
+        path="/projects"
+      />
       <Container maxWidth="lg">
         <Stack
-          direction={{ xs: "column", md: "row" }}
-          justifyContent="space-between"
-          alignItems={{ md: "flex-end" }}
-          gap={3}
+          sx={{
+            flexDirection: { xs: "column", md: "row" },
+            justifyContent: "space-between",
+            alignItems: { md: "flex-end" },
+            gap: 3,
+          }}
         >
           <Box>
             <Typography

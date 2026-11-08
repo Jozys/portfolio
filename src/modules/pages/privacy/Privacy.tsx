@@ -1,6 +1,7 @@
 import { Box, Chip, Container, Paper, Stack, Typography, useTheme } from "@mui/material";
 import { useLanguage } from "../../../language/hooks";
 import FormattedText from "../../../components/FormattedText";
+import PageMeta from "../../core/PageMeta";
 
 export default function Privacy() {
   const theme = useTheme();
@@ -15,6 +16,11 @@ export default function Privacy() {
 
   return (
     <Box sx={{ flex: 1 }}>
+      <PageMeta
+        title={language.privacy.title}
+        description={language.privacy.subtitle}
+        path="/privacy"
+      />
       <Box sx={{ minHeight: "calc(100vh - 70px)", position: "relative" }}>
         <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
           <Box sx={{ mb: { xs: 6, md: 8 } }}>
