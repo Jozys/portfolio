@@ -156,7 +156,7 @@ export const language: Language = {
     lightboxPrev: "Previous image",
     lightboxNext: "Next image",
     lightboxSelectImage: "Select image",
-    projectDescription: "Project Description",
+    projectDescription: "Project Details",
     category: "Category",
     technologies: {
       title: "Architecture & Technology Stack",

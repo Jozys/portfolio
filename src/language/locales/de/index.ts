@@ -144,7 +144,7 @@ export const language: Language = {
     backToProjects: "Zurück zu allen Projekten",
     now: "Heute",
     projectData: "Projektdaten",
-    projectDescription: "Projektbeschreibung",
+    projectDescription: "Projekt Details",
     timeline: "Zeitraum",
     links: "Links & Ressourcen",
     gallerySection: "Galerie",

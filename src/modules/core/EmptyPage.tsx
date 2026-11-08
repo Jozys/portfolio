@@ -1,5 +1,6 @@
 import { Box, Container, Paper, Typography, useTheme } from "@mui/material";
 import { useLanguage } from "../../language/hooks";
+import PageMeta from "./PageMeta";
 
 export default function EmptyPage() {
   const { language } = useLanguage();
@@ -16,6 +17,11 @@ export default function EmptyPage() {
         alignItems: "center",
       }}
     >
+      <PageMeta
+        title={language.notFound.title}
+        description={language.notFound.description}
+        noindex
+      />
       <Container maxWidth="lg">
         <Paper
           elevation={0}

@@ -2,8 +2,13 @@ import { ArrowBack } from "@mui/icons-material";
 import { Box, Button, Container, useTheme } from "@mui/material";
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import {
+  getProjectShortDescription,
+  getProjectTitle,
+} from "../../../data/Projects";
 import { useLanguage } from "../../../language/hooks";
 import EmptyPage from "../../core/EmptyPage";
+import PageMeta from "../../core/PageMeta";
 import useProjects from "../../hooks/projects/useProjects";
 import ProjectDetailContent from "./components/ProjectDetailContent";
 import ProjectDetailHeader from "./components/ProjectDetailHeader";
@@ -22,6 +27,11 @@ export default function ProjectDetails() {
     <Box sx={{ minHeight: "calc(100vh - 70px)", py: { xs: 6, md: 10 } }}>
       {project ? (
         <Container maxWidth="lg">
+          <PageMeta
+            title={`${getProjectTitle(project, language)} | ${language.projects.projectDescription}`}
+            description={`${getProjectShortDescription(project, language)}`}
+            path={`/projects/${project.route}`}
+          />
           <Button
             startIcon={<ArrowBack />}
             onClick={() => navigate("/projects")}

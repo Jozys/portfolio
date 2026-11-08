@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Me from "../../../assets/life/me.webp";
 import { useLanguage } from "../../../language/hooks";
+import PageMeta from "../../core/PageMeta";
 import { ScrollDownButton } from "../../core/ScrollDownButton";
 import ActionBar from "./components/ActionBar";
 import History from "./components/History";
@@ -28,6 +29,12 @@ export default function Home() {
 
   return (
     <Box sx={{ flex: 1 }}>
+      <PageMeta
+        description={
+          language.about.me.shortDescription || language.about.me.description
+        }
+        path="/home"
+      />
       <Box sx={{ minHeight: "calc(100vh - 70px)", position: "relative" }}>
         <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
           <Box
