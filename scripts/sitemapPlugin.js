@@ -5,6 +5,48 @@ import ts from "typescript";
 export const DEFAULT_SITE_URL = "https://joshua.slaar.de";
 
 /**
+ * Extracts `route` and `disable` values from a single project object literal node.
+ *
+ * @param {ts.ObjectLiteralExpression} projectObj
+ * @returns {string | null}
+ */
+function parseProjectEntryRoute(projectObj) {
+  let routeValue = null;
+  let isDisabled = false;
+
+  for (const field of projectObj.properties) {
+    if (!ts.isPropertyAssignment(field) || !ts.isIdentifier(field.name)) {
+      continue;
+    }
+    if (field.name.text === "route" && ts.isStringLiteral(field.initializer)) {
+      routeValue = field.initializer.text.trim();
+    } else if (
+      field.name.text === "disable" &&
+      field.initializer.kind === ts.SyntaxKind.TrueKeyword
+    ) {
+      isDisabled = true;
+    }
+  }
+
+  return routeValue && !isDisabled ? routeValue : null;
+}
+
+/**
+ * Checks whether an AST node is the `projects` variable declaration with an object initializer.
+ *
+ * @param {ts.Node} node
+ * @returns {node is ts.VariableDeclaration & { initializer: ts.ObjectLiteralExpression }}
+ */
+function isProjectsObjectDeclaration(node) {
+  return (
+    ts.isVariableDeclaration(node) &&
+    ts.isIdentifier(node.name) &&
+    node.name.text === "projects" &&
+    Boolean(node.initializer && ts.isObjectLiteralExpression(node.initializer))
+  );
+}
+
+/**
  * Extracts all active (non-disabled) project route slugs from `src/data/Projects.tsx`
  * using the TypeScript AST.
  *
@@ -25,44 +67,15 @@ export function extractActiveProjectRoutes(projectsFilePath) {
   const routes = [];
 
   function visit(node) {
-    if (
-      ts.isVariableDeclaration(node) &&
-      ts.isIdentifier(node.name) &&
-      node.name.text === "projects" &&
-      node.initializer &&
-      ts.isObjectLiteralExpression(node.initializer)
-    ) {
+    if (isProjectsObjectDeclaration(node)) {
       for (const prop of node.initializer.properties) {
         if (
           ts.isPropertyAssignment(prop) &&
           ts.isObjectLiteralExpression(prop.initializer)
         ) {
-          let routeValue = null;
-          let isDisabled = false;
-
-          for (const field of prop.initializer.properties) {
-            if (
-              !ts.isPropertyAssignment(field) ||
-              !ts.isIdentifier(field.name)
-            ) {
-              continue;
-            }
-            if (
-              field.name.text === "route" &&
-              ts.isStringLiteral(field.initializer)
-            ) {
-              routeValue = field.initializer.text.trim();
-            }
-            if (
-              field.name.text === "disable" &&
-              field.initializer.kind === ts.SyntaxKind.TrueKeyword
-            ) {
-              isDisabled = true;
-            }
-          }
-
-          if (routeValue && !isDisabled) {
-            routes.push(routeValue);
+          const route = parseProjectEntryRoute(prop.initializer);
+          if (route) {
+            routes.push(route);
           }
         }
       }
@@ -75,6 +88,21 @@ export function extractActiveProjectRoutes(projectsFilePath) {
 }
 
 /**
+ * Checks whether a JSX node is an opening or self-closing tag with the given tag name.
+ *
+ * @param {ts.Node} node
+ * @param {string} tagName
+ * @returns {node is ts.JsxSelfClosingElement | ts.JsxOpeningElement}
+ */
+function isJsxTagNamed(node, tagName) {
+  return (
+    (ts.isJsxSelfClosingElement(node) || ts.isJsxOpeningElement(node)) &&
+    ts.isIdentifier(node.tagName) &&
+    node.tagName.text === tagName
+  );
+}
+
+/**
  * Checks whether a JSX node or any of its children renders `<Navigate ... />`.
  *
  * @param {ts.Node} node
@@ -83,12 +111,7 @@ export function extractActiveProjectRoutes(projectsFilePath) {
 function containsNavigateElement(node) {
   let found = false;
   function walk(current) {
-    if (
-      (ts.isJsxSelfClosingElement(current) ||
-        ts.isJsxOpeningElement(current)) &&
-      ts.isIdentifier(current.tagName) &&
-      current.tagName.text === "Navigate"
-    ) {
+    if (isJsxTagNamed(current, "Navigate")) {
       found = true;
       return;
     }
@@ -96,6 +119,41 @@ function containsNavigateElement(node) {
   }
   walk(node);
   return found;
+}
+
+/**
+ * Parses a `<Route ... />` JSX element's attributes and returns its static path
+ * if it is an indexable route (not a redirect and not `*`).
+ *
+ * @param {ts.JsxSelfClosingElement | ts.JsxOpeningElement} routeNode
+ * @returns {string | null}
+ */
+function extractIndexableRoutePath(routeNode) {
+  let routePath = null;
+  let isRedirect = false;
+
+  for (const attr of routeNode.attributes.properties) {
+    if (
+      !ts.isJsxAttribute(attr) ||
+      !ts.isIdentifier(attr.name) ||
+      !attr.initializer
+    ) {
+      continue;
+    }
+    if (attr.name.text === "path" && ts.isStringLiteral(attr.initializer)) {
+      routePath = attr.initializer.text.trim();
+    } else if (
+      attr.name.text === "element" &&
+      containsNavigateElement(attr.initializer)
+    ) {
+      isRedirect = true;
+    }
+  }
+
+  if (!routePath || routePath === "*" || isRedirect) {
+    return null;
+  }
+  return routePath;
 }
 
 /**
@@ -121,41 +179,21 @@ export function resolveSitemapRoutes({ routerFilePath, projectsFilePath }) {
   /** @type {Set<string>} */
   const resolvedRoutes = new Set();
 
+  function addRouteOrExpandProjects(routePath) {
+    if (!routePath.includes(":id")) {
+      resolvedRoutes.add(routePath);
+      return;
+    }
+    for (const slug of projectSlugs) {
+      resolvedRoutes.add(routePath.replace(":id", slug));
+    }
+  }
+
   function visit(node) {
-    if (ts.isJsxSelfClosingElement(node) || ts.isJsxOpeningElement(node)) {
-      if (ts.isIdentifier(node.tagName) && node.tagName.text === "Route") {
-        let routePath = null;
-        let isRedirect = false;
-
-        for (const attr of node.attributes.properties) {
-          if (!ts.isJsxAttribute(attr) || !ts.isIdentifier(attr.name)) {
-            continue;
-          }
-          if (
-            attr.name.text === "path" &&
-            attr.initializer &&
-            ts.isStringLiteral(attr.initializer)
-          ) {
-            routePath = attr.initializer.text.trim();
-          }
-          if (
-            attr.name.text === "element" &&
-            attr.initializer &&
-            containsNavigateElement(attr.initializer)
-          ) {
-            isRedirect = true;
-          }
-        }
-
-        if (routePath && routePath !== "*" && !isRedirect) {
-          if (routePath.includes(":id")) {
-            for (const slug of projectSlugs) {
-              resolvedRoutes.add(routePath.replace(":id", slug));
-            }
-          } else {
-            resolvedRoutes.add(routePath);
-          }
-        }
+    if (isJsxTagNamed(node, "Route")) {
+      const routePath = extractIndexableRoutePath(node);
+      if (routePath) {
+        addRouteOrExpandProjects(routePath);
       }
     }
     ts.forEachChild(node, visit);
@@ -174,7 +212,7 @@ export function resolveSitemapRoutes({ routerFilePath, projectsFilePath }) {
  * @returns {string}
  */
 export function buildSitemapXml({ routes, siteUrl = DEFAULT_SITE_URL }) {
-  const normalizedBase = siteUrl.replace(/\/+$/, "");
+  const normalizedBase = siteUrl.endsWith("/") ? siteUrl.slice(0, -1) : siteUrl;
 
   const urlEntries = routes
     .map((route) => {

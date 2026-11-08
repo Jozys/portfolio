@@ -4,12 +4,12 @@ export const SITE_URL = "https://joshua.slaar.de";
 export const DEFAULT_TITLE = "Joshua Slaar";
 
 export interface PageMetaProps {
-  title?: string;
-  description?: string;
+  readonly title?: string;
+  readonly description?: string;
   /** Canonical path starting with "/", e.g. "/projects/movetopia" */
-  path?: string;
+  readonly path?: string;
   /** If true, sets robots meta to "noindex, nofollow" (useful for 404 / hidden pages) */
-  noindex?: boolean;
+  readonly noindex?: boolean;
 }
 
 /**
@@ -19,9 +19,9 @@ export interface PageMetaProps {
  */
 function removeStaticSeoFallbacks() {
   if (typeof document !== "undefined") {
-    document.head
-      .querySelectorAll("[data-static-seo]")
-      .forEach((el) => el.remove());
+    for (const el of document.head.querySelectorAll("[data-static-seo]")) {
+      el.remove();
+    }
   }
 }
 
@@ -34,20 +34,23 @@ export default function PageMeta({
   description,
   path,
   noindex = false,
-}: PageMetaProps) {
+}: Readonly<PageMetaProps>) {
   useEffect(() => {
     removeStaticSeoFallbacks();
   }, []);
 
-  const fullTitle = title
-    ? title.includes(DEFAULT_TITLE)
+  let fullTitle = DEFAULT_TITLE;
+  if (title) {
+    fullTitle = title.includes(DEFAULT_TITLE)
       ? title
-      : `${title} | ${DEFAULT_TITLE}`
-    : DEFAULT_TITLE;
+      : `${title} | ${DEFAULT_TITLE}`;
+  }
 
-  const canonicalUrl = path
-    ? `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`
-    : undefined;
+  let canonicalUrl: string | undefined;
+  if (path) {
+    const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+    canonicalUrl = `${SITE_URL}${normalizedPath}`;
+  }
 
   return (
     <>

@@ -12,7 +12,7 @@ import { getAllProjects } from "../../data/Projects";
 describe("PageMeta", () => {
   it("removes [data-static-seo] fallbacks and hoists React 19 title, meta, and canonical tags", () => {
     const staticTitle = document.createElement("title");
-    staticTitle.setAttribute("data-static-seo", "");
+    staticTitle.dataset.staticSeo = "";
     staticTitle.textContent = "Joshua Slaar";
     document.head.appendChild(staticTitle);
 
